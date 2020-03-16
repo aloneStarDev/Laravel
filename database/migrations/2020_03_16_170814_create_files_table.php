@@ -16,8 +16,9 @@ class CreateFilesTable extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->integer('fileId');
-            $table->string('owner');
-            $table->string('phonenumber');
+            $table->string('name');
+            $table->string('lastname');
+            $table->string('phonenumber',20);
             $table->string('adressPu');//public Adress
             $table->string('adressPv');//private Adress
             $table->string('imgPath')->nullable();
