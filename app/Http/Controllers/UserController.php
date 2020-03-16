@@ -85,7 +85,7 @@ class UserController extends Controller
 
     public function signin()
     {
-        return view('Auth.Login',['title'=>'Login']);
+        return view('Auth.Login',['title'=>'ورود']);
     }
     public function login(Request $request)
     {
@@ -103,5 +103,21 @@ class UserController extends Controller
     private function checkSubscribtion()
     {
         # code...
+    }
+    public function signup()
+    {
+        return view('Auth.Signup',['title'=>'ثبت نام']);
+    }
+    public function register(Request $request)
+    {
+        $request->validate(
+        [
+            'name'=>'Required',
+            'lastname'=>'Required',
+            'phonenumber'=>'Required|regex:/09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}/',
+            'region'=>'Required',
+            'adress'=>'Required'
+        ]);
+        return redirect(route('signin'));
     }
 }

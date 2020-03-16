@@ -15,14 +15,15 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->integer('fileId');
+            $table->integer('fileId')->unique();
             $table->string('name');
             $table->string('lastname');
-            $table->string('phonenumber',20);
+            $table->string('phonenumber',20)->unique();
             $table->string('adressPu');//public Adress
             $table->string('adressPv');//private Adress
             $table->string('imgPath')->nullable();
             $table->integer('region');
+            $table->integer('userId');//how employee stored this file
             $table->boolean('visible');
             $table->boolean('enable');
             $table->timestamps();
