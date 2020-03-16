@@ -24,7 +24,9 @@ class CreateCustomersTable extends Migration
             $table->timestamp('start-subscribtion')->nullable();
             $table->boolean('mode');//pro 1 or free 0
             $table->boolean('enable');
+            $table->boolean('active');//for verify phonenumber
             $table->timestamps();
+            $table->foreign('phonenumber')->on('users')->references('username')->onDelete('cascade');
         });
     }
 
