@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -91,13 +92,17 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if($request->get('username')==null && $request->get('password')==null)
-            return back()->withErrors('نام کاربری اجباری است');
-        $user = User::where('username',$request->get('username'))->first();
-        if($user==null || $user->password!=$request->get('password'))
+        $request->validate([
+            'userName'=>'Required',
+            'passWord'=>'Required'
+        ]);
+        
+        $user = User::where('username',$request->input('userName'))->first();
+        if($user==null || $user->password!=$request->input('passWord'))
             return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
-        if($user->password==$request->get('password'))
+        if($user->password==$request->input('passWord'))
             return 'login';
+        
     }
     private function checkSubscribtion()
     {
@@ -109,6 +114,7 @@ class AuthController extends Controller
     }
     public function register(Request $request)
     {
+        // try{
         $request->validate(
         [
             'name'=>'Required',
@@ -117,6 +123,23 @@ class AuthController extends Controller
             'region'=>'Required',
             'adress'=>'Required'
         ]);
+        $customer = new Customer([
+            'name'=>$request->get('name'),
+            'lastname'=>$request->get('lastname'),
+            'phonenumber'=>$request->get('phonenumber'),
+            'region'=>$request->get('region'),
+            'adress'=>$request->get('adress'),
+            'mode'=>false,
+            'enable'=>true,
+            'active'=>true
+        ]);
+        $customer->save();
+        $user = new User([
+            'username'=>$request->get('phonenumber'),
+            'password'=>$request->get('password'),
+            'rollId'=>$customer->id
+        ]);
+        $user->save();
         return redirect(route('signin'));
     }
 }

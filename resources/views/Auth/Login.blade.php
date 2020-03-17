@@ -50,7 +50,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" dir="rtl" data-validate = "نام کاربری اجباری است">
-						<input  name="‌username" class="input100"  type="text"/>
+						<input  class="input100"  type="text" name="userName"/>
 						<span class="focus-input100" dir="rtl" data-placeholder="نام کاربری"></span>
 					</div>
 
@@ -58,7 +58,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" dir="rtl" type="password" name="password"/>
+						<input class="input100" dir="rtl" type="password" name="passWord"/>
 						<span class="focus-input100"  dir="rtl" data-placeholder="گذرواژه"></span>
 					</div>
 

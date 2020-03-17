@@ -15,8 +15,9 @@
 			<input type="text" name="name" placeholder="name"/>
 			<input type="text" name="lastname" placeholder="lastname"/>
 			<input type="text" name="phonenumber" placeholder="phonenumber"/>
-			<input type="number" name="region" placeholder="region"/>
-			<input type="text" name="adress" placeholder="adress"/>
+			<input type="text" name="region" placeholder="region"/>
+			<input type="number" name="password" placeholder="password"/>
+			<textarea type="text" name="adress" placeholder="adress"></textarea>
 			<input type="submit" name="submit"/>
 		</form>	
 	</div>
