@@ -14,4 +14,5 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::post('/login', 'ContactController@login')->name('login');
     Route::get('/signup', 'ContactController@signup')->name('signup');
     Route::post('/signup', 'ContactController@register')->name('register');
+    Route::post('/verify', 'ContactController@verify')->name('verify');
 });

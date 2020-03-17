@@ -69,6 +69,12 @@ class ContactController extends Controller
         return view('Auth.verify');
     }
     public function verify(Request $request){
+        $request->validate([
+            'verify'=>'Required',
+            'password'=>'Required'
+        ]);
+        if($request->input("verify")==1)
+            dd($request->session()->get('phonenumber'));
         $user = new User([
             'username'=>$request->session()->get('phonenumber'),
             'password'=>$request->get('password'),
