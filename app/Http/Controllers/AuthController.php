@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Exception;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -87,18 +88,16 @@ class UserController extends Controller
     {
         return view('Auth.Login',['title'=>'ورود']);
     }
+
     public function login(Request $request)
     {
-        $request->validate(['username'=>'requierd','password'=>'requierd'],
-        [
-            'username.requierd'=>'نام کاربری اجباری است',
-            'password.requierd'=>'گذرواژه اجباری است',
-        ]);
-        $user = User::where('username',$request->get('username')->first());
-        if($user!=null)
-        {
-            dd($user);
-        }
+        if($request->get('username')==null && $request->get('password')==null)
+            return back()->withErrors('نام کاربری اجباری است');
+        $user = User::where('username',$request->get('username'))->first();
+        if($user==null || $user->password!=$request->get('password'))
+            return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
+        if($user->password==$request->get('password'))
+            return 'login';
     }
     private function checkSubscribtion()
     {
@@ -114,7 +113,7 @@ class UserController extends Controller
         [
             'name'=>'Required',
             'lastname'=>'Required',
-            'phonenumber'=>'Required|regex:/09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}/',
+            'phonenumber'=>'Required',
             'region'=>'Required',
             'adress'=>'Required'
         ]);

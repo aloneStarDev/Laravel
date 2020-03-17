@@ -28,7 +28,15 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+	@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -41,28 +49,27 @@
 						<i class="zmdi zmdi-font"></i>
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" dir="rtl" type="text" name="‌username">
+					<div class="wrap-input100 validate-input" dir="rtl" data-validate = "نام کاربری اجباری است">
+						<input  name="‌username" class="input100"  type="text"/>
 						<span class="focus-input100" dir="rtl" data-placeholder="نام کاربری"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					<div class="wrap-input100 validate-input" dir="rtl" data-validate="گذرواژه اجباری است">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" dir="rtl" type="password" name="password">
+						<input class="input100" dir="rtl" type="password" name="password"/>
 						<span class="focus-input100"  dir="rtl" data-placeholder="گذرواژه"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button class="login100-form-btn" type="submit">
 								ورود
 							</button>
 						</div>
 					</div>
-
 					<div class="text-center p-t-115">
 						<span class="txt1">
 							آیا حساب ندارید؟ ایجاد کنید  -
