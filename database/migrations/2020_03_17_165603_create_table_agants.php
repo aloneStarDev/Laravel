@@ -20,7 +20,8 @@ class CreateTableAgants extends Migration
             $table->string('nationCode')->unique();
             $table->string('adress')->nullable();
             $table->string('phonenumber')->unique();
-            $table->integer('registerPost')->default(0);
+            $table->integer('registered_items')->default(0);
+            $table->boolean('active')->default(true);
             $table->foreign('nationCode')->on('users')->references('password')->onDelete('cascade');
             $table->foreign('phonenumber')->on('users')->references('username')->onDelete('cascade');
             $table->timestamps();

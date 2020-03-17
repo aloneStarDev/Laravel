@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Contact;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use App\User;
+use Cassandra\Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ContactController extends Controller
 {
@@ -66,20 +68,24 @@ class ContactController extends Controller
         $customer->save();
         $request->session()->flash('phonenumber',$request->input('phonenumber'));
         $request->session()->flash('rollId',$customer->id);
-        return view('Auth.verify');
+        return view('Auth.verify',['title'=>'فعال سازی']);
     }
-    public function verify(Request $request){
+    public function verify(Request $request)
+    {
         $request->validate([
-            'verify'=>'Required',
-            'password'=>'Required'
+            'verify' => 'Required',
+            'password' => 'Required'
         ]);
-        if($request->input("verify")==1)
-            dd($request->session()->get('phonenumber'));
+        $customer = Customer::where('phonenumber',$request->session()->get('phonenumber'))->first();
+        $customer->enable=true;//if he enter correct verification
+        $customer->active=true;
+        $customer->save();
         $user = new User([
-            'username'=>$request->session()->get('phonenumber'),
-            'password'=>$request->get('password'),
-            'rollId'=>$request->session()->get('phonenumber')
+            'username' => $request->session()->get('phonenumber'),
+            'password' =>  Hash::make($request->get('password')),
+        'rollId' => $request->session()->get('rollId')
         ]);
         $user->save();
+        dd($user);
     }
 }
