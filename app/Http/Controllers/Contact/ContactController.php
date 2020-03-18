@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Contact;
 
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\User;
 use Cassandra\Exception;
 use Illuminate\Http\Request;
@@ -17,18 +18,13 @@ class ContactController extends Controller
         return view('Auth.Login',['title'=>'ورود']);
     }
 
-    public function login(Request $request)
+    public function login(UserRequest $request)
     {
-        $request->validate([
-            'userName'=>'Required',
-            'passWord'=>'Required'
-        ]);
-
         $user = User::where('username',$request->input('userName'))->first();
         if($user==null || !Hash::check($request->input('passWord'),$user->password))
             return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
         if(Hash::check($request->input('passWord'),$user->password))
-            return Auth::user();//cheack this part
+            dd(auth()->user();//cheack this part
 
     }
     public function signup()

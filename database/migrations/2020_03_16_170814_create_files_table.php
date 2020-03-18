@@ -23,8 +23,8 @@ class CreateFilesTable extends Migration
             $table->string('imgPath')->nullable();
             $table->integer('region');
             $table->integer('userId');//how employee stored this file
-            $table->boolean('visible');
-            $table->boolean('enable');
+            $table->boolean('visible')->default(true);
+            $table->boolean('enable')->default(true);
             $table->timestamps();
         });
     }

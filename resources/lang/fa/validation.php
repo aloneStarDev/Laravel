@@ -148,6 +148,9 @@ return array(
         'label' => 'برچسب',
         'nationCode' => 'شماره ملی',
         'phonenumber' => 'شماره تلفن',
-        'lastname' => 'نام خانوادگی'
+        'lastname' => 'نام خانوادگی',
+        'addressPu'=> 'آدرس اصلی',
+        'addressPv'=> 'آدرس فرعی',
+        'region'=>'منطقه'
     ),
 );

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\File;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FileRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class FileController extends Controller
 {
@@ -32,12 +35,12 @@ class FileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  FileRequest  $request
+     * @return RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(FileRequest $request)
     {
-        File::create($request->all());
+//        File::create($request->all());
         return redirect(route('files.index'));
     }
 
