@@ -24,18 +24,27 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#">پنل اصلی</a></li>
-                <li><a href="/admin/agents">صفحه کارمندان</a></li>
-                <li><a href="#">صفحه کاربران ثبت نام کرده</a></li>
+{{--                please go to AuthServiceProviders and see Gates--}}
+                @can('admin_permissions')
+                    <li><a href="/admin/agents">صفحه کارمندان</a></li>
+                    <li><a href="#">صفحه کاربران ثبت نام کرده</a></li>
+                    <li><a href="#">صفحه تعرفه های ثبت نام<span class="badge">0</span></a></li>
+                @endcan
             </ul>
+
             <ul class="nav nav-sidebar">
-                <li><a href="#">صفحه تعرفه های ثبت نام<span class="badge">0</span></a></li>
-                <li><a href="/admin/files">صفحه ثبت ملک<span class="badge">0</span></a></li>
-                <li><a href="#">صفحه ملک های ثبت شده از قبل<span class="badge">0</span></a></li>
+                @can('show_files')
+                    <li><a href="/admin/files">صفحه ثبت ملک<span class="badge">0</span></a></li>
+                    <li><a href="#">صفحه ملک های ثبت شده از قبل<span class="badge">0</span></a></li>
+                @endcan
             </ul>
+
             <ul class="nav nav-sidebar">
-                <li><a href="#">صفحه درخواست های ثبت شده از طریق صفحه اصلی</a></li>
-                <li><a href="#">صفحه ملک های ثبت شده کاربران از طریق صفحه اصلی</a></li>
-                <li><a href="#">*صفحه دریافت اعلام مغایرت ها و گزارش واگذاری ها</a></li>
+                @can('admin_permissions')
+                    <li><a href="#">صفحه درخواست های ثبت شده از طریق صفحه اصلی</a></li>
+                    <li><a href="#">صفحه ملک های ثبت شده کاربران از طریق صفحه اصلی</a></li>
+                    <li><a href="#">*صفحه دریافت اعلام مغایرت ها و گزارش واگذاری ها</a></li>
+                @endcan
             </ul>
         </div>
     </div>

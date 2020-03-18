@@ -25,6 +25,18 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('show_files' , function ($user) {
+            return $user->id <= 0;
+            //or  return auth()->user()->id <= 0;
+        });
+
+        Gate::define('admin_permissions' , function ($user) {
+            return $user->id === 0;
+            //or  return auth()->user()->id === 0;
+        });
+        /*
+         * $a == $b	Equal TRUE if $a is equal to $b after type juggling.
+         * $a === $b	Identical	TRUE if $a is equal to $b, and they are of the same type.
+         */
     }
 }
