@@ -29,7 +29,7 @@
             </ul>
             <ul class="nav nav-sidebar">
                 <li><a href="#">صفحه تعرفه های ثبت نام<span class="badge">0</span></a></li>
-                <li><a href="#">صفحه ثبت ملک<span class="badge">0</span></a></li>
+                <li><a href="/admin/files">صفحه ثبت ملک<span class="badge">0</span></a></li>
                 <li><a href="#">صفحه ملک های ثبت شده از قبل<span class="badge">0</span></a></li>
             </ul>
             <ul class="nav nav-sidebar">

@@ -52,7 +52,7 @@ class AgentController extends Controller
         User::create([
             'username' => $request->input('phonenumber'),
             'password' => $request->input('nationCode'),
-            'roll_id' => -1 * $id
+            'rollId' => -1 * $id
         ]);
 
         return redirect(route('agents.index'));

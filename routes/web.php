@@ -18,4 +18,5 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
 Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::get('/panel' , 'PanelController@index');
     Route::resource('agents', 'AgentController');
+    Route::resource('files', 'FileController');
 });

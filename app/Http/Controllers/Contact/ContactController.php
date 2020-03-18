@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Cassandra\Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class ContactController extends Controller
 {
-
     public function signin()
     {
         return view('Auth.Login',['title'=>'ورود']);
@@ -24,10 +25,10 @@ class ContactController extends Controller
         ]);
 
         $user = User::where('username',$request->input('userName'))->first();
-        if($user==null || $user->password!=$request->input('passWord'))
+        if($user==null || !Hash::check($request->input('passWord'),$user->password))
             return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
-        if($user->password==$request->input('passWord'))
-            return 'login';
+        if(Hash::check($request->input('passWord'),$user->password))
+            return Auth::user();//cheack this part
 
     }
     public function signup()
@@ -86,6 +87,6 @@ class ContactController extends Controller
         'rollId' => $request->session()->get('rollId')
         ]);
         $user->save();
-        dd($user);
+        return Redirect::route('signin');
     }
 }
