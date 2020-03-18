@@ -18,12 +18,12 @@ class CreateTableAgants extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('nationCode')->unique();
-            $table->string('adress')->nullable();
+            $table->foreign('nationCode')->on('users')->references('password')->onDelete('cascade');
+            $table->string('address')->nullable();
             $table->string('phonenumber')->unique();
+            $table->foreign('phonenumber')->on('users')->references('username')->onDelete('cascade');
             $table->integer('registered_items')->default(0);
             $table->boolean('active')->default(true);
-            $table->foreign('nationCode')->on('users')->references('password')->onDelete('cascade');
-            $table->foreign('phonenumber')->on('users')->references('username')->onDelete('cascade');
             $table->timestamps();
         });
     }

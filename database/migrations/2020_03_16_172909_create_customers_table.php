@@ -19,7 +19,7 @@ class CreateCustomersTable extends Migration
             $table->string('lastname');
             $table->string('phonenumber',20);
             $table->integer('region');
-            $table->string('adress')->nullable();
+            $table->string('address')->nullable();
             $table->integer('subscribtion-time')->nullable();
             $table->timestamp('start-subscribtion')->nullable();
             $table->boolean('mode');//pro 1 or free 0

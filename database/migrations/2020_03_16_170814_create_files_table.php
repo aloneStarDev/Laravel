@@ -19,8 +19,8 @@ class CreateFilesTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('phonenumber',20)->unique();
-            $table->string('adressPu');//public Adress
-            $table->string('adressPv');//private Adress
+            $table->string('addressPu');//public Adress
+            $table->string('addressPv');//private Adress
             $table->string('imgPath')->nullable();
             $table->integer('region');
             $table->integer('userId');//how employee stored this file

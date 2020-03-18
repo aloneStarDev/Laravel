@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('username');//default phonenumber and dosn't change
             $table->string('password');
-            $table->string('rollId');
+            $table->integer('rollId');
             $table->timestamps();
         });
     }

@@ -43,7 +43,7 @@ class ContactController extends Controller
             'phonenumber.required'=>'شماره تماس الزامی هست',
             'phonenumber.uniq'=>'این شماره قبلا ثبت شده است',
             'region.required'=>'ناحیه الزامی است',
-            'adress.required'=>'آدرس الزامی است',
+            'address.required'=>'آدرس الزامی است',
             'password.required'=>'گذرواژه الزامی است',
         ];
         $request->validate(
@@ -52,7 +52,7 @@ class ContactController extends Controller
                 'lastname'=>'Required',
                 'phonenumber'=>'Required|unique:customers',
                 'region'=>'Required',
-                'adress'=>'Required',
+                'address'=>'Required',
             ],$messages);
 
         $customer = new Customer([
@@ -60,7 +60,7 @@ class ContactController extends Controller
             'lastname'=>$request->get('lastname'),
             'phonenumber'=>$request->get('phonenumber'),
             'region'=>$request->get('region'),
-            'adress'=>$request->get('adress'),
+            'address'=>$request->get('address'),
             'mode'=>false,
             'enable'=>false,//when verify phone number
             'active'=>false
