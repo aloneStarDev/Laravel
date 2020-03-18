@@ -24,7 +24,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#">پنل اصلی</a></li>
-                <li><a href="#">صفحه کارمندان</a></li>
+                <li><a href="/admin/agents">صفحه کارمندان</a></li>
                 <li><a href="#">صفحه کاربران ثبت نام کرده</a></li>
             </ul>
             <ul class="nav nav-sidebar">
