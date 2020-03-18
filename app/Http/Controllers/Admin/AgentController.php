@@ -52,7 +52,7 @@ class AgentController extends Controller
         User::create([
             'username' => $request->input('phonenumber'),
             'password' => $request->input('nationCode'),
-            'roll_id' => -1 * $id
+            'rollI d' => -1 * $id
         ]);
 
         return redirect(route('agents.index'));
@@ -85,11 +85,22 @@ class AgentController extends Controller
      *
      * @param AgentRequest $request
      * @param Agent $agent
-     * @return void
+     * @return RedirectResponse|Redirector
      */
     public function update(AgentRequest $request, Agent $agent)
     {
-        //
+//        if ($agent->phonenumber != $request->input('username') || $agent->nationCode != $request->input('password')) {
+
+            User::where('password', $agent->nationCode )->update([
+                'username' => $request->input('phonenumber'),
+                'password' => $request->input('nationCode'),
+            ]);
+//        }
+
+
+        $agent->update($request->all());
+
+        return redirect(route('agents.index'));
     }
 
     /**
