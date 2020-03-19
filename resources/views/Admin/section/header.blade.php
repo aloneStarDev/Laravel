@@ -13,7 +13,7 @@
         <div id="navbar" class="navbar-collapse collapse">
 
             <div class="navbar-left">
-                <a href="/logout" class="btn btn-sm btn-warning" style="margin: 15px">خروج از پنل کاربری</a>
+                <a href="{{route('logout')}}" class="btn btn-sm btn-warning" style="margin: 15px">خروج از پنل کاربری</a>
             </div>
         </div>
     </div>
@@ -26,16 +26,16 @@
                 <li class="active"><a href="#">پنل اصلی</a></li>
 {{--                please go to AuthServiceProviders and see Gates--}}
                 @can('admin_permissions')
-                    <li><a href="/admin/agents">صفحه کارمندان</a></li>
-                    <li><a href="#">صفحه کاربران ثبت نام کرده</a></li>
-                    <li><a href="#">صفحه تعرفه های ثبت نام<span class="badge">0</span></a></li>
+                    <li><a href="/admin/agents">صفحه کارمندان <span class="badge">0</span></a></li>
+                    <li><a href="/admin/customer">صفحه کاربران ثبت نام کرده</a></li>
+                    <li><a href="#">صفحه تعرفه های ثبت نام <span class="badge">0</span></a></li>
                 @endcan
             </ul>
 
             <ul class="nav nav-sidebar">
                 @can('show_files')
-                    <li><a href="/admin/files">صفحه ثبت ملک<span class="badge">0</span></a></li>
-                    <li><a href="#">صفحه ملک های ثبت شده از قبل<span class="badge">0</span></a></li>
+                    <li><a href="/admin/files"> صفحه ثبت ملک<span class="badge">0</span></a></li>
+                    <li><a href="#"> صفحه ملک های ثبت شده از قبل<span class="badge">0</span></a></li>
                 @endcan
             </ul>
 

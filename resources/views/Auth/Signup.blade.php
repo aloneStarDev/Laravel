@@ -22,18 +22,4 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-<form id="reg" action="https://raygansms.com/AutoSendCode.ashx" method="get">
-    <input type="hidden" name="Username" value="Amlakonlin"/>
-    <input type="hidden" name="Password" value="8689811"/>
-    <input type="hidden" name="Mobile" value="09304437493"/>
-    <button type="submit">ffff</button>
-</form>
-<script>
-    function send() {
-       document.getElementById("reg").submit();
-    }
-</script>
 @include('template.footer')

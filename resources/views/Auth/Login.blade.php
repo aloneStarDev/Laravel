@@ -4,24 +4,24 @@
 <title>{{$title}}</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{{asset('asset/images/icons/favicon.ico')}}"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/fonts/iconic/css/material-design-iconic-font.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/vendor/animate/animate.css')}}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/vendor/css-hamburgers/hamburgers.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/vendor/animsition/css/animsition.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/vendor/select2/select2.min.css')}}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/vendor/daterangepicker/daterangepicker.css')}}">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.min.js">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.5/daterangepicker.min.js">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('asset/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('asset/css/main.css')}}">
@@ -70,6 +70,14 @@
 							</button>
 						</div>
 					</div>
+                <div class="text-center">
+						<span class="txt1">
+                            آیا رمز خود رافراموش کرده اید ؟ -
+						</span>
+                    <a class="txt2" href="{{route('forget')}}">
+                        بازیابی
+                    </a>
+                </div>
 					<div class="text-center p-t-115">
 						<span class="txt1">
 							آیا حساب ندارید؟ ایجاد کنید  -
@@ -82,24 +90,24 @@
 			</div>
 		</div>
 	</div>
-	
+
 
 	<div id="dropDownSelect1"></div>
-	
+
 <!--===============================================================================================-->
-	<script src="{{asset('asset/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/vendor/animsition/js/animsition.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/vendor/bootstrap/js/popper.js')}}"></script>
-	<script src="{{asset('asset/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/esm/popper.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/vendor/select2/select2.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/vendor/daterangepicker/moment.min.js')}}"></script>
-	<script src="{{asset('asset/vendor/daterangepicker/daterangepicker.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.5/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/vendor/countdowntime/countdowntime.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/countdown/2.6.0/countdown.js"></script>
 <!--===============================================================================================-->
 	<script src="{{asset('asset/js/main.js')}}"></script>
 

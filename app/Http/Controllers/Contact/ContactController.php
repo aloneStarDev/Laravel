@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\User;
 use Cassandra\Exception;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -74,10 +75,29 @@ class ContactController extends Controller
 
         return view('Auth.verify',['title'=>'فعال سازی']);
     }
-
+    public function forget(){
+        return view('Auth.forget',['title'=>'تایید هویت']);
+    }
+    public function resetPassword(Request $request){
+        if(session()->has('code'))
+            return back()->withErrors(['msg'=>'لطفا بعد از 15 دقیقه تلاش کنید']);
+        $customer = Customer::where('phonenumber',$request->input('phonenumber'))->cursor()->first();
+        $code = round(rand())%999999;
+        if($customer != null){
+            $request->session()->push('code',$code);
+            User::sendCode($request->input('phonenumber'),$code);
+            return view('Auth.reset',['title'=>'تغییرگزرواژه']);
+        }else return redirect(route('signup'));
+    }
+    public function verifyForget(Request $request){
+        $request->validate([
+            'verify' => 'Required',
+            'password' => 'Required'
+        ]);
+        return view('Auth.verify',['title'=>'فعال سازی']);
+    }
     public function verify(Request $request)
     {
-
         $request->validate([
             'verify' => 'Required',
             'password' => 'Required'
@@ -96,5 +116,15 @@ class ContactController extends Controller
             return Redirect::route('signin');
         }else
             return back()->withErrors(['msg'=>'کد تایید اشتباه است']);
+    }
+
+    /**
+     * @param Request $request
+     * @return Redirector
+     */
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        return redirect(route('signin'));
     }
 }

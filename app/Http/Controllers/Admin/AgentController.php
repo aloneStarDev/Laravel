@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class AgentController extends Controller
@@ -51,7 +52,7 @@ class AgentController extends Controller
 
         User::create([
             'username' => $request->input('phonenumber'),
-            'password' => $request->input('nationCode'),
+            'password' => Hash::make($request->input('nationCode')),
             'rollId' => -1 * $id
         ]);
 

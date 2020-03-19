@@ -17,6 +17,9 @@
                     <th>ناحیه</th>
                     <th>نمایش تصویر</th>
                     <th>وضعیت</th>
+                    @can("admin_permissions")
+                    <th>کنترل</th>
+                    @endcan
                 </tr>
                 </thead>
                 <tbody>
@@ -29,16 +32,18 @@
                         <td>{{ $file->region }}</td>
                         <td><a href="#" class="btn btn-info">نمایش تصویر</a></td>
                         <td>@if($file->visible) فعال @else غیرفعال @endif </td>
+                        @can('admin_permissions')
                         <td>
-                            <form action="{{ route('files.destroy') }}" method="post">
+                            <form action="{{ route('files.destroy', $file) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <div class="btn-group btn-group-xs">
-                                    <a href="{{ route('files.edit', ['file' => $file->id]) }}" class="btn btn-primary">ویرایش</a>
+                                    <a href="{{ route('files.edit', $file) }}" class="btn btn-primary">ویرایش</a>
                                     <button type="submit" class="btn btn-danger">حذف</button>
                                 </div>
                             </form>
                         </td>
+                        @endcan
                     </tr>
                 @endforeach
                 </tbody>

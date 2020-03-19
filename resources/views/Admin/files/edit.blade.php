@@ -5,7 +5,7 @@
         <div class="page-header head-section">
             <h2>ویرایش فایل</h2>
         </div>
-        <form class="form-horizontal" action="{{ route('files.update', ['file' => $file->id]) }}" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{ route('files.update',$file) }}" method="post" enctype="multipart/form-data">
             @csrf
             @include('Admin.section.errors')
             @method('patch')
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="region" class="control-label">منطقه</label>
-                    <input type="number" class="form-control" name="region" id="region" placeholder="منطقه ی شهرداری را وارد کنید" value="{{ old('region') }}">
+                    <input type="number" class="form-control" name="region" id="region" placeholder="منطقه ی شهرداری را وارد کنید" value="{{ $file->region }}">
                 </div>
             </div>
 
