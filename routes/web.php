@@ -16,7 +16,7 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
 
 ////route group for admin panel and management of it
 Route::prefix('admin')->namespace('Admin')->group(function (){
-    Route::get('/panel' , 'PanelController@index');
+    Route::get('/panel' , 'PanelController@index')->name('manage');
     Route::resource('agents', 'AgentController');
     Route::resource('files', 'FileController');
 });

@@ -18,11 +18,11 @@ class CreateFilesTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('phonenumber',20)->unique();
-            $table->string('addressPu');//public Adress
-            $table->string('addressPv');//private Adress
+            $table->string('addressPu');//public Address
+            $table->string('addressPv');//private Address
             $table->string('imgPath')->nullable();
             $table->integer('region');
-            $table->integer('userId');//how employee stored this file
+            $table->integer('user_id');//how employee stored this file
             $table->boolean('visible')->default(true);
             $table->boolean('enable')->default(true);
             $table->timestamps();

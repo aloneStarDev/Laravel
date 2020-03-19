@@ -4,17 +4,25 @@ namespace App\Http\Controllers\Admin;
 
 use App\File;
 use App\Http\Controllers\Controller;
+//<<<<<<< HEAD
 use App\Http\Requests\FileRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+//=======
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\View\Factory;
+//use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
+//>>>>>>> 54bb88ac03d4192cac2ae4b497c8ca8ae44762d1
 
 class FileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -25,7 +33,7 @@ class FileController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -35,8 +43,13 @@ class FileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+<<<<<<< HEAD
      * @param  FileRequest  $request
      * @return RedirectResponse|Redirector
+=======
+//     * @param Request $request
+//     * @return Response
+>>>>>>> 54bb88ac03d4192cac2ae4b497c8ca8ae44762d1
      */
     public function store(FileRequest $request)
     {
@@ -48,7 +61,7 @@ class FileController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -58,20 +71,24 @@ class FileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  File  $file
-     * @return \Illuminate\Http\Response
+     * @param File $file
+     * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit($file)
     {
+        //if you are agent, you can't access to this route
+        $this->authorize('admin_permissions');
+
         return view('Admin.files.edit', compact('file'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param int $id
+     * @return void
      */
     public function update(Request $request, $id)
     {
@@ -81,11 +98,14 @@ class FileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  File  $file
-     * @return \Illuminate\Http\Response
+     * @param File $file
+     * @return Response
+     * @throws AuthorizationException
      */
     public function destroy($file)
     {
+        $this->authorize('admin_permissions');
+
         $file->delete();
         return back();
     }

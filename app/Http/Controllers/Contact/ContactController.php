@@ -23,8 +23,11 @@ class ContactController extends Controller
         $user = User::where('username',$request->input('userName'))->first();
         if($user==null || !Hash::check($request->input('passWord'),$user->password))
             return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
-        if(Hash::check($request->input('passWord'),$user->password))
-            dd(auth()->user();//cheack this part
+        if(Hash::check($request->input('passWord'),$user->password)){
+            auth()->loginUsingId($user->id);
+            return redirect(route('manage'));
+        }
+        return back()->withErrors(['meg'=>'login fail']);
 
     }
     public function signup()
@@ -64,25 +67,34 @@ class ContactController extends Controller
         ]);
         $customer->save();
         $request->session()->flash('phonenumber',$request->input('phonenumber'));
+        $code = round(rand())%999999;
+        $request->session()->flash('code',$code);
         $request->session()->flash('rollId',$customer->id);
+        User::sendCode($request->input('phonenumber'),$code);
+
         return view('Auth.verify',['title'=>'فعال سازی']);
     }
+
     public function verify(Request $request)
     {
+
         $request->validate([
             'verify' => 'Required',
             'password' => 'Required'
         ]);
         $customer = Customer::where('phonenumber',$request->session()->get('phonenumber'))->first();
-        $customer->enable=true;//if he enter correct verification
-        $customer->active=true;
-        $customer->save();
-        $user = new User([
-            'username' => $request->session()->get('phonenumber'),
-            'password' =>  Hash::make($request->get('password')),
-        'rollId' => $request->session()->get('rollId')
-        ]);
-        $user->save();
-        return Redirect::route('signin');
+        if($request->session()->get('code')==$request->get('verify')){
+            $customer->enable=true;
+            $customer->active=true;
+            $customer->save();
+            $user = new User([
+                'username' => $request->session()->get('phonenumber'),
+                'password' =>  Hash::make($request->get('password')),
+                'rollId' => $request->session()->get('rollId')
+            ]);
+            $user->save();
+            return Redirect::route('signin');
+        }else
+            return back()->withErrors(['msg'=>'کد تایید اشتباه است']);
     }
 }
