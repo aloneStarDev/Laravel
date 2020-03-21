@@ -1,5 +1,5 @@
 @include('template.header')
-<form action="{{@route('resetPassword')}}" method="post">
+<form action="{{route('verifyForget')}}" method="post">
     @csrf
     <label for="phone">لطفا کد تایید را وارد کنید</label>
     <input type="text" name="verify" placeholder="ActivationCode" />

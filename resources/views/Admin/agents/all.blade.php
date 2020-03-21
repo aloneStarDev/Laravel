@@ -28,7 +28,7 @@
                         <td><a href="#" class="btn btn-info">تغیرر رمز عبور</a></td>
                         <td>{{ $agent->address }}</td>
                         <td>{{ $agent->registered_items }}</td>
-                        <td>{{ $agent->active }}</td>
+                        <td>@if($agent->active==1) فعال @else غیر فعال @endif</td>
                         <td>
                             <form action="{{ route('agents.destroy', ['agent' => $agent->id]) }}" method="post">
                                 @csrf

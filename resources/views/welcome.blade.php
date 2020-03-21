@@ -68,12 +68,13 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('logout') }}">خروج از حساب کاربری</a>
+                        <a href="{{ route('manage') }}">مدیریت</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">ورود</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">ثبت نام</a>
                         @endif
                     @endauth
                 </div>
@@ -81,7 +82,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    املاک آنلاین
                 </div>
 
                 <div class="links">

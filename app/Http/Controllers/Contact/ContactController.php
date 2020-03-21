@@ -25,6 +25,8 @@ class ContactController extends Controller
         if($user==null || !Hash::check($request->input('passWord'),$user->password))
             return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
         if(Hash::check($request->input('passWord'),$user->password)){
+            if($user->rollId > 0 && Customer::where('id',$user->rollId)->firstOrFail()->enable==false)
+                return back()->withErrors('دسترسی شما غیرفعال می باشد');
             auth()->loginUsingId($user->id);
             return redirect(route('manage'));
         }
@@ -84,17 +86,30 @@ class ContactController extends Controller
         $customer = Customer::where('phonenumber',$request->input('phonenumber'))->cursor()->first();
         $code = round(rand())%999999;
         if($customer != null){
-            $request->session()->push('code',$code);
+            $request->session()->put('code',$code);
+            $request->session()->put('phonenumber',$request->input('phonenumber'));
             User::sendCode($request->input('phonenumber'),$code);
             return view('Auth.reset',['title'=>'تغییرگزرواژه']);
-        }else return redirect(route('signup'));
+        }else
+            return redirect(route('signup'));
     }
     public function verifyForget(Request $request){
         $request->validate([
             'verify' => 'Required',
             'password' => 'Required'
         ]);
-        return view('Auth.verify',['title'=>'فعال سازی']);
+        if(session()->has('code')){
+            if($request->get('verify') == session()->get('code'))
+            {
+                $user = User::where('username',session()->get('phonenumber'))->firstOrFail();
+                $user->password = Hash::make($request->get('password'));
+                $user->save();
+                return redirect(route('signin'));
+            }
+            else
+                return 'code incorrect';
+        }else
+            return back()->withErrors(['msg'=>'کد تایید منقضی شده است']);
     }
     public function verify(Request $request)
     {

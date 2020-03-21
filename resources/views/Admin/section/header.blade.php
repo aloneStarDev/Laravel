@@ -27,7 +27,7 @@
 {{--                please go to AuthServiceProviders and see Gates--}}
                 @can('admin_permissions')
                     <li><a href="/admin/agents">صفحه کارمندان <span class="badge">0</span></a></li>
-                    <li><a href="/admin/customer">صفحه کاربران ثبت نام کرده</a></li>
+                    <li><a href="/admin/members">صفحه کاربران ثبت نام کرده</a></li>
                     <li><a href="#">صفحه تعرفه های ثبت نام <span class="badge">0</span></a></li>
                 @endcan
             </ul>
@@ -35,8 +35,8 @@
             <ul class="nav nav-sidebar">
                 @can('show_files')
                     <li><a href="/admin/files"> صفحه ثبت ملک<span class="badge">0</span></a></li>
-                    <li><a href="#"> صفحه ملک های ثبت شده از قبل<span class="badge">0</span></a></li>
                 @endcan
+                <li><a href="/admin/files">ملک های ثبت شده<span class="badge">0</span></a></li>
             </ul>
 
             <ul class="nav nav-sidebar">

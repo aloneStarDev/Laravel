@@ -39,6 +39,25 @@
 
             <div class="form-group">
                 <div class="col-sm-12">
+                    <label for="active" class="control-label">وضعیت</label>
+                    <input type="checkbox" class="checkbox-inline" onclick="f()" @if($agent->active == 1) checked="true" @endif >
+                    <script>
+                        function f() {
+                            let active = 0;
+                            @if($agent->active)
+                                active = 0;
+                            @else
+                                active = 1;
+                            @endif
+                            document.getElementById('active').value = active;
+                        }
+                    </script>
+                    <input type="hidden" id="active" name="active" value="{{$agent->active}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
                     <label for="address" class="control-label">آدرس</label>
                     <textarea rows="5" class="form-control" name="address" id="address" placeholder="آدرس را وارد کنید">{{ $agent->address }}</textarea>
                 </div>

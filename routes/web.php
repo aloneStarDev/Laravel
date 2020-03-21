@@ -23,4 +23,6 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::get('/panel' , 'PanelController@index')->name('manage')->middleware('auth');
     Route::resource('agents', 'AgentController')->middleware('auth');
     Route::resource('files', 'FileController')->middleware('auth');
+    Route::resource('members','MemberController')->middleware('auth');
+    Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth');
 });

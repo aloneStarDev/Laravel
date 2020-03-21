@@ -17,6 +17,7 @@ use Illuminate\Contracts\View\Factory;
 //use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 //>>>>>>> 54bb88ac03d4192cac2ae4b497c8ca8ae44762d1
 
@@ -29,10 +30,13 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files = File::latest()->paginate(20);
+        $files = null;
+        if(Gate::allows('show_files'))
+            $files = File::latest()->paginate(20);
+        else
+            $files = File::where('visible',true)->latest()->paginate(20);
         return view('Admin.files.all', compact('files'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
