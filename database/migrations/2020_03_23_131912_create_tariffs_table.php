@@ -17,6 +17,7 @@ class CreateTariffsTable extends Migration
             $table->id();
             $table->tinyInteger('months');
             $table->unsignedInteger('price');
+            $table->unsignedInteger('addOnMember');
             $table->timestamps();
         });
     }

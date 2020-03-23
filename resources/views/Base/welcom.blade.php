@@ -12,70 +12,13 @@
 
 <body class="body">
 <div style="position:absolute; left:0px; top:0px;">
-<img alt="background-texture-top" src="../base//Images/bg-header-main.png" class="background">
+<img alt="background-texture-top" src="../base/Images/bg-header-main.png" class="background">
 </div>
 <div style="position:absolute; top:22%; left:50%;">
-<img alt="background-texture-top" src="../base//Images/building-main.png" class="background-building">
+<img alt="background-texture-top" src="../base/Images/building-main.png" class="background-building">
+<img alt="background-texture-top" src="../base/Images/building-main.png" class="background-building">
 </div>
-<div class="headingitems fixed-top">
-<nav class="navbar navbar-expand-xl" style=" margin:0; box-sizing:inherit;padding-bottom:2px; width:100%; margin-top:10px;">
-<div class="logo" >
-<img alt="logo" src="../base//Images/Untitled-2.png" style="width:60%; transition-duration:0.5s;">
-</div>
-  <div id="navbarNavAltMarkup" style="width: 100%;margin-bottom: 2%;">
-    <div class="navbar-nav">
-    <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems home" href="{{route('base')}}">صفحه اصلی</a></button>
-</div>
-     <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">مشاورین املاک</a></button>
-</div>
-      <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">قوانین</a></button>
-</div>
- <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('about')}}">درباره ما</a></button>
-</div>
-<div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('contactUs')}}">ارتباط با ما</a></button>
-</div>
-<ul class=" justify-content-end nav-pills topul">
-    @if (Route::has('login'))
-        <li class="nav-item">
-            <a href="@auth {{route('logout')}} @else {{route('signin')}} @endauth" class="atag firstProf">
-                <button type="button" class="btn">
-                    <i class="fas fa-angle-right icon-arrow "></i>
-                    <span>
-                                    @auth
-                            خروج از حساب
-                        @else
-                            ورود
-                        @endauth
-                                 </span>
-                    <i class="fas fa-plus icon"></i>
-                </button></a>
-        </li>
-        <li class="nav-item">
-            <a href="@auth {{route('manage')}} @else {{route('register')}} @endauth" class="atag secProf">
-                <button type="button" class="btn">
-                    <i class="fas fa-angle-right icon-arrow"></i>
-                    <span>
-                                    @auth
-                            مدیریت
-                        @else
-                            ثبت نام مشاوران
-                        @endauth
-                                </span>
-                    <i class="fas fa-user icon"></i>
-                </button></a>
-
-        </li>
-    @endif
-</ul>
-    </div>
-  </div>
-</nav>
-</div>
+@include('Base.section.topMenu');
 <div class="h1-top">
 <h1>وبسایت املاک آنلاین</h1>
 </div>
@@ -156,10 +99,10 @@
 </div>
 </div>
 <div class="tri-left">
-<img class="tri-image-left" alt="tri-background" src="../base//Images/curve-2.png">
+<img class="tri-image-left" alt="tri-background" src="../base/Images/curve-2.png">
 </div>
 <div class="tri-right">
-<img class="tri-image-right" alt="tri-background" src="../base//Images/curve-3.png">
+<img class="tri-image-right" alt="tri-background" src="../base/Images/curve-3.png">
 </div>
 <div id="carouselExampleControls" class="carousel carousel1 slide">
 
@@ -168,7 +111,7 @@
     <div class="carousel-item first-slide">
 
       <div class="cell" style="margin-right:2%;">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -205,7 +148,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -242,7 +185,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -279,7 +222,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -316,7 +259,7 @@
       </div>
       </div>
       <div class="cell" style="margin-right:2%;">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -353,7 +296,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -390,7 +333,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -427,7 +370,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -464,7 +407,7 @@
       </div>
       </div>
       <div class="cell" style="margin-right:2%;">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -501,7 +444,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -538,7 +481,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -575,7 +518,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -611,11 +554,12 @@
       </button>
       </div>
       </div>
+
     </div>
     <div class="carousel-item active second-slide">
 
       <div class="cell" style="margin-right:2%;">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -652,7 +596,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -689,7 +633,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -726,7 +670,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -763,7 +707,7 @@
       </div>
       </div>
       <div class="cell" style="margin-right:2%;">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -800,7 +744,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -837,7 +781,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -874,7 +818,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -911,7 +855,7 @@
       </div>
       </div>
       <div class="cell" style="margin-right:2%;">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -948,7 +892,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -985,7 +929,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -1022,7 +966,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -1062,7 +1006,7 @@
     <div class="carousel-item third-slide">
 
       <div class="cell" style="margin-right:2%;">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -1099,7 +1043,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -1136,7 +1080,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -1173,7 +1117,7 @@
       </div>
       </div>
       <div class="cell">
-      <img alt="house" src="../base//Images/city_illustrations_empire_state_building_2x.png" class="house-image">
+      <img alt="house" src="../base/Images/city_illustrations_empire_state_building_2x.png" class="house-image">
       <h3 class="cell-h3">
       عنوان
       </h3>
@@ -1652,93 +1596,8 @@
   </div>
 </div>
 </div>
-<footer class="page-footer font-small indigo">
-<div class="footer-back">
-<img alt="footer-background" class="footer-image" src="../base/Images/bg-footer-simple.png">
-</div>
-<div class="footer-logo">
-<img alt="logo" src="../base/Images/Untitled-1.png" style="width:40%;">
-</div>
-  <div class=" text-center footer-inner text-md-left">
-    <div class="row" style=" border-bottom:thin solid; padding: 0 7%;">
-      <div class="col mx-auto">
-        <ul class="list-unstyled footer-icon">
-          <li>
-            <img alt="ozv" src="../base/Images/ecunion-logo.png">
-          </li>
-          <li>
-           <img alt="ozv" src="../base/Images/eanjoman.jpg">
-          </li>
-          <li>
-            <img alt="ozv" src="../base/Images/logo.png">
-          </li>
-        </ul>
-      </div>
-      <hr class="clearfix w-100 d-md-none">
-      <div class="col mx-auto footer-div">
-        <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">اطلاعات بیشتر</h5>
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">پاسخ به پرسش های متداول</a>
-          </li>
-          <li>
-            <a href="#!">تبلیغات</a>
-          </li>
-          <li>
-            <a href="#!">قوانین</a>
-          </li>
-          <li>
-          <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4" style="margin-top: 5% !important;">شبکه های اجتماعی</h5>
-          </li>
-        </ul>
-      </div>
-      <hr class="clearfix w-100 d-md-none">
-      <div class="col mx-auto footer-div">
-        <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">کلیدهای کاربردی</h5>
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">ورود شماورین</a>
-          </li>
-          <li>
-            <a href="#!">ثبت آگهی رایگان</a>
-          </li>
-          <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4" style="margin-top: 5% !important;">جستجو</h5>
-          <li>
-            <a href="#!">جستجوی ملک</a>
-          </li>
-          <li>
-            <a href="#!">فیلتر های جستجو</a>
-          </li>
-        </ul>
-      </div>
-      <hr class="clearfix w-100 d-md-none">
-      <div class="col mx-auto footer-div">
-        <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">منو</h5>
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">صفحه اصلی</a>
-          </li>
-          <li>
-            <a href="#!">مشاورین‌املاک</a>
-          </li>
-          <li>
-            <a href="#!">نظر سنجی</a>
-          </li>
-          <li>
-            <a href="#!">درباره ما</a>
-          </li>
-          <li>
-            <a href="#!">ارتباط باما</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright text-center py-3">
-   تمامی حقوق وبسایت متعلق به املاک آنلاین میباشد
-  </div>
-</footer>
 
+@include('Base.section.footer');
 
 <script type="text/javascript" src="../base/jquery/index.js"></script>
 <script type="text/javascript" src="../base/jquery/bootstrap.js"></script>

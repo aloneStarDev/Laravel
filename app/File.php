@@ -6,7 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
 {
-    protected $fillable=['fileId','name','lastname','phonenumber','addressPu','addressPv','imgPath','region','user_id','visible','enable'];
-    protected $primaryKey = 'fileId';
-
+    protected $fillable=['title','code','rahn','ejare','name','lastname','buildingType','floor','area','age','unit','bedroom','adressPu','adressPv','phonenumber','options','description','userId','visible','deleted'];
 }
