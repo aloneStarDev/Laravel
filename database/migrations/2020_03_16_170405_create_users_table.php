@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->integer('rollId');
+            $table->boolean("expire");
             $table->rememberToken();
             $table->timestamps();
         });

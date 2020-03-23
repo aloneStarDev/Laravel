@@ -24,14 +24,14 @@ class ContactController extends Controller
         $user = User::where('username',$request->input('userName'))->first();
         if($user==null || !Hash::check($request->input('passWord'),$user->password))
             return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
-        if(Hash::check($request->input('passWord'),$user->password)){
-            if($user->rollId > 0 && Customer::where('id',$user->rollId)->firstOrFail()->enable==false)
-                return back()->withErrors('دسترسی شما غیرفعال می باشد');
+        if(Hash::check($request->input('passWord'),$user->password) && $user->expire = true){
+            if($user->rollId > 0 )
+                if(Customer::where('id',$user->rollId)->firstOrFail()->enable==false)
+                    return back()->withErrors('دسترسی شما غیرفعال می باشد');
             auth()->loginUsingId($user->id);
             return redirect(route('manage'));
         }
         return back()->withErrors(['meg'=>'login fail']);
-
     }
     public function signup()
     {
