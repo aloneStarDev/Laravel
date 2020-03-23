@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','Base\MainController@index')->name('base');
+route::get('/About','Base\MainController@about')->name('about');
+route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs');
 
 Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::get('/login', 'ContactController@signin')->name('signin');

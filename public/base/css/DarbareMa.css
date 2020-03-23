@@ -1,0 +1,335 @@
+.footer-div{
+	text-align:right;
+    padding:0;
+	}
+.footer-div ul li {
+	line-height:2vw;
+	
+	}
+.footer-head{
+	margin-top: 0 !important;
+	font-size: 1.7vw;
+	}
+.footer-inner{
+	margin-top: 30%;
+padding-top: 4%;
+position: relative;
+width: 100%;
+margin-left: 0;
+	}
+.footer-icon li img {
+	width:90%;
+	}
+.footer-icon li {
+	text-align: center;
+    float: right;
+    width: 100px;
+	}
+.page-footer a:hover{
+	text-decoration:none;
+	color:white;
+	}
+.footer-copyright{
+	z-index: 3;
+	margin-top:1%;
+    position: relative;
+	}
+.page-footer a{
+	text-decoration:none;
+	color:white;
+	}
+.footer-inner{
+	margin-top:30%;
+	padding-top:4%;
+	position:relative;
+	}
+.page-footer{
+	direction:ltr;
+	position:relative;
+	color: white !important;
+	}
+.footer-back{
+	height: 80%;
+bottom: 130%;
+	 position: absolute;
+	}
+.footer-logo{
+	position: absolute;
+	right: 6%;
+	bottom: 105%;
+	}
+.footer-image{
+	height: 59vw;
+	
+	}
+.scrolled{
+	background: rgba(191,191,191,0.9);
+	transition-duration:0.5s;
+	}
+.icon-arrow{
+	color:white;
+    font-size:20px;
+    padding-left:10px
+	}
+.home{
+	color:#BE56D4 !important;
+	border-bottom: 2px solid #BE56D4 !important;
+	}
+.logo{
+	margin-left: 5%;
+    margin-right: 4%;
+    width: 20%;
+	font-family: "Mj Sudan 0"
+}
+h1{
+	font-size:45px;
+	}
+.background-building-div{
+	width: 50%;
+    left: 0;
+    position: absolute;
+    top: 5%;
+	}
+.background-building{
+	width:80%;
+}
+.background{
+	width: 100%;
+}
+.icon{
+	background-color:white;
+	border-radius:50px;
+	color: rgba(146,21,201,1.00) ;
+	padding:4px;
+	font-size: 1.3vw;
+	margin-right: 2%;
+}
+.navbar .btn{
+	color:white;
+	}
+.navbar .btn:hover{
+	color:white;
+	}
+.navbar .btn{
+	padding-left:0;
+	font-size:1vw;
+	width:100%;
+	}
+.topul{
+	margin:0;
+	width: 47%;
+	color:white;
+	height: 53px;
+	list-style-type: none;
+	transition-duration:0.5s;
+	padding-top:0.5%;
+	padding-bottom: 0.5%;
+}
+.topul li{
+	float:right;
+	width: 50%;}
+.secProf{
+	background:linear-gradient(90deg, rgba(190,86,212,1) 0%, rgba(64,22,186,1) 100%, rgba(64,22,186,1) 100%)
+	}
+.firstProf{
+	background:linear-gradient(90deg, rgba(64,22,186,1) 0%, rgba(190,86,212,1) 100%, rgba(190,86,212,1) 100%)
+	}
+.secProf:hover{
+	transition-duration:0.3s;
+	}
+.firstProf:hover{
+	transition-duration:0.3s;
+	}
+.topul{
+	font-size:18px;
+	padding-top: 0;
+	}
+.atag{
+	transition-duration:0.3s;
+	text-decoration:none !important;
+	border-bottom-left-radius:50px;
+	border-bottom-right-radius:30px;
+	border-top-left-radius:50px;
+	border-top-right-radius:30px;
+	margin-left:20px;
+	width: 90%;
+	display: inline-block;
+	padding: 1% 2%;
+	}
+.body{
+	background:#EBEBEB;
+	direction:rtl;
+	font-family: Yekan;
+	overflow-x: hidden;
+}
+.dropbtn {
+  background:transparent;
+  color:white;
+  border: none;
+  margin:0;
+  padding:0;
+  transition-duration:0.5s;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+ }
+.navitems{
+box-sizing: border-box;
+color: white;
+font-size:1.2vw;
+font-weight:bold;
+margin-top:0;
+margin-left: 24px;
+transition-duration: 0.5s;
+transition-property: all;
+border-bottom: 2px solid rgba(0,0,0,0);
+	}
+.navitems:hover {
+ color:#BE56D4;
+}
+.darbarema{
+	color: #ffffff;
+	font-size: 54px;
+	font-family:Yekan;
+}
+.darbarema-div{
+	position: absolute;
+	top:30%;
+	margin-right: 19%;
+	}
+.top-paragraph-div{
+    margin-top: 15%;
+	}
+.topparagraph{
+	text-align: center;
+	font-size: 36px;	
+	color: #6C6A6A;
+}
+.tri-right{
+	position:absolute;
+	right:0;
+	}
+.tri-left{
+	position:absolute;
+	left:0;
+	}
+
+.box1{
+	-webkit-box-shadow: 15px 15px 24px -7px rgba(0,0,0,0.3);
+-moz-box-shadow: 15px 15px 24px -7px rgba(0,0,0,0.3);
+box-shadow: 15px 15px 24px -7px rgba(0,0,0,0.3);
+	width: 66%;
+border: 2px solid #5B4E80;
+border-radius: 20px;
+margin-top: 6%;
+margin-right: 20%;
+text-align: right;
+position: relative;
+background: #F2F2F2;
+}
+.firstparaghraph{
+	border-right: 3px solid #4016BA;
+margin-right: 15%;
+margin-bottom: 5%;
+margin-top: 3%;
+padding-right: 2%;
+}
+.titleinfirstp{
+	margin-right: 15%;
+margin-top: 5%;
+}
+.firstboxphoto{
+    border-radius: 15px;
+position: absolute;
+top: 7.1%;
+left: 90%;
+height: 85%;
+}
+.box2{
+	-webkit-box-shadow: 15px 15px 24px -7px rgba(0,0,0,0.3);
+-moz-box-shadow: 15px 15px 24px -7px rgba(0,0,0,0.3);
+box-shadow: 15px 15px 24px -7px rgba(0,0,0,0.3);
+	width: 66%;
+border: 2px solid #5B4E80;
+border-radius: 20px;
+margin-top: 6%;
+margin-right: 12.5%;
+text-align: right;
+position: relative;
+background: #F2F2F2;
+}
+.secondparagraph{
+	border-right: 3px solid #4016BA;
+margin-right: 7%;
+margin-bottom: 5%;
+margin-top: 5%;
+padding-right: 2%;
+}
+.secondboxphoto{
+	border-radius: 15px;
+position: absolute;
+top: 7.1%;
+height: 85%;
+right: 90%;
+}
+.bottom-icons{
+	width: 40%;
+margin-right: 30%;
+margin-top: 5%;
+	}
+.icons-1{
+	width: 50%;
+display: block;
+float: right;
+	}
+.icon-2{
+	width: 50%;
+display: block;
+float: right;
+	}
+.homeicon{
+	color: #707070;
+font-size: 4vw;
+text-align: right;
+float: right;
+display: block;
+margin-left: 5%;
+}
+.iconstext{
+	color: #6C6A6A;
+font-size: 1.6vw;
+text-align: right;
+float: right;
+margin-top: 5%;
+}
+.icontext1{
+	color: #6C6A6A;
+font-size: 1vw;
+text-align: right;
+float: right;
+width: 50%;
+}
+.phoneicon{
+	color: #707070;
+font-size: 4vw;
+text-align: right;
+float: right;
+display: block;
+margin-left: 5%;
+}
+.iconstextt{
+	color: #6C6A6A;
+font-size: 1.6vw;
+text-align: right;
+float: right;
+margin-top: 5%;
+	
+}
+.icontext2{
+	color: #6C6A6A;
+font-size: 1vw;
+text-align: right;
+float: right;
+width: 50%;
+}
