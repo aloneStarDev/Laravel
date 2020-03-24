@@ -20,8 +20,12 @@ class CreateCustomersTable extends Migration
             $table->string('phonenumber',20);
             $table->integer('region');
             $table->string('address')->nullable();
+
+            //please remove 'subscribtion-time' and 'start-subscribtion' and uncomment 'expire_subscription'
             $table->integer('subscribtion-time')->nullable();
             $table->timestamp('start-subscribtion')->nullable();
+//            $table->timestamp('expire_subscription')->nullable();
+
             $table->boolean('mode');//pro 1 or free 0
             $table->boolean('enable');
             $table->boolean('active');//for verify phonenumber

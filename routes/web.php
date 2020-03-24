@@ -26,3 +26,10 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::resource('members','MemberController')->middleware('auth');
     Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth');
 });
+
+//payment
+Route::middleware('auth')->group(function () {
+    Route::get('/subscribe', 'PaymentController@tariffs');
+    Route::post('/subscribe/payment', 'PaymentController@payment');
+    Route::get('/subscribe/payment/checker', 'PaymentController@checker');
+});

@@ -35,7 +35,14 @@ class User extends Authenticatable
         $client = new Client();
         $client->get('https://raygansms.com/SendMessageWithCode.ashx?Username=Amlakonlin&Password=8689811&Mobile=' . $phoneNumber.'&Message= کد تایید شما :'.$code);
     }
-    public function post(){
+
+    public function post()
+    {
         return $this->hasMany(File::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
     }
 }
