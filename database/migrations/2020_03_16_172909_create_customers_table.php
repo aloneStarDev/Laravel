@@ -25,6 +25,7 @@ class CreateCustomersTable extends Migration
             $table->timestamp('endSubscribe')->nullable();
             $table->boolean('enable')->default(false);//for verify phonenumber
             $table->boolean('active')->default(false);
+            $table->boolean('enable');
             $table->timestamps();
             $table->foreign('phonenumber')->on('users')->references('username');
         });

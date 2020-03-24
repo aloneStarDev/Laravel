@@ -24,5 +24,13 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::resource('agents', 'AgentController')->middleware('auth');
     Route::resource('files', 'FileController')->middleware('auth');
     Route::resource('members','MemberController')->middleware('auth');
+    Route::resource('tariffs', 'TariffController');
     Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth');
+});
+
+//payment
+Route::middleware('auth')->group(function () {
+    Route::get('/subscribe', 'PaymentController@tariffs');
+    Route::post('/subscribe/payment', 'PaymentController@payment');
+    Route::get('/subscribe/payment/checker', 'PaymentController@checker');
 });
