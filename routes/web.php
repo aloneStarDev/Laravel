@@ -24,6 +24,7 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::resource('agents', 'AgentController')->middleware('auth');
     Route::resource('files', 'FileController')->middleware('auth');
     Route::resource('members','MemberController')->middleware('auth');
+    Route::resource('tariffs', 'TariffController');
     Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth');
 });
 
