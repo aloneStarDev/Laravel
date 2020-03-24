@@ -20,16 +20,18 @@ class CreateCustomersTable extends Migration
             $table->string('phonenumber',20);
             $table->integer('region');
             $table->string('address')->nullable();
-            $table->integer('subscribtion-time')->nullable();
-            $table->timestamp('start-subscribtion')->nullable();
-            $table->boolean('mode');//pro 1 or free 0
-            $table->boolean('enable');
-            $table->boolean('active');//for verify phonenumber
+            $table->string('call')->nullable();
+            $table->json('users')->nullable();
+            $table->timestamp('endSubscribe')->nullable();
+            $table->boolean('enable')->default(false);//for verify phonenumber
+            $table->boolean('active')->default(false);
             $table->timestamps();
-            $table->foreign('phonenumber')->on('users')->references('username')->onDelete('cascade');
+            $table->foreign('phonenumber')->on('users')->references('username');
         });
     }
+    public function onDel(){
 
+    }
     /**
      * Reverse the migrations.
      *

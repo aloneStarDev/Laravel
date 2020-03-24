@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Contact;
 
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomerRequest;
 use App\Http\Requests\UserRequest;
 use App\User;
 use Cassandra\Exception;
@@ -24,11 +25,19 @@ class ContactController extends Controller
         $user = User::where('username',$request->input('userName'))->first();
         if($user==null || !Hash::check($request->input('passWord'),$user->password))
             return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
-        if(Hash::check($request->input('passWord'),$user->password) && $user->expire = true){
-            if($user->rollId > 0 )
-                if(Customer::where('id',$user->rollId)->firstOrFail()->enable==false)
+        if(Hash::check($request->input('passWord'),$user->password)){
+            if($user->rollId > 0 ) {
+                if($user->ip == null || isEmptyOrNullString($user->ip)) {
+                    $user->ip = $request->getClientIp();
+                    $user->save();
+                }
+                if (Customer::where('id', $user->rollId)->firstOrFail()->enable == false || $user->ip != $request->getClientIp())
                     return back()->withErrors('دسترسی شما غیرفعال می باشد');
-            auth()->loginUsingId($user->id);
+                else
+                    auth()->loginUsingId($user->id);
+            }else{
+                auth()->loginUsingId($user->id);
+            }
             return redirect(route('manage'));
         }
         return back()->withErrors(['meg'=>'login fail']);
@@ -37,44 +46,15 @@ class ContactController extends Controller
     {
         return view('Auth.Signup',['title'=>'ثبت نام']);
     }
-    public function register(Request $request)
+    public function register(CustomerRequest $request)
     {
-        // try{
-        $messages=[
-            'name.required'=>'نام الزامی است',
-            'lastname.required'=>'نام خانوادگی الزامی است',
-            'phonenumber.required'=>'شماره تماس الزامی هست',
-            'phonenumber.uniq'=>'این شماره قبلا ثبت شده است',
-            'region.required'=>'ناحیه الزامی است',
-            'address.required'=>'آدرس الزامی است',
-            'password.required'=>'گذرواژه الزامی است',
-        ];
-        $request->validate(
-            [
-                'name'=>'Required',
-                'lastname'=>'Required',
-                'phonenumber'=>'Required|unique:customers',
-                'region'=>'Required',
-                'address'=>'Required',
-            ],$messages);
-
-        $customer = new Customer([
-            'name'=>$request->get('name'),
-            'lastname'=>$request->get('lastname'),
-            'phonenumber'=>$request->get('phonenumber'),
-            'region'=>$request->get('region'),
-            'address'=>$request->get('address'),
-            'mode'=>false,
-            'enable'=>false,//when verify phone number
-            'active'=>false
-        ]);
+        $customer = new Customer($request->all());
         $customer->save();
         $request->session()->flash('phonenumber',$request->input('phonenumber'));
         $code = round(rand())%999999;
         $request->session()->flash('code',$code);
         $request->session()->flash('rollId',$customer->id);
         User::sendCode($request->input('phonenumber'),$code);
-
         return view('Auth.verify',['title'=>'فعال سازی']);
     }
     public function forget(){
@@ -103,11 +83,13 @@ class ContactController extends Controller
             {
                 $user = User::where('username',session()->get('phonenumber'))->firstOrFail();
                 $user->password = Hash::make($request->get('password'));
+                $user->enable=true;
+                $user->active=true;
                 $user->save();
                 return redirect(route('signin'));
             }
             else
-                return 'code incorrect';
+                return back()->withErrors(['msg'=>'کد تایید اشتباه است']);
         }else
             return back()->withErrors(['msg'=>'کد تایید منقضی شده است']);
     }

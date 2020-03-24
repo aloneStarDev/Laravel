@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         factory(User::class,1)->create([
             'username'=>'master',
             'password'=>Hash::make('1399'),
-            'rollId'=>0
+            'rollId'=>0,
         ]);
     }
 }

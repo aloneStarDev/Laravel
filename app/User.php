@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'rollId',
+        'username', 'password', 'rollId','ip'
     ];
 
     /**
@@ -29,13 +29,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
     public static function sendCode($phoneNumber,$code)
     {
         $client = new Client();
         $client->get('https://raygansms.com/SendMessageWithCode.ashx?Username=Amlakonlin&Password=8689811&Mobile=' . $phoneNumber.'&Message= کد تایید شما :'.$code);
     }
-    public function post(){
+    public function file(){
         return $this->hasMany(File::class);
     }
 }

@@ -11,7 +11,7 @@
 </head>
 
 <body class="body">
-<img alt="background-texture-top" src="../base/images/bg-header.png" class="background">
+<img alt="background-texture-top" src="../base/Images/bg-header.png" class="background">
 
 @include('Base.section.topMenu');
 
