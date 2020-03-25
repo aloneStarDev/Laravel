@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	"use strict";
 var flag=true;
+$(".cost-content a").on("click",function(){
+	$(".costbtn").text($(this).text());
+	});
  $("#myCarousel").on("slide.bs.carousel", function(e) {
     var e1 = $(e.relatedTarget);
     var idx = e1.index();
@@ -136,7 +139,7 @@ $(".pishraftebtn").on("click",function(){
 		$(this).html("جستجو پیشرفته <i class='fas fa-chevron-down'></i>");
 	$(this).css("outline","none");
 	$(".search-search-text").css("height","70px");
-	$(".pishrafte-hide").hide("slow");
+	$(".pishrafte-hide").slideUp("slow");
 	flag=true;
 		}
 	});
@@ -214,11 +217,13 @@ $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
 	if($height > 20){
 	$(".headingitems").addClass("scrolled");
-
-	$(".logo").html("<img alt='logo' src='../Images/Untitled-2.png' style='width:60%; transition-duration:0.5s;'>");
-	$(".logo img").css("width","45%");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");
 	$("#navbarNavAltMarkup").css("margin-top","2%");
+	$(".navbar").css({
+		marginTop:"0",
+		paddingTop:"0"
+		});
+	$(".logo img").css("display","none");
 	$(".navitems").css({
 		color:"white",
 		fontSize:"1vw"
@@ -229,10 +234,13 @@ $(window).on("scroll",function(){
 		 }
 		else{
 	$(".headingitems").removeClass("scrolled");
-	$(".logo").html("<img alt='logo' src='../Images/Untitled-2.png' style='width:60%; transition-duration:0.5s;'>");
-	$(".logo img").css("width","60%");
+	$(".logo img").css("display","initial");
 	$("#navbarNavAltMarkup").css("margin-top","0");
 	$("#navbarNavAltMarkup").css("margin-bottom","2%");
+	$(".navbar").css({
+		marginTop:"1%",
+		paddingTop:"0.5%"
+		});
 	$(".navitems").css({
 		fontSize:"1.2vw"
 		});

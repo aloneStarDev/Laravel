@@ -118,3 +118,115 @@ class AgentController extends Controller
         return back();
     }
 }
+
+
+//<?php
+//
+//namespace App\Http\Controllers\Admin;
+//
+//use App\Agent;
+//use App\Customer;
+//use App\File;
+//use App\Http\Controllers\Controller;
+////<<<<<<< HEAD
+//use App\Http\Requests\FileRequest;
+//use Illuminate\Http\RedirectResponse;
+//use Illuminate\Http\Request;
+//use Illuminate\Routing\Redirector;
+////=======
+//use Illuminate\Auth\Access\AuthorizationException;
+//use Illuminate\Contracts\View\Factory;
+////use Illuminate\Http\Request;
+//use Illuminate\Http\Response;
+//use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Gate;
+//use Illuminate\View\View;
+////>>>>>>> 54bb88ac03d4192cac2ae4b497c8ca8ae44762d1
+//
+//class FileController extends Controller
+//{
+//    /**
+//     * Display a listing of the resource.
+//     *
+//     * @return Response
+//     */
+//public function index()
+//{
+//}
+///**
+// * Show the form for creating a new resource.
+// *
+// * @return Response
+// */
+//public function create()
+//{
+//}
+//
+///**
+// * Store a newly created resource in storage.
+// *
+//<<<<<<< HEAD
+// * @param  FileRequest  $request
+// * @return RedirectResponse|Redirector
+//=======
+////     * @param Request $request
+////     * @return Response
+//>>>>>>> 54bb88ac03d4192cac2ae4b497c8ca8ae44762d1
+// */
+//public function store(FileRequest $request)
+//{
+//}
+//
+///**
+// * Display the specified resource.
+// *
+// * @param  File  $file
+// * @return Response
+// */
+//public function show(File $file)
+//{
+//    return 'in Show';
+//}
+//
+///**
+// * Show the form for editing the specified resource.
+// *
+// * @param File $file
+// * @return Factory|View
+// * @throws AuthorizationException
+// */
+//public function edit(File $file)
+//{
+//    //if you are agent, you can't access to this route
+//    $this->authorize('admin_permissions');
+//    return view('Admin.files.edit', compact('file'));
+//}
+//
+///**
+// * Update the specified resource in storage.
+// *
+// * @param Request $request
+// * @param File $file
+// * @return void
+// */
+//public function update(Request $request,File $file)
+//{
+//    $file->update($request->all());
+//    return "in update";
+//}
+//
+///**
+// * Remove the specified resource from storage.
+// *
+// * @param File $file
+// * @return Response
+// * @throws AuthorizationException
+// */
+//public function destroy(File $file)
+//{
+//}
+//}
+
+
+
+

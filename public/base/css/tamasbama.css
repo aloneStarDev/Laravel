@@ -18,12 +18,12 @@ width: 100%;
 margin-left: 0;
 	}
 .footer-icon li img {
-	width:90%;
+	width:5vw;
 	}
 .footer-icon li {
 	text-align: center;
     float: right;
-    width: 100px;
+    width: 30%;
 	}
 .page-footer a:hover{
 	text-decoration:none;
@@ -44,6 +44,7 @@ margin-left: 0;
 	position:relative;
 	}
 .page-footer{
+	font-family:"B NAZANIN";
 	direction:ltr;
 	position:relative;
 	color: white !important;
@@ -65,6 +66,7 @@ bottom: 130%;
 .scrolled{
 	background: rgba(191,191,191,0.9);
 	transition-duration:0.5s;
+	height:12%;
 	}
 .icon-arrow{
 	color:white;
@@ -76,8 +78,7 @@ bottom: 130%;
 	border-bottom: 2px solid #BE56D4 !important;
 	}
 .logo{
-	margin-left: 5%;
-    margin-right: 4%;
+	margin-left: 8%;
     width: 20%;
 }
 h1{
@@ -159,7 +160,7 @@ h1{
 	background:#EBEBEB;
 	direction:rtl;
 	overflow-x: hidden;
-	font-family: Yekan;
+	font-family: "BYekan+";
 }
 .dropbtn {
   background:transparent;
@@ -194,7 +195,7 @@ border-bottom: 2px solid rgba(0,0,0,0);
 .darbarema{
 	color: #ffffff;
 	font-size: 54px;
-	font-family: Yekan;
+	font-family: "BYekan+";
 }
 .darbarema-div{
 	position: absolute;
@@ -231,6 +232,7 @@ margin-right: 10%;
 	text-align: right;
 	padding-right: 13%;
 	margin-top: 5%;
+	font-family:"B NAZANIN";
 }
 .texticons{
 	float: right;
@@ -261,6 +263,7 @@ margin-left: 5%;
 clear: right;
 }
 .iconstext{
+	font-family:"B NAZANIN";
 	color: #6C6A6A;
 font-size: 1.6vw;
 text-align: right;

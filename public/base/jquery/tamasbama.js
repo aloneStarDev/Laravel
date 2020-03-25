@@ -56,10 +56,13 @@ $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
 	if($height > 20){
 	$(".headingitems").addClass("scrolled");
-	$(".logo").html("<img alt='logo' src='../Images/Untitled-2.png' style='width:60%; transition-duration:0.5s;'>");
-	$(".logo img").css("width","45%");
+	$(".logo img").css("display","none");
 	$("#navbarNavAltMarkup").css("margin-top","2%");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");
+	$(".navbar").css({
+		marginTop:"0",
+		paddingTop:"0"
+		});
 	$(".navitems").css({
 		color:"white",
 		fontSize:"1vw"
@@ -70,10 +73,13 @@ $(window).on("scroll",function(){
 		 }
 		else{
 	$(".headingitems").removeClass("scrolled");
-	$(".logo").html("<img alt='logo' src='../Images/Untitled-1.png' style='width:60%; transition-duration:0.5s;'>");
-	$(".logo img").css("width","60%");
+	$(".logo img").css("display","initial");
 	$("#navbarNavAltMarkup").css("margin-top","0");
 	$("#navbarNavAltMarkup").css("margin-bottom","2%");
+	$(".navbar").css({
+		marginTop:"1%",
+		paddingTop:"0.5%"
+		});
 	$(".navitems").css({
 		fontSize:"1.2vw"
 		});

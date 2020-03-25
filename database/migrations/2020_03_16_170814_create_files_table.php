@@ -17,24 +17,27 @@ class CreateFilesTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->integer('code')->unique();// randomCode uniq
-            $table->unsignedInteger('rahn');
-            $table->unsignedInteger('ejare')->default(0);// if ejare is 0 toman so rahn value is buy value
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('buildingType'); // villaie aparteman
-            $table->tinyInteger('floor')->default(1);// tabaghat
-            $table->tinyInteger('area');//metraj
-            $table->tinyInteger('age');//age of building
-            $table->tinyInteger('unit')->default(1);// Vahed Count
-            $table->tinyInteger('bedroom'); // BedRoom Count
-            $table->multiLineString('addressPu');
-            $table->multiLineString('addressPv');
+            $table->unsignedInteger('buy')->nullable();
+            $table->unsignedInteger('rahn')->nullable();
+            $table->unsignedInteger('ejare')->nullable();
+            $table->string('name',50);
+            $table->string('lastname',50);
+            $table->unsignedTinyInteger('buildingType'); // 1villaie 2aparteman
+            $table->unsignedTinyInteger('floor')->default(1);// tabaghat
+            $table->unsignedSmallInteger('area');//metraj
+            $table->unsignedTinyInteger('age');//age of building
+            $table->unsignedTinyInteger('unit')->default(1);// Vahed Count
+            $table->unsignedTinyInteger('bedroom'); // BedRoom Count
+            $table->unsignedTinyInteger('region');
+            $table->string('addressPu');
+            $table->string('addressPv');
             $table->string('phonenumber',20);
-            $table->text('options')->nullable();//json
+            $table->string('options')->nullable();//json
             $table->text('description')->nullable();
-            $table->integer('userId');
-            $table->boolean('visible');
-            $table->boolean('deleted');
+            $table->integer('user_id');
+            $table->foreign('user_id')->on('agents')->references('id');
+            $table->boolean('visible')->default(true);
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }

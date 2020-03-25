@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
 {
-    protected $fillable=['title','code','rahn','ejare','name','lastname','buildingType','floor','area','age','unit','bedroom','adressPu','adressPv','phonenumber','options','description','userId','visible','deleted'];
+    protected $fillable=['title','code','buy','rahn','ejare','name','lastname','buildingType','region','floor','area','age','unit','bedroom','addressPu','addressPv','phonenumber','options','description','userId','visible','deleted'];
 }

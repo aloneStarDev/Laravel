@@ -26,12 +26,19 @@ class FileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'lastname' => 'required',
-            'phonenumber' => 'required',
-            'addressPu' => 'required',
-            'addressPv' => 'required',
-            'region' => 'required',
+            'title'=> 'max:191',
+            'name' => 'required|max:50',
+            'lastname' => 'required|max:50',
+            'phonenumber' => 'required|max:20',
+            'buildingType' => 'required|numeric|max:255',
+            'floor' => 'required|numeric|max:255',
+            'area' => 'required|numeric|max:65535',
+            'age' => 'required|numeric|max:255',
+            'unit' => 'required|numeric|max:255',
+            'bedroom' => 'required|numeric|max:255',
+            'addressPu' => 'required|max:191',
+            'addressPv' => 'required|max:191',
+            'region' => 'required|numeric|max:255',
         ];
     }
 }

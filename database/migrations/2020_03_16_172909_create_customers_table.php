@@ -22,16 +22,12 @@ class CreateCustomersTable extends Migration
             $table->string('address')->nullable();
             $table->string('call')->nullable();
             $table->json('users')->nullable();
-            $table->timestamp('endSubscribe')->nullable();
+            $table->timestamp('expire_subscription')->nullable();
             $table->boolean('enable')->default(false);//for verify phonenumber
             $table->boolean('active')->default(false);
-            $table->boolean('enable');
             $table->timestamps();
             $table->foreign('phonenumber')->on('users')->references('username');
         });
-    }
-    public function onDel(){
-
     }
     /**
      * Reverse the migrations.

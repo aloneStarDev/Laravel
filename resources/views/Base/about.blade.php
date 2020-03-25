@@ -3,31 +3,79 @@
 <head>
 <meta charset="utf-8">
 <title>ٌدرباره ما</title>
-<link href="../base/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="../base/fontawesome/css/all.css" rel="stylesheet" type="text/css">
-<link href="../base/css/DarbareMa.css" rel="stylesheet" type="text/css">
-<script src="../base/jquery/jquery-3-4-1.js"></script>
+<link href="base/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="base/fontawesome/css/all.css" rel="stylesheet" type="text/css">
+<link href="base/css/DarbareMa.css" rel="stylesheet" type="text/css">
+<script src="base/jquery/jquery-3-4-1.js"></script>
 </head>
 
 <body class="body">
-<img alt="background-texture-top" src="../base/Images/bg-header.png" class="background">
-@include('Base.section.topMenu');
+<img alt="background-texture-top" src="base/Images/bg-header.png" class="background">
+<div class="headingitems fixed-top">
+<nav class="navbar navbar-expand-xl" style=" margin:0; box-sizing:inherit;padding-bottom:0.5%; width:100%; margin-top:1%;">
+<div class="logo" >
+<img alt="logo" src="base/Images/Untitled-1.png" style="width:60%;">
+</div>
+  <div id="navbarNavAltMarkup" style="width: 100%; margin-bottom:2%;">
+    <div class="navbar-nav">
+    <div class="dropdown">
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('base')}}">صفحه اصلی</a></button>
+</div>
+     <div class="dropdown">
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">مشاورین املاک</a></button>
+</div>
+      <div class="dropdown">
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">قوانین</a></button>
+</div>
+ <div class="dropdown">
+  <button class="dropbtn"><a class="nav-item nav-link navitems home" href="{{route('about')}}">درباره ما</a></button>
+</div>
+<div class="dropdown">
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('contactUs')}}">ارتباط با ما</a></button>
+</div>
+<ul class=" justify-content-end nav-pills topul">
+  <li class="nav-item">
+    <a href="#" class="atag firstProf">
+    <button type="button" class="btn">
+    <i class="fas fa-chevron-right" style="margin-left:5%;"></i>
+    <span>
+     ثبت آگهی رایگان
+     </span>
+    <i class="fas fa-plus icon"></i>
+    </button></a>
+  </li>
+  <li class="nav-item">
+    <a href="{{route('signin')}}" class="atag secProf">
+    <button type="button" class="btn">
+    <i class="fas fa-chevron-right" style="margin-left:5%;"></i>
+    <span>
+    ورود/ثبت نام مشاورین
+    </span>
+    <i class="fas fa-user icon"></i>
+    </button></a>
+
+  </li>
+</ul>
+    </div>
+  </div>
+</nav>
+</div>
 <div class="darbarema-div">
 <h1 class="darbarema">درباره ما</h1>
 </div>
 <div class="background-building-div">
-<img alt="background-building-top" src="../base/Images/building3.png" class="background-building">
+<img alt="background-building-top" src="base/Images/building3.png" class="background-building">
 </div>
 <div class="top-paragraph-div">
-<h2 class="topparagraph">قویترین سیستم فایلینگ تحت اینترنت، ویژه<br>
- آژانس های املاک و متقاضیان خرید و یا اجاره ملک.</h2>
+<h2 class="topparagraph">قویترین سیستم فایلینگ تحت اینترنت<br>
+  ویژه آژانس های املاک و عموم مردم</h2>
  </div>
 
 <div class="tri-right">
-<img alt="background-texture-right" src="../base/Images/curve-3.png">
+<img alt="background-texture-right" src="base/Images/curve-3.png">
 </div>
 <div class="tri-left">
-<img alt="background-texture-left" src="../base/Images/curve-2.png">
+<img alt="background-texture-left" src="base/Images/curve-2.png">
 </div>
 
 <div class="box1">
@@ -40,7 +88,7 @@
 متفاوت و به اسم واسطه های مختلف ، و همچنین طبقات مختلف یک ملک به عنوان فایل های مجزا  و املاکی که قبلا اجاره و یا<br>
 فروش رفته اند! )
   </div>
- <img class="firstboxphoto" alt="firstboxphoto" src="../base/Images/g8.jpg">
+ <img class="firstboxphoto" alt="firstboxphoto" src="base/Images/g8.jpg">
 </div>
 
 <div class="box2">
@@ -50,7 +98,7 @@
  یا مشاور به سادگی و با استفاده از راهنمای خود سیستم فایلینگ قادر به استفاده از آن خواهد بود)<br>ارائه پشتیبانی بسیار کارآمد و همیشگی<br>عدم نیاز به اینترنت سرعت بالا ( حتی با استفاده از یک خط تلفن )<br>امکان ایجاد آگهی فایل برای آژانس ها، بگونه ای که این آگهی ها با شماره مشاور بر روی سایت املاک آنلاین قرار می گیرد<br>
  و باعث ایجاد مشتری ملکی می گردد
   </div>
-<img class="secondboxphoto" alt="secondtboxphoto" src="../base/Images/approaches-to-setting-up-customer-support-1.jpg">
+<img class="secondboxphoto" alt="secondtboxphoto" src="base/Images/approaches-to-setting-up-customer-support-1.jpg">
 </div>
 <div class="bottom-icons">
  <div class="icons-1">
@@ -64,11 +112,95 @@
   <div class="icontext2">ساعت 8 تا 16 هرروز</div>
  </div>
 </div>
+<footer class="page-footer font-small indigo">
+<div class="footer-back">
+<img alt="footer-background" class="footer-image" src="base/Images/bg-footer.png">
+</div>
+<div class="footer-logo">
+<img alt="logo" src="base/Images/Untitled-1.png" style="width:40%;">
+</div>
+  <div class=" text-center footer-inner text-md-left">
+    <div class="row" style=" border-bottom:thin solid; padding: 0 7%;">
+      <div class="col mx-auto">
+        <ul class="list-unstyled footer-icon">
+          <li>
+            <img alt="ozv" src="base/Images/ecunion-logo.png">
+          </li>
+          <li>
+           <img alt="ozv" src="base/Images/eanjoman.jpg">
+          </li>
+          <li>
+            <img alt="ozv" src="base/Images/logo.png">
+          </li>
+        </ul>
+      </div>
+      <hr class="clearfix w-100 d-md-none">
+      <div class="col mx-auto footer-div">
+        <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">اطلاعات بیشتر</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">پاسخ به پرسش های متداول</a>
+          </li>
+          <li>
+            <a href="#!">تبلیغات</a>
+          </li>
+          <li>
+            <a href="#!">قوانین</a>
+          </li>
+          <li>
+          <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4" style="margin-top: 5% !important;">شبکه های اجتماعی</h5>
+          </li>
+        </ul>
+      </div>
+      <hr class="clearfix w-100 d-md-none">
+      <div class="col mx-auto footer-div">
+        <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">کلیدهای کاربردی</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">ورود شماورین</a>
+          </li>
+          <li>
+            <a href="#!">ثبت آگهی رایگان</a>
+          </li>
+          <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4" style="margin-top: 5% !important;">جستجو</h5>
+          <li>
+            <a href="#!">جستجوی ملک</a>
+          </li>
+          <li>
+            <a href="#!">فیلتر های جستجو</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="clearfix w-100 d-md-none">
+      <div class="col mx-auto footer-div">
+        <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">منو</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">صفحه اصلی</a>
+          </li>
+          <li>
+            <a href="#!">مشاورین‌املاک</a>
+          </li>
+          <li>
+            <a href="#!">نظر سنجی</a>
+          </li>
+          <li>
+            <a href="#!">درباره ما</a>
+          </li>
+          <li>
+            <a href="#!">ارتباط باما</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright text-center py-3">
+   تمامی حقوق وبسایت متعلق به املاک آنلاین میباشد
+  </div>
+</footer>
 
-@include('Base.section.footer');
-
-<script type="text/javascript" src="../base/jquery/bootstrap.js"></script>
-<script type="text/javascript" src="../base/fontawesome/js/all.js"></script>
-<script type="text/javascript" src="../base/jquery/DarbareMa.js"></script>
+<script type="text/javascript" src="base/jquery/bootstrap.js"></script>
+<script type="text/javascript" src="base/fontawesome/js/all.js"></script>
+<script type="text/javascript" src="base/jquery/DarbareMa.js"></script>
 </body>
 </html>

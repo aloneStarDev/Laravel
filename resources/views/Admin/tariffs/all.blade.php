@@ -12,6 +12,7 @@
                     <th>شماره</th>
                     <th>مدت</th>
                     <th>قیمت (تومان)</th>
+                    <th>قیمت هر کاربر اضافه</th>
                     <th>تنظیمات</th>
                 </tr>
                 </thead>
@@ -21,6 +22,7 @@
                         <td>{{ $tariff->id }}</td>
                         <td>{{ $tariff->months }} ماه</td>
                         <td>{{ $tariff->price }}</td>
+                        <td>{{ $tariff->addOnMember }}</td>
                         <td>
                             <a href="{{ route('tariffs.edit', ['tariff' => $tariff->id]) }}" class="btn btn-primary">ویرایش</a>
                         </td>

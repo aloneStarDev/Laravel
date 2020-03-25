@@ -16,6 +16,9 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::post('/resetPassword', 'ContactController@resetPassword')->name('resetPassword');
     Route::post('/forget', 'ContactController@verifyForget')->name('verifyForget');
     Route::get('/logout','ContactController@logout')->name('logout');
+    Route::get('/subscribe', 'PaymentController@tariffs')->name('subscribePanel');
+    Route::post('/subscribe/payment', 'PaymentController@payment');
+    Route::get('/subscribe/payment/checker', 'PaymentController@checker');
 });
 
 ////route group for admin panel and management of it
@@ -23,14 +26,9 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::get('/panel' , 'PanelController@index')->name('manage')->middleware('auth');
     Route::resource('agents', 'AgentController')->middleware('auth');
     Route::resource('files', 'FileController')->middleware('auth');
+    Route::resource('archives', 'ArchiveController')->middleware('auth');
     Route::resource('members','MemberController')->middleware('auth');
-    Route::resource('tariffs', 'TariffController');
+    Route::resource('tariffs', 'TariffController')->middleware('auth');
     Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth');
 });
 
-//payment
-Route::middleware('auth')->group(function () {
-    Route::get('/subscribe', 'PaymentController@tariffs');
-    Route::post('/subscribe/payment', 'PaymentController@payment');
-    Route::get('/subscribe/payment/checker', 'PaymentController@checker');
-});

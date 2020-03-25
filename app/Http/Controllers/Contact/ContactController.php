@@ -1,12 +1,14 @@
 <?php
 namespace App\Http\Controllers\Contact;
 
+use App\Agent;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerRequest;
 use App\Http\Requests\UserRequest;
 use App\User;
 use Cassandra\Exception;
+use foo\bar;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +38,9 @@ class ContactController extends Controller
                 else
                     auth()->loginUsingId($user->id);
             }else{
+                if($user->rollId < 0 )
+                    if( Agent::where('id',-1*($user->rollId))->firstOrFail()->active == false)
+                        return back()->withErrors('دسترسی شما غیر فعال است');
                 auth()->loginUsingId($user->id);
             }
             return redirect(route('manage'));
@@ -102,15 +107,13 @@ class ContactController extends Controller
         $customer = Customer::where('phonenumber',$request->session()->get('phonenumber'))->first();
         if($request->session()->get('code')==$request->get('verify')){
             $customer->enable=true;
-            $customer->active=true;
             $customer->save();
             $user = new User([
                 'username' => $request->session()->get('phonenumber'),
                 'password' =>  Hash::make($request->get('password')),
                 'rollId' => $request->session()->get('rollId')
             ]);
-            $user->save();
-            return Redirect::route('signin');
+            return Redirect::route('subscribePanel',compact('user'));
         }else
             return back()->withErrors(['msg'=>'کد تایید اشتباه است']);
     }

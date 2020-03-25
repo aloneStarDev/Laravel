@@ -20,11 +20,11 @@
                     <th>ناحیه</th>
                     <th>نمایش تصویر</th>
                     @can("show_files")
-                    <th>وضعیت</th>
+                        <th>وضعیت</th>
                     @endcan
                 @can("admin_permissions")
                         <th>کنترل</th>
-                    @endcan
+                @endcan
                 </tr>
                 </thead>
                 <tbody>
@@ -41,14 +41,15 @@
                         @endcan
                         @can('admin_permissions')
                         <td>
-                            <form action="{{ route('files.destroy', $file) }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <div class="btn-group btn-group-xs">
-                                    <a href="{{ route('files.edit', $file) }}" class="btn btn-primary">ویرایش</a>
+                            <div class="btn-group btn-group-xs">
+                                <form action="{{ route('files.destroy', $file) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
                                     <button type="submit" class="btn btn-danger">حذف</button>
-                                </div>
-                            </form>
+                                </form>
+                                <a href="{{ route('files.edit', $file) }}" class="btn btn-primary">ویرایش</a>
+                                <a href="{{ route('archives.store', $file) }}" class="btn btn-default">بایگانی</a>
+                            </div>
                         </td>
                         @endcan
                     </tr>

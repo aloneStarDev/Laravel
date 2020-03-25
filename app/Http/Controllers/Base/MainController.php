@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 class MainController extends Controller{
     public function index(){
-        return view('Base.welcom');
+        return view('Base.index');
     }
     public function about(){
 

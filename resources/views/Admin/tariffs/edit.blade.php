@@ -15,7 +15,12 @@
                     <input type="text" class="form-control" name="price" id="price" placeholder="قیمت را وارد کنید" value="{{ $tariff->price }}">
                 </div>
             </div>
-
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="price" class="control-label">قیمت کاربر اضافه</label>
+                    <input type="text" class="form-control" name="addOnMember" id="price" placeholder="قیمت را وارد کنید" value="{{ $tariff->addOnMember }}">
+                </div>
+            </div>
             <div class="form-group">
                 <div class="col-sm-12">
                     <button type="submit" class="btn btn-danger">ویرایش</button>

@@ -151,6 +151,10 @@ return array(
         'lastname' => 'نام خانوادگی',
         'addressPu'=> 'آدرس اصلی',
         'addressPv'=> 'آدرس فرعی',
-        'region'=>'منطقه'
+        'region'=>'منطقه',
+        'floor'=>'طبقه',
+        'area'=>'متداژ',
+        'unit'=>'واحد',
+        'bedroom'=>'تعداد خواب'
     ),
 );

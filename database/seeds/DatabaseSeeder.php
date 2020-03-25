@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
             'password'=>Hash::make('1399'),
             'rollId'=>0,
         ]);
+        $this->call([TariffSeeder::class]);
     }
 }
