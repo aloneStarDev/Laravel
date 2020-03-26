@@ -35,7 +35,7 @@
                 @can('show_files')
                     <li><a href="{{route('files.index')}}"> صفحه ثبت ملک<span class="badge">0</span></a></li>
                 @endcan
-                <li><a href="{{route('archives.index')}}">بایگانی<span class="badge">0</span></a></li>
+                <li><a href="{{route('archives')}}">بایگانی<span class="badge">0</span></a></li>
             </ul>
 
             <ul class="nav nav-sidebar">

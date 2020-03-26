@@ -26,7 +26,9 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::get('/panel' , 'PanelController@index')->name('manage')->middleware('auth');
     Route::resource('agents', 'AgentController')->middleware('auth');
     Route::resource('files', 'FileController')->middleware('auth');
-    Route::resource('archives', 'ArchiveController')->middleware('auth');
+    Route::get('/file/mode/change/{file}', 'FileController@changeVisible')->middleware('auth')->name('changeMode');
+    Route::get('/file/archive/{file}', 'FileController@archive')->middleware('auth')->name('archive');
+    Route::get('/file/archives', 'FileController@archives')->middleware('auth')->name('archives');
     Route::resource('members','MemberController')->middleware('auth');
     Route::resource('tariffs', 'TariffController')->middleware('auth');
     Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth');

@@ -34,8 +34,7 @@ class CreateFilesTable extends Migration
             $table->string('phonenumber',20);
             $table->string('options')->nullable();//json
             $table->text('description')->nullable();
-            $table->integer('user_id');
-            $table->foreign('user_id')->on('agents')->references('id');
+            $table->integer('user_id');//file register by a member if user_id be a negative number
             $table->boolean('visible')->default(true);
             $table->boolean('deleted')->default(false);
             $table->timestamps();

@@ -3,10 +3,7 @@
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="page-header head-section">
-            <h2>فایل</h2>
-            @can('show_files')
-            <a href="{{ route('files.create') }}" class="btn btn-sm btn-primary">ایجاد فایل</a>
-            @endcan
+            <h2>بایگانی</h2>
 
         </div>
         <div class="table-responsive">
@@ -18,7 +15,7 @@
                     <th>آدرس اصلی</th>
                     <th>آدرس فرعی</th>
                     <th>ناحیه</th>
-                    <th>نمایش تصویر</th>
+                    <th>کد فابل</th>
                     @can("show_files")
                         <th>وضعیت</th>
                     @endcan
@@ -35,7 +32,7 @@
                         <td>{{ $file->addressPu }}</td>
                         <td>{{ $file->addressPv }}</td>
                         <td>{{ $file->region }}</td>
-                        <td><a href="#" class="btn btn-info">نمایش تصویر</a></td>
+                        <td>{{$file->code}}</td>
                         @can("show_files")
                         <td>@if($file->visible) فعال @else غیرفعال @endif </td>
                         @endcan
@@ -45,10 +42,10 @@
                                 <form action="{{ route('files.destroy', $file) }}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                    <button type="submit" class="btn btn-default">حذف</button>
+                                    <a href="{{ route('files.edit', $file) }}" class="btn btn-default">ویرایش</a>
+                                    <a href="{{ route('archive', $file) }}" class="btn btn-default">خروج از بایگانی</a>
                                 </form>
-                                <a href="{{ route('files.edit', $file) }}" class="btn btn-primary">ویرایش</a>
-                                <a href="{{ route('archives.store', $file) }}" class="btn btn-default">بایگانی</a>
                             </div>
                         </td>
                         @endcan

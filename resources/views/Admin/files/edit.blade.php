@@ -224,11 +224,15 @@
 
         function addOption() {
             try {
+                if(options == null)
+                    options = {};
                 let option = {};
                 let optionName = $("#optionInput").val();
 
                 switch (optionType) {
                     case "1":
+                        if(!options.hasOwnProperty('option1'))
+                            options.options1=[];
                         option[optionName] = $("#optionValue1").is(":checked");
                         options.options1.push(option);
                         var node = document.createElement("LI");
@@ -238,6 +242,9 @@
                         document.getElementById("boolOption").appendChild(node);
                         break;
                     case "2":
+
+                        if(!options.hasOwnProperty('option2'))
+                            options.options2 = [];
                         option[optionName] = $("#optionValue2").val();
                         options.options2.push(option);
                         var node = document.createElement("LI");

@@ -18,7 +18,6 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files = null;
         $files = File::where('deleted',false)->latest()->paginate(20);
         return view('Admin.files.all', compact('files'));
     }
@@ -40,7 +39,7 @@ class FileController extends Controller
         $file = new File($request->all());
         $code = 0;
         do{
-            $code = rand(0,999);
+            $code = rand(0,999999999);
         }while(File::where('code',$code)->first() != null);
         $file['code'] = $code;
         $user_id = 0;
@@ -63,7 +62,7 @@ class FileController extends Controller
      */
     public function show(File $file)
     {
-        //
+
     }
 
     /**
@@ -102,4 +101,19 @@ class FileController extends Controller
         return back();
     }
 
+    public function changeVisible(File $file){
+        $mode = $file->visible;
+        $file->update(['visible'=> !$mode]);
+        return back();
+    }
+    public function archive(File $file){
+        $mode = $file['deleted'];
+        $file->update(['visible'=> false,'deleted'=> !$mode]);
+        return back();
+    }
+    public function archives()
+    {
+        $files=File::where('deleted',true)->latest()->paginate(20);
+        return view('Admin.archive.all',compact('files'));
+    }
 }
