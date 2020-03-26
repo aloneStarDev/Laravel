@@ -43,8 +43,10 @@ class User extends Authenticatable
         return $this->hasMany(File::class);
     }
 
-    public function payments()
+    // remove this method and write in Customer.php because customer_id in payments table reference changes to customer
+    //for more details go to payments table migration
+    /*public function payments()
     {
-        return $this->hasMany(Payment::class);
-    }
+        return $this->hasMany('App\Payment');
+    }*/
 }
