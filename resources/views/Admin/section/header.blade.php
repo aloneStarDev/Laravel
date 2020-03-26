@@ -28,6 +28,8 @@
                     <li><a href="/admin/agents">صفحه کارمندان <span class="badge">0</span></a></li>
                     <li><a href="/admin/members">صفحه کاربران ثبت نام کرده</a></li>
                     <li><a href="{{route('tariffs.index')}}">صفحه تعرفه های ثبت نام <span class="badge">0</span></a></li>
+                    <li><a href="/admin/successful-payments">پرداختی های موفق <span class="badge">{{ $paymentSuccessfulCount }}</span></a></li>
+                    <li><a href="/admin/unsuccessful-payments">پرداختی های ناموفق <span class="badge">{{ $paymentUnsuccessfulCount }}</span></a></li>
                 @endcan
             </ul>
 

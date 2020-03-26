@@ -24,4 +24,9 @@ class Customer extends Model
     {
         return $this->expire_subscription > Carbon::now() ? true : false;
     }
+
+    public function payments()
+    {
+        return $this->hasMany('App\Payment');
+    }
 }
