@@ -28,7 +28,7 @@ class CustomerRequest extends FormRequest
         return [
             'name'=>'Required',
             'lastname'=>'Required',
-            'phonenumber'=>'Required|unique:customers',
+            'phonenumber'=>'Required',
             'region'=>'Required',
             'address'=>'Required',
         ];

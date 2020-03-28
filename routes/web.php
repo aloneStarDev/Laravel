@@ -29,6 +29,7 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::get('/file/mode/change/{file}', 'FileController@changeVisible')->middleware('auth')->name('changeMode');
     Route::get('/file/archive/{file}', 'FileController@archive')->middleware('auth')->name('archive');
     Route::get('/file/archives', 'FileController@archives')->middleware('auth')->name('archives');
+    Route::post('/file/find', 'FileController@find')->middleware('auth')->name('find');
     Route::resource('members','MemberController')->middleware('auth');
     Route::resource('tariffs', 'TariffController')->middleware('auth');
     Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth');

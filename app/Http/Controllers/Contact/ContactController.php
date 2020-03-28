@@ -53,6 +53,16 @@ class ContactController extends Controller
     }
     public function register(CustomerRequest $request)
     {
+        if(Customer::where("phonenumber",$request->input("phonenumber"))->get() != null && User::where('username',$request->input('phonenumber'))->first()->get() == null)
+        {
+            $customer = where("phonenumber",$request->input("phonenumber"))->get();
+            $request->session()->flash('phonenumber',$customer->phonenumber);
+            $code = round(rand())%999999;
+            $request->session()->flash('code',$code);
+            $request->session()->flash('rollId',$customer->id);
+            User::sendCode($request->input('phonenumber'),$code);
+            return view('Auth.verify',['title'=>'فعال سازی']);
+        }
         $customer = new Customer($request->all());
         $customer->save();
         $request->session()->flash('phonenumber',$request->input('phonenumber'));

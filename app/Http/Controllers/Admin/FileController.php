@@ -7,7 +7,9 @@ use App\File;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FileRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
 
 class FileController extends Controller
@@ -62,7 +64,7 @@ class FileController extends Controller
      */
     public function show(File $file)
     {
-
+        return view("Admin.files.show",compact("file"));
     }
 
     /**
@@ -115,5 +117,71 @@ class FileController extends Controller
     {
         $files=File::where('deleted',true)->latest()->paginate(20);
         return view('Admin.archive.all',compact('files'));
+    }
+    public function find(Request $request){
+        $tel = $request->input('valTel');
+        $files = null;
+        switch($request->input("key")){
+            case 0:
+                $files = File::wherecode($request->input("valNum"))->get();
+            break;
+            case 1:
+                $files = File::wheretitle($request->input('valStr'))->get();
+                break;
+            case 2:
+                $num = $request->input("valNum");
+                $files =  File::where("buy",">",$num-$tel*$num/100)->where("buy","<",$num+$tel*$num/100)->get();
+                break;
+            case 3:
+                $num = $request->input("valNum");
+                $files =  File::where("rahn",">",$num-$tel*$num/100)->where("rahn","<",$num+$tel*$num/100)->get();
+                break;
+            case 4:
+                $num = $request->input("valNum");
+                $files =  File::where("ejare",">",$num-$tel*$num/100)->where("ejare","<",$num+$tel*$num/100)->get();
+                break;
+            case 5:
+                $valR = $request->input("valR");
+                $valE = $request->input("valE");
+                $files =  File::where("ejare",">",$valE-$tel*$valE/100)->where("ejare","<",$valE+$tel*$valE/100)->where("rahn",">",$valR-$tel*$valR/100)->where("rahn","<",$valR+$tel*$valR/100)->get();
+                break;
+            case 6:
+                $files = File::where("name",$request->input('valStr'))->orWhere('lastname',$request->input('valStr'))->get();
+                break;
+            case 7:
+                $files = File::where("buildingType",$request->input("buildingType"))->get();
+                break;
+            case 8:
+                $files = File::where("region",$request->input("valNum"))->get();
+                break;
+            case 9:
+                $files = File::where("floor",$request->input("valNum"))->get();
+                break;
+            case 10:
+                $val = $request->input("valNum");
+                $files = File::where("area",">",$val-$tel*$val/100)->where("area","<",$val+$tel*$val/100)->get();
+                break;
+            case 11:
+                $val = $request->input("valNum");
+                $files = File::where("age",">",$val-$tel*$val/100)->where("age","<",$val+$tel*$val/100)->get();
+                break;
+            case 12:
+                $files = File::where("unit",$request->input("valNum"))->get();
+                break;
+            case 13:
+                $files = File::where("bedroom",$request->input("valNum"))->get();
+                break;
+            case 14:
+                $files = File::where("addressPu","LIKE",'%'.$request->input("valStr").'%')->orWhere("addressPv","LIKE",'%'.$request->input("valStr").'%')->get();
+                break;
+            case 15:
+                $files = File::where("phonenumber",$request->input("valStr"))->get();
+                break;
+            case 16:
+                $input = $request->input("valStr");
+                $files = File::where("user_id",Agent::where("name",$input)->orWhere("lastname",$input)->orWhere("phonenumber",$input)->firstOrfail()->id())->get();
+                break;
+        }
+        return view('Admin.files.all', compact('files'));
     }
 }

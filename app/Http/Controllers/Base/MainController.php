@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers\Base;
 
+use App\File;
 use App\Http\Controllers\Controller;
 
 class MainController extends Controller{
     public function index(){
-        return view('Base.index');
+        $files = File::latest()->paginate(12);
+        return view('Base.welcom',compact("files"));
     }
     public function about(){
 

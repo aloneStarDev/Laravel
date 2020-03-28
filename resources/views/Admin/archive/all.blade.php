@@ -15,7 +15,7 @@
                     <th>آدرس اصلی</th>
                     <th>آدرس فرعی</th>
                     <th>ناحیه</th>
-                    <th>کد فابل</th>
+                    <th>کد فایل</th>
                     @can("show_files")
                         <th>وضعیت</th>
                     @endcan
@@ -45,6 +45,7 @@
                                     <button type="submit" class="btn btn-default">حذف</button>
                                     <a href="{{ route('files.edit', $file) }}" class="btn btn-default">ویرایش</a>
                                     <a href="{{ route('archive', $file) }}" class="btn btn-default">خروج از بایگانی</a>
+                                    <a href="{{ route('files.show',$file) }}" class="btn btn-default">نمایش جزئیات</a>
                                 </form>
                             </div>
                         </td>
