@@ -5,7 +5,7 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="page-header head-section">
             <h2>فایل</h2>
-            @can('show_files')
+            @can('admin')
             <a href="{{ route('files.create') }}" class="btn btn-sm btn-primary">ایجاد فایل</a>
             @include("Admin.files.search")
             @endcan
@@ -20,10 +20,10 @@
                     <th>آدرس فرعی</th>
                     <th>ناحیه</th>
                     <th>کد فایل</th>
-                    @can("show_files")
+                    @can("admin")
                         <th>وضعیت</th>
                     @endcan
-                @can("admin_permissions")
+                @can("master")
                         <th>کنترل</th>
                 @endcan
                 </tr>
@@ -37,10 +37,10 @@
                         <td>{{ $file->addressPv }}</td>
                         <td>{{ $file->region }}</td>
                         <td>{{$file->code}}</td>
-                        @can("show_files")
+                        @can("admin")
                         <td>@if($file->visible) فعال @else غیرفعال @endif </td>
                         @endcan
-                        @can('admin_permissions')
+                        @can('master')
                         <td>
                             <div class="btn-group btn-group-xs">
                                 <form action="{{ route('files.destroy', $file) }}" method="POST">

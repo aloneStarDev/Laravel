@@ -22,6 +22,7 @@ class CreateCustomersTable extends Migration
             $table->string('address')->nullable();
             $table->string('call')->nullable();
             $table->json('users')->nullable();
+            $table->unsignedTinyInteger('panel')->nullable();//1->1 2->3 3->6 4->9 5->1year
             $table->timestamp('expire_subscription')->nullable();
             $table->boolean('enable')->default(false);//for verify phonenumber
             $table->boolean('active')->default(false);

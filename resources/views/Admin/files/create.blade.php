@@ -9,9 +9,10 @@
         <div class="page-header head-section">
             <h2>ایجاد فایل</h2>
         </div>
+        @include('Admin.section.errors')
         <form class="form-horizontal" action="{{ route('files.store') }}" method="post" enctype="multipart/form-data">
+            @include("Admin.section.errors")
             @csrf
-            @include('Admin.section.errors')
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="title" class="control-label">عنوان</label>

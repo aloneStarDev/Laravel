@@ -5,6 +5,7 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="page-header head-section">
             <h2>مشترک ها</h2>
+            <a href="{{ route('members.create') }}" class="btn btn-sm btn-primary">ایجاد کاربر</a>
         </div>
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
@@ -14,10 +15,9 @@
                     <th>شماره تماس</th>
                     <th>ناحیه</th>
                     <th>آدرس</th>
-                    <th>وضعیت اشتراک</th>
                     <th>نوع اشتراک</th>
                     <th>تاریخ شروع اشتراک</th>
-                    <th>دسترسی</th>
+                    <th>دسترسی ها</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,7 +27,6 @@
                         <td>{{ $customer->phonenumber }}</td>
                         <td>{{ $customer->region }}</td>
                         <td>{{ $customer->address }}</td>
-                        <td>@if($customer->mode == 0) معمولی @else ویژه @endif</td>
                         <td>{{ $customer['subscribtion-time'] ?? ''}}</td>
                         <td>{{ $customer['start-subscribtion'] ?? '' }}</td>
                         <td><a href="{{route('disable.member',$customer)}}"> @if($customer->enable==0) غیرفعال @else فعال @endif</a> </tr>

@@ -23,16 +23,16 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
 
 ////route group for admin panel and management of it
 Route::prefix('admin')->namespace('Admin')->group(function (){
-    Route::get('/panel' , 'PanelController@index')->name('manage')->middleware('auth');
-    Route::resource('agents', 'AgentController')->middleware('auth');
-    Route::resource('files', 'FileController')->middleware('auth');
-    Route::get('/file/mode/change/{file}', 'FileController@changeVisible')->middleware('auth')->name('changeMode');
-    Route::get('/file/archive/{file}', 'FileController@archive')->middleware('auth')->name('archive');
-    Route::get('/file/archives', 'FileController@archives')->middleware('auth')->name('archives');
-    Route::post('/file/find', 'FileController@find')->middleware('auth')->name('find');
-    Route::resource('members','MemberController')->middleware('auth');
-    Route::resource('tariffs', 'TariffController')->middleware('auth');
-    Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth');
+    Route::get('/panel' , 'PanelController@index')->name('manage')->middleware('auth.custom','auth');
+    Route::resource('agents', 'AgentController')->middleware('auth.custom','auth');
+    Route::resource('files', 'FileController')->middleware('auth.custom','auth');
+    Route::get('/file/mode/change/{file}', 'FileController@changeVisible')->middleware('auth.custom','auth')->name('changeMode');
+    Route::get('/file/archive/{file}', 'FileController@archive')->middleware('auth.custom','auth')->name('archive');
+    Route::get('/file/archives', 'FileController@archives')->middleware('auth.custom','auth')->name('archives');
+    Route::post('/file/find', 'FileController@find')->middleware('auth.custom','auth')->name('find');
+    Route::resource('members','MemberController')->middleware('auth.custom','auth');
+    Route::resource('tariffs', 'TariffController')->middleware('auth.custom','auth');
+    Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth.custom','auth');
     //show payments to admin
     Route::get('/successful-payments' , 'PaymentController@index');
     Route::get('/unsuccessful-payments/', 'PaymentController@unsuccessful');

@@ -25,13 +25,17 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('show_files' , function ($user) {
+        Gate::define('admin' , function ($user) {
             return $user->rollId <= 0;
             //or  return auth()->user()->id <= 0;
         });
 
-        Gate::define('admin_permissions' , function ($user) {
+        Gate::define('master' , function ($user) {
             return $user->rollId === 0;
+            //or  return auth()->user()->id === 0;
+        });
+        Gate::define('customer' , function ($user) {
+            return $user != null;
             //or  return auth()->user()->id === 0;
         });
         /*
