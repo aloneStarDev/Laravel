@@ -3,9 +3,12 @@ namespace App\Http\Controllers\Contact;
 
 use App\Agent;
 use App\Customer;
+use App\File;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerRequest;
 use App\Http\Requests\UserRequest;
+use App\Tariff;
+use App\Temp;
 use App\User;
 use Cassandra\Exception;
 use foo\bar;
@@ -55,6 +58,7 @@ class ContactController extends Controller
     }
     public function register(CustomerRequest $request)
     {
+        $code = round(rand())%999999;
         if(Customer::where("phonenumber",$request->input("phonenumber"))->first() != null)
         {
 
@@ -67,15 +71,20 @@ class ContactController extends Controller
                 $request->session()->flash('rollId',$customer->id);
                 User::sendCode($request->input('phonenumber'),$code);
                 return view('Auth.verify',['title'=>'فعال سازی']);
-            }else
+            }
+            else if(Customer::where("phonenumber",$request->input("phonenumber"))->first()->enable ==true && Customer::where("phonenumber",$request->input("phonenumber"))->first()->active == false)
+            {
+                $phonenumber = $request->input('phonenumber');
+                $tar = Tariff::all()->toArray();
+                return view('subscribe',compact('tar',"phonenumber"));
+            }
+            else
                 return view('Auth.Login',['title'=>'ورود'])->withErrors("شما قبلا ثبت نام کرده اید و در صورت فراموشی گذرواژه بر روی بازیابی بزنید");
         }
         $customer = new Customer($request->all());
         $customer->save();
         $request->session()->flash('phonenumber',$request->input('phonenumber'));
-        $code = round(rand())%999999;
         $request->session()->flash('code',$code);
-        $request->session()->flash('rollId',$customer->id);
         User::sendCode($request->input('phonenumber'),$code);
         return view('Auth.verify',['title'=>'فعال سازی']);
     }
@@ -117,20 +126,15 @@ class ContactController extends Controller
     {
         $request->validate([
             'verify' => 'Required',
-            'password' => 'Required'
         ]);
-        $customer = Customer::where('phonenumber',$request->session()->get('phonenumber'))->firstOrFail();
+        $phonenumber = $request->session()->get('phonenumber');
+        $customer = Customer::where('phonenumber',$phonenumber)->firstOrFail();
         if($request->session()->get('code')==$request->get('verify')){
             $customer->enable=true;
-            $customer->active=true;//to payment it should be change
+            $customer->active=false;//for payment
             $customer->save();
-            $user = new User([
-                'username' => $request->session()->get('phonenumber'),
-                'password' =>  Hash::make($request->get('password')),
-                'rollId' => $request->session()->get('rollId')
-            ]);
-//            return Redirect::route('subscribePanel',compact('user'));
-            return redirect(route("signin"));
+            $tar = Tariff::all()->toArray();
+            return view('subscribe',compact('tar','phonenumber'));
         }else
             return back()->withErrors(['msg'=>'کد تایید اشتباه است']);
     }
@@ -143,5 +147,40 @@ class ContactController extends Controller
     {
         auth()->logout();
         return redirect(route('signin'));
+    }
+    public function registarA(Request $request){
+        $request->validate([
+                "username"=>"required",
+                "password"=>"required",
+                "phonenumber"=>"required",
+            ]);
+        $temp = new Temp($request->all());
+        $code = round(rand())%999999;
+        $request->session()->push('phonenumber',$request->input('phonenumber'));
+        $request->session()->flash('code',$code);
+        User::sendCode($request->input('phonenumber'),$code);
+        $temp->save();
+    }
+    public function registerB(Request $request){
+        $request->validate(["code"=>"required"]);
+        if($request->input('code') == session('code')){
+            $temp = Temp::where('phonenumber',session('phonenumber'))->firstOrFail();
+            $temp->enable=true;
+            $temp->save();
+            return "true";
+        }
+        else
+            return "false";
+    }
+    public function registerC(Request $request){
+        $request->validate([""=>"required"]);
+        if($request->input('code') == session('code')){
+            $temp = Temp::where('phonenumber',session('phonenumber'))->firstOrFail();
+            $temp->enable=true;
+            $temp->save();
+            return "true";
+        }
+        else
+            return "false";
     }
 }

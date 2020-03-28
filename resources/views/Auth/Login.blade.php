@@ -40,9 +40,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-            <form class="login100-form validate-form" action="{{route('login')}}" method="POST">
-                    @csrf
-					<span class="login100-form-title p-b-26">
+            		<span class="login100-form-title p-b-26">
 						خوش آمدید
 					</span>
 					<span class="login100-form-title p-b-48">

@@ -3,37 +3,38 @@
 <head>
 <meta charset="utf-8">
 <title>ٌتماس باما</title>
-<link href="base/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="base/fontawesome/css/all.css" rel="stylesheet" type="text/css">
-<link href="base/css/tamasbama.css" rel="stylesheet" type="text/css">
-<script src="base/jquery/jquery-3-4-1.js"></script>
+<link href="../base/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../base/fontawesome/css/all.css" rel="stylesheet" type="text/css">
+<link href="../base/css/tamasbama.css" rel="stylesheet" type="text/css">
+<script src="../base/jquery/jquery-3-4-1.js"></script>
 
 </head>
 
 <body class="body">
-<img alt="background-texture-top" src="base/Images/bg-header.png" class="background">
+@include("Base.section.popup")
+<img alt="background-texture-top" src="../base/images/bgHeader1.png" class="background">
 
 <div class="headingitems fixed-top">
 <nav class="navbar navbar-expand-xl" style=" margin:0; box-sizing:inherit;padding-bottom:0.5%; width:100%; margin-top:1%;">
 <div class="logo" >
-<img alt="logo" src="base/Images/Untitled-1.png" style="width:60%; transition-duration:0.5s;">
+<img alt="logo" src="../base/images/logo1.png" style="width:60%; transition-duration:0.5s;">
 </div>
   <div id="navbarNavAltMarkup" style="width: 100%;">
     <div class="navbar-nav">
     <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('base')}}">صفحه اصلی</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="index.blade.php">صفحه اصلی</a></button>
 </div>
      <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">مشاورین املاک</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="customer.blade.php">مشاورین املاک</a></button>
 </div>
       <div class="dropdown">
   <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">قوانین</a></button>
 </div>
  <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('about')}}">درباره ما</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="about.blade.php">درباره ما</a></button>
 </div>
 <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems home" href="{{route('contactUs')}}">ارتباط با ما</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems home" href="contactus.blade.php">ارتباط با ما</a></button>
 </div>
 <ul class=" justify-content-end nav-pills topul">
   <li class="nav-item">
@@ -47,7 +48,7 @@
     </button></a>
   </li>
   <li class="nav-item">
-    <a href="{{route('signin')}}" class="atag secProf">
+    <a href="#" class="atag secProf">
     <button type="button" class="btn">
     <i class="fas fa-chevron-right" style="margin-left:5%;"></i>
     <span>
@@ -69,13 +70,13 @@
 <h1 class="darbarema">ارتباط با ما</h1>
 </div>
 <div class="background-building-div">
-<img alt="background-building-top" src="base/Images/2.png" class="background-building">
+<img alt="background-building-top" src="../base/images/2.png" class="background-building">
 </div>
 <div class="tri-right">
-<img alt="background-texture-right" src="base/Images/curve-3.png">
+<img alt="background-texture-right" src="../base/images/curve3.png">
 </div>
 <div class="tri-left">
-<img alt="background-texture-left" src="base/Images/curve-2.png">
+<img alt="background-texture-left" src="../base/images/curve1.png">
 </div>
 <div  class="map">
 <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d803.667516267658!2d59.5897221!3d36.320307!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3f6c91bd0079e8fb%3A0x90b65238002c71de!2sAbutaleb%20Boulevard%2C%20Razavi%20Khorasan%20Province%2C%20Mashhad%2C%20Mil-e-Kariz%2C%20Iran!3m2!1d36.3205276!2d59.590182999999996!5e0!3m2!1sen!2s!4v1584969663874!5m2!1sen!2s" width="1088" height="416" frameborder="0" style="border:0; border-radius:10px; width:100%" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -128,23 +129,23 @@
 </div>
 <footer class="page-footer font-small indigo">
 <div class="footer-back">
-<img alt="footer-background" class="footer-image" src="base/Images/bg-footer.png">
+<img alt="footer-background" class="footer-image" src="../base/images/bgFooter1.png">
 </div>
 <div class="footer-logo">
-<img alt="logo" src="base/Images/Untitled-1.png" style="width:40%;">
+<img alt="logo" src="../base/images/logo1.png" style="width:40%;">
 </div>
   <div class=" text-center footer-inner text-md-left">
     <div class="row" style=" border-bottom:thin solid; padding: 0 7%;">
       <div class="col mx-auto">
         <ul class="list-unstyled footer-icon">
           <li>
-            <img alt="ozv" src="base/Images/ecunion-logo.png">
+            <img alt="ozv" src="../base/images/ecunion-logo.png">
           </li>
           <li>
-           <img alt="ozv" src="base/Images/eanjoman.jpg">
+           <img alt="ozv" src="../base/images/eanjoman.jpg">
           </li>
           <li>
-            <img alt="ozv" src="base/Images/logo.png">
+            <img alt="ozv" src="../base/images/logo.png">
           </li>
         </ul>
       </div>
@@ -213,8 +214,8 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="base/jquery/bootstrap.js"></script>
-<script type="text/javascript" src="base/fontawesome/js/all.js"></script>
-<script type="text/javascript" src="base/jquery/tamasbama.js"></script>
+<script type="text/javascript" src="../base/jquery/bootstrap.js"></script>
+<script type="text/javascript" src="../base/fontawesome/js/all.js"></script>
+<script type="text/javascript" src="../base/jquery/tamasbama.js"></script>
 </body>
 </html>

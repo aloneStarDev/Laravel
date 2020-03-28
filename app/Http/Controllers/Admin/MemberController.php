@@ -50,7 +50,6 @@ class MemberController extends Controller
             "expire_subscription"=>Carbon::now()->addMonth($panel[$request->input('panel')])
         ]);
         $customer->create();
-
         return redirect(route("members.index"));
     }
 }

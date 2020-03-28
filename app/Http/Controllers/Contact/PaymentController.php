@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Payment;
 use App\Tariff;
 use Carbon\Carbon;
+use http\Env\Request;
 use SoapClient;
 
 class PaymentController extends Controller
@@ -25,23 +26,15 @@ class PaymentController extends Controller
         ]);
 
         $month = (int) request('month');
-        //count of subscribe for amlaki va karmandash
-        $count = (int) request('count');
 
-        //price based on Toman
+        $count = 1;
+
         $price = Tariff::where('months', $month)->value('price');
-        // price for amlaki va karmandash
-        $price *= $count;
+        $price += $count * Tariff::where('months', $month)->value('addOnMember');
+        $price *= 1000;
+        $Description = 'پنل انتخابی شما '.request("month")." ماهه ";
+        $CallbackURL = "http://localhost/Project/public/contact/subscribe/payment/checker";
 
-        $Description = 'توضیحات تراکنش تستی'; // Required
-//        $Email = auth()->user()->email; // Optional
-//        $Mobile = '09123456789'; // Optional
-        $CallbackURL = 'http://localhost:8000/subscribe/payment/checker'; // Required
-
-        // main
-        // $client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
-
-        // for test
         $client = new SoapClient('https://sandbox.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
 
         $result = $client->PaymentRequest([
@@ -49,10 +42,9 @@ class PaymentController extends Controller
             'Amount' => $price,
             'Description' => $Description,
 //                'Email' => $Email, --->optional
-//                'Mobile' => $Mobile, --->optional
+                'Mobile' => "09304437493",
             'CallbackURL' => $CallbackURL,
         ]);
-
         if ($result->Status == 100) {
             // star please make a payment on payments table
             Payment::create([
@@ -96,7 +88,7 @@ class PaymentController extends Controller
                     // alert()->success('Paid successfully', 'have a good course');
 
                     //specify redirect route
-                    return redirect('wherer ?');
+                    return redirect(route('base'));
                 }
                 echo 'Transaction success. RefID:'.$result->RefID;
             } else {
