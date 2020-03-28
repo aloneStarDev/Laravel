@@ -162,6 +162,8 @@
         </div>
         <div class="subtitle">
             <h4>انتخاب نوع اشتراک</h4>
+            <label class="systemlbl">تعداد سیستم: </label>
+ <input class="systeminp" type="number" name="phone-home" placeholder="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11" >
         </div>
         <div class="pop-content-form2">
             <div class="content-button">

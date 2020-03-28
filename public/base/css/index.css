@@ -6,6 +6,23 @@
   font-family: fontY;
   src: url(../font/byekan/b_yekan_p30download.com-webfont.woff);
 }
+.systemlbl{
+    font-size: 1.3vw;
+    display: block;
+    float: right;
+    margin-right: 43%;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+.systeminp{
+    width: 5%;
+    display: block;
+    float: right;
+    height: 2vw;
+    margin-top: 1%;
+    padding: 0;
+	text-align:center;
+}
 .pop-button-left6{
 	float: right;
 	width: 25%;
@@ -456,8 +473,8 @@ margin-right:5%;
 margin-left:2.5%;
 	}
 .content-button{
-	width: 100%;
-	margin-top:5%;
+  	width: 100%;
+  	margin-top:2%;
 }
 .subtitle{
 	width: 100%;
@@ -858,7 +875,6 @@ font-size: 1.1vw;
 	display: block;
 	float: right;
 	width: 100%;
-	margin-bottom:3%;
 	}
 .pop-content-image img{
 	height: 22vw;
@@ -1014,7 +1030,7 @@ input[type=number] {
 	}
 .footer-div ul li {
 	line-height:2vw;
-	
+
 	}
 .footer-head{
 	margin-top: 0 !important;
@@ -1070,7 +1086,7 @@ margin-left: 0;
 	}
 .footer-image{
 	height:51vw;
-	
+
 	}
 #myCarousel{
 	border:none;
@@ -1122,7 +1138,7 @@ margin-bottom: 5%;
     margin-top: 29% !important;
 	}
 .hi .carousel-inner .active + .carousel-item,
-.hi .carousel-inner .active,  
+.hi .carousel-inner .active,
 .hi .carousel-inner .active + .carousel-item + .carousel-item {
     display: block;
 	margin-right: 0;
@@ -1348,7 +1364,7 @@ margin-bottom: 5%;
 	font-size: 0.95vw;
 	font-weight: bold;
 	word-spacing: 5px;
-	color: #6C6A6A;	
+	color: #6C6A6A;
 	}
 .cell-beds{
 	font-size:0.8vw;
@@ -1636,7 +1652,7 @@ input {
 	margin-right:10px;
 	margin-top:1.1%;
     width: 72%;
-    z-index: 1;	
+    z-index: 1;
 	}
 .pishraftebtn{
 	background-color: transparent;
@@ -1970,4 +1986,3 @@ border-bottom: 2px solid rgba(0,0,0,0);
 .navitems:hover {
  color:#BE56D4;
 }
-
