@@ -25,34 +25,48 @@ class PaymentController extends Controller
         ]);
 
         $month = (int) request('month');
+        //count of subscribe for amlaki va karmandash
+        $count = (int) request('count');
 
         //price based on Toman
         $price = Tariff::where('months', $month)->value('price');
-//        dd($price);
+        // price for amlaki va karmandash
+        $price *= $count;
 
         $Description = 'توضیحات تراکنش تستی'; // Required
 //        $Email = auth()->user()->email; // Optional
 //        $Mobile = '09123456789'; // Optional
-        $CallbackURL = 'http://localhost:8000/payment/checker'; // Required
+        $CallbackURL = 'http://localhost:8000/subscribe/payment/checker'; // Required
 
-        //https://laracasts.com/discuss/channels/laravel/artisan-command-class-soapclient-not-found
-        $client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+        // main
+        // $client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+
+        // for test
+        $client = new SoapClient('https://sandbox.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+
         $result = $client->PaymentRequest([
-                'MerchantID' => $this->MerchantID,
-                'Amount' => $price,
-                'Description' => $Description,
+            'MerchantID' => $this->MerchantID,
+            'Amount' => $price,
+            'Description' => $Description,
 //                'Email' => $Email, --->optional
 //                'Mobile' => $Mobile, --->optional
-                'CallbackURL' => $CallbackURL,
+            'CallbackURL' => $CallbackURL,
         ]);
 
         if ($result->Status == 100) {
-            auth()->user()->payments()->create([
+            // star please make a payment on payments table
+            Payment::create([
+                'customer_id' => 1,
                 'resnumber' => $result->Authority,
                 'subscription_month' => $month,
                 'price' => $price
             ]);
-            return redirect('https://www.zarinpal.com/pg/StartPay/'.$result->Authority);
+
+            // main
+            // return redirect('https://www.zarinpal.com/pg/StartPay/'.$result->Authority);
+
+            // for test
+            return redirect('https://sandbox.zarinpal.com/pg/StartPay/'.$result->Authority);
         } else {
             echo 'ERR: '.$result->Status;
         }
@@ -63,7 +77,11 @@ class PaymentController extends Controller
         $Authority = request('Authority');
         $payment = Payment::where('resnumber', $Authority)->firstOrFail();
         if (request('Status') == 'OK') {
-            $client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+            // main
+            // $client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+
+            // for test
+            $client = new SoapClient('https://sandbox.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
 
             $result = $client->PaymentVerification([
                 'MerchantID' => $this->MerchantID,
@@ -74,8 +92,9 @@ class PaymentController extends Controller
             if ($result->Status == 100) {
 
                 if ($this->addSubscription($payment)) {
-                    //sweet alert
-                    alert()->success('Paid successfully', 'have a good course');
+                    // sweet alert
+                    // alert()->success('Paid successfully', 'have a good course');
+
                     //specify redirect route
                     return redirect('wherer ?');
                 }
@@ -104,11 +123,12 @@ class PaymentController extends Controller
                 'expire_subscription' => $newExpireDate,
             ]);
         } else {
-//            $newExpireDate = Carbon::now()->add(CarbonInterval::months($payment->subscription_month));
             $newExpireDate = Carbon::now()->addMonths($payment->subscription_month);
             $customer->update([
                 'expire_subscription' => $newExpireDate,
             ]);
         }
+
+        return true;
     }
 }
