@@ -59,27 +59,6 @@ $(".pop-parent").show();
     document.documentElement.scrollTop = 0;
 	$(".body").css("overflow-y","hidden");
 });
-$(".pop-button-right4").on("click",function(){
-	$(".content4").hide();
-	$(".content3").show();
-	$(".circles div").css("background-color","white");
-	$(".circle2").css("background-color","#4016BA");
-	});
-$(".pop-button-left3").on("click",function(){
-	$(".content3").hide();
-	$(".content4").show();
-	$(".circles div").css("background-color","white");
-	$(".circle1").css("background-color","#4016BA");
-	});
-$(".pop-button-right3").on("click",function(){
-	$(".content3").hide();
-	$(".content2").show();
-	$(".input-center").css("display","none");
-	$(".pop-buttons2").css("margin-top","20%");
-	$(".pop-button-left2").text("دریافت کد تایید");
-	$(".circles div").css("background-color","white");
-	$(".circle3").css("background-color","#4016BA");
-	});
 $(".sex-content a").on("click",function(){
 	$(".sexbtn").text($(this).text());
 	});
@@ -88,17 +67,9 @@ $(".sexbtn").on("click",function(){
 	$(this).css("outline","none");
 	});
 $(".pop-button-left2").on("click",function(){
-	if($(this).text()==="ادامه"){
-		$(".content2").hide();
-		$(".content3").show();
-		$(".circles div").css("background-color","white");
-		$(".circle2").css("background-color","#4016BA");
-		}
-	else{
 	$(".input-center").css("display","block");
 	$(".pop-buttons2").css("margin-top","23%");
-	$(this).text("ادامه");
-	}
+	$(this).html('<a href="sabtNam.html" style="width:100%; display:block; text-decoration:none !important; color:white !important;">ادامه </a>');
 	});
 $(".sabt").on("click",function(){
 	$(".content1").hide();
@@ -114,8 +85,6 @@ $(".sabt").on("click",function(){
 	});
 $(".vorood").on("click",function(){
 	$(".content2").hide();
-	$(".content3").hide();
-	$(".content4").hide();
 	$(".content1").show();
 	$(this).addClass("pop-left-btn");
 	$(this).parent().addClass("pop-top-left");
@@ -151,7 +120,7 @@ $(".secProf").hover(function(){
 		color:"white"
 		});
 	},function(){
-	$(this).css({		
+	$(this).css({
 	color:"white !important",
 	background:"linear-gradient(90deg, rgba(190,86,212,1) 0%, rgba(64,22,186,1) 100%, rgba(64,22,186,1) 100%)"
 		});
@@ -169,7 +138,7 @@ $(".firstProf").hover(function(){
 		color:"white"
 		});
 	},function(){
-	$(this).css({		
+	$(this).css({
 	color:"white !important",
 	background:"linear-gradient(90deg, rgba(64,22,186,1) 0%, rgba(190,86,212,1) 100%, rgba(190,86,212,1) 100%)"
 		});
@@ -187,13 +156,13 @@ $(".navitems").hover(function(){
 		});
 	},function(){
 		if(!$(this).hasClass("home")){
-	$(this).css({		
+	$(this).css({
 	color:"white",
 	    boxُُSizing: "border-box",
         borderBottomColor:" rgba(0, 0, 0, 0)",
 		});}
 		});
-  
+
 $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
 	if($height > 20){
