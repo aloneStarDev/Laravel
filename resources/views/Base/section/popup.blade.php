@@ -312,7 +312,7 @@
                             <a>رهن و اجاره</a>
                         </div>
                     </div>
-                    <textarea type="text" name="adress" placeholder="آدرس ملک" maxlength="200"
+                    <textarea type="text" name="address" placeholder="آدرس ملک" maxlength="200"
                               class="textarea-melk3"></textarea>
                 </div>
                 <div class="input-bottom6">
@@ -375,20 +375,22 @@
         let name = $("#name").val();
         let lastname = $("#lastname").val();
         let office = $("#office").val();
-        let phone_home = $("#phonenumber").val();
+        let phone_home = $("#phone_home").val();
         let email = $("#email").val();
-        let address = $("#email").text();
+        let address = $("#address").val();
         $.ajax({
             url: '{{route('registerC')}}',
             type: 'GET',
             data: {name,lastname,office,phone_home,email,address},
             success: function (response) {
-                if(response === "false")
-                    alert("کد تایید اشتباه است");
+                    alert(response);
             },
             error: function (err) {
                 console.log(err);
             }
         });
+        function regC(){
+
+        }
     }
 </script>

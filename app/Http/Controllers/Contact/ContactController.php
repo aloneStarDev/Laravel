@@ -56,32 +56,8 @@ class ContactController extends Controller
     {
         return view('Auth.Signup',['title'=>'ثبت نام']);
     }
-    public function register(CustomerRequest $request)
+    private function register($request)
     {
-        $code = round(rand())%999999;
-        if(Customer::where("phonenumber",$request->input("phonenumber"))->first() != null)
-        {
-
-            if(Customer::where("phonenumber",$request->input("phonenumber"))->first()->enable !=true)
-            {
-                $customer = Customer::where("phonenumber",$request->input("phonenumber"))->firstOrFail();
-                $request->session()->flash('phonenumber',$customer->phonenumber);
-                $code = round(rand())%999999;
-                $request->session()->flash('code',$code);
-                $request->session()->flash('rollId',$customer->id);
-                User::sendCode($request->input('phonenumber'),$code);
-                return view('Auth.verify',['title'=>'فعال سازی']);
-            }
-            else if(Customer::where("phonenumber",$request->input("phonenumber"))->first()->enable ==true && Customer::where("phonenumber",$request->input("phonenumber"))->first()->active == false)
-            {
-                $phonenumber = $request->input('phonenumber');
-                $tar = Tariff::all()->toArray();
-                return view('subscribe',compact('tar',"phonenumber"));
-            }
-            else
-                return view('Auth.Login',['title'=>'ورود'])->withErrors("شما قبلا ثبت نام کرده اید و در صورت فراموشی گذرواژه بر روی بازیابی بزنید");
-        }
-        $customer = new Customer($request->all());
         $customer->save();
         $request->session()->flash('phonenumber',$request->input('phonenumber'));
         $request->session()->flash('code',$code);
@@ -167,20 +143,29 @@ class ContactController extends Controller
             $temp = Temp::where('phonenumber',session('phonenumber'))->firstOrFail();
             $temp->enable=true;
             $temp->save();
+            cookie()->forever("phonenumber",$temp->phonenumber);
             return "true";
         }
         else
             return "false";
     }
     public function registerC(Request $request){
-        $request->validate([""=>"required"]);
-        if($request->input('code') == session('code')){
-            $temp = Temp::where('phonenumber',session('phonenumber'))->firstOrFail();
-            $temp->enable=true;
-            $temp->save();
-            return "true";
-        }
-        else
-            return "false";
+        $request->validate(
+            [
+                "name"=>"required",
+                "lastname"=>"required",
+                "phone_home"=>"required",
+                "office"=>"required",
+                "address"=>"required"
+            ]);
+        $temp = Temp::where('phonenumber',session()->get("phonenumber"))->firstOrFail();
+        $temp->update($request->all());
+        $temp->save();
+        $customer = new Customer([
+            "name"=>$temp->name,
+            "lastname"=>$temp->lastname,
+            "phonenumber"=>$temp->phonenumber,
+        ]);
+        $tar = Tariff::all()->toArray();
     }
 }

@@ -14,7 +14,7 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::post('/signup', 'ContactController@register')->name('register');
     Route::get('/signupA', 'ContactController@registarA')->name('registerA');
     Route::get('/signupB', 'ContactController@registerB')->name('registerB');
-    Route::post('/signupC', 'ContactController@registerC')->name('registerC');
+    Route::get('/signupC', 'ContactController@registerC')->name('registerC');
     Route::post('/verify', 'ContactController@verify')->name('verify');
     Route::get('/forget', 'ContactController@forget')->name('forget');
     Route::post('/resetPassword', 'ContactController@resetPassword')->name('resetPassword');
