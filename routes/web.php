@@ -35,6 +35,7 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::get('/file/archives', 'FileController@archives')->middleware('auth.custom')->middleware('auth')->name('archives');
     Route::post('/file/find', 'FileController@find')->middleware('auth.custom')->middleware('auth')->name('find');
     Route::resource('members','MemberController')->middleware('auth.custom')->middleware('auth');
+    Route::get('/resetIp/{customer}','MemberController@resetIp')->middleware('auth.custom')->middleware('auth')->name("resetIp");
     Route::resource('tariffs', 'TariffController')->middleware('auth.custom')->middleware('auth');
     Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth.custom')->middleware('auth');
     //show payments to admin

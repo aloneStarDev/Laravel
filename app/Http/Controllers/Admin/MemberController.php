@@ -6,9 +6,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Tariff;
 use App\User;
 use Carbon\Carbon;
-use http\Env\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MemberController extends Controller
 {
@@ -21,35 +22,80 @@ class MemberController extends Controller
         $customer->save();
         return redirect(route('members.index'));
     }
+    public function show($id){
+        return Customer::where("id",$id)->firstOrFail();
+    }
     public function create(){
         return view('Admin.members.create');
     }
-    public function store(Request $request){//this part should be complete
-        $request->validate(
-            [
-                "name"=>"required",
-                "lastname"=>"required",
-                "region"=>"required",
-                "address"=>"required",
-                "panel"=>"required",
-            ]
-        );
-        $panel = [
-            '1'=>1,
-            '2'=>3,
-            '3'=>6,
-            '4'=>9,
-            '5'=>12,
-        ];
-        $customer = new Customer([
-            "name"=>$request->input("name"),
-            "lastname"=>$request->input("lastname"),
-            "region"=>$request->input("region"),
-            "address"=>$request->input("address"),
-            "panel"=>$request->input('panel'),
-            "expire_subscription"=>Carbon::now()->addMonth($panel[$request->input('panel')])
+    public function edit($id){
+        $customer = Customer::where("id",$id)->firstOrFail();
+        return view('Admin.members.edit',compact("customer"));
+    }
+    public function resetIp($id){
+        $customer = Customer::where("id",$id)->update(["ip"=>null]);
+        return redirect(route("members.index"));
+    }
+    public function destroy($id){
+        Customer::where("id",$id)->firstOrFail()->delete();
+        return redirect(route("members.index"));
+    }
+    public function update($id){
+        request()->validate([
+            "name"=>"required",
+            "lastname"=>"required",
+            "phonenumber"=>"required",
+            "region"=>"required",
+            "office"=>"required",
+            "address"=>"required",
+            "username"=>"unique:users"
         ]);
-        $customer->create();
+        $customer = Customer::where("id",$id)->firstOrFail();
+        if($customer['panel']!==request('panel'))
+            $customer['expire_subscription']=Carbon::now()->addMonth(Tariff::$val[request("panel")]);
+        $customer->update(request()->all());
+        $customer['panel']=request('panel');
+        $customer->save();
+        $user = null;
+        if(request("username") != null) {
+            $user = User::where("rollId", $customer->id)->firstOrFail();
+            $user->update([
+                "username" => request("username")
+                ]);
+            $user->save();
+        }
+        if(request("password") != null) {
+            $user = User::where("rollId", $customer->id)->firstOrFail();
+            $user->update([
+                "password" => Hash::make(request("password"))
+            ]);
+            $user->save();
+        }
+        return redirect(route("members.index"));
+    }
+    public function store(){
+        request()->validate([
+            "name"=>"required",
+            "lastname"=>"required",
+            "phonenumber"=>"required|unique:customers",
+            "region"=>"required",
+            "office"=>"required",
+            "address"=>"required",
+            "username"=>"required|unique:users",
+            "password"=>"required"
+        ]);
+        $customer = new Customer(request()->all());
+        $customer['enable']=true;
+        $customer['active']=true;
+        $customer['panel']=request('panel');
+        $customer['expire_subscription']=Carbon::now()->addMonth(Tariff::$val[request("panel")]);
+        $customer->save();
+        $user = new User([
+            "username"=>request("username"),
+            "password"=>Hash::make(request("password")),
+            "rollId"=>$customer["id"]
+        ]);
+        $user->save();
         return redirect(route("members.index"));
     }
 }

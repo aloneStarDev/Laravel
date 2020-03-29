@@ -31,17 +31,11 @@ class TariffSeeder extends Seeder
         ]);
 
         $tariff[3] = new Tariff([
-            'months'=>9,
-            'price'=>350,
-            'addOnMember'=>150
-        ]);
-
-
-        $tariff[4] = new Tariff([
             'months'=>12,
             'price'=>500,
             'addOnMember'=>200
         ]);
+
         foreach ($tariff as $t){
             $t->save();
         }

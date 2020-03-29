@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Http;
+use phpDocumentor\Reflection\Types\This;
 
 class User extends Authenticatable
 {
@@ -34,13 +35,12 @@ class User extends Authenticatable
         $client = new Client();
         $client->get('https://raygansms.com/SendMessageWithCode.ashx?Username=Amlakonlin&Password=8689811&Mobile=' . $phoneNumber.'&Message= کد تایید شما :'.$code);
     }
-//<<<<<<< HEAD
-//=======
-
-    public function post()
+    function customer()
     {
-//>>>>>>> afd0e56a694d8f5db7a5a7019088b04f20999aa1
-        return $this->hasMany(File::class);
+        $customer = null;
+        if($this->getAttribute("rollId") > 0)
+            $customer = Customer::where("id",$this->getAttribute("rollId"))->firstOrFail();
+        return $customer;
     }
 
     // remove this method and write in Customer.php because customer_id in payments table reference changes to customer

@@ -1,9 +1,9 @@
 <div class="pop-parent">
 </div>
 <div class="pop-div pop1">
+    @include("Base.section.errors")
     <div class="pop-cross">
         <i class="fas fa-times"></i>
-        @include("Base.section.errors")
     </div>
     <div class="pop-top">
         <div class="pop-top-right" style="border-top-right-radius:20px;">
@@ -169,19 +169,23 @@
             <div class="content-button">
                 <button class="button1 btn">
                     <h3 class="button-title">1 ماهه</h3>
-                    <p class="button-content">200 هزار تومان</p>
+                    <p class="button-content"><p id="p4"> 200 </p> هزار تومان</p>
+                    <p class="button-content"> هر کاربر اضافه : <p id="p4a"> 200 </p> </p>
                 </button>
                 <button class="button2 btn">
                     <h3 class="button-title">3 ماهه</h3>
-                    <p class="button-content">200 هزار تومان</p>
+                    <p class="button-content"><p id="p3"> 200 </p> هزار تومان</p>
+                    <p class="button-content"> هر کاربر اضافه : <p id="p3a"> 200 </p> </p>
                 </button>
                 <button class="button3 btn">
                     <h3 class="button-title">6 ماهه</h3>
-                    <p class="button-content">200 هزار تومان</p>
+                    <p class="button-content"><p id="p2"> 200 </p> هزار تومان</p>
+                    <p class="button-content"> هر کاربر اضافه : <p id="p2a"> 200 </p> </p>
                 </button>
                 <button class="button4 btn">
                     <h3 class="button-title">1 ساله</h3>
-                    <p class="button-content">200 هزار تومان</p>
+                    <p class="button-content"><p id="p1"> 200 </p> هزار تومان</p>
+                    <p class="button-content"> هر کاربر اضافه : <p id="p1a"> 200 </p> </p>
                 </button>
             </div>
             <div class="pop-buttons4">
@@ -385,7 +389,18 @@
             type: 'GET',
             data: {name,lastname,office,phone_home,email,address},
             success: function (response) {
-                    alert(response);
+                let panel = JSON.parse(response);
+                if(panel != null){
+                    console.log(panel);
+                    $("#p4").text(panel[0].price);
+                    $("#p3").text(panel[1].price);
+                    $("#p2").text(panel[2].price);
+                    $("#p1").text(panel[3].price);
+                    $("#p4a").text(panel[0].addOnMember);
+                    $("#p3a").text(panel[1].addOnMember);
+                    $("#p2a").text(panel[2].addOnMember);
+                    $("#p1a").text(panel[3].addOnMember);
+                }
             },
             error: function (err) {
                 console.log(err);

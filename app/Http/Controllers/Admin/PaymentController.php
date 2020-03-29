@@ -11,14 +11,8 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        $payments = Payment::with('customer')->where('payment', 1)->latest()->paginate(20);
+        $payments = Payment::with('customer')->latest()->paginate(20);
         return view('Admin.payments.all', compact('payments'));
-    }
-
-    public function unsuccessful()
-    {
-        $payments = Payment::with('customer')->where('payment', 0)->latest()->paginate(20);
-        return view('Admin.payments.unsuccessful', compact('payments'));
     }
 
     public function destroy(Payment $payment)

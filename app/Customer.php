@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
 //<<<<<<< HEAD
-    protected $fillable=['name','lastname','phonenumber','region','address','call','users','expire_subscription','enable','active'];
+    protected $fillable=['office','name','lastname','phonenumber','region','address','call','users','expire_subscription','enable','active'];
 //=======
 //    protected $fillable=[
 //        'name','lastname','phonenumber','region','address','subscribtion-time','start-subscribtion','mode','enable','active'

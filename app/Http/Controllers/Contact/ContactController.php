@@ -10,6 +10,7 @@ use App\Http\Requests\UserRequest;
 use App\Tariff;
 use App\Temp;
 use App\User;
+use Carbon\Carbon;
 use Cassandra\Exception;
 use foo\bar;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class ContactController extends Controller
 {
     public function signin()
     {
-        return view('Auth.Login',['title'=>'ورود']);
+        return view('Base.index',['title'=>'ورود']);
     }
 
     public function login(UserRequest $request)
@@ -32,15 +33,35 @@ class ContactController extends Controller
             return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
         if(Hash::check($request->input('passWord'),$user->password)){
             if($user->rollId > 0 ) {
-                if($user->ip == null || isEmptyOrNullString($user->ip)) {
-                    $user->ip = $request->getClientIp();
-                    $user->save();
+                if($user->customer()->ip == null  && $user->customer()->ipCount > 0) {
+                    $ip = [];
+                    array_push($ip,$request->getClientIp());
+                    $customer = $user->customer();
+                    $customer->ip = json_encode($ip);
+                    $customer->save();
                 }
-                if (Customer::where('id', $user->rollId)->firstOrFail()->enable == false || $user->ip != $request->getClientIp())
+                if ($user->customer()->enable == false)
                     return back()->withErrors('دسترسی شما غیرفعال می باشد');
                 else{
-                    auth()->loginUsingId($user->id);
-                    return redirect(route("base"));
+                    $customer = $user->customer();
+                    $ip = json_decode($customer->ip);
+                    $i =0;
+                    for($i=0;$i<count($ip);$i++){
+                        if($ip[$i] == $request->getClientIp()){
+                            auth()->loginUsingId($user->id);
+                            return redirect(route("base"));
+                        }
+                    }
+                    if($i < $customer->ipCount )
+                    {
+                        array_push($ip,$request->getClientIp());
+                        $customer->ip = json_encode($ip);
+                        $customer->save();
+                        auth()->loginUsingId($user->id);
+                        return redirect(route("base"));
+                    }else{
+                        return back()->withErrors( "شما از تعداد مجاز لاگین خود استفاده کرده اید");
+                    }
                 }
             }else{
                 if($user->rollId < 0 )
@@ -56,13 +77,9 @@ class ContactController extends Controller
     {
         return view('Auth.Signup',['title'=>'ثبت نام']);
     }
-    private function register($request)
+    public function register(Request $request)
     {
-        $customer->save();
-        $request->session()->flash('phonenumber',$request->input('phonenumber'));
-        $request->session()->flash('code',$code);
-        User::sendCode($request->input('phonenumber'),$code);
-        return view('Auth.verify',['title'=>'فعال سازی']);
+
     }
     public function forget(){
         return view('Auth.forget',['title'=>'تایید هویت']);
@@ -167,5 +184,6 @@ class ContactController extends Controller
             "phonenumber"=>$temp->phonenumber,
         ]);
         $tar = Tariff::all()->toArray();
+        return json_encode($tar);
     }
 }
