@@ -25,43 +25,21 @@
   <div id="navbarNavAltMarkup" style="width: 100%;margin-bottom: 2%;">
     <div class="navbar-nav">
     <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="index.blade.php">صفحه اصلی</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("base")}}">صفحه اصلی</a></button>
 </div>
      <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems home" href="customer.blade.php">مشاورین املاک</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems home" href="{{route("customer")}}">مشاورین املاک</a></button>
 </div>
       <div class="dropdown">
   <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">قوانین</a></button>
 </div>
  <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="about.blade.php">درباره ما</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("about")}}">درباره ما</a></button>
 </div>
 <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="contactus.blade.php">ارتباط با ما</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("contactUs")}}">ارتباط با ما</a></button>
 </div>
-<ul class=" justify-content-end nav-pills topul">
-  <li class="nav-item">
-    <a href="#" class="atag firstProf">
-    <button type="button" class="btn">
-    <i class="fas fa-chevron-right" style="margin-left:5%;"></i>
-    <span>
-     ثبت آگهی رایگان
-     </span>
-    <i class="fas fa-plus icon"></i>
-    </button></a>
-  </li>
-  <li class="nav-item">
-    <a class="atag secProf">
-    <button type="button" class="btn">
-    <i class="fas fa-chevron-right" style="margin-left:5%;"></i>
-    <span>
-    ورود/ثبت نام مشاورین
-    </span>
-    <i class="fas fa-user icon"></i>
-    </button></a>
-
-  </li>
-</ul>
+        @include('Base.section.btnMenu')
     </div>
   </div>
 </nav>

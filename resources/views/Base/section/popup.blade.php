@@ -144,7 +144,7 @@
                 <button class="pop-button-right3 btn">
                     انصراف
                 </button>
-                <button class="pop-button-left3 btn" onclick="regB()">
+                <button class="pop-button-left3 btn">
                     ادامه
                 </button>
             </div>
@@ -375,39 +375,6 @@
                     }
                 });
             }
-        }
-      }
-    function regB(){
-        let name = $("#name").val();
-        let lastname = $("#lastname").val();
-        let office = $("#office").val();
-        let phone_home = $("#phone_home").val();
-        let email = $("#email").val();
-        let address = $("#address").val();
-        $.ajax({
-            url: '{{route('registerC')}}',
-            type: 'GET',
-            data: {name,lastname,office,phone_home,email,address},
-            success: function (response) {
-                let panel = JSON.parse(response);
-                if(panel != null){
-                    console.log(panel);
-                    $("#p4").text(panel[0].price);
-                    $("#p3").text(panel[1].price);
-                    $("#p2").text(panel[2].price);
-                    $("#p1").text(panel[3].price);
-                    $("#p4a").text(panel[0].addOnMember);
-                    $("#p3a").text(panel[1].addOnMember);
-                    $("#p2a").text(panel[2].addOnMember);
-                    $("#p1a").text(panel[3].addOnMember);
-                }
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        });
-        function regC(){
-
         }
     }
 </script>

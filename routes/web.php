@@ -40,7 +40,6 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth.custom')->middleware('auth');
     //show payments to admin
     Route::get('/successful-payments' , 'PaymentController@index');
-    Route::get('/unsuccessful-payments/', 'PaymentController@unsuccessful');
     Route::delete('payments/{payment}' , 'PaymentController@destroy');
 });
 

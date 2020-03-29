@@ -35,7 +35,7 @@ class AuthServiceProvider extends ServiceProvider
             //or  return auth()->user()->id === 0;
         });
         Gate::define('customer' , function ($user) {
-            return $user != null;
+            return $user->rollId> 0;
             //or  return auth()->user()->id === 0;
         });
         /*

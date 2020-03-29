@@ -12,6 +12,7 @@
                     <th>نام کاربر</th>
                     <th>مقدار پرداختی</th>
                     <th>نوع پرداخت</th>
+                    <th>وضعیت</th>
                     <th>تنظیمات</th>
                 </tr>
                 </thead>
@@ -25,6 +26,7 @@
                         @else
                             <td>اشتراک یک ساله</td>
                         @endif
+                        <td>@if($payment->payment) موفق @else نا موفق @endif</td>
                         <td>
                             <form action="/admin/payments/{{ $payment->id }}" method="post">
                                 @csrf
