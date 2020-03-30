@@ -67,79 +67,84 @@
     </p>
 </div>
 <div class="search">
-    <div class="search-btn-buy-rent">
-        <a href="#" class="buy-button">
-            <button type="button" class="btn">
-                خرید
-            </button>
-        </a>
-        <a href="#" class="rent-button">
-            <button type="button" class="btn">
-                اجاره
-            </button>
-        </a>
-    </div>
-    <div class="search-search">
-        <div class="search-search-text">
-            <div class="search-search-input">
-                <div class="mahale" style="border-left:thin solid #707070">
-                    <button class="mahalebtn"><i class="fas fa-map-marker-alt" style="background: -webkit-linear-gradient(rgba(64,22,186,1),  rgba(190,86,212,1));
+<div class="search-btn-buy-rent">
+<a href="#" class="buy-button">
+    <button type="button" class="btn">
+      خرید
+    </button></a>
+<a href="#" class="rent-button">
+    <button type="button" class="btn">
+      اجاره
+    </button></a>
+   </div>
+<div class="search-search">
+<div class="search-search-text">
+<div class="search-search-input">
+ <div class="mahale" style="border-left:thin solid #707070">
+  <button class="mahalebtn"><i class="fas fa-map-marker-alt" style="background: -webkit-linear-gradient(rgba(64,22,186,1),  rgba(190,86,212,1));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;"></i> محله <i class="fas fa-chevron-down"></i></button>
-                    <div id="myDropdown" class="mahale-content">
-                        <a>فرهزاد</a>
-                        <a>الهیه</a>
-                        <a>ملک</a>
-                    </div>
-                </div>
-                <form>
-                    <div class="wrapInput">
-                        <input type="text" name="searchHouse" placeholder="جستجوی کد ملک  یا کلید واژه" maxlength="25">
-                    </div>
-                    <a href="#" class="search-button">
-                        <button type="button" class="btn">
-                            جستجو
-                        </button>
-                    </a>
-                </form>
-            </div>
-            <div class="search-search-input pishrafte-hide">
-                <div class="cost">
-                    <button class="costbtn">نوع ملک <i class="fas fa-chevron-down"></i></button>
-                    <div class="cost-content">
-                        <a>آپارتمان</a>
-                        <a>ویلایی</a>
-                        <a>اداری و تجاری</a>
-                        <a>زمین و کلنگی</a>
-                    </div>
-                </div>
-                <div class="metrazh">
-                    <div class="metrazhbtn">
+  -webkit-text-fill-color: transparent;"></i> منطقه <i class="fas fa-chevron-down"></i></button>
+  <div id="myDropdown" class="mahale-content">
+    <a>منطقه 1 شهرداری</a>
+    <a>منطقه 2 شهرداری</a>
+    <a>منطقه 3 شهرداری</a>
+    <a>منطقه 4 شهرداری</a>
+    <a>منطقه 5 شهرداری</a>
+    <a>منطقه 6 شهرداری</a>
+    <a>منطقه 7 شهرداری</a>
+    <a>منطقه 8 شهرداری</a>
+    <a>منطقه 9 شهرداری</a>
+    <a>منطقه 10 شهرداری</a>
+    <a>منطقه 11 شهرداری</a>
+    <a>منطقه 12 شهرداری</a>
+    <a>منطقه 13 شهرداری</a>
+    <a>منطقه ثامن </a>
+  </div>
+</div>
+<form>
+ <div class="wrapInput">
+   <input type="text" name="searchHouse" placeholder="جستجوی کد ملک  یا کلید واژه" maxlength="25" >
+  </div>
+  <a href="#" class="search-button">
+    <button type="button" class="btn">
+     جستجو
+    </button></a>
+</form>
+</div>
+<div class="search-search-input pishrafte-hide">
+ <div class="cost">
+  <button class="costbtn">نوع ملک <i class="fas fa-chevron-down"></i></button>
+  <div class="cost-content">
+    <a>آپارتمان</a>
+    <a>ویلایی</a>
+    <a>اداری و تجاری</a>
+    <a>زمین و کلنگی</a>
+  </div>
+</div>
+<div class="metrazh">
+  <div class="metrazhbtn">
   <span>
   متراژ:
   </span>
-                        <span style=" margin-right:4%;"> از</span>
-                        <input type="number" name="from" style=" right:18%;" id="metre1"
-                               onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                        <span style="margin-right:38%;"> تا</span>
-                        <input type="number" name="to" style="left:5.2%;" id="metre2"
-                               onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                    </div>
-                </div>
-                <form>
-                    <a href="#" class="search-button">
-                        <button type="button" class="btn">
-                            جستجو پیشرفته
-                        </button>
-                    </a>
-                </form>
-            </div>
-        </div>
+  <span style=" margin-right:4%;"> از</span>
+  <input type="number" name="from" style=" right:18%;" id="metre1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+  <span style="margin-right:38%;"> تا</span>
+  <input type="number" name="to" style="left:5.2%;" id="metre2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+  </div>
+</div>
+<form>
+  <a href="#" class="search-button">
+    <button type="button" class="btn">
+     جستجو پیشرفته
+    </button></a>
+</form>
+</div>
+</div>
 
-        <div class="search-pishrafte">
-            <button class="pishraftebtn">جستجو پیشرفته <i class="fas fa-chevron-down"></i></button>
-        </div>
-    </div>
+<div class="search-pishrafte">
+<button class="pishraftebtn">جستجو پیشرفته <i class="fas fa-chevron-down"></i></button>
+</div>
+</div>
 </div>
 <div class="tri-left">
     <img class="tri-image-left" alt="tri-background" src="../base/images/curve1.png">

@@ -69,7 +69,7 @@ $(".sexbtn").on("click",function(){
 $(".pop-button-left2").on("click",function(){
 	$(".input-center").css("display","block");
 	$(".pop-buttons2").css("margin-top","23%");
-	$(this).html('<a href="sabtNam.html" style="width:100%; display:block; text-decoration:none !important; color:white !important;">ادامه </a>');
+	$(this).text("ادامه");
 	});
 $(".sabt").on("click",function(){
 	$(".content1").hide();
@@ -168,8 +168,8 @@ $(window).on("scroll",function(){
 	if($height > 20){
 	$(".headingitems").addClass("scrolled");
 	$(".logo img").css("display","none");
-	$("#navbarNavAltMarkup").css("margin-top","2%");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");
+	$("#navbarNavAltMarkup").css("margin-top","2%");
 	$(".navbar").css({
 		marginTop:"0",
 		paddingTop:"0"

@@ -1,3 +1,15 @@
+.error-pop{
+	display:none;
+    position: absolute;
+    margin-top: 7%;
+    text-align: center;
+    margin-right: 40%;
+	z-index:10000;
+    color: red;
+}
+.error-pop h2{
+	font-size:1.4vw
+	}
 input {
 	float:right;
 	outline: none;
@@ -19,11 +31,21 @@ input {
 }
 @font-face {
   font-family: fontN;
-  src: url(../font/B_NAZANIN/b-nazanin-webfont.woff);
+ src: url(../font/B_NAZANIN/pixelboy-BNazanin.eot);
+  src: url('../font/B_NAZANIN/pixelboy-BNazanin.eot?#iefix') format('pixelboy-BNazanin-opentype'),
+       url(../font/B_NAZANIN/pixelboy-BNazanin.woff) format('woff'),
+	   url(../font/B_NAZANIN/pixelboy-BNazanin.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: fontY;
-  src: url(../font/byekan/b_yekan_p30download.com-webfont.woff);
+  src: url(../font/yekan-font/yekan-regular.eot);
+  src: url('../font/yekan-font/yekan-regular.eot?#iefix') format('FontName-opentype'),
+       url(../font/yekan-font/yekan-regular.woff) format('woff'),
+	   url(../font/yekan-font/yekan-regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 .systemlbl{
     font-size: 1.3vw;
@@ -492,9 +514,9 @@ margin-right:5%;
 margin-left:2.5%;
 	}
 .content-button{
-		width: 100%;
-		margin-top:2%;
-	}
+	width: 100%;
+	margin-top: 2%;
+}
 .subtitle{
 	width: 100%;
 	text-align: center;
@@ -895,6 +917,7 @@ font-size: 1.1vw;
 	display: block;
 	float: right;
 	width: 100%;
+	margin-bottom:4%;
 	}
 .pop-content-image img{
 	height: 22vw;
