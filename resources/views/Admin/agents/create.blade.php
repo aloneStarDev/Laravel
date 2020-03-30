@@ -46,10 +46,11 @@
 
             <div class="form-group">
                 <div class="col-sm-12">
-                    <button type="submit" class="btn btn-danger">ارسال</button>
+                    <button type="submit" class="btn btn-success">ارسال</button>
+
+                    <a href="{{route("agents.index")}}" class="btn btn-danger">بازگشت</a>
                 </div>
             </div>
-
         </form>
     </div>
 @endsection

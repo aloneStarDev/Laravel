@@ -46,7 +46,14 @@
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="گذرواژه" />
             </div>
-            <button type="submit" class="btn btn-primary form-control">send</button>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-success">ارسال</button>
+
+                    <a href="{{route("members.index")}}" class="btn btn-danger">بازگشت</a>
+                </div>
+            </div>
         </form>
     </div>
 @endsection

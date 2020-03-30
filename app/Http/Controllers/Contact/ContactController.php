@@ -23,7 +23,7 @@ class ContactController extends Controller
 {
     public function signin()
     {
-        return view('Base.index',['title'=>'ورود']);
+        return redirect(route("base"));
     }
 
     public function login(UserRequest $request)

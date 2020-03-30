@@ -16,12 +16,10 @@
                     <th>آدرس فرعی</th>
                     <th>ناحیه</th>
                     <th>کد فایل</th>
-                    @can("show_files")
-                        <th>وضعیت</th>
-                    @endcan
-                @can("admin_permissions")
+                    <th>وضعیت</th>
+                    @can("master")
                         <th>کنترل</th>
-                @endcan
+                    @endcan
                 </tr>
                 </thead>
                 <tbody>
@@ -33,10 +31,8 @@
                         <td>{{ $file->addressPv }}</td>
                         <td>{{ $file->region }}</td>
                         <td>{{$file->code}}</td>
-                        @can("show_files")
                         <td>@if($file->visible) فعال @else غیرفعال @endif </td>
-                        @endcan
-                        @can('admin_permissions')
+                        @can('master')
                         <td>
                             <div class="btn-group btn-group-xs">
                                 <form action="{{ route('files.destroy', $file) }}" method="POST">

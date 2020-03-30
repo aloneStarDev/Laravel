@@ -39,10 +39,10 @@ class FileController extends Controller
     public function store(FileRequest $request)
     {
         $file = new File($request->all());
-        $code = 0;
-        do{
-            $code = rand(0,999999999);
-        }while(File::where('code',$code)->first() != null);
+        $code = 111111;
+        $latest = File::orderBy('created_at', 'desc')->first();
+        if($latest != null)
+            $code = ($latest->code)+1;
         $file['code'] = $code;
         $user_id = 0;
         if(auth()->user()->rollId < 0){
@@ -125,9 +125,6 @@ class FileController extends Controller
             case 0:
                 $files = File::wherecode($request->input("valNum"))->get();
             break;
-            case 1:
-                $files = File::wheretitle($request->input('valStr'))->get();
-                break;
             case 2:
                 $num = $request->input("valNum");
                 $files =  File::where("buy",">",$num-$tel*$num/100)->where("buy","<",$num+$tel*$num/100)->get();
@@ -152,7 +149,7 @@ class FileController extends Controller
                 $files = File::where("buildingType",$request->input("buildingType"))->get();
                 break;
             case 8:
-                $files = File::where("region",$request->input("valNum"))->get();
+                $files = File::where("region",$request->input("region"))->get();
                 break;
             case 9:
                 $files = File::where("floor",$request->input("valNum"))->get();

@@ -15,14 +15,13 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
             $table->integer('code')->unique();// randomCode uniq
-            $table->unsignedInteger('buy')->nullable();
-            $table->unsignedInteger('rahn')->nullable();
-            $table->unsignedInteger('ejare')->nullable();
+            $table->unsignedFloat('buy')->nullable();
+            $table->unsignedFloat('rahn')->nullable();
+            $table->unsignedFloat('ejare')->nullable();
             $table->string('name',50);
             $table->string('lastname',50);
-            $table->unsignedTinyInteger('buildingType'); // 1villaie 2aparteman
+            $table->unsignedTinyInteger('buildingType'); // 1villaie 2aparteman 3 edary_tejary 4 zamin_kolangi
             $table->unsignedTinyInteger('floor')->default(1);// tabaghat
             $table->unsignedSmallInteger('area');//metraj
             $table->unsignedTinyInteger('age');//age of building

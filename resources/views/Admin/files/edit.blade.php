@@ -9,35 +9,29 @@
         <div class="page-header head-section">
             <h2>ایجاد فایل</h2>
         </div>
+        @include('Admin.section.errors')
         <form class="form-horizontal" action="{{ route('files.update',$file) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
-            @include('Admin.section.errors')
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <label for="title" class="control-label">عنوان</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="عنوان را وارد کنید" value="{{ $file->title }}">
-                </div>
-            </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="buy" class="control-label">خرید</label>
-                    <input type="number" class="form-control" name="buy" id="buy" placeholder="هزینه ی خرید کامل را  به میلیون وارد کنید" value="{{ $file->buy }}">
+                    <input type="number" class="form-control" name="buy" id="buy" step="0.001" placeholder="هزینه ی خرید کامل را  به میلیون وارد کنید" value="{{ $file->buy }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="rahn" class="control-label">رهن</label>
-                    <input type="number" class="form-control" name="rahn" id="rahn" placeholder="هزینه ی رهن را  به میلیون وارد کنید" value="{{ $file->rahn }}">
+                    <input type="number" class="form-control" name="rahn" id="rahn" step="0.001" placeholder="هزینه ی رهن را  به میلیون وارد کنید" value="{{ $file->rahn }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="ejare" class="control-label">اجاره</label>
-                    <input type="number" class="form-control" name="ejare" id="ejare" placeholder="هزینه ی اجاره را به میلیون وارد کنید" value="{{ $file->ejare }}">
+                    <input type="number" class="form-control" name="ejare" id="ejare" step="0.001" placeholder="هزینه ی اجاره را به میلیون وارد کنید" value="{{ $file->ejare }}">
                 </div>
             </div>
 
@@ -59,8 +53,9 @@
                 <div class="col-sm-12">
                     <label for="buildingType" class="control-label">نوع ساختمان</label>
                     <select id = "buildingType" name="buildingType" class="bootstrap-select">
-                            <option value = "1" >ویلایی</option>
-                            <option value = "2" >آپارتمان</option>
+                        @foreach(\App\File::$bulbing_type as $key => $val)
+                            <option value ={{$key}} > {{$val}} </option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -101,9 +96,12 @@
 
             <div class="form-group">
                 <div class="col-sm-12">
-                    <label for="region" class="control-label">منطقه</label>
-                    <input type="number" class="form-control" name="region" id="region" placeholder="منطقه ی شهرداری را وارد کنید" value="{{ $file->region }}">
-                </div>
+                    <label for="region">منطقه ی شهرداری را انتخاب کنید</label>
+                    <select class="form-control" name="region" id="region">
+                        @foreach(\App\File::$region_map as $key =>$val)
+                            <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
+                    </select></div>
             </div>
 
             <div class="form-group">
@@ -159,7 +157,9 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-12">
-                    <button type="submit" class="btn btn-danger">ثبت</button>
+                    <button type="submit" class="btn btn-success">ارسال</button>
+
+                    <a href="{{route("files.index")}}" class="btn btn-danger">بازگشت</a>
                 </div>
             </div>
 
@@ -170,6 +170,7 @@
         $("#optionValue2").hide();
         document.querySelector('body').addEventListener('click', removeOption);
         $("#buildingType").val({{$file->buildingType}});
+        $("#region").val({{$file->region}});
         let options = JSON.parse(@json($file->options));
         if(options != null ){
             if(options.hasOwnProperty('options1'))

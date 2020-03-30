@@ -157,12 +157,12 @@
                     <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
                          class="house-image">
                     <h3 class="cell-h3">
-                        {{$files[$i]->title}}
+                        {{ \App\File::$bulbing_type[$files[$i]->buildingType] }}  {{$files[$i]->area}}متری
                     </h3>
                     <div class="cell-content">
       <span class="cell-type">
       <i class="fas fa-home"></i>
-      مسکونی
+        {{ \App\File::$bulbing_type[$files[$i]->buildingType] }}
       </span>
                         <span class="cell-metre">
       <i class="fas fa-expand"></i>
@@ -177,10 +177,10 @@
       {{$files[$i]->addressPu}}
       </span>
                         <span class="cell-year">
-      رهن: {{$files[$i]->rahn}} میلیون تومان
+      رهن: {{ floor($files[$i]->rahn) }} میلیون @if((($files[$i]->rahn) - floor($files[$i]->rahn)) != 0) و {{ ((($files[$i]->rahn) - floor($files[$i]->rahn))*1000) }} هزار تومان @else تومان @endif
       </span>
-                        <span class="cell-month">
-      اجاره: {{$files[$i]->ejare}} میلیون تومان
+        <span class="cell-month">
+      اجاره: {{ floor($files[$i]->ejare) }} میلیون @if((($files[$i]->ejare) - floor($files[$i]->ejare)) != 0) و {{ ((($files[$i]->ejare) - floor($files[$i]->ejara))*1000) }} هزار تومان @else تومان @endif
       </span>
                         <button class="btn cell-btn" style="margin-left:10%;">
                             جزئیات

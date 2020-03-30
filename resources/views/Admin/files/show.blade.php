@@ -7,22 +7,22 @@
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="page-header head-section">
-            <h2>{{$file->title}}</h2>
+            <h2>نمایش</h2>
         </div>
         <div>
             @include('Admin.section.errors')
             <div class="row">
                 <label class="control-label">هزینه ی خرید</label>
-                <div class="text-primary">{{ $file->buy }}</div>
+                <div class="text-primary"> {{ floor($file->buy) }} میلیون @if((($file->buy) - floor($file->buy)) != 0) و {{ ((($file->buy) - floor($file->buy))*1000) }} هزار تومان @else تومان @endif </div>
             </div>
             <div class="row">
                 <label class="control-label">هزینه ی رهن</label>
-                <div class="text-primary">{{ $file->rahn }}</div>
+                <div class="text-primary">{{ floor($file->rahn) }} میلیون @if((($file->rahn) - floor($file->buy)) != 0) و {{ ((($file->rahn) - floor($file->rahn))*1000) }} هزار تومان @else تومان @endif</div>
             </div>
 
             <div class="row">
                 <label class="control-label">هزینه ی اجاره </label>
-                <div class="text-primary">{{ $file->ejare }}</div>
+                <div class="text-primary">{{ floor($file->ejare) }} میلیون @if((($file->ejare) - floor($file->ejare)) != 0) و {{ ((($file->ejare) - floor($file->ejare))*1000) }} هزار تومان @else تومان @endif</div>
             </div>
 
             <div class="row">
@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 <label class="control-label">نوع ساختمان</label>
-                <div class="text-primary">@if($file->buildingType == 1) ویلایی @else آپارتمان @endif</div>
+                <div class="text-primary">{{\App\File::$bulbing_type[$file->buildingType]}}</div>
             </div>
             <div class="row">
                 <label class="control-label">طبقه</label>
@@ -55,7 +55,7 @@
             </div>
             <div class="row">
                 <label class="control-label">منطقه</label>
-                <div class="text-primary">{{ $file->region }}</div>
+                <div class="text-primary">{{ \App\File::$region_map[$file->region] }}</div>
             </div>
             <div class="row">
                 <label class="control-label">آدرس اصلی</label>
@@ -83,7 +83,11 @@
                 <label class="control-label">توضیحات</label>
                 <div class="text-primary">{{ $file->description }}</div>
             </div>
-
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <a href="{{route("files.index")}}" class="btn btn-danger">بازگشت</a>
+                </div>
+            </div>
         </div>
     </div>
     <script>

@@ -3,7 +3,6 @@
     @csrf
     <select id="type" name="key" class="bootstrap-select" onchange="filter()">
         <option value="0">کد فایل</option>
-        <option value="1">عنوان</option>
         <option value="2">هزینه ی خرید</option>
         <option value="3">هزینه ی رهن کامل</option>
         <option value="4">هزینه ی اجاره کامل</option>
@@ -21,8 +20,14 @@
         <option value="16">ثبت شده توسط</option>
     </select>
     <select name="buildingType" id="buildingType">
-        <option value="2">آپارتمان</option>
-        <option value="1">ویلایی</option>
+        @foreach(\App\File::$bulbing_type as $key =>$val)
+            <option value="{{$key}}">{{$val}}</option>
+        @endforeach
+    </select>
+    <select name="region" id="region">
+        @foreach(\App\File::$region_map as $key =>$val)
+            <option value="{{$key}}">{{$val}}</option>
+        @endforeach
     </select>
     <input type="number" class="form-control" name="valNum" id="valNum"/>
     <input type="number" class="form-control" name="valTel" id="valTel" placeholder="تلورانس"/>
@@ -33,11 +38,12 @@
 </form>
 </div>
 <script>
-    let numericval = ["0","2","3","4","5","8","9","10","11","12","13"];
+    let numericval = ["0","2","3","4","5","9","10","11","12","13"];
     let usetel = ["2","3","4","5","10","11"];
     document.body.onloadend = new function(){
         $("#valStr").hide();
         $("#buildingType").hide();
+        $("#region").hide();
         $("#valTel").hide();
         $("#valE").hide();
         $("#valR").hide();
@@ -47,6 +53,7 @@
         $("#valNum").hide();
         $("#valStr").hide();
         $("#buildingType").hide();
+        $("#region").hide();
         $("#valTel").hide();
         $("#valE").hide();
         $("#valR").hide();
@@ -55,7 +62,10 @@
         if(opt == 5){
             $("#valE").show();
             $("#valR").show();
-        }else if(numericval.includes(opt)){
+        }else if(opt == 8){
+            $("#region").show();
+        }
+        else if(numericval.includes(opt)){
             $("#valNum").show();
             $("#valNum").prop("placeholder",$("#type option:selected").text());
         }else if(opt == 7){

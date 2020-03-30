@@ -36,7 +36,7 @@
                              @case(4) <td>یک ساله</td> @break
                              @default <td>بدون اشتراک</td> @break
                         @endswitch
-                        <td>{{ $customer->expire_subscription ?? "" }}</td>
+                        <td>{{ verta($customer->expire_subscription) ?? "" }}</td>
                         <td>
                             <a class="btn btn-default" href="{{route('disable.member',$customer)}}"> @if($customer->enable!=0) غیرفعال @else فعال @endif</a>
                             <a class="btn btn-default" href="{{route('members.edit',$customer)}}"> ویرایش</a>

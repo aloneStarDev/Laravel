@@ -13,7 +13,6 @@
                     <th>نام</th>
                     <th>تلفن</th>
                     <th>کد ملی</th>
-                    <th>رمز عبور</th>
                     <th>آدرس</th>
                     <th>تعداد ثبتی</th>
                     <th>وضعیت</th>
@@ -25,7 +24,6 @@
                         <td>{{ $agent->name }} {{ $agent->lastname }}</td>
                         <td>{{ $agent->phonenumber }}</td>
                         <td>{{ $agent->nationCode }}</td>
-                        <td><a href="#" class="btn btn-info">تغیرر رمز عبور</a></td>
                         <td>{{ $agent->address }}</td>
                         <td>{{ $agent->registered_items }}</td>
                         <td>@if($agent->active==1) فعال @else غیر فعال @endif</td>

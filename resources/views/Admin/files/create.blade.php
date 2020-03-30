@@ -11,33 +11,26 @@
         </div>
         @include('Admin.section.errors')
         <form class="form-horizontal" action="{{ route('files.store') }}" method="post" enctype="multipart/form-data">
-            @include("Admin.section.errors")
             @csrf
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <label for="title" class="control-label">عنوان</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="عنوان را وارد کنید" value="{{ old('title') }}">
-                </div>
-            </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="buy" class="control-label">خرید</label>
-                    <input type="number" class="form-control" name="buy" id="buy" placeholder="هزینه ی خرید کامل را  به میلیون وارد کنید" value="{{ old('buy') }}">
+                    <input type="number" class="form-control" name="buy" id="buy" step="0.001" placeholder="هزینه ی خرید کامل را  به میلیون وارد کنید" value="{{ old('buy') }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="rahn" class="control-label">رهن</label>
-                    <input type="number" class="form-control" name="rahn" id="rahn" placeholder="هزینه ی رهن را  به میلیون وارد کنید" value="{{ old('rahn') }}">
+                    <input type="number" class="form-control" name="rahn" id="rahn" step="0.001" placeholder="هزینه ی رهن را  به میلیون وارد کنید" value="{{ old('rahn') }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="ejare" class="control-label">اجاره</label>
-                    <input type="number" class="form-control" name="ejare" id="ejare" placeholder="هزینه ی اجاره را به میلیون وارد کنید" value="{{ old('ejare') }}">
+                    <input type="number" class="form-control" name="ejare" id="ejare" step="0.001" placeholder="هزینه ی اجاره را به میلیون وارد کنید" value="{{ old('ejare') }}">
                 </div>
             </div>
 
@@ -59,8 +52,9 @@
                 <div class="col-sm-12">
                     <label for="buildingType" class="control-label">نوع ساختمان</label>
                     <select id = "buildingType" name="buildingType" class="bootstrap-select">
-                        <option value = "2">آپارتمان</option>
-                        <option value = "1">ویلایی</option>
+                        @foreach(\App\File::$bulbing_type as $key => $val)
+                        <option value ={{$key}} > {{$val}} </option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -102,7 +96,12 @@
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="region" class="control-label">منطقه</label>
-                    <input type="number" class="form-control" name="region" id="region" placeholder="منطقه ی شهرداری را وارد کنید" value="{{ old('region') }}">
+                    <label for="region">منطقه ی شهرداری را انتخاب کنید</label>
+                    <select class="form-control" name="region" id="region">
+                        @foreach(\App\File::$region_map as $key =>$val)
+                            <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
@@ -159,7 +158,9 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-12">
-                    <button type="submit" class="btn btn-danger">ثبت</button>
+                    <button type="submit" class="btn btn-success">ارسال</button>
+
+                    <a href="{{route("files.index")}}" class="btn btn-danger">بازگشت</a>
                 </div>
             </div>
 

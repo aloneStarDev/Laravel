@@ -20,7 +20,7 @@
                     <th>آدرس فرعی</th>
                     <th>ناحیه</th>
                     <th>کد فایل</th>
-                    @can("admin")
+                    @can("admin","master")
                         <th>وضعیت</th>
                     @endcan
                 @can("master")
@@ -37,7 +37,7 @@
                         <td>{{ $file->addressPv }}</td>
                         <td>{{ $file->region }}</td>
                         <td>{{$file->code}}</td>
-                        @can("admin")
+                        @can("admin","master")
                         <td>@if($file->visible) فعال @else غیرفعال @endif </td>
                         @endcan
                         @can('master')
