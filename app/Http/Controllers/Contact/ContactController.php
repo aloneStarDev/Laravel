@@ -18,6 +18,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use function Faker\Provider\en_HK\PhoneNumber;
 
 class ContactController extends Controller
 {
@@ -30,7 +31,7 @@ class ContactController extends Controller
     {
         $user = User::where('username',$request->input('userName'))->first();
         if($user==null || !Hash::check($request->input('passWord'),$user->password))
-            return back()->withErrors('نام کاربری  یا گذرواژه اشتباه است');
+            return back()->withErrors(["login"=>'نام کاربری  یا گذرواژه اشتباه است']);
         if(Hash::check($request->input('passWord'),$user->password)){
             if($user->rollId > 0 ) {
                 if($user->customer()->ip == null  && $user->customer()->ipCount > 0) {
@@ -41,7 +42,7 @@ class ContactController extends Controller
                     $customer->save();
                 }
                 if ($user->customer()->enable == false)
-                    return back()->withErrors('دسترسی شما غیرفعال می باشد');
+                    return back()->withErrors(["login"=>'دسترسی شما غیرفعال می باشد']);
                 else{
                     $customer = $user->customer();
                     $ip = json_decode($customer->ip);
@@ -60,7 +61,7 @@ class ContactController extends Controller
                         auth()->loginUsingId($user->id);
                         return redirect(route("base"));
                     }else{
-                        return back()->withErrors( "شما از تعداد مجاز لاگین خود استفاده کرده اید");
+                        return back()->withErrors(["login"=>"شما از تعداد مجاز لاگین خود استفاده کرده اید"]);
                     }
                 }
             }else{
@@ -73,9 +74,10 @@ class ContactController extends Controller
         }
         return back()->withErrors(['meg'=>'login fail']);
     }
-    public function signup()
+    public function signup(Temp $temp)
     {
-        return view('Auth.Signup',['title'=>'ثبت نام']);
+        $plans = Tariff::all();
+        return view('Auth.signup',compact("plans"));
     }
     public function register(Request $request)
     {
@@ -118,18 +120,17 @@ class ContactController extends Controller
     public function verify(Request $request)
     {
         $request->validate([
-            'verify' => 'Required',
+            'code' => 'Required',
+            'verifyPhone' => 'Required',
         ]);
-        $phonenumber = $request->session()->get('phonenumber');
-        $customer = Customer::where('phonenumber',$phonenumber)->firstOrFail();
-        if($request->session()->get('code')==$request->get('verify')){
-            $customer->enable=true;
-            $customer->active=false;//for payment
-            $customer->save();
-            $tar = Tariff::all()->toArray();
-            return view('subscribe',compact('tar','phonenumber'));
+        $phonenumber = $request->input('verifyPhone');
+        $temp = Temp::where('phonenumber',$phonenumber)->firstOrFail();
+        if($request->session()->get('code')==$request->get('code')){
+            $temp->enable=true;
+            $temp->save();
+            return redirect(route('signup',$temp));
         }else
-            return back()->withErrors(['msg'=>'کد تایید اشتباه است']);
+            return back()->withErrors(['code'=>'کد تایید اشتباه است']);
     }
 
     /**
@@ -141,49 +142,17 @@ class ContactController extends Controller
         auth()->logout();
         return redirect(route('signin'));
     }
-    public function registarA(Request $request){
+    public function checkUser(Request $request){
+        session()->remove("code");
         $request->validate([
-                "username"=>"required",
-                "password"=>"required",
-                "phonenumber"=>"required",
-            ]);
+            "username"=>"required|unique:users",
+            "password"=>"required",
+            "phonenumber"=>"required|unique:customers",
+        ]);
         $temp = new Temp($request->all());
         $code = round(rand())%999999;
-        $request->session()->push('phonenumber',$request->input('phonenumber'));
         $request->session()->flash('code',$code);
         User::sendCode($request->input('phonenumber'),$code);
         $temp->save();
-    }
-    public function registerB(Request $request){
-        $request->validate(["code"=>"required"]);
-        if($request->input('code') == session('code')){
-            $temp = Temp::where('phonenumber',session('phonenumber'))->firstOrFail();
-            $temp->enable=true;
-            $temp->save();
-            cookie()->forever("phonenumber",$temp->phonenumber);
-            return "true";
-        }
-        else
-            return "false";
-    }
-    public function registerC(Request $request){
-        $request->validate(
-            [
-                "name"=>"required",
-                "lastname"=>"required",
-                "phone_home"=>"required",
-                "office"=>"required",
-                "address"=>"required"
-            ]);
-        $temp = Temp::where('phonenumber',session()->get("phonenumber"))->firstOrFail();
-        $temp->update($request->all());
-        $temp->save();
-        $customer = new Customer([
-            "name"=>$temp->name,
-            "lastname"=>$temp->lastname,
-            "phonenumber"=>$temp->phonenumber,
-        ]);
-        $tar = Tariff::all()->toArray();
-        return json_encode($tar);
     }
 }

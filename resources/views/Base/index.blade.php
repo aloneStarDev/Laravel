@@ -1354,5 +1354,6 @@
 <script type="text/javascript" src="../base/jquery/index.js"></script>
 <script type="text/javascript" src="../base/jquery/bootstrap.js"></script>
 <script type="text/javascript" src="../base/fontawesome/js/all.js"></script>
+
 </body>
 </html>

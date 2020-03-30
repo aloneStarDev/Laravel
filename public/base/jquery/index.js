@@ -70,7 +70,10 @@ $(".sexbtn").on("click",function(){
 $(".pop-button-left2").on("click",function(){
 	$(".input-center").css("display","block");
 	$(".pop-buttons2").css("margin-top","23%");
-	$(this).html('<a href="sabtNam.html" style="width:100%; display:block; text-decoration:none !important; color:white !important;">ادامه </a>');
+	if(i)
+        $(this).text('ادمه');
+    else
+        $(this).text('دریافت کد تایید');
 	});
 $(".sabt").on("click",function(){
 	$(".content1").hide();

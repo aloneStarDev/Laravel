@@ -33,7 +33,8 @@ class User extends Authenticatable
     public static function sendCode($phoneNumber,$code)
     {
         $client = new Client();
-        $client->get('https://raygansms.com/SendMessageWithCode.ashx?Username=Amlakonlin&Password=8689811&Mobile=' . $phoneNumber.'&Message= کد تایید شما :'.$code);
+        $res = $client->get('https://raygansms.com/SendMessageWithCode.ashx?Username=Amlakonlin&Password=8689811&Mobile=' . $phoneNumber.'&Message= کد تایید شما :'.$code);
+
     }
     function customer()
     {

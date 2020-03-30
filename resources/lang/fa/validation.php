@@ -101,12 +101,15 @@ return array(
     |
     */
     'attributes' => array(
+        "code"=>"کد تایید",
         "name" => "نام",
         "username" => "نام کاربری",
+        "userName" => "نام کاربری",
         "email" => "پست الکترونیکی",
         "first_name" => "نام",
         "last_name" => "نام خانوادگی",
         "password" => "رمز عبور",
+        "passWord" => "رمز عبور",
         "password_confirmation" => "تاییدیه ی رمز عبور",
         "city" => "شهر",
         "country" => "کشور",

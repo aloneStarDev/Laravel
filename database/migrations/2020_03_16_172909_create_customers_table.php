@@ -18,13 +18,14 @@ class CreateCustomersTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('phonenumber',20)->unique();
+            $table->string('email')->nullable();
             $table->integer('region');
             $table->string('office');
             $table->string('address')->nullable();
             $table->string('call')->nullable();
             $table->json('ip')->nullable();
             $table->unsignedTinyInteger('ipCount')->default(1);
-            $table->unsignedTinyInteger('panel')->nullable();//1->1 2->3 3->6 4->1year
+            $table->unsignedTinyInteger('panel');//1->1 2->3 3->6 4->1year
             $table->timestamp('expire_subscription')->nullable();
             $table->boolean('enable')->default(false);//for verify phonenumber
             $table->boolean('active')->default(false);

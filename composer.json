@@ -8,6 +8,7 @@
     ],
     "license": "MIT",
     "require": {
+        "ext-http": "*",
         "php": "^7.2.5",
         "ext-soap": "*",
         "fideloper/proxy": "^4.2",
@@ -15,8 +16,7 @@
         "guzzlehttp/guzzle": "~6.0",
         "hekmatinasser/verta": "^1.10",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0",
-      "ext-http": "*"
+        "laravel/tinker": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

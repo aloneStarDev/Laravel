@@ -10,11 +10,9 @@ route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs');
 Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::get('/login', 'ContactController@signin')->name('signin');
     Route::post('/login', 'ContactController@login')->name('login');
-    Route::get('/signup', 'ContactController@signup')->name('signup');
+    Route::get('/signup/{temp}', 'ContactController@signup')->name('signup');
     Route::post('/signup', 'ContactController@register')->name('register');
-    Route::get('/signupA', 'ContactController@registarA')->name('registerA');
-    Route::get('/signupB', 'ContactController@registerB')->name('registerB');
-    Route::get('/signupC', 'ContactController@registerC')->name('registerC');
+    Route::get('/checkUser', 'ContactController@checkUser')->name('checkUser');
     Route::post('/verify', 'ContactController@verify')->name('verify');
     Route::get('/forget', 'ContactController@forget')->name('forget');
     Route::post('/resetPassword', 'ContactController@resetPassword')->name('resetPassword');
