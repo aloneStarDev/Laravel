@@ -157,69 +157,6 @@
 <div class="tri-left">
     <img class="tri-image-left" alt="tri-background" src="../base/images/curve1.png">
 </div>
-{{--
-
-    @for($i =0;$i<count($files);$i++)
-        <div class="cell" style="margin-right:2%;" >
-            <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                 class="house-image">
-            <h3 class="cell-h3">
-                {{ \App\File::$bulbing_type[$files[$i]->buildingType] }}  {{$files[$i]->area}}متری
-            </h3>
-            <div class="cell-content">
-                <span class="cell-type">
-              <i class="fas fa-home"></i>
-                {{ \App\File::$bulbing_type[$files[$i]->buildingType] }}
-              </span>
-                <span class="cell-metre">
-              <i class="fas fa-expand"></i>
-              متر {{$files[$i]->area}}
-              </span>
-                <span class="cell-beds">
-              <i class="fas fa-bed"></i>
-              {{$files[$i]->bedroom}} خوابه
-              </span>
-                <span class="cell-address">
-              <i class="fas fa-map-marker-alt"></i>
-              {{$files[$i]->addressPu}}
-              </span>
-                @auth
-                    <span class="cell-address">
-                        <i class="fas fa-map-marker-alt"></i>
-                        {{$files[$i]->addressPv}}
-                    </span>
-                @endauth
-                @if($files[$i]->rahn != null)
-                    <span class="cell-year">
-                  رهن: {{ floor($files[$i]->rahn) }} میلیون @if((($files[$i]->rahn) - floor($files[$i]->rahn)) != 0)
-                            و {{ ((($files[$i]->rahn) - floor($files[$i]->rahn))*1000) }} هزار تومان @else تومان @endif
-                </span>
-                @endif
-                @if($files[$i]->ejare != null)
-                    <span class="cell-month">
-                      اجاره: {{ floor($files[$i]->ejare) }} میلیون @if((($files[$i]->ejare) - floor($files[$i]->ejare)) != 0)
-                            و {{ ((($files[$i]->ejare) - floor($files[$i]->ejara))*1000) }} هزار تومان @else
-                            تومان
-                        @endif
-                    </span>
-                @endif
-                @if($files[$i]->buy != null)
-                    <span class="cell-month">
-                  خرید: {{ floor($files[$i]->buy) }} میلیون @if((($files[$i]->buy) - floor($files[$i]->buy)) != 0)
-                            و {{ ((($files[$i]->buy) - floor($files[$i]->buy))*1000) }} هزار تومان @else تومان @endif
-                    </span>
-                @endif
-                <button class="btn cell-btn" style="margin-left:10%;">
-                    جزئیات
-                </button>
-                <button class="btn cell-btn">
-                    تماس
-                    <i class="fas fa-phone"></i>
-                </button>`
-            </div>
-        </div>
-    @endfor
-]--}}
 <div id="carouselExampleControls" class="carousel carousel1 slide">
 
     <div class="carousel-inner">

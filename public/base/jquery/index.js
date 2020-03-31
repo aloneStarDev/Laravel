@@ -1,33 +1,97 @@
 $(document).ready(function() {
 	"use strict";
 var flag=true;
-$(".melk-content1 a").on("click",function(){
-	$(".melkbtn1").text($(this).text());
-	});
-$(".melkbtn1").on("click",function(){
-	$(".melk-content1").slideToggle("slow");
-	$(this).css("outline","none");
-	});
+$('.melk').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".melk-content").slideDown(300);
+				t = null;
+            }, 300);
+
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".melk-content").slideUp(300);
+				}
+        });
+    });
+$('.melk1').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".melk-content1").slideDown(300);
+				t = null;
+            }, 300);
+
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".melk-content1").slideUp(300);
+				}
+        });
+    });
+$('.vagozari').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".vagozari-content").slideDown(300);
+				t = null;
+            }, 300);
+
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".vagozari-content").slideUp(300);
+				}
+        });
+    });
+$('.vagozari1').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".vagozari-content1").slideDown(300);
+				t = null;
+            }, 300);
+
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".vagozari-content1").slideUp(300);
+				}
+        });
+    });
 $(".vagozari-content1 a").on("click",function(){
 	$(".vagozaribtn1").text($(this).text());
-	});
-$(".vagozaribtn1").on("click",function(){
-	$(".vagozari-content1").slideToggle("slow");
-	$(this).css("outline","none");
+	$(".vagozari-content1").slideUp("slow");
 	});
 $(".melk-content a").on("click",function(){
 	$(".melkbtn").text($(this).text());
+	$(".melk-content").slideUp("slow");
 	});
-$(".melkbtn").on("click",function(){
-	$(".melk-content").slideToggle("slow");
-	$(this).css("outline","none");
+$(".melk-content1 a").on("click",function(){
+	$(".melkbtn1").text($(this).text());
+	$(".melk-content1").slideUp("slow");
 	});
 $(".vagozari-content a").on("click",function(){
 	$(".vagozaribtn").text($(this).text());
-	});
-$(".vagozaribtn").on("click",function(){
-	$(".vagozari-content").slideToggle("slow");
-	$(this).css("outline","none");
+	$(".vagozari-content").slideUp("slow");
 	});
 $(".sabt2").on("click",function(){
 	$(".content5").hide();
@@ -107,6 +171,10 @@ $(".secProf").on("click",function(){
 	$(".body").css("overflow-y","hidden");
 	});
 $(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6").on("click",function(){
+	$(".melk-content").slideUp("slow");
+	$(".vagozari-content").slideUp("slow");
+	$(".melk-content1").slideUp("slow");
+	$(".vagozari-content1").slideUp("slow");
 	$(".pop2").hide();
 	$(".pop-button-left2").text("دریافت کد تایید");
 	$(".input-center").css("display","none");

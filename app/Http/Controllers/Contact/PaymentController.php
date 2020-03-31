@@ -33,7 +33,8 @@ class PaymentController extends Controller
         $count = $customer["ipCount"];
 
         $panel = Tariff::where('id', $panel)->firstOrFail();
-        $price =  $count * $panel['addOnMember'];
+        if($count>1)
+            $price =  ($count-1) * $panel['addOnMember'];
         $price +=  $panel['price'];
         $price *= 1000;
         $Description = 'پنل انتخابی شما '.$panel->months." ماهه ";
@@ -52,7 +53,7 @@ class PaymentController extends Controller
         if ($result->Status == 100) {
             // star please make a payment on payments table
             Payment::create([
-                'customer_id' => 1,
+                'customer_id' => $customer->id,
                 'resnumber' => $result->Authority,
                 'subscription_month' => $panel->months,
                 'price' => $price

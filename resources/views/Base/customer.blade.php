@@ -53,7 +53,7 @@
 <div class="search-search-input">
 <form>
  <div class="wrapInput">
-   <input type="text" name="searchHouse" placeholder="جستجوی کد ملک  یا کلید واژه" maxlength="25" >
+   <input type="text" name="searchHouse" placeholder="نام دفتر یا منطقه فعالیت" maxlength="25" >
   </div>
   <a href="#" class="search-button">
     <button type="button" class="btn">
