@@ -133,11 +133,8 @@
   <i class="fas fa-chevron-down"></i>
   </button>
   <div class="vagozari-content">
-   <a>ویلایی</a>
-    <a>آپارتمان</a>
-    <a>تجاری</a>
-    <a>اداری</a>
-    <a>کلنگی و زمین</a>
+    <a>خرید و فروش</a>
+    <a>رهن و اجاره</a>
   </div>
   </div>
    <div class="melk">
@@ -147,8 +144,11 @@
   <i class="fas fa-chevron-down"></i>
   </button>
   <div class="melk-content">
-    <a>خرید و فروش</a>
-    <a>رهن و اجاره</a>
+    <a>ویلایی</a>
+    <a>آپارتمان</a>
+    <a>تجاری</a>
+    <a>اداری</a>
+    <a>کلنگی و زمین</a>
   </div>
   </div>
     <textarea type="text" name="adress" placeholder="آدرس ملک" maxlength="200" class="textarea-melk"></textarea>
@@ -186,11 +186,8 @@
   <i class="fas fa-chevron-down"></i>
   </button>
   <div class="vagozari-content1">
-    <a>ویلایی</a>
-    <a>آپارتمان</a>
-    <a>تجاری</a>
-    <a>اداری</a>
-    <a>کلنگی و زمین</a>
+    <a>خرید و فروش</a>
+    <a>رهن و اجاره</a>
   </div>
   </div>
    <div class="melk1">
@@ -200,8 +197,11 @@
   <i class="fas fa-chevron-down"></i>
   </button>
   <div class="melk-content1">
-    <a>خرید و فروش</a>
-    <a>رهن و اجاره</a>
+    <a>ویلایی</a>
+    <a>آپارتمان</a>
+    <a>تجاری</a>
+    <a>اداری</a>
+    <a>کلنگی و زمین</a>
   </div>
   </div>
     <textarea type="text" name="adress" placeholder="آدرس ملک" maxlength="200" class="textarea-melk3"></textarea>

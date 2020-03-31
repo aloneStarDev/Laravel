@@ -1,116 +1,184 @@
 $(document).ready(function() {
 	"use strict";
-$(".melk-content1 a").on("click",function(){
-	$(".melkbtn1").text($(this).text());
-	});
-$(".melkbtn1").on("click",function(){
-	$(".melk-content1").slideToggle("slow");
-	$(this).css("outline","none");
-	});
-$(".vagozari-content1 a").on("click",function(){
-	$(".vagozaribtn1").text($(this).text());
-	});
-$(".vagozaribtn1").on("click",function(){
-	$(".vagozari-content1").slideToggle("slow");
-	$(this).css("outline","none");
-	});
-$(".melk-content a").on("click",function(){
-	$(".melkbtn").text($(this).text());
-	});
-$(".melkbtn").on("click",function(){
-	$(".melk-content").slideToggle("slow");
-	$(this).css("outline","none");
-	});
-$(".vagozari-content a").on("click",function(){
-	$(".vagozaribtn").text($(this).text());
-	});
-$(".vagozaribtn").on("click",function(){
-	$(".vagozari-content").slideToggle("slow");
-	$(this).css("outline","none");
-	});
-$(".sabt2").on("click",function(){
-	$(".content5").hide();
-	$(".content6").show();
-	$(this).addClass("pop-left-btn2");
-	$(this).parent().addClass("pop-top-left2");
-	$(this).removeClass("pop-right-btn2");
-	$(this).parent().removeClass("pop-top-right2");
-	$(".vorood2").addClass("pop-right-btn2");
-	$(".vorood2").parent().addClass("pop-top-right2");
-	$(".vorood2").parent().removeClass("pop-top-left2");
-	$(".vorood2").removeClass("pop-left-btn2");
-	});
-$(".vorood2").on("click",function(){
-	$(".content6").hide();
-	$(".content5").show();
-	$(this).addClass("pop-left-btn2");
-	$(this).parent().addClass("pop-top-left2");
-	$(this).removeClass("pop-right-btn2");
-	$(this).parent().removeClass("pop-top-right2");
-	$(".sabt2").addClass("pop-right-btn2");
-	$(".sabt2").parent().addClass("pop-top-right2");
-	$(".sabt2").parent().removeClass("pop-top-left2");
-	$(".sabt2").removeClass("pop-left-btn2");
-	});
-$(".firstProf").on("click",function(){
-$(".pop2").show();
-$(".pop-parent").show();
-	document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-	$(".body").css("overflow-y","hidden");
-});
-$(".sex-content a").on("click",function(){
-	$(".sexbtn").text($(this).text());
-	});
-$(".sexbtn").on("click",function(){
-	$(".sex-content").slideToggle("slow");
-	$(this).css("outline","none");
-	});
-$(".pop-button-left2").on("click",function(){
-	$(".input-center").css("display","block");
-	$(".pop-buttons2").css("margin-top","23%");
-	$(this).text("ادامه");
-	});
-$(".sabt").on("click",function(){
-	$(".content1").hide();
-	$(".content2").show();
-	$(this).addClass("pop-left-btn");
-	$(this).parent().addClass("pop-top-left");
-	$(this).removeClass("pop-right-btn");
-	$(this).parent().removeClass("pop-top-right");
-	$(".vorood").addClass("pop-right-btn");
-	$(".vorood").parent().addClass("pop-top-right");
-	$(".vorood").parent().removeClass("pop-top-left");
-	$(".vorood").removeClass("pop-left-btn");
-	});
-$(".vorood").on("click",function(){
-	$(".content2").hide();
-	$(".content1").show();
-	$(this).addClass("pop-left-btn");
-	$(this).parent().addClass("pop-top-left");
-	$(this).removeClass("pop-right-btn");
-	$(this).parent().removeClass("pop-top-right");
-	$(".sabt").addClass("pop-right-btn");
-	$(".sabt").parent().addClass("pop-top-right");
-	$(".sabt").parent().removeClass("pop-top-left");
-	$(".sabt").removeClass("pop-left-btn");
-	});
-$(".secProf").on("click",function(){
-	$(".pop1").show();
+	$('.melk').each(function(){
+	        var t = null;
+	        var btn = $(this);
+	        btn.hover(function(){
+	            t = setTimeout(function(){
+	                btn.find(".melk-content").slideDown(300);
+					t = null;
+	            }, 300);
+
+	        }, function(){
+	            if (t){
+	                clearTimeout(t);
+	                t = null;
+	            }
+	            else{
+	                btn.find(".melk-content").slideUp(300);
+					}
+	        });
+	    });
+	$('.melk1').each(function(){
+	        var t = null;
+	        var btn = $(this);
+	        btn.hover(function(){
+	            t = setTimeout(function(){
+	                btn.find(".melk-content1").slideDown(300);
+					t = null;
+	            }, 300);
+
+	        }, function(){
+	            if (t){
+	                clearTimeout(t);
+	                t = null;
+	            }
+	            else{
+	                btn.find(".melk-content1").slideUp(300);
+					}
+	        });
+	    });
+	$('.vagozari').each(function(){
+	        var t = null;
+	        var btn = $(this);
+	        btn.hover(function(){
+	            t = setTimeout(function(){
+	                btn.find(".vagozari-content").slideDown(300);
+					t = null;
+	            }, 300);
+
+	        }, function(){
+	            if (t){
+	                clearTimeout(t);
+	                t = null;
+	            }
+	            else{
+	                btn.find(".vagozari-content").slideUp(300);
+					}
+	        });
+	    });
+	$('.vagozari1').each(function(){
+	        var t = null;
+	        var btn = $(this);
+	        btn.hover(function(){
+	            t = setTimeout(function(){
+	                btn.find(".vagozari-content1").slideDown(300);
+					t = null;
+	            }, 300);
+
+	        }, function(){
+	            if (t){
+	                clearTimeout(t);
+	                t = null;
+	            }
+	            else{
+	                btn.find(".vagozari-content1").slideUp(300);
+					}
+	        });
+	    });
+	$(".vagozari-content1 a").on("click",function(){
+		$(".vagozaribtn1").text($(this).text());
+		$(".vagozari-content1").slideUp("slow");
+		});
+	$(".melk-content a").on("click",function(){
+		$(".melkbtn").text($(this).text());
+		$(".melk-content").slideUp("slow");
+		});
+	$(".melk-content1 a").on("click",function(){
+		$(".melkbtn1").text($(this).text());
+		$(".melk-content1").slideUp("slow");
+		});
+	$(".vagozari-content a").on("click",function(){
+		$(".vagozaribtn").text($(this).text());
+		$(".vagozari-content").slideUp("slow");
+		});
+	$(".sabt2").on("click",function(){
+		$(".content5").hide();
+		$(".content6").show();
+		$(this).addClass("pop-left-btn2");
+		$(this).parent().addClass("pop-top-left2");
+		$(this).removeClass("pop-right-btn2");
+		$(this).parent().removeClass("pop-top-right2");
+		$(".vorood2").addClass("pop-right-btn2");
+		$(".vorood2").parent().addClass("pop-top-right2");
+		$(".vorood2").parent().removeClass("pop-top-left2");
+		$(".vorood2").removeClass("pop-left-btn2");
+		});
+	$(".vorood2").on("click",function(){
+		$(".content6").hide();
+		$(".content5").show();
+		$(this).addClass("pop-left-btn2");
+		$(this).parent().addClass("pop-top-left2");
+		$(this).removeClass("pop-right-btn2");
+		$(this).parent().removeClass("pop-top-right2");
+		$(".sabt2").addClass("pop-right-btn2");
+		$(".sabt2").parent().addClass("pop-top-right2");
+		$(".sabt2").parent().removeClass("pop-top-left2");
+		$(".sabt2").removeClass("pop-left-btn2");
+		});
+	$(".firstProf").on("click",function(){
+	$(".pop2").show();
 	$(".pop-parent").show();
-	document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-	$(".body").css("overflow-y","hidden");
+		document.body.scrollTop = 0;
+	    document.documentElement.scrollTop = 0;
+		$(".body").css("overflow-y","hidden");
 	});
-$(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6").on("click",function(){
-	$(".pop2").hide();
-	$(".pop-button-left2").text("دریافت کد تایید");
-	$(".input-center").css("display","none");
-	$(".pop-buttons2").css("margin-top","20%");
-	$(".pop1").hide();
-	$(".pop-parent").hide();
-	$(".body").css("overflow-y","visible");
-	});
+	$(".sex-content a").on("click",function(){
+		$(".sexbtn").text($(this).text());
+		});
+	$(".sexbtn").on("click",function(){
+		$(".sex-content").slideToggle("slow");
+		$(this).css("outline","none");
+		});
+	$(".pop-button-left2").on("click",function(){
+		$(".input-center").css("display","block");
+		$(".pop-buttons2").css("margin-top","23%");
+		$(this).html('<a href="sabtNam.html" style="width:100%; display:block; text-decoration:none !important; color:white !important;">ادامه </a>');
+		});
+	$(".sabt").on("click",function(){
+		$(".content1").hide();
+		$(".content2").show();
+		$(this).addClass("pop-left-btn");
+		$(this).parent().addClass("pop-top-left");
+		$(this).removeClass("pop-right-btn");
+		$(this).parent().removeClass("pop-top-right");
+		$(".vorood").addClass("pop-right-btn");
+		$(".vorood").parent().addClass("pop-top-right");
+		$(".vorood").parent().removeClass("pop-top-left");
+		$(".vorood").removeClass("pop-left-btn");
+		});
+	$(".vorood").on("click",function(){
+		$(".content2").hide();
+		$(".content1").show();
+		$(this).addClass("pop-left-btn");
+		$(this).parent().addClass("pop-top-left");
+		$(this).removeClass("pop-right-btn");
+		$(this).parent().removeClass("pop-top-right");
+		$(".sabt").addClass("pop-right-btn");
+		$(".sabt").parent().addClass("pop-top-right");
+		$(".sabt").parent().removeClass("pop-top-left");
+		$(".sabt").removeClass("pop-left-btn");
+		});
+	$(".secProf").on("click",function(){
+		$(".pop1").show();
+		$(".pop-parent").show();
+		document.body.scrollTop = 0;
+	    document.documentElement.scrollTop = 0;
+		$(".body").css("overflow-y","hidden");
+		});
+	$(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6").on("click",function(){
+		$(".melk-content").slideUp("slow");
+		$(".vagozari-content").slideUp("slow");
+		$(".melk-content1").slideUp("slow");
+		$(".vagozari-content1").slideUp("slow");
+		$(".pop2").hide();
+		$(".pop-button-left2").text("دریافت کد تایید");
+		$(".input-center").css("display","none");
+		$(".pop-buttons2").css("margin-top","20%");
+		$(".pop1").hide();
+		$(".pop-parent").hide();
+		$(".body").css("overflow-y","visible");
+		});
 $(".secProf").hover(function(){
 	$(this).css({
 		background:"rgba(64,22,186,1)"
