@@ -39,14 +39,16 @@
                     <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">قوانین</a></button>
                 </div>
                 <div class="dropdown">
-                    <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('about')}}">درباره ما</a>
+                    <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('about')}}">درباره
+                            ما</a>
                     </button>
                 </div>
                 <div class="dropdown">
-                    <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('contactUs')}}">ارتباط با
+                    <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route('contactUs')}}">ارتباط
+                            با
                             ما</a></button>
                 </div>
-               @include('Base.section.btnMenu')
+                @include('Base.section.btnMenu')
             </div>
         </div>
     </nav>
@@ -67,96 +69,164 @@
     </p>
 </div>
 <div class="search">
-<div class="search-btn-buy-rent">
-<a href="#" class="buy-button">
-    <button type="button" class="btn">
-      خرید
-    </button></a>
-<a href="#" class="rent-button">
-    <button type="button" class="btn">
-      اجاره
-    </button></a>
-   </div>
-<div class="search-search">
-<div class="search-search-text">
-<div class="search-search-input">
- <div class="mahale" style="border-left:thin solid #707070">
-  <button class="mahalebtn"><i class="fas fa-map-marker-alt" style="background: -webkit-linear-gradient(rgba(64,22,186,1),  rgba(190,86,212,1));
+    <div class="search-btn-buy-rent">
+        <a href="#" class="buy-button">
+            <button type="button" class="btn">
+                خرید
+            </button>
+        </a>
+        <a href="#" class="rent-button">
+            <button type="button" class="btn">
+                اجاره
+            </button>
+        </a>
+    </div>
+    <div class="search-search">
+        <div class="search-search-text">
+            <div class="search-search-input">
+                <div class="mahale" style="border-left:thin solid #707070">
+                    <button class="mahalebtn"><i class="fas fa-map-marker-alt" style="background: -webkit-linear-gradient(rgba(64,22,186,1),  rgba(190,86,212,1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;"></i> منطقه <i class="fas fa-chevron-down"></i></button>
-  <div id="myDropdown" class="mahale-content">
-    <a>منطقه 1 شهرداری</a>
-    <a>منطقه 2 شهرداری</a>
-    <a>منطقه 3 شهرداری</a>
-    <a>منطقه 4 شهرداری</a>
-    <a>منطقه 5 شهرداری</a>
-    <a>منطقه 6 شهرداری</a>
-    <a>منطقه 7 شهرداری</a>
-    <a>منطقه 8 شهرداری</a>
-    <a>منطقه 9 شهرداری</a>
-    <a>منطقه 10 شهرداری</a>
-    <a>منطقه 11 شهرداری</a>
-    <a>منطقه 12 شهرداری</a>
-    <a>منطقه 13 شهرداری</a>
-    <a>منطقه ثامن </a>
-  </div>
-</div>
-<form>
- <div class="wrapInput">
-   <input type="text" name="searchHouse" placeholder="جستجوی کد ملک  یا کلید واژه" maxlength="25" >
-  </div>
-  <a href="#" class="search-button">
-    <button type="button" class="btn">
-     جستجو
-    </button></a>
-</form>
-</div>
-<div class="search-search-input pishrafte-hide">
- <div class="cost">
-  <button class="costbtn">نوع ملک <i class="fas fa-chevron-down"></i></button>
-  <div class="cost-content">
-    <a>آپارتمان</a>
-    <a>ویلایی</a>
-    <a>اداری و تجاری</a>
-    <a>زمین و کلنگی</a>
-  </div>
-</div>
-<div class="metrazh">
-  <div class="metrazhbtn">
+                    <div id="myDropdown" class="mahale-content">
+                        <a>منطقه 1 شهرداری</a>
+                        <a>منطقه 2 شهرداری</a>
+                        <a>منطقه 3 شهرداری</a>
+                        <a>منطقه 4 شهرداری</a>
+                        <a>منطقه 5 شهرداری</a>
+                        <a>منطقه 6 شهرداری</a>
+                        <a>منطقه 7 شهرداری</a>
+                        <a>منطقه 8 شهرداری</a>
+                        <a>منطقه 9 شهرداری</a>
+                        <a>منطقه 10 شهرداری</a>
+                        <a>منطقه 11 شهرداری</a>
+                        <a>منطقه 12 شهرداری</a>
+                        <a>منطقه 13 شهرداری</a>
+                        <a>منطقه ثامن </a>
+                    </div>
+                </div>
+                <form>
+                    <div class="wrapInput">
+                        <input type="text" name="searchHouse" placeholder="جستجوی کد ملک  یا کلید واژه" maxlength="25">
+                    </div>
+                    <a href="#" class="search-button">
+                        <button type="button" class="btn">
+                            جستجو
+                        </button>
+                    </a>
+                </form>
+            </div>
+            <div class="search-search-input pishrafte-hide">
+                <div class="cost">
+                    <button class="costbtn">نوع ملک <i class="fas fa-chevron-down"></i></button>
+                    <div class="cost-content">
+                        <a>آپارتمان</a>
+                        <a>ویلایی</a>
+                        <a>اداری و تجاری</a>
+                        <a>زمین و کلنگی</a>
+                    </div>
+                </div>
+                <div class="metrazh">
+                    <div class="metrazhbtn">
   <span>
   متراژ:
   </span>
-  <span style=" margin-right:4%;"> از</span>
-  <input type="number" name="from" style=" right:18%;" id="metre1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-  <span style="margin-right:38%;"> تا</span>
-  <input type="number" name="to" style="left:5.2%;" id="metre2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-  </div>
-</div>
-<form>
-  <a href="#" class="search-button">
-    <button type="button" class="btn">
-     جستجو پیشرفته
-    </button></a>
-</form>
-</div>
-</div>
+                        <span style=" margin-right:4%;"> از</span>
+                        <input type="number" name="from" style=" right:18%;" id="metre1"
+                               onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <span style="margin-right:38%;"> تا</span>
+                        <input type="number" name="to" style="left:5.2%;" id="metre2"
+                               onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    </div>
+                </div>
+                <form>
+                    <a href="#" class="search-button">
+                        <button type="button" class="btn">
+                            جستجو پیشرفته
+                        </button>
+                    </a>
+                </form>
+            </div>
+        </div>
 
-<div class="search-pishrafte">
-<button class="pishraftebtn">جستجو پیشرفته <i class="fas fa-chevron-down"></i></button>
-</div>
-</div>
+        <div class="search-pishrafte">
+            <button class="pishraftebtn">جستجو پیشرفته <i class="fas fa-chevron-down"></i></button>
+        </div>
+    </div>
 </div>
 <div class="tri-left">
     <img class="tri-image-left" alt="tri-background" src="../base/images/curve1.png">
 </div>
-<div class="tri-right">
-    <img class="tri-image-right" alt="tri-background" src="../base/images/curve3.png">
-</div>
+{{--
+
+    @for($i =0;$i<count($files);$i++)
+        <div class="cell" style="margin-right:2%;" >
+            <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
+                 class="house-image">
+            <h3 class="cell-h3">
+                {{ \App\File::$bulbing_type[$files[$i]->buildingType] }}  {{$files[$i]->area}}متری
+            </h3>
+            <div class="cell-content">
+                <span class="cell-type">
+              <i class="fas fa-home"></i>
+                {{ \App\File::$bulbing_type[$files[$i]->buildingType] }}
+              </span>
+                <span class="cell-metre">
+              <i class="fas fa-expand"></i>
+              متر {{$files[$i]->area}}
+              </span>
+                <span class="cell-beds">
+              <i class="fas fa-bed"></i>
+              {{$files[$i]->bedroom}} خوابه
+              </span>
+                <span class="cell-address">
+              <i class="fas fa-map-marker-alt"></i>
+              {{$files[$i]->addressPu}}
+              </span>
+                @auth
+                    <span class="cell-address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        {{$files[$i]->addressPv}}
+                    </span>
+                @endauth
+                @if($files[$i]->rahn != null)
+                    <span class="cell-year">
+                  رهن: {{ floor($files[$i]->rahn) }} میلیون @if((($files[$i]->rahn) - floor($files[$i]->rahn)) != 0)
+                            و {{ ((($files[$i]->rahn) - floor($files[$i]->rahn))*1000) }} هزار تومان @else تومان @endif
+                </span>
+                @endif
+                @if($files[$i]->ejare != null)
+                    <span class="cell-month">
+                      اجاره: {{ floor($files[$i]->ejare) }} میلیون @if((($files[$i]->ejare) - floor($files[$i]->ejare)) != 0)
+                            و {{ ((($files[$i]->ejare) - floor($files[$i]->ejara))*1000) }} هزار تومان @else
+                            تومان
+                        @endif
+                    </span>
+                @endif
+                @if($files[$i]->buy != null)
+                    <span class="cell-month">
+                  خرید: {{ floor($files[$i]->buy) }} میلیون @if((($files[$i]->buy) - floor($files[$i]->buy)) != 0)
+                            و {{ ((($files[$i]->buy) - floor($files[$i]->buy))*1000) }} هزار تومان @else تومان @endif
+                    </span>
+                @endif
+                <button class="btn cell-btn" style="margin-left:10%;">
+                    جزئیات
+                </button>
+                <button class="btn cell-btn">
+                    تماس
+                    <i class="fas fa-phone"></i>
+                </button>`
+            </div>
+        </div>
+    @endfor
+]--}}
 <div id="carouselExampleControls" class="carousel carousel1 slide">
 
     <div class="carousel-inner">
 
         <div class="carousel-item first-slide">
+        </div>
+        <div class="carousel-item active second-slide">
             @for($i=0;$i<count($files);$i++)
                 <div class="cell" @if($i % 3 == 1) style="margin-right:2%;" @endif >
                     <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
@@ -184,10 +254,10 @@
                         <span class="cell-year">
       رهن: {{ floor($files[$i]->rahn) }} میلیون @if((($files[$i]->rahn) - floor($files[$i]->rahn)) != 0) و {{ ((($files[$i]->rahn) - floor($files[$i]->rahn))*1000) }} هزار تومان @else تومان @endif
       </span>
-        <span class="cell-month">
+                        <span class="cell-month">
       اجاره: {{ floor($files[$i]->ejare) }} میلیون @if((($files[$i]->ejare) - floor($files[$i]->ejare)) != 0) و {{ ((($files[$i]->ejare) - floor($files[$i]->ejara))*1000) }} هزار تومان @else تومان @endif
       </span>
-                        <button class="btn cell-btn" style="margin-left:10%;">
+                        <button class="btn cell-btn" @auth onclick="alert('{{$files[$i]->addressPv}}')" @endauth style="margin-left:10%;">
                             جزئیات
                         </button>
                         <button class="btn cell-btn">
@@ -198,926 +268,11 @@
                 </div>
             @endfor
         </div>
-        <div class="carousel-item active second-slide">
-
-            <div class="cell" style="margin-right:2%;">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell" style="margin-right:2%;">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell" style="margin-right:2%;">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
         <div class="carousel-item third-slide">
-
-            <div class="cell" style="margin-right:2%;">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell" style="margin-right:2%;">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell" style="margin-right:2%;">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="cell">
-                <img alt="house" src="../base/images/city_illustrations_empire_state_building_2x.png"
-                     class="house-image">
-                <h3 class="cell-h3">
-                    عنوان
-                </h3>
-                <div class="cell-content">
-      <span class="cell-type">
-      <i class="fas fa-home"></i>
-      مسکونی
-      </span>
-                    <span class="cell-metre">
-      <i class="fas fa-expand"></i>
-      متر 100
-      </span>
-                    <span class="cell-beds">
-      <i class="fas fa-bed"></i>
-      دو خوابه
-      </span>
-                    <span class="cell-address">
-      <i class="fas fa-map-marker-alt"></i>
-      بلوار صیاد شیرازی
-      </span>
-                    <span class="cell-year">
-      رهن: 100 میلیون تومان
-      </span>
-                    <span class="cell-month">
-      اجاره: 250 میلیون تومان
-      </span>
-                    <button class="btn cell-btn" style="margin-left:10%;">
-                        جزئیات
-                    </button>
-                    <button class="btn cell-btn">
-                        تماس
-                        <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+
 <div class="carousel-buttons">
     <button class="btn next-btn" data-target="#carouselExampleControls">بعدی</button>
     <ul style="list-style:none; width: 17%; margin-bottom:0 !important; padding:0;">

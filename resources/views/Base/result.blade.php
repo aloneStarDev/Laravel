@@ -64,9 +64,7 @@
   </div>
   <div style="text-align: justify; font-size: 15px; color:#6C6A6A" class="firstparaghraph">
       <h1>
-      @if(isset($mes) && $mes != null)
-          {{$refId}}
-      @endif
+          {{$refId ?? ""}}
       </h1>
   </div>
  <img class="firstboxphoto" alt="firstboxphoto" src="{{asset("base/images/g8.jpg")}}" >

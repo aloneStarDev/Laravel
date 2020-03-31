@@ -18,7 +18,6 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::post('/resetPassword', 'ContactController@resetPassword')->name('resetPassword');
     Route::post('/forget', 'ContactController@verifyForget')->name('verifyForget');
     Route::get('/logout','ContactController@logout')->name('logout');
-    Route::get('/subscribe', 'PaymentController@tariffs')->name('subscribePanel');
     Route::get('/subscribe/payment', 'PaymentController@payment')->name('payment');
     Route::get('/subscribe/payment/checker', 'PaymentController@checker')->name("checker");
 });

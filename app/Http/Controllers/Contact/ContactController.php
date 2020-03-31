@@ -41,7 +41,9 @@ class ContactController extends Controller
                     $customer->ip = json_encode($ip);
                     $customer->save();
                 }
-                if ($user->customer()->enable == false)
+                if($user->customer()->active  == false)
+                    return back()->withErrors(["login"=>'ابتدا اشتراک بخرید']);
+                if ($user->customer()->enable  == false)
                     return back()->withErrors(["login"=>'دسترسی شما غیرفعال می باشد']);
                 else{
                     $customer = $user->customer();

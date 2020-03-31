@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 class MainController extends Controller{
     public function index(){
-        $files = File::where("visible",true)->latest()->paginate(12);
+        $files = File::where("visible",true)->latest()->paginate(36);
         return view('Base.index',compact("files"));
     }
     public function about(){

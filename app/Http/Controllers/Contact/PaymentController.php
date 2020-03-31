@@ -6,8 +6,11 @@ use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Payment;
 use App\Tariff;
+use App\Temp;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use SoapClient;
 
 class PaymentController extends Controller
@@ -83,18 +86,20 @@ class PaymentController extends Controller
             ]);
 
             if ($result->Status == 100) {
-
                 if ($this->addSubscription($payment)) {
+                    $mes = "پرداخت شما موفق بود و حساب شما تمدید شد";
                     $refId = $result->RefID;
-                    $mes = "پرداخت شما موفق بود و حساب کاربری شما فعال شد";
                     return view("Base.result",compact("refId","mes"));
                 }
             } else {
-                echo 'Transaction failed. Status:'.$result->Status;
+                $mes = "پرداخت شما موفق نبود و حساب کاربری شما فعال نشد لطفا مجددا تلاش فرمایید";
+                $refId = $result->RefID;
+                return view("Base.result",compact("mes","refId"));
             }
         }
         else {
-            echo 'Transaction canceled by user';
+            $mes = "پرداخت شما کنسل شد و حساب کاربری شما فعال نشد لطفا مجددا تلاش فرمایید";
+            return view("Base.result",compact("mes"));
         }
     }
 
@@ -114,6 +119,16 @@ class PaymentController extends Controller
                 'active'=>true
                 ]);
         } else {
+            $temp = Temp::where("phonenumber",$customer->phonenumber)->firstOrFail();
+            $user = new User(
+            [
+                "username"=>$temp->username,
+                "password"=>Hash::make($temp->password),
+                "rollId"=>$customer->id
+            ]
+            );
+            $temp->delete();
+            $user->save();
             $newExpireDate = Carbon::now()->addMonths($payment->subscription_month);
             $customer->update([
                 'expire_subscription' => $newExpireDate,
