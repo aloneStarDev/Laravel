@@ -75,7 +75,7 @@ input {
 	width: 70% !important;
 margin-right: 15%;
 margin-left: 15%;
-margin-bottom: 5%;
+margin-bottom:40% !important;
 background: white;
 margin-top: 10%;
 border-radius: 20px;
@@ -1136,7 +1136,7 @@ bottom: 0%;
 .footer-logo{
 	position: absolute;
 	right: 6%;
-	bottom: 50%;
+	bottom: 30%;
 	}
 .footer-image{
 	height: 59vw;

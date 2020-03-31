@@ -124,7 +124,7 @@
   </div>
  </div>
 
-<footer class="page-footer font-small indigo footer-new">
+<footer class="page-footer font-small indigo">
 <div class="footer-back">
 <img alt="footer-background" class="footer-image" src="../base/images/bgFooter1.png">
 </div>
