@@ -49,77 +49,89 @@
 <div class="tri-left">
     <img alt="background-texture-left" src="{{asset("base/images/curve1.png")}}" >
 </div>
-
+<br>
+<br>
+<br>
+@include("Base.section.errors");
+<form action="{{route("register")}}" method="post" style="display: inline;">
+    @csrf
     <div class="pop-content-input3">
         <div class="input-top">
+            <input type="hidden" name="phonenumber" value="{{$phonenumber}}">
             <i class="fas fa-user input-user3"></i>
             <input type="text" name="name" placeholder="نام " maxlength="10" >
             <i class="fas fa-user input-user4"></i>
-            <input type="text" name="family" placeholder="نام خانوادگی" maxlength="20">
+            <input type="text" name="lastname" style="" placeholder="نام خانوادگی" maxlength="20">
             <div class="sex">
-                <button class="sexbtn">منطقه <i class="fas fa-chevron-down"></i></button>
-                <div class="sex-content">
-                    <a>منطقه 1 شهرداری</a>
-                    <a>منطقه 2 شهرداری</a>
-                    <a>منطقه 3 شهرداری</a>
-                    <a>منطقه 4 شهرداری</a>
-                    <a>منطقه 5 شهرداری</a>
-                    <a>منطقه 6 شهرداری</a>
-                    <a>منطقه 7 شهرداری</a>
-                    <a>منطقه 8 شهرداری</a>
-                    <a>منطقه 9 شهرداری</a>
-                    <a>منطقه 10 شهرداری</a>
-                    <a>منطقه 11 شهرداری</a>
-                    <a>منطقه 12 شهرداری</a>
-                    <a>منطقه 13 شهرداری</a>
-                    <a>منطقه ثامن </a>
-                </div>
+                <select name="region" class="sexbtn"><i class="fas fa-chevron-down"></i>
+                    <option selected disabled hidden>منطقه</option>
+                    <option value="1">منطقه 1 شهرداری</option>
+                    <option value="2">منطقه 2 شهرداری</option>
+                    <option value="3">منطقه 3 شهرداری</option>
+                    <option value="4">منطقه 4 شهرداری</option>
+                    <option value="5">منطقه 5 شهرداری</option>
+                    <option value="6">منطقه 6 شهرداری</option>
+                    <option value="7">منطقه 7 شهرداری</option>
+                    <option value="8">منطقه 8 شهرداری</option>
+                    <option value="9">منطقه 9 شهرداری</option>
+                    <option value="10">منطقه 10 شهرداری</option>
+                    <option value="11">منطقه 11 شهرداری</option>
+                    <option value="12">منطقه 12 شهرداری</option>
+                    <option value="13">منطقه 13 شهرداری</option>
+                    <option value="14">منطقه ثامن </option>
+                </select>
             </div>
         </div>
         <div class="input-text">
-            <textarea type="text" name="adress" placeholder="آدرس دفتر" maxlength="200"  style="margin-top:3%"></textarea>
+            <textarea type="text" name="address" placeholder="آدرس دفتر" maxlength="200"  style="margin-top:3%"></textarea>
         </div>
         <div class="input-middle">
             <input type="text" name="office" placeholder="نام دفتر" maxlength="25" style="margin-left:30%;">
             <i class="fas fa-phone-square input-home"></i>
-            <input type="number" name="phone-home" placeholder="شماره تلفن ثابت" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11" >
+            <input type="number" name="call" placeholder="شماره تلفن ثابت" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11" >
         </div>
         <div class="input-bottom">
             <i class="fas fa-envelope input-envelope"></i>
-            <input type="text" name="mail" placeholder="ایمیل" style="margin-right:28%; width:40%;" >
+            <input type="text" name="email" placeholder="ایمیل" style="margin-right:28%; width:40%;" >
         </div>
     </div>
     <div class="subtitle">
         <h4>انتخاب نوع اشتراک</h4>
         <label class="systemlbl">تعداد سیستم: </label>
-        <input class="systeminp" type="number" name="phone-home" placeholder="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11" >
+        <input class="systeminp" type="number" name="ipCount" placeholder="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11" >
     </div>
-    <div class="content-button">
-        <button class="button1 btn">
+    <input type="hidden" name="panel" id="panel">
+{{--    <div class="content-button">--}}
+        <button type="button" onclick="$('#panel').val(1)" class="button1 btn">
             <h3 class="button-title">1 ماهه</h3>
-            <p class="button-content">200 هزار تومان</p>
+            <p class="button-content">{{$plans[0]->price}} هزار تومان</p>
+            <p class="button-content"> {{$plans[0]->addOnMember}} هزار تومان هر کاربر اضافه</p>
         </button>
-        <button class="button2 btn">
+        <button type="button" onclick="$('#panel').val(2)" class="button2 btn">
             <h3 class="button-title">3 ماهه</h3>
-            <p class="button-content">200 هزار تومان</p>
+            <p class="button-content">{{$plans[1]->price}} هزار تومان هزار تومان</p>
+            <p class="button-content">{{$plans[1]->addOnMember}} هزار تومان هر کاربر اضافه</p>
         </button>
-        <button class="button3 btn">
+        <button type="button" onclick="$('#panel').val(3)" class="button3 btn ">
             <h3 class="button-title">6 ماهه</h3>
-            <p class="button-content">200 هزار تومان</p>
+            <p class="button-content">{{$plans[2]->price}} هزار تومان هزار تومان</p>
+            <p class="button-content">{{$plans[2]->addOnMember}} هزار تومان هر کاربر اضافه</p>
         </button>
-        <button class="button4 btn">
+        <button type="button" onclick="$('#panel').val(4)" class="button4 btn">
             <h3 class="button-title">1 ساله</h3>
-            <p class="button-content">200 هزار تومان</p>
+            <p class="button-content">{{$plans[3]->price}} هزار تومان هزار تومان</p>
+            <p class="button-content">{{$plans[3]->addOnMember}} هزار تومان هر کاربر اضافه</p>
         </button>
-    </div>
+{{--    </div>--}}
     <div class="pop-buttons4">
-        <button class="pop-button-right4 btn">
+        <button type="button" class="pop-button-right4 btn">
             انصراف
         </button>
-        <button class="pop-button-left4 btn">
+        <button type="submit" class="pop-button-left4 btn">
             پرداخت و ثبت اشتراک
         </button>
     </div>
+</form>
 
 
 <footer class="page-footer font-small indigo footer-new">

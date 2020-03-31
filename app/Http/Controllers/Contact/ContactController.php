@@ -76,12 +76,25 @@ class ContactController extends Controller
     }
     public function signup(Temp $temp)
     {
+        $phonenumber = $temp->phonenumber;
         $plans = Tariff::all();
-        return view('Auth.signup',compact("plans"));
+        return view('Auth.signup',compact("plans","phonenumber"));
     }
-    public function register(Request $request)
+    public function register(CustomerRequest $request)
     {
-
+        $customer = new Customer($request->all());
+        if(Temp::where("phonenumber",$request->input("phonenumber"))->firstOrFail()->enable == true)
+        {
+            if(Customer::where("phonenumber",$request->input("phonenumber"))->first() == null) {
+                $customer["enable"] = true;
+                $customer->save();
+            }else
+            {
+                $customer = Customer::where("phonenumber",$request->input("phonenumber"))->firstOrFail();
+            }
+            return redirect(route("payment",compact("customer")));
+        }
+        return back()->withErrors(["code"=>"گویا قبلا کد تایید را اشتباه وارد کرده اید"]);
     }
     public function forget(){
         return view('Auth.forget',['title'=>'تایید هویت']);

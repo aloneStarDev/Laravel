@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Payment;
 use App\Tariff;
 use Carbon\Carbon;
-use http\Env\Request;
+use Illuminate\Http\Request;
 use SoapClient;
 
 class PaymentController extends Controller
@@ -19,20 +19,21 @@ class PaymentController extends Controller
         return view('subscribe');
     }
 
-    public function payment()
+    public function payment(Request $request)
     {
-        $this->validate(request(), [
-            'month' => 'required'
+        $request->validate([
+            'customer' => 'required'
         ]);
+        $customer = Customer::where("id",$request->get("customer"))->firstOrFail();
+        $panel = $customer["panel"];
 
-        $month = (int) request('month');
+        $count = $customer["ipCount"];
 
-        $count = 1;
-
-        $price = Tariff::where('months', $month)->value('price');
-        $price += $count * Tariff::where('months', $month)->value('addOnMember');
+        $panel = Tariff::where('id', $panel)->firstOrFail();
+        $price =  $count * $panel['addOnMember'];
+        $price +=  $panel['price'];
         $price *= 1000;
-        $Description = 'پنل انتخابی شما '.request("month")." ماهه ";
+        $Description = 'پنل انتخابی شما '.$panel->months." ماهه ";
         $CallbackURL = "http://localhost/Project/public/contact/subscribe/payment/checker";
 
         $client = new SoapClient('https://sandbox.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
@@ -41,8 +42,8 @@ class PaymentController extends Controller
             'MerchantID' => $this->MerchantID,
             'Amount' => $price,
             'Description' => $Description,
-//                'Email' => $Email, --->optional
-                'Mobile' => "09304437493",
+            'Email' => $customer["email"],
+            'Mobile' => $customer["phonenumber"],
             'CallbackURL' => $CallbackURL,
         ]);
         if ($result->Status == 100) {
@@ -50,7 +51,7 @@ class PaymentController extends Controller
             Payment::create([
                 'customer_id' => 1,
                 'resnumber' => $result->Authority,
-                'subscription_month' => $month,
+                'subscription_month' => $panel->months,
                 'price' => $price
             ]);
 
@@ -84,13 +85,10 @@ class PaymentController extends Controller
             if ($result->Status == 100) {
 
                 if ($this->addSubscription($payment)) {
-                    // sweet alert
-                    // alert()->success('Paid successfully', 'have a good course');
-
-                    //specify redirect route
-                    return redirect(route('base'));
+                    $refId = $result->RefID;
+                    $mes = "پرداخت شما موفق بود و حساب کاربری شما فعال شد";
+                    return view("Base.result",compact("refId","mes"));
                 }
-                echo 'Transaction success. RefID:'.$result->RefID;
             } else {
                 echo 'Transaction failed. Status:'.$result->Status;
             }
@@ -101,7 +99,7 @@ class PaymentController extends Controller
     }
 
     private function addSubscription($payment) {
-        //for confirm payment
+
         $payment->update([
             'payment' => 1
         ]);
@@ -113,11 +111,13 @@ class PaymentController extends Controller
             $newExpireDate = $oldExpireDate->addMonths($payment->subscription_month);
             $customer->update([
                 'expire_subscription' => $newExpireDate,
-            ]);
+                'active'=>true
+                ]);
         } else {
             $newExpireDate = Carbon::now()->addMonths($payment->subscription_month);
             $customer->update([
                 'expire_subscription' => $newExpireDate,
+                'active'=>true
             ]);
         }
 

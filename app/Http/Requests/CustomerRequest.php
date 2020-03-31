@@ -31,6 +31,7 @@ class CustomerRequest extends FormRequest
             'phonenumber'=>'Required',
             'region'=>'Required',
             'address'=>'Required',
+            'panel'=>'Required',
         ];
     }
 }
