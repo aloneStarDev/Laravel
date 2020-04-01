@@ -7,6 +7,7 @@ Route::get('/','Base\MainController@index')->name('base');
 route::get('/About','Base\MainController@about')->name('about');
 route::get('/customer','Base\MainController@customer')->name('customer');
 route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs');
+route::post('/save/file','Base\MainController@store')->name('saveMemberFile');
 
 
 Route::prefix('contact')->namespace('Contact')->group(function (){

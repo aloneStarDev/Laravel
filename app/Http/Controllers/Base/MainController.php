@@ -10,7 +10,6 @@ class MainController extends Controller{
         return view('Base.index',compact("files"));
     }
     public function about(){
-
         return view('Base.about');
     }
     public function contactUs(){
@@ -18,5 +17,10 @@ class MainController extends Controller{
     }
     public function customer(){
         return view('Base.customer');
+    }
+    public function store(){
+        $file = new File(request()->all());
+        dd($file);
+        return back()->withErrors(["msg"=>"اطلاعات شما با موفقیت ثبت شد"]);
     }
 }
