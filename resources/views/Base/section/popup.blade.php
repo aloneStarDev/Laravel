@@ -123,42 +123,46 @@
         </div>
     </div>
     <div class="pop-content content5">
-        <div class="pop-content-form5">
+        <form action="{{route('saveMemberFile')}}" class="pop-content-form5" method="post">
+            @csrf
             <div class="pop-content-input5">
                 <div class="input-top5">
                     <i class="fas fa-user input-user5"></i>
                     <input type="text" name="name" placeholder="نام " maxlength="10">
                     <i class="fas fa-user input-user6"></i>
-                    <input type="text" name="family" placeholder="نام خانوادگی" maxlength="20">
+                    <input type="text" name="lastname" placeholder="نام خانوادگی" maxlength="20">
                     <i class="fas fa-phone  input-phone5"></i>
-                    <input type="number" name="phone" placeholder="شماره تلفن "
+                    <input type="number" name="phonenumber" placeholder="شماره تلفن "
                            onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11"
                            style="width:35%;">
                 </div>
                 <div class="input-middle5">
                     <div class="vagozari">
-                        <button class="vagozaribtn">
+                        <button type="button" class="vagozaribtn">
                             <i class="fas fa-scroll input-scroll"></i>
                             نوع واگذاری
                             <i class="fas fa-chevron-down"></i>
                         </button>
+                        <input type="hidden" name="buy" id="buy">
+                        <input type="hidden" name="rahn" id="rahn">
                         <div class="vagozari-content">
-                            <a>ویلایی</a>
-                            <a>آپارتمان</a>
-                            <a>تجاری</a>
-                            <a>اداری</a>
-                            <a>کلنگی و زمین</a>
+                            <a onclick="$('#buy').val(0)">خرید و فروش</a>
+                            <a onclick="$('#rahn').val(0)">رهن و اجاره</a>
                         </div>
                     </div>
                     <div class="melk">
-                        <button class="melkbtn">
+                        <input type="hidden" id="buildingType" name="buildingType">
+                        <button type="button" class="melkbtn">
                             <i class="fas fa-home input-home2"></i>
                             نوع ملک
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="melk-content">
-                            <a>خرید و فروش</a>
-                            <a>رهن و اجاره</a>
+                            <a onclick="$('#buildingType').val(1)">ویلایی</a>
+                            <a onclick="$('#buildingType').val(2)">آپارتمان</a>
+                            <a onclick="$('#buildingType').val(3)">تجاری</a>
+                            <a onclick="$('#buildingType').val(3)">اداری</a>
+                            <a onclick="$('#buildingType').val(4)">کلنگی و زمین</a>
                         </div>
                     </div>
                     <textarea type="text" name="adress" placeholder="آدرس ملک" maxlength="200"
@@ -170,14 +174,16 @@
                 </div>
             </div>
             <div class="pop-buttons5">
-                <button class="pop-button-right5 btn">
-                    انصراف
-                </button>
-                <button class="pop-button-left5 btn">
+                َ<a href="{{route("base")}}">
+                    <button type="button" class="pop-button-right5 btn">
+                        انصراف
+                    </button>
+                </a>
+                <button type="submit" class="pop-button-left5 btn">
                     ثبت
                 </button>
             </div>
-        </div>
+        </form>
     </div>
     <div class="pop-content content6">
         <div class="pop-content-form6">
