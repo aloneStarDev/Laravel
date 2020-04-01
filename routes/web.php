@@ -7,7 +7,9 @@ Route::get('/','Base\MainController@index')->name('base');
 route::get('/About','Base\MainController@about')->name('about');
 route::get('/customer','Base\MainController@customer')->name('customer');
 route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs');
-
+route::get("/yourAdress",function(){
+  return view("Base.TestView");
+});
 
 Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::get('/login', 'ContactController@signin')->name('signin');
@@ -41,4 +43,3 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
     Route::get('/successful-payments' , 'PaymentController@index');
     Route::delete('payments/{payment}' , 'PaymentController@destroy');
 });
-

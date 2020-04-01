@@ -238,64 +238,6 @@
     </div>
 </div>
 
-<div class="pop-content content6">
-    <div class="pop-content-form6">
-        <div class="pop-content-input6">
-            <div class="input-top6">
-                <i class="fas fa-user input-user7"></i>
-                <input type="text" name="name" placeholder="نام " maxlength="10">
-                <i class="fas fa-user input-user8"></i>
-                <input type="text" name="family" placeholder="نام خانوادگی" maxlength="20">
-                <i class="fas fa-phone  input-phone6"></i>
-                <input type="number" name="phone" placeholder="شماره تلفن "
-                       onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11"
-                       style="width:35%;">
-            </div>
-            <div class="input-middle6">
-                <div class="vagozari1">
-                    <button class="vagozaribtn1">
-                        <i class="fas fa-scroll"></i>
-                        نوع درخواست
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="vagozari-content1">
-                        <a>خرید و فروش</a>
-                        <a>رهن و اجاره</a>
-                    </div>
-                </div>
-                <div class="melk1">
-                    <button class="melkbtn1">
-                        <i class="fas fa-home"></i>
-                        نوع ملک
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="melk-content1">
-                        <a>ویلایی</a>
-                        <a>آپارتمان</a>
-                        <a>تجاری</a>
-                        <a>اداری</a>
-                        <a>کلنگی و زمین</a>
-                    </div>
-                </div>
-                <textarea type="text" name="adress" placeholder="آدرس ملک" maxlength="200"
-                          class="textarea-melk3"></textarea>
-            </div>
-            <div class="input-bottom6">
-                <textarea type="text" name="explanation" placeholder="توضیحات" maxlength="200"
-                          class="textarea-melk4"></textarea>
-            </div>
-        </div>
-        <div class="pop-buttons6">
-            <button class="pop-button-right6 btn">
-                انصراف
-            </button>
-            <button class="pop-button-left6 btn">
-                ثبت
-            </button>
-        </div>
-    </div>
-</div>
-
 <script>
     let i = false;
 
