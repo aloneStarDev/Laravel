@@ -11,23 +11,28 @@
         </div>
         <div>
             @include('Admin.section.errors')
+            @if($file->buy != null)
             <div class="row">
                 <label class="control-label">هزینه ی خرید</label>
-                <div class="text-primary"> {{ floor($file->buy) }} میلیون @if((($file->buy) - floor($file->buy)) != 0) و {{ ((($file->buy) - floor($file->buy))*1000) }} هزار تومان @else تومان @endif </div>
+                <div class="text-primary"> {{\App\File::floatPrice($file->buy)}} </div>
             </div>
+            @endif
+            @if($file->rahn != null)
             <div class="row">
                 <label class="control-label">هزینه ی رهن</label>
-                <div class="text-primary">{{ floor($file->rahn) }} میلیون @if((($file->rahn) - floor($file->buy)) != 0) و {{ ((($file->rahn) - floor($file->rahn))*1000) }} هزار تومان @else تومان @endif</div>
+                <div class="text-primary">{{\App\File::floatPrice($file->rahn)}}</div>
             </div>
-
+            @endif
+            @if($file->ejare != null)
             <div class="row">
                 <label class="control-label">هزینه ی اجاره </label>
-                <div class="text-primary">{{ floor($file->ejare) }} میلیون @if((($file->ejare) - floor($file->ejare)) != 0) و {{ ((($file->ejare) - floor($file->ejare))*1000) }} هزار تومان @else تومان @endif</div>
+                <div class="text-primary">{{\App\File::floatPrice($file->ejare)}}</div>
             </div>
+            @endif
 
             <div class="row">
                 <label class="control-label">نام و نام خانوادگی مالک</label>
-                <div class="text-primary">{{$file->lastname}} {{ $file->name }}</div>
+                <div class="text-primary">{{$file->name}} {{ $file->lastname }}</div>
             </div>
             <div class="row">
                 <label class="control-label">نوع ساختمان</label>
@@ -69,20 +74,54 @@
                 <label class="control-label">شماره تماس</label>
                 <div class="text-primary">{{ $file->phonenumber }}</div>
             </div>
+            @if($file->floorCovering != 0)
             <div class="row">
-                <label class="control-label">جزئیات</label>
-                <ul id="boolOption">
-
-                </ul>
-
-                <ul id="textOption">
-
-                </ul>
+                <label for="floorCovering" class="control-label">کفپوش</label>
+                <div class="text-primary" id="floorCovering">{{ \App\File::$floor_covering[$file->floorCovering] }}</div>
             </div>
+            @endif
+            @if($file->cabinet != 0)
+                <div class="row">
+                    <label for="cabinet" class="control-label">کابینت</label>
+                    <div class="text-primary" id="cabinet">{{ \App\File::$cabinet_[$file->cabinet] }}</div>
+                </div>
+            @endif
+            @if($file->floorCount != null)
+                <div class="row">
+                    <label for="floorCount" class="control-label">تعداد طبقات</label>
+                    <div class="text-primary" id="floorCount">{{ $file->floorCount }}</div>
+                </div>
+            @endif
+            @if($file->heating != 0)
+                <div class="row">
+                    <label for="heating" class="control-label">گرمایش</label>
+                    <div class="text-primary" id="heating">{{ \App\File::$heating_[$file->heating] }}</div>
+                </div>
+            @endif
+            @if($file->cooling != 0)
+                <div class="row">
+                    <label for="cooling" class="control-label">سرمایش</label>
+                    <div class="text-primary" id="cooling">{{ \App\File::$heating_[$file->cooling] }}</div>
+                </div>
+            @endif
+            @if($file->view != 0)
+                <div class="row">
+                    <label for="view" class="control-label">نما</label>
+                    <div class="text-primary" id="view">{{ \App\File::$view_[$file->view] }}</div>
+                </div>
+            @endif
+            @if($file->document != 0)
+                <div class="row">
+                    <label for="document" class="control-label">سند</label>
+                    <div class="text-primary" id="document">{{ \App\File::$document_[$file->document] }}</div>
+                </div>
+            @endif
+            @if($file->description != null)
             <div class="row">
                 <label class="control-label">توضیحات</label>
                 <div class="text-primary">{{ $file->description }}</div>
             </div>
+            @endif
             <div class="form-group">
                 <div class="col-sm-12">
                     <a href="{{route("files.index")}}" class="btn btn-danger">بازگشت</a>
@@ -90,27 +129,4 @@
             </div>
         </div>
     </div>
-    <script>
-        let options = JSON.parse(@json($file->options));
-        if(options != null ){
-            if(options.hasOwnProperty('options1'))
-                options.options1.forEach(function (key) {
-                    let keyset = Object.keys(key);
-                    var node = document.createElement("LI");
-                    node.id = keyset[0];
-                    var textNode = document.createTextNode(keyset + " : " + (key[keyset] ? "دارد": "ندارد"));
-                    node.appendChild(textNode);
-                    document.getElementById("boolOption").appendChild(node);
-                });
-            if(options.hasOwnProperty('options2'))
-                options.options2.forEach(function (key) {
-                    let keyset = Object.keys(key);
-                    var node = document.createElement("LI");
-                    node.id = keyset[0];
-                    var textNode = document.createTextNode(keyset + " : " + key[keyset] );
-                    node.appendChild(textNode);
-                    document.getElementById("textOption").appendChild(node);
-                })
-        }
-    </script>
 @endsection

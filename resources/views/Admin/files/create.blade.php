@@ -125,30 +125,85 @@
                     <input type="number" class="form-control" name="phonenumber" id="phonenumber" placeholder="شماره تماس مالک را وارد کنید" value="{{ old('phonenumber') }}">
                 </div>
             </div>
-            <hr/>
+
             <div class="form-group">
-                <label for="optionType">
-                     ویژگی ها
-                </label>
                 <div class="col-sm-12">
-                    <select id="optionType" onchange="changeOptionType()">
-                        <option value="1">گزینه ای</option>
-                        <option value="2">توضیحات</option>
+                    <label for="floorCovering" class="control-label">کفپوش</label>
+                    <select class="form-control" name="floorCovering" id="floorCovering">
+                        <option value ="0" selected>کفپوش</option>
+                        @foreach(\App\File::$floor_covering as $key =>$val)
+                        <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
                     </select>
-                    <input type="text" id="optionInput"/> :
-                    <input type="checkbox" id="optionValue1"/>
-                    <input type="text" id="optionValue2"/>
-                    <button type="button" onclick="addOption()">اضافه کردن ویژگی</button>
                 </div>
             </div>
-            <ul id="boolOption">
 
-            </ul>
-            <hr/>
-            <ul id="textOption">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="cabinet" class="control-label">کابینت</label>
+                    <select class="form-control" name="cabinet" id="cabinet">
+                        <option value ="0" selected>کابینت</option>
+                        @foreach(\App\File::$cabinet_ as $key =>$val)
+                            <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
-            </ul>
-            <input type="hidden" name="options" id="options" value="{{ old('options') }}">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="floorCount" class="control-label">تعداد طبقات</label>
+                    <input type="number" class="form-control" name="floorCount" id="floorCount" placeholder="تعداد طبقات را وارد کنید" value="{{ old('floorCount') }}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="heating" class="control-label">گرمایش</label>
+                    <select class="form-control" name="heating" id="heating">
+                        <option value ="0" selected>گرمایش</option>
+                        @foreach(\App\File::$heating_ as $key =>$val)
+                            <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="cooling" class="control-label">سرمایش</label>
+                    <select class="form-control" name="cooling" id="cooling">
+                        <option value ="0" selected>سرمایش</option>
+                        @foreach(\App\File::$cooling_ as $key =>$val)
+                            <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="view" class="control-label">نما</label>
+                    <select class="form-control" name="view" id="view">
+                        <option value ="0" selected>نما</option>
+                        @foreach(\App\File::$view_ as $key =>$val)
+                            <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="document" class="control-label">سند</label>
+                    <select class="form-control" name="document" id="document">
+                        <option value ="0" selected>سند</option>
+                        @foreach(\App\File::$document_ as $key =>$val)
+                            <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
@@ -163,91 +218,6 @@
                     <a href="{{route("files.index")}}" class="btn btn-danger">بازگشت</a>
                 </div>
             </div>
-
         </form>
     </div>
-    <script>
-        let optionType = $("#optionType").find(":selected").val();
-        $("#optionValue2").hide();
-        let options = {
-            options1:[],
-            options2:[]
-        };
-        document.querySelector('body').addEventListener('click', removeOption);
-
-        function removeOption(event) {
-            if (event.target.tagName.toLowerCase() === 'li') {
-                let number = -1 ;
-                let counter = 0;
-                options.options1.forEach(function (key) {
-                    if(key.hasOwnProperty(event.target.id)){
-                        number = counter;
-                        delete key[event.target.id];
-                    }
-                    counter++;
-                });
-                if(number >= 0)
-                    options.options1.splice(number,1);
-
-                number = -1;
-                counter = 0;
-
-                options.options2.forEach(function (key) {
-                    if(key.hasOwnProperty(event.target.id)){
-                        number = counter;
-                        delete key[event.target.id];
-                    }
-                    counter++;
-                });
-                if(number >= 0)
-                    options.options2.splice(number,1);
-                document.getElementById(event.target.id).remove();
-                $("#options").val(JSON.stringify(options));
-            }
-        }
-
-        function addOption() {
-            try {
-                let option = {};
-                let optionName = $("#optionInput").val();
-
-                switch (optionType) {
-                    case "1":
-                        option[optionName] = $("#optionValue1").is(":checked");
-                        options.options1.push(option);
-                        var node = document.createElement("LI");
-                        node.id = optionName;
-                        var textNode = document.createTextNode(optionName + " : " + (option[optionName] ? "دارد": "ندارد"));
-                        node.appendChild(textNode);
-                        document.getElementById("boolOption").appendChild(node);
-                        break;
-                    case "2":
-                        option[optionName] = $("#optionValue2").val();
-                        options.options2.push(option);
-                        var node = document.createElement("LI");
-                        node.id = optionName;
-                        var textNode = document.createTextNode(optionName + " : " + option[optionName]);
-                        node.appendChild(textNode);
-                        document.getElementById("textOption").appendChild(node);
-                        break;
-                }
-                $("#options").val(JSON.stringify(options));
-            }catch(err){
-                console.error(err);
-            }
-        }
-        function changeOptionType() {
-            optionType = $("#optionType").find(":selected").val();
-            switch (optionType) {
-                case "1":
-                    $('#optionValue2').hide();
-                    $('#optionValue1').show();
-                    break;
-                case "2":
-                    $('#optionValue2').show();
-                    $('#optionValue1').hide();
-                    break;
-            }
-        }
-    </script>
 @endsection

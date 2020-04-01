@@ -124,30 +124,85 @@
                     <input type="number" class="form-control" name="phonenumber" id="phonenumber" placeholder="شماره تماس مالک را وارد کنید" value="{{ $file->phonenumber }}">
                 </div>
             </div>
-            <hr/>
+
             <div class="form-group">
-                <label for="optionType">
-                    ویژگی ها
-                </label>
                 <div class="col-sm-12">
-                    <select id="optionType" onchange="changeOptionType()">
-                        <option value="1">گزینه ای</option>
-                        <option value="2">توضیحات</option>
+                    <label for="floorCovering" class="control-label">کفپوش</label>
+                    <select class="form-control" name="floorCovering" id="floorCovering">
+                        <option @if($file->floorCovering == null) selected value="0" @endif>کفپوش</option>
+                        @foreach(\App\File::$floor_covering as $key => $val)
+                            <option value="{{$key}}" @if($file->floorCovering == $key) selected @endif>{{$val}}</option>
+                        @endforeach
                     </select>
-                    <input type="text" id="optionInput"/> :
-                    <input type="checkbox" id="optionValue1"/>
-                    <input type="text" id="optionValue2"/>
-                    <button type="button" onclick="addOption()">اضافه کردن ویژگی</button>
                 </div>
             </div>
-            <ul id="boolOption">
 
-            </ul>
-            <hr/>
-            <ul id="textOption">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="cabinet" class="control-label">کابینت</label>
+                    <select class="form-control" name="cabinet" id="cabinet">
+                        <option @if($file->cabinet == null) selected value="0" @endif>کابینت</option>
+                        @foreach(\App\File::$cabinet_ as $key =>$val)
+                            <option value="{{$key}}" @if($file->cabinet == $key) selected @endif>{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
-            </ul>
-            <input type="hidden" name="options" id="options" value="{{ $file->options }}">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="floorCount" class="control-label">تعداد طبقات</label>
+                    <input type="number" class="form-control" name="floorCount" id="floorCount" placeholder="تعداد طبقات را وارد کنید" value="{{ $file->floorCount }}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="heating" class="control-label">گرمایش</label>
+                    <select class="form-control" name="heating" id="heating">
+                        <option  @if($file->heating == null) selected value="0" @endif>گرمایش</option>
+                        @foreach(\App\File::$heating_ as $key =>$val)
+                            <option value="{{$key}}" @if($file->heating == $key) selected @endif>{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="cooling" class="control-label">سرمایش</label>
+                    <select class="form-control" name="cooling" id="cooling">
+                        <option  @if($file->cooling == null) selected value="0" @endif>سرمایش</option>
+                        @foreach(\App\File::$cooling_ as $key =>$val)
+                            <option value="{{$key}}"  @if($file->cooling == $key) selected @endif>{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="view" class="control-label">نما</label>
+                    <select class="form-control" name="view" id="view">
+                        <option  @if($file->view == null) selected value="0" @endif>نما</option>
+                        @foreach(\App\File::$view_ as $key =>$val)
+                            <option value="{{$key}}"  @if($file->view == $key) selected @endif>{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="document" class="control-label">سند</label>
+                    <select class="form-control" name="document" id="document">
+                        <option @if($file->document == null) selected value="0" @endif>سند</option>
+                        @foreach(\App\File::$document_ as $key =>$val)
+                            <option value="{{$key}}" @if($file->document == $key) selected @endif>{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
@@ -165,113 +220,4 @@
 
         </form>
     </div>
-    <script>
-        let optionType = $("#optionType").find(":selected").val();
-        $("#optionValue2").hide();
-        document.querySelector('body').addEventListener('click', removeOption);
-        $("#buildingType").val({{$file->buildingType}});
-        $("#region").val({{$file->region}});
-        let options = JSON.parse(@json($file->options));
-        if(options != null ){
-            if(options.hasOwnProperty('options1'))
-                options.options1.forEach(function (key) {
-                    let keyset = Object.keys(key);
-                    var node = document.createElement("LI");
-                    node.id = keyset[0];
-                    var textNode = document.createTextNode(keyset + " : " + (key[keyset] ? "دارد": "ندارد"));
-                    node.appendChild(textNode);
-                    document.getElementById("boolOption").appendChild(node);
-                });
-            if(options.hasOwnProperty('options2'))
-                options.options2.forEach(function (key) {
-                    let keyset = Object.keys(key);
-                    var node = document.createElement("LI");
-                    node.id = keyset[0];
-                    var textNode = document.createTextNode(keyset + " : " + key[keyset] );
-                    node.appendChild(textNode);
-                    document.getElementById("textOption").appendChild(node);
-                })
-        }
-        function removeOption(event) {
-            if (event.target.tagName.toLowerCase() === 'li') {
-                let number = -1 ;
-                let counter = 0;
-                options.options1.forEach(function (key) {
-                    if(key.hasOwnProperty(event.target.id)){
-                        number = counter;
-                        delete key[event.target.id];
-                    }
-                    counter++;
-                });
-                if(number >= 0)
-                    options.options1.splice(number,1);
-
-                number = -1;
-                counter = 0;
-
-                options.options2.forEach(function (key) {
-                    if(key.hasOwnProperty(event.target.id)){
-                        number = counter;
-                        delete key[event.target.id];
-                    }
-                    counter++;
-                });
-                if(number >= 0)
-                    options.options2.splice(number,1);
-                document.getElementById(event.target.id).remove();
-                $("#options").val(JSON.stringify(options));
-            }
-        }
-
-        function addOption() {
-            try {
-                if(options == null)
-                    options = {};
-                let option = {};
-                let optionName = $("#optionInput").val();
-
-                switch (optionType) {
-                    case "1":
-                        if(!options.hasOwnProperty('option1'))
-                            options.options1=[];
-                        option[optionName] = $("#optionValue1").is(":checked");
-                        options.options1.push(option);
-                        var node = document.createElement("LI");
-                        node.id = optionName;
-                        var textNode = document.createTextNode(optionName + " : " + (option[optionName] ? "دارد": "ندارد"));
-                        node.appendChild(textNode);
-                        document.getElementById("boolOption").appendChild(node);
-                        break;
-                    case "2":
-
-                        if(!options.hasOwnProperty('option2'))
-                            options.options2 = [];
-                        option[optionName] = $("#optionValue2").val();
-                        options.options2.push(option);
-                        var node = document.createElement("LI");
-                        node.id = optionName;
-                        var textNode = document.createTextNode(optionName + " : " + option[optionName]);
-                        node.appendChild(textNode);
-                        document.getElementById("textOption").appendChild(node);
-                        break;
-                }
-                $("#options").val(JSON.stringify(options));
-            }catch(err){
-                console.error(err);
-            }
-        }
-        function changeOptionType() {
-            optionType = $("#optionType").find(":selected").val();
-            switch (optionType) {
-                case "1":
-                    $('#optionValue2').hide();
-                    $('#optionValue1').show();
-                    break;
-                case "2":
-                    $('#optionValue2').show();
-                    $('#optionValue1').hide();
-                    break;
-            }
-        }
-    </script>
 @endsection

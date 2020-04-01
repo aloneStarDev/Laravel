@@ -16,13 +16,25 @@
                 <button type="button" class="btn">
                     <i class="fas fa-chevron-right" style="margin-left:5%;"></i>
                     <span>
-                        {{auth()->user()->customer()->office}}
+                        خروج حساب کاربری
                     </span>
                     <i class="fas fa-times-circle"></i>
                 </button>
             </a>
         </li>
-    @else
+        @elsecan("master","admin")
+            <li class="nav-item">
+                <a class="atag secProf" href="{{route("manage")}}">
+                    <button type="button" class="btn">
+                        <i class="fas fa-chevron-right" style="margin-left:5%;"></i>
+                        <span>
+                       ورود به مدیریت
+                    </span>
+                        <i class="fas fa-address-card icon"></i>
+                    </button>
+                </a>
+            </li>
+        @else
         <li class="nav-item">
             <a class="atag secProf">
                 <button type="button" class="btn">
