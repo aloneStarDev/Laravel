@@ -7,14 +7,13 @@ Route::get('/','Base\MainController@index')->name('base');
 route::get('/About','Base\MainController@about')->name('about');
 route::get('/customer','Base\MainController@customer')->name('customer');
 route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs');
-<<<<<<< HEAD
+
 route::get("/yourAdress",function(){
   return view("Base.TestView");
 });
-=======
+
 route::post('/save/file','Base\MainController@store')->name('saveMemberFile');
 
->>>>>>> 7a08b0b0f5b5cd6ccec3cb40a3d8ce151bb9df1f
 
 Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::get('/login', 'ContactController@signin')->name('signin');
