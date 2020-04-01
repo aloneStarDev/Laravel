@@ -236,38 +236,6 @@
             </div>
         </div>
     </div>
-    <div class="input-middle5">
-        <div class="vagozari">
-            <button class="vagozaribtn">
-                <i class="fas fa-scroll input-scroll"></i>
-                نوع واگذاری
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="vagozari-content">
-                <a>خرید و فروش</a>
-                <a>رهن و اجاره</a>
-            </div>
-        </div>
-        <div class="melk">
-            <button class="melkbtn">
-                <i class="fas fa-home input-home2"></i>
-                نوع ملک
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="melk-content">
-                <a>ویلایی</a>
-                <a>آپارتمان</a>
-                <a>تجاری</a>
-                <a>اداری</a>
-                <a>کلنگی و زمین</a>
-            </div>
-        </div>
-        <textarea type="text" name="adress" placeholder="آدرس ملک" maxlength="200" class="textarea-melk"></textarea>
-    </div>
-    <div class="input-bottom5">
-        <textarea type="text" name="explanation" placeholder="توضیحات" maxlength="200"
-                  class="textarea-melk2"></textarea>
-    </div>
 </div>
 
 <div class="pop-content content6">
