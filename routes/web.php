@@ -9,7 +9,7 @@ route::get('/customer','Base\MainController@customer')->name('customer')->middle
 route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs')->middleware('account');
 
 route::get("/yourAdress",function(){
-  return view("Base.TestView");
+  return view("Base.management");
 });
 
 route::post('/save/file','Base\MainController@store')->name('saveMemberFile');
