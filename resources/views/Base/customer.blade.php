@@ -31,7 +31,7 @@
   <button class="dropbtn"><a class="nav-item nav-link navitems home" href="{{route("customer")}}">مشاورین املاک</a></button>
 </div>
       <div class="dropdown">
-  <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">قوانین</a></button>
+  <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("rules")}}">قوانین</a></button>
 </div>
  <div class="dropdown">
   <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("about")}}">درباره ما</a></button>
