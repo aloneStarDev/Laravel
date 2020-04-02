@@ -161,8 +161,11 @@
   <label class="menue-label">:ثبت شماره تماس جدید</label>
   <input type="number" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11" class="menue-input">
  </div>
+ <div class="sub2-button taiid">
+ <input type="number" name="code" placeholder="کد تایید" onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
+ </div>
  <div class="sub2-button">
- <button class="sub2-save btn">دریافت کد تائید</button>
+ <button class="sub2-save codebtn btn">دریافت کد تائید</button>
  </div>
  </div>
  <div class="menue-content-sub4">

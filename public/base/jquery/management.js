@@ -1,6 +1,11 @@
 $(document).ready(function() {
 	"use strict";
 var flag=true;
+$(".codebtn").on("click",function(){
+	$(".taiid").show();
+	$(this).css("width","170%");
+	$(this).text("تایید");
+	});
 $(".menue-buttom .btn").on("click",function(){
 	$(".menue-top-hide").slideUp("fast");
 	$(this).css({
@@ -22,6 +27,9 @@ $(".menue-buttom .btn").on("click",function(){
 	flag=false;
     $(".menue-head-btn").addClass("menuesp");
 	$(".menue-content-sub1").hide();
+	$(".taiid").hide();
+	$(".codebtn").text("دریافت کد تائید");
+	$(".codebtn").css("width","100%");
 	$(".menue-content-sub2").hide();
 	$(".menue-content-sub3").hide();
 	$(".menue-content-sub4").hide();
@@ -52,6 +60,9 @@ $(".menue-middle .btn").on("click",function(){
     $(".menue-head-btn").addClass("menuesp");
 	$(".menue-content-sub1").hide();
 	$(".menue-content-sub2").hide();
+	$(".taiid").hide();
+	$(".codebtn").text("دریافت کد تائید");
+	$(".codebtn").css("width","100%");
 	$(".menue-content-sub3").hide();
 	$(".menue-content-sub4").hide();
 	$(".menue-content-sub5").show();
@@ -78,6 +89,9 @@ $(".menuebtn4").on("click",function(){
 		});
 	$(".menue-content-sub1").hide();
 	$(".menue-content-sub2").hide();
+	$(".taiid").hide();
+	$(".codebtn").text("دریافت کد تائید");
+	$(".codebtn").css("width","100%");
 	$(".menue-content-sub3").hide();
 	$(".menue-content-sub4").show();
 	$(".menue-content-sub5").hide();
@@ -103,6 +117,9 @@ $(".menuebtn3").on("click",function(){
 	$(this).css("background","#b299ff");
 	$(".menue-content-sub1").hide();
 	$(".menue-content-sub2").hide();
+	$(".taiid").hide();
+	$(".codebtn").text("دریافت کد تائید");
+	$(".codebtn").css("width","100%");
 	$(".menue-content-sub4").hide();
 	$(".menue-content-sub3").show();
 	$(".menue-content-sub5").hide();
@@ -127,6 +144,9 @@ $(".menuebtn2").on("click",function(){
 		});
 	$(this).css("background","#b299ff");
 	$(".menue-content-sub1").hide();
+	$(".taiid").hide();
+	$(".codebtn").text("دریافت کد تائید");
+	$(".codebtn").css("width","100%");
 	$(".menue-content-sub3").hide();
 	$(".menue-content-sub4").hide();
 	$(".menue-content-sub2").show();
@@ -153,6 +173,9 @@ $(".menuebtn1").on("click",function(){
 	$(this).css("background","#b299ff");
 	$(".menue-content-sub1").show();
 	$(".menue-content-sub3").hide();
+	$(".taiid").hide();
+	$(".codebtn").text("دریافت کد تائید");
+	$(".codebtn").css("width","100%");
 	$(".menue-content-sub2").hide();
 	$(".menue-content-sub4").hide();
 	$(".menue-content-sub5").hide();
