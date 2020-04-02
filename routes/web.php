@@ -9,7 +9,7 @@ route::get('/customer','Base\MainController@customer')->name('customer')->middle
 route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs')->middleware('account');
 
 route::get("/yourAdress",function(){
-  return view("Base.management");
+  return view("Base.dakheli");
 });
 
 route::post('/save/file','Base\MainController@store')->name('saveMemberFile');
