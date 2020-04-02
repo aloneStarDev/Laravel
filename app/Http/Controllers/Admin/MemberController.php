@@ -85,10 +85,10 @@ class MemberController extends Controller
             "username"=>"required|unique:users",
             "password"=>"required"
         ]);
+        $customer = new Customer(request()->all());
         $customer['ipCount'] = 1;
         if(request('ipCount') != null)
-            $customer['ipCount'] += request('ipCount');;
-        $customer = new Customer(request()->all());
+            $customer['ipCount'] += request('ipCount');
         $customer['enable']=true;
         $customer['active']=true;
         $customer['panel']=request('panel');

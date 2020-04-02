@@ -2,6 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AccountMiddleware;
+use App\Http\Middleware\AcountMiddleware;
+use App\Http\Middleware\CustomAuthMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -37,7 +40,6 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
         'api' => [
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -54,7 +56,8 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'auth.custom' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'auth.custom' => CustomAuthMiddleware::class,
+        'account' => AccountMiddleware::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
