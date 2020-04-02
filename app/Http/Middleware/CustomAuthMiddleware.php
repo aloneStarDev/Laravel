@@ -3,10 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Facades\Gate;
 
-class CustomAuthMiddleware extends Middleware
+class CustomAuthMiddleware
 {
     /**
      * Handle an incoming request.

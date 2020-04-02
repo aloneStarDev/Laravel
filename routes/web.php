@@ -3,10 +3,10 @@
 use App\Tariff;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/','Base\MainController@index')->name('base');
-route::get('/About','Base\MainController@about')->name('about');
-route::get('/customer','Base\MainController@customer')->name('customer');
-route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs');
+Route::get('/','Base\MainController@index')->name('base')->middleware('account');
+route::get('/About','Base\MainController@about')->name('about')->middleware('account');
+route::get('/customer','Base\MainController@customer')->name('customer')->middleware('account');
+route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs')->middleware('account');
 
 route::get("/yourAdress",function(){
   return view("Base.TestView");
@@ -31,7 +31,7 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
 });
 
 ////route group for admin panel and management of it
-Route::prefix('admin')->middleware('auth.custom')->middleware('auth')->namespace('Admin')->group(function (){
+Route::prefix('admin')->namespace('Admin')->middleware('auth')->middleware('auth.custom')->group(function (){
     Route::get('/panel' , 'PanelController@index')->name('manage');
     Route::resource('agents', 'AgentController');
     Route::resource('files', 'FileController');

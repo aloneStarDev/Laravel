@@ -27,14 +27,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Builder::defaultStringLength(191);
 
-        //number of payments and use in header.blade.php
         view()->composer('Admin.section.header', function ($view) {
             $paymentSuccessful = Payment::where('payment', 1)->count();
-            $paymentUnsuccessful = Payment::where('payment', 0)->count();
 
             $view->with([
                 'paymentSuccessfulCount' => $paymentSuccessful,
-                'paymentUnsuccessfulCount' => $paymentUnsuccessful
             ]);
         });
     }

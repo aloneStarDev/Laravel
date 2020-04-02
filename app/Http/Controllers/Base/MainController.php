@@ -21,7 +21,8 @@ class MainController extends Controller{
         return view('Base.contactus');
     }
     public function customer(){
-        return view('Base.customer');
+        $customers = Customer::where("active",true)->latest()->paginate(36);
+        return view('Base.customer',compact('customers'));
     }
     public function store(){
         request()->validate([
