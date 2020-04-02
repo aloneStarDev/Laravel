@@ -38,26 +38,36 @@
                 <label class="control-label">نوع ساختمان</label>
                 <div class="text-primary">{{\App\File::$bulbing_type[$file->buildingType]}}</div>
             </div>
+            @if($file->floor)
             <div class="row">
                 <label class="control-label">طبقه</label>
                 <div class="text-primary">{{ $file->floor }}</div>
             </div>
+            @endif
             <div class="row">
                 <label class="control-label">متراژ</label>
                 <div class="text-primary">{{ $file->area }}</div>
             </div>
+
+            @if($file->age)
             <div class="row">
                 <label class="control-label">سن بنا</label>
                 <div class="text-primary">{{ $file->age }}</div>
             </div>
+            @endif
+
+            @if($file->unit)
             <div class="row">
                 <label class="control-label">تعداد واحد</label>
                 <div class="text-primary">{{ $file->unit }}</div>
             </div>
+            @endif
+            @if($file->bedroom)
             <div class="row">
                 <label class="control-label">تعداد خواب</label>
                 <div class="text-primary">{{ $file->bedroom }}</div>
             </div>
+            @endif
             <div class="row">
                 <label class="control-label">منطقه</label>
                 <div class="text-primary">{{ \App\File::$region_map[$file->region] }}</div>

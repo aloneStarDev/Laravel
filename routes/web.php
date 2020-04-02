@@ -31,19 +31,23 @@ Route::prefix('contact')->namespace('Contact')->group(function (){
 });
 
 ////route group for admin panel and management of it
-Route::prefix('admin')->namespace('Admin')->group(function (){
-    Route::get('/panel' , 'PanelController@index')->name('manage')->middleware('auth.custom')->middleware('auth');
-    Route::resource('agents', 'AgentController')->middleware('auth.custom')->middleware('auth');
-    Route::resource('files', 'FileController')->middleware('auth.custom')->middleware('auth');
-    Route::get('/file/mode/change/{file}', 'FileController@changeVisible')->middleware('auth.custom')->middleware('auth')->name('changeMode');
-    Route::get('/file/archive/{file}', 'FileController@archive')->middleware('auth.custom')->middleware('auth')->name('archive');
-    Route::get('/file/archives', 'FileController@archives')->middleware('auth.custom')->middleware('auth')->name('archives');
-    Route::post('/file/find', 'FileController@find')->middleware('auth.custom')->middleware('auth')->name('find');
-    Route::resource('members','MemberController')->middleware('auth.custom')->middleware('auth');
-    Route::get('/resetIp/{customer}','MemberController@resetIp')->middleware('auth.custom')->middleware('auth')->name("resetIp");
-    Route::resource('tariffs', 'TariffController')->middleware('auth.custom')->middleware('auth');
-    Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member')->middleware('auth.custom')->middleware('auth');
-    //show payments to admin
+Route::prefix('admin')->middleware('auth.custom')->middleware('auth')->namespace('Admin')->group(function (){
+    Route::get('/panel' , 'PanelController@index')->name('manage');
+    Route::resource('agents', 'AgentController');
+    Route::resource('files', 'FileController');
+    Route::get('/file/mode/change/{file}', 'FileController@changeVisible')->name('changeMode');
+    Route::get('/file/archive/{file}', 'FileController@archive')->name('archive');
+    Route::get('/file/archives', 'FileController@archives')->name('archives');
+    Route::post('/file/find', 'FileController@find')->name('find');
+    Route::resource('members','MemberController');
+    Route::get('/resetIp/{customer}','MemberController@resetIp')->name("resetIp");
+    Route::resource('tariffs', 'TariffController');
+    Route::get('/disable/member/{customer}','MemberController@disable')->name('disable.member');
     Route::get('/successful-payments' , 'PaymentController@index');
     Route::delete('payments/{payment}' , 'PaymentController@destroy');
+    Route::get('file/receives/{mode}','ReceiveController@index')->name('received');
+    Route::get('file/receives/{id}/show','ReceiveController@show')->name('showReceived');
+    Route::get('receives/delete/{id}','ReceiveController@destroy')->name('removeReceived');
+    Route::get('receives/register/{id}','ReceiveController@edit')->name('editReceived');
+    Route::post('receives/register','ReceiveController@register')->name('registerReceived');
 });

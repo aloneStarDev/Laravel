@@ -33,9 +33,9 @@ class PaymentController extends Controller
         $count = $customer["ipCount"];
 
         $panel = Tariff::where('id', $panel)->firstOrFail();
+        $price =  $panel['price'];
         if($count>1)
-            $price =  ($count-1) * $panel['addOnMember'];
-        $price +=  $panel['price'];
+            $price +=  ($count-1) * $panel['addOnMember'];
         $price *= 1000;
         $Description = 'پنل انتخابی شما '.$panel->months." ماهه ";
         $CallbackURL = "http://localhost/Project/public/contact/subscribe/payment/checker";

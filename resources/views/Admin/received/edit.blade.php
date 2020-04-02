@@ -1,19 +1,14 @@
 @extends('Admin.master')
-<style>
-    li:hover{
-        cursor: pointer;
-    }
-</style>
+
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="page-header head-section">
-            <h2>ایجاد فایل</h2>
+            <h2>ثبت فایل</h2>
         </div>
         @include('Admin.section.errors')
-        <form class="form-horizontal" action="{{ route('files.update',$file) }}" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{ route('registerReceived',$file) }}" method="post" enctype="multipart/form-data">
             @csrf
-            @method('patch')
-
+            <input type="hidden" name="receiveId" value="{{$id}}">
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="buy" class="control-label">خرید</label>
@@ -35,14 +30,14 @@
                 </div>
             </div>
 
-            <div class="form-group req">
+            <div class="form-group req uin">
                 <div class="col-sm-12">
                     <label for="name" class="control-label">نام</label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="نام مالک را وارد کنید" value="{{ $file->name }}">
                 </div>
             </div>
 
-            <div class="form-group req">
+            <div class="form-group req uin">
                 <div class="col-sm-12">
                     <label for="lastname" class="control-label">نام خانوادگی</label>
                     <input type="text" class="form-control" name="lastname" id="lastname" placeholder="نام خانوادگی  مالک را وارد کنید" value="{{$file->lastname}}">
@@ -53,9 +48,9 @@
                 <div class="col-sm-12">
                     <label for="buildingType" class="control-label">نوع ساختمان</label>
                     <select id = "buildingType" name="buildingType" class="bootstrap-select">
-                        @foreach(\App\File::$bulbing_type as $key => $val)
-                            <option value ={{$key}} > {{$val}} </option>
-                        @endforeach
+                    @foreach(\App\File::$bulbing_type as $key => $val)
+                            <option value ={{$key}}> {{$val}} </option>
+                    @endforeach
                     </select>
                 </div>
             </div>
@@ -93,15 +88,16 @@
                     <input type="number" class="form-control" name="bedroom" id="bedroom" placeholder="تعداد خواب را وارد کنید" value="{{ $file->bedroom }}">
                 </div>
             </div>
-
             <div class="form-group req">
                 <div class="col-sm-12">
                     <label for="region">منطقه ی شهرداری را انتخاب کنید</label>
                     <select class="form-control" name="region" id="region">
+                        <option value="0" selected hidden>منطقه ی شهرداری</option>
                         @foreach(\App\File::$region_map as $key =>$val)
                             <option value="{{$key}}">{{$val}}</option>
                         @endforeach
-                    </select></div>
+                    </select>
+                </div>
             </div>
 
             <div class="form-group req">
@@ -111,14 +107,14 @@
                 </div>
             </div>
 
-            <div class="form-group req">
+            <div class="form-group req uin">
                 <div class="col-sm-12">
                     <label for="addressPv" class="control-label">آدرس فرعی</label>
                     <textarea rows="5" class="form-control" name="addressPv" id="addressPv" placeholder="آدرس فرعی را وارد کنید">{{ $file->addressPv }}</textarea>
                 </div>
             </div>
 
-            <div class="form-group req">
+            <div class="form-group uin req">
                 <div class="col-sm-12">
                     <label for="phonenumber" class="control-label">شماره تماس</label>
                     <input type="number" class="form-control" name="phonenumber" id="phonenumber" placeholder="شماره تماس مالک را وارد کنید" value="{{ $file->phonenumber }}">
@@ -204,7 +200,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group uin">
                 <div class="col-sm-12">
                     <label for="description" class="control-label">توضیحات</label>
                     <textarea rows="5" class="form-control" name="description" id="description" placeholder="توضیحات را وارد کنید">{{ $file->description }}</textarea>
@@ -213,7 +209,6 @@
             <div class="form-group">
                 <div class="col-sm-12">
                     <button type="submit" class="btn btn-success">ارسال</button>
-
                     <a href="{{route("files.index")}}" class="btn btn-danger">بازگشت</a>
                 </div>
             </div>

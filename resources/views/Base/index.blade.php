@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
     <title>ٌصفحه اصلی</title>
-    <link href="../base/css/index.css" rel="stylesheet" type="text/css">
-    <link href="../base/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../base/fontawesome/css/all.css" rel="stylesheet" type="text/css">
-    <script src="../base/jquery/jquery-3-4-1.js"></script>
+    <link href="{{asset("base/css/index.css")}}" rel="stylesheet" type="text/css">
+    <link href="{{asset("base/css/bootstrap.css")}}" rel="stylesheet" type="text/css">
+    <link href="{{asset("base/fontawesome/css/all.css")}}"  rel="stylesheet" type="text/css">
+    <script src="{{asset("base/jquery/jquery-3-4-1.js")}}" ></script>
 
 </head>
 
 <body class="body">
 @include("Base.section.popup")
 <div style="position:absolute; left:0px; top:0px;">
-    <img alt="background-texture-top" src="../base/images/bgHeader5.png" class="background">
+    <img alt="background-texture-top" src="{{asset("base/images/bgHeader5.png")}}"  class="background">
 </div>
 <div style="position:absolute; top:27%; right:5%;">
-    <img alt="background-texture-top" src="../base/images/building-main.png" class="background-building">
+    <img alt="background-texture-top" src="{{asset("base/images/building-main.png")}}"  class="background-building">
 </div>
 <div class="headingitems fixed-top">
     <nav class="navbar navbar-expand-xl"
          style=" margin:0; box-sizing:inherit;padding-bottom:0.5%; width:100%; margin-top:1%;">
         <div class="logo">
-            <img alt="logo" src="../base/images/logo2.png" style="width:60%; transition-duration:0.5s;">
+            <img alt="logo" src="{{asset("base/images/logo2.png")}}"  style="width:60%; transition-duration:0.5s;">
         </div>
         <div id="navbarNavAltMarkup" style="width: 100%;margin-bottom: 2%;">
             <div class="navbar-nav">
@@ -155,7 +155,7 @@
     </div>
 </div>
 <div class="tri-left">
-    <img class="tri-image-left" alt="tri-background" src="../base/images/curve1.png">
+    <img class="tri-image-left" alt="tri-background" src="{{asset("base/images/curve1.png")}}" >
 </div>
 <div id="carouselExampleControls" class="carousel carousel1 slide">
     <div class="carousel-inner">
@@ -213,14 +213,14 @@
 
 <div class="image-carousel">
     <div class="card-back">
-        <img alt="carousel-card-back" src="../base/images/bgSlideshow.png" class="image-back-card">
+        <img alt="carousel-card-back" src="{{asset("base/images/bgSlideshow.png")}}"  class="image-back-card">
     </div>
     <div class="container-fluid" style="position: relative; z-index: 3;">
         <div id="myCarousel" class="carousel hi slide">
             <div class="carousel-inner hi1 row w-100 mx-auto">
                 <div class="carousel-item card-item col-md-4 active">
                     <div class="card">
-                        <img class="card-img-top img-fluid" src="../base/images/g5.jpg" alt="Card image cap">
+                        <img class="card-img-top img-fluid" src="{{asset("base/images/g5.jpg")}}" alt="Card image cap">
                         <div class="card-content">
                             <h3 class="card-h3">املاک رضایی</h3>
                             <p class="card-p">لورم ایپسوم متن ساختگی با تولید سادگی
@@ -233,84 +233,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item  card-item col-md-4">
-                    <div class=" even">
-                        <img class="card-img-top img-fluid" src="../base/images/g5.jpg" alt="Card image cap">
-                        <div class="card-content">
-                            <h3 class="card-h3">املاک رضایی</h3>
-                            <p class="card-p">لورم ایپسوم متن ساختگی با تولید سادگی
-                                نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است.
-                                متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                            <button class="btn card-btn" style="margin-left:10%;">
-                                جزئیات
-                            </button>
+                @for($i =0 ; $i<count($customers);$i++)
+                    <div class="carousel-item card-item col-md-4">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="{{asset("base/images/g5.jpg")}}"  alt="Card image cap">
+                            <div class="card-content">
+                                <h3 class="card-h3">{{$customers[$i]["office"]}}</h3>
+                                <p class="card-p">
+                                    {{$customers[$i]["address"]}}
+                                </p>
+                                <button class="btn card-btn" style="margin-left:10%;">
+                                    جزئیات
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item card-item col-md-4 ">
-                    <div class="card">
-                        <img class="card-img-top img-fluid" src="../base/images/g5.jpg" alt="Card image cap">
-                        <div class="card-content">
-                            <h3 class="card-h3">املاک رضایی</h3>
-                            <p class="card-p">لورم ایپسوم متن ساختگی با تولید سادگی
-                                نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است.
-                                متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                            <button class="btn card-btn" style="margin-left:10%;">
-                                جزئیات
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item  card-item col-md-4">
-                    <div class=" even">
-                        <img class="card-img-top img-fluid" src="../base/images/g5.jpg" alt="Card image cap">
-                        <div class="card-content">
-                            <h3 class="card-h3">املاک رضایی</h3>
-                            <p class="card-p">لورم ایپسوم متن ساختگی با تولید سادگی
-                                نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است.
-                                متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                            <button class="btn card-btn" style="margin-left:10%;">
-                                جزئیات
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                @endfor
                 <div class="carousel-item card-item col-md-4">
                     <div class="card">
-                        <img class="card-img-top img-fluid" src="../base/images/g5.jpg" alt="Card image cap">
-                        <div class="card-content">
-                            <h3 class="card-h3">املاک رضایی</h3>
-                            <p class="card-p">لورم ایپسوم متن ساختگی با تولید سادگی
-                                نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است.
-                                متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                            <button class="btn card-btn" style="margin-left:10%;">
-                                جزئیات
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item card-item  col-md-4">
-                    <div class=" even">
-                        <img class="card-img-top img-fluid" src="../base/images/g5.jpg" alt="Card image cap">
-                        <div class="card-content">
-                            <h3 class="card-h3">املاک رضایی</h3>
-                            <p class="card-p">لورم ایپسوم متن ساختگی با تولید سادگی
-                                نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است.
-                                متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                            <button class="btn card-btn" style="margin-left:10%;">
-                                جزئیات
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item card-item col-md-4">
-                    <div class="card">
-                        <img class="card-img-top img-fluid" src="../base/images/g5.jpg" alt="Card image cap">
+                        <img class="card-img-top img-fluid" src="{{asset("base/images/g5.jpg")}}" alt="Card image cap">
                         <div class="card-content">
                             <h3 class="card-h3">املاک رضایی</h3>
                             <p class="card-p">لورم ایپسوم متن ساختگی با تولید سادگی
@@ -337,23 +278,23 @@
 </div>
 <footer class="page-footer font-small indigo">
     <div class="footer-back">
-        <img alt="footer-background" class="footer-image" src="../base/images/bgFooter2.png">
+        <img alt="footer-background" class="footer-image" src="{{asset("base/images/bgFooter2.png")}}" >
     </div>
     <div class="footer-logo">
-        <img alt="logo" src="../base/images/logo1.png" style="width:40%;">
+        <img alt="logo" src="{{asset("base/images/logo1.png")}}"  style="width:40%;">
     </div>
     <div class=" text-center footer-inner text-md-left">
         <div class="row" style=" border-bottom:thin solid; padding: 0 7%;">
             <div class="col mx-auto">
                 <ul class="list-unstyled footer-icon">
                     <li>
-                        <img alt="ozv" src="../base/images/ecunion-logo.png">
+                        <img alt="ozv" src="{{asset("base/images/ecunion-logo.png")}}" >
                     </li>
                     <li>
-                        <img alt="ozv" src="../base/images/eanjoman.jpg">
+                        <img alt="ozv" src="{{asset("base/images/eanjoman.jpg")}}" >
                     </li>
                     <li>
-                        <img alt="ozv" src="../base/images/logo.png">
+                        <img alt="ozv" src="{{asset("base/images/logo.png")}}" >
                     </li>
                 </ul>
             </div>
@@ -425,9 +366,9 @@
 </footer>
 
 
-<script type="text/javascript" src="../base/jquery/index.js"></script>
-<script type="text/javascript" src="../base/jquery/bootstrap.js"></script>
-<script type="text/javascript" src="../base/fontawesome/js/all.js"></script>
+<script type="text/javascript" src="{{asset("base/jquery/index.js")}}" ></script>
+<script type="text/javascript" src="{{asset("base/jquery/bootstrap.js")}}" ></script>
+<script type="text/javascript" src="{{asset("base/fontawesome/js/all.js")}}" ></script>
 
 </body>
 </html>

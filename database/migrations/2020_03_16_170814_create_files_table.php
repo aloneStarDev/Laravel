@@ -16,9 +16,9 @@ class CreateFilesTable extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->integer('code')->unique();// randomCode uniq
-            $table->unsignedFloat('buy')->nullable();
-            $table->unsignedFloat('rahn')->nullable();
-            $table->unsignedFloat('ejare')->nullable();
+            $table->double('buy',15,8)->nullable();
+            $table->double('rahn',15,8)->nullable();
+            $table->double('ejare',15,8)->nullable();
             $table->string('name',50);
             $table->string('lastname',50);
             $table->unsignedTinyInteger('buildingType'); // 1villaie 2aparteman 3 edary 4 tejary 4 zamin_kolangi
@@ -31,15 +31,15 @@ class CreateFilesTable extends Migration
             //===============================================
             $table->unsignedTinyInteger("floorCovering")->nullable();
             $table->unsignedTinyInteger("cabinet")->nullable();
-            $table->unsignedTinyInteger("floorCount")->nullable();
+            $table->unsignedTinyInteger("floorCount")->nullable()->default(1);
             $table->unsignedTinyInteger("direction")->nullable();
             $table->unsignedTinyInteger("heating")->nullable();
             $table->unsignedTinyInteger("cooling")->nullable();
             $table->unsignedTinyInteger("view")->nullable();
             $table->unsignedTinyInteger("document")->nullable();
-            $table->unsignedTinyInteger('floor')->default(1);// tabaghat
+            $table->unsignedTinyInteger('floor')->default(1)->nullable();// tabaghat
             $table->unsignedSmallInteger('age')->nullable();//age of building
-            $table->unsignedTinyInteger('unit')->default(1);// Vahed Count
+            $table->unsignedTinyInteger('unit')->default(1)->nullable();// Vahed Count
             $table->unsignedTinyInteger('bedroom')->nullable(); // BedRoom Count
             //================================================
             $table->integer('user_id');//file register by a member if user_id be a negative number

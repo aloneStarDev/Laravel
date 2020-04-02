@@ -101,6 +101,11 @@ return array(
     |
     */
     'attributes' => array(
+        "buy"=>'خرید',
+        "ejare"=>'اجاره',
+        "rahn"=>'رهن',
+        "mode"=>"نوع درخواست",
+        "buildingType"=>"نوع ساختمان",
         "code"=>"کد تایید",
         "name" => "نام",
         "username" => "نام کاربری",
@@ -156,7 +161,7 @@ return array(
         'addressPv'=> 'آدرس فرعی',
         'region'=>'منطقه',
         'floor'=>'طبقه',
-        'area'=>'متداژ',
+        'area'=>'متراژ',
         'unit'=>'واحد',
         'bedroom'=>'تعداد خواب'
     ),

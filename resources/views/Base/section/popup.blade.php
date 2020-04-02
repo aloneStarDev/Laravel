@@ -1,11 +1,13 @@
+
+@include("Base.section.errors")
 <div class="pop-parent">
 </div>
-
 <div class="pop-div pop1">
+
+    <div id="e_rror"></div>
     <div class="pop-cross">
         <i class="fas fa-times"></i>
     </div>
-    @include("Base.section.errors")
     <div class="pop-top">
         <div class="pop-top-right" style="border-top-right-radius:20px;">
             <button class="pop-right-btn sabt btn">
@@ -103,7 +105,6 @@
                 </button>
             </div>
         </div>
-
     </div>
 </div>
 <div class="pop-div pop2">
@@ -126,13 +127,14 @@
         <form action="{{route('saveMemberFile')}}" class="pop-content-form5" method="post">
             @csrf
             <div class="pop-content-input5">
+                <input type="hidden" name="type" value="1">
                 <div class="input-top5">
                     <i class="fas fa-user input-user5"></i>
                     <input type="text" name="name" placeholder="نام " maxlength="10">
                     <i class="fas fa-user input-user6"></i>
                     <input type="text" name="lastname" placeholder="نام خانوادگی" maxlength="20">
                     <i class="fas fa-phone  input-phone5"></i>
-                    <input type="number" name="phonenumber" placeholder="شماره تلفن "
+                    <input type="number" name="phonenumber" placeholder="شماره تلفن"
                            onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11"
                            style="width:35%;">
                 </div>
@@ -143,11 +145,11 @@
                             نوع واگذاری
                             <i class="fas fa-chevron-down"></i>
                         </button>
-                        <input type="hidden" name="buy" id="buy">
-                        <input type="hidden" name="rahn" id="rahn">
+                        <input type="hidden" name="mode" id="mode1">
                         <div class="vagozari-content">
-                            <a onclick="$('#buy').val(0)">خرید و فروش</a>
-                            <a onclick="$('#rahn').val(0)">رهن و اجاره</a>
+                            <a onclick="$('#mode1').val(1)">فروش</a>
+                            <a onclick="$('#mode1').val(2)">رهن</a>
+                            <a onclick="$('#mode1').val(3)">اجاره</a>
                         </div>
                     </div>
                     <div class="melk">
@@ -165,11 +167,11 @@
                             <a onclick="$('#buildingType').val(4)">کلنگی و زمین</a>
                         </div>
                     </div>
-                    <textarea type="text" name="adress" placeholder="آدرس ملک" maxlength="200"
+                    <textarea type="text" name="address" placeholder="آدرس ملک" maxlength="200"
                               class="textarea-melk"></textarea>
                 </div>
                 <div class="input-bottom5">
-                    <textarea type="text" name="explanation" placeholder="توضیحات" maxlength="200"
+                    <textarea type="text" name="description" placeholder="توضیحات" maxlength="200"
                               class="textarea-melk2"></textarea>
                 </div>
             </div>
@@ -186,61 +188,68 @@
         </form>
     </div>
     <div class="pop-content content6">
-        <div class="pop-content-form6">
+        <form class="pop-content-form6" action="{{route('saveMemberFile')}}" method="post">
+            @csrf
             <div class="pop-content-input6">
+                <input type="hidden" name="type" value="2">
                 <div class="input-top6">
                     <i class="fas fa-user input-user7"></i>
                     <input type="text" name="name" placeholder="نام " maxlength="10">
                     <i class="fas fa-user input-user8"></i>
-                    <input type="text" name="family" placeholder="نام خانوادگی" maxlength="20">
+                    <input type="text" name="lastname" placeholder="نام خانوادگی" maxlength="20">
                     <i class="fas fa-phone  input-phone6"></i>
-                    <input type="number" name="phone" placeholder="شماره تلفن "
+                    <input type="number" name="phonenumber" placeholder="شماره تلفن "
                            onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11"
                            style="width:35%;">
                 </div>
                 <div class="input-middle6">
                     <div class="vagozari1">
-                        <button class="vagozaribtn1">
+                        <button type="button" class="vagozaribtn1">
                             <i class="fas fa-scroll"></i>
                             نوع درخواست
                             <i class="fas fa-chevron-down"></i>
                         </button>
+                        <input type="hidden" name="mode" id="mode2">
                         <div class="vagozari-content1">
-                            <a>ویلایی</a>
-                            <a>آپارتمان</a>
-                            <a>تجاری</a>
-                            <a>اداری</a>
-                            <a>کلنگی و زمین</a>
+                            <a onclick="$('#mode2').val(1)">فروش</a>
+                            <a onclick="$('#mode2').val(2)">رهن</a>
+                            <a onclick="$('#mode2').val(3)">اجاره</a>
                         </div>
                     </div>
                     <div class="melk1">
-                        <button class="melkbtn1">
+                        <input type="hidden" name="buildingType" id="buildingType2">
+                        <button type="button" class="melkbtn1">
                             <i class="fas fa-home"></i>
                             نوع ملک
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="melk-content1">
-                            <a>خرید و فروش</a>
-                            <a>رهن و اجاره</a>
+                            <a onclick="$('#buildingType2').val(1)">ویلایی</a>
+                            <a onclick="$('#buildingType2').val(2)">آپارتمان</a>
+                            <a onclick="$('#buildingType2').val(3)">تجاری</a>
+                            <a onclick="$('#buildingType2').val(3)">اداری</a>
+                            <a onclick="$('#buildingType2').val(4)">کلنگی و زمین</a>
                         </div>
                     </div>
-                    <textarea type="text" name="adress" placeholder="آدرس ملک" maxlength="200"
+                    <textarea type="text" name="address" placeholder="آدرس ملک" maxlength="200"
                               class="textarea-melk3"></textarea>
                 </div>
                 <div class="input-bottom6">
-                    <textarea type="text" name="explanation" placeholder="توضیحات" maxlength="200"
+                    <textarea type="text" name="description" placeholder="توضیحات" maxlength="200"
                               class="textarea-melk4"></textarea>
                 </div>
             </div>
             <div class="pop-buttons6">
-                <button class="pop-button-right6 btn">
-                    انصراف
-                </button>
-                <button class="pop-button-left6 btn">
+                <a href="{{route("base")}}">
+                    <button type="button" class="pop-button-right6 btn">
+                        انصراف
+                    </button>
+                </a>
+                <button type="submit" class="pop-button-left6 btn">
                     ثبت
                 </button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -254,8 +263,8 @@
             $("#verify").submit();
         } else {
             $("#btnSubmit").empty();
-            $("#err").empty();
-            $("#err").removeClass("alert alert-danger");
+            $("#e_rror").empty();
+            $("#e_rror").removeClass("alert alert-danger");
             let username = $("#username").val();
             let password = $("#password").val();
             let password_repeat = $("#password_repeat").val();
@@ -281,8 +290,8 @@
                                     var textnode = document.createTextNode(error.username[0]);
                                     node.appendChild(textnode);
                                     node.style = "text-align: right";
-                                    document.getElementById("err").appendChild(node);
-                                    $("#err").addClass("alert alert-danger");
+                                    document.getElementById("e_rror").appendChild(node);
+                                    $("#e_rror").addClass("alert alert-danger");
                                     $("#code").hide();
                                 }
                                 if (error.hasOwnProperty("phonenumber")) {
@@ -290,8 +299,8 @@
                                     var textnode = document.createTextNode(error.phonenumber[0]);
                                     node.appendChild(textnode);
                                     node.style = "text-align: right";
-                                    document.getElementById("err").appendChild(node);
-                                    $("#err").addClass("alert alert-danger");
+                                    document.getElementById("e_rror").appendChild(node);
+                                    $("#e_rror").addClass("alert alert-danger");
                                     $("#code").hide();
                                 }
                             } else {
@@ -304,8 +313,8 @@
                     var textnode = document.createTextNode("پسورد ها با هم برابر نیستند");
                     node.appendChild(textnode);
                     node.style = "text-align: right";
-                    document.getElementById("err").appendChild(node);
-                    $("#err").addClass("alert alert-danger");
+                    document.getElementById("e_rror").appendChild(node);
+                    $("#e_rror").addClass("alert alert-danger");
                     $("#code").hide();
                 }
             } else {
@@ -313,8 +322,8 @@
                 var textnode = document.createTextNode("پسورد و تکرار آن الزامی است");
                 node.appendChild(textnode);
                 node.style = "text-align: right";
-                document.getElementById("err").appendChild(node);
-                $("#err").addClass("alert alert-danger");
+                document.getElementById("e_rror").appendChild(node);
+                $("#e_rror").addClass("alert alert-danger");
                 $("#code").hide();
             }
         }

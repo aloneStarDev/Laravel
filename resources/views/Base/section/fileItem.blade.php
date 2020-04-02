@@ -31,6 +31,11 @@
       اجاره: {{ \App\File::floatPrice($files[$i]->ejare)}}
       </span>
         @endif
+        @if($files[$i]->buy != null)
+            <span class="cell-month">
+      خرید: {{ \App\File::floatPrice($files[$i]->buy)}}
+      </span>
+        @endif
         <button class="btn cell-btn" @auth onclick="alert('{{$files[$i]->addressPv}}')" @endauth style="margin-left:10%;">
             جزئیات
         </button>

@@ -111,7 +111,16 @@ class File extends Model
         if(count($num) > 1){
             $float = $num[1];
             $text = "";
-            if((int) $real != 0) {
+            if( strlen($real) > 3){
+                $mil = round((int)($real/1000));
+                if (strlen($float) == 1)
+                    $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float * 100) . " هزار تومان ";
+                if (strlen($float) == 2)
+                    $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float * 10) . " هزار تومان ";
+                if (strlen($float) == 3)
+                    $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float) . " هزار تومان ";
+            }
+            else if((int) $real != 0) {
                 if (strlen($float) == 1)
                     $text = $real . " میلیون و " . ((int)$float * 100) . " هزار تومان ";
                 if (strlen($float) == 2)
@@ -128,6 +137,10 @@ class File extends Model
             }
             return $text;
         }else{
+            if( strlen($real) > 3){
+                $mil = round((int)($real/1000));
+                return $mil." میلیارد و " . ($real-$mil*1000) . " میلیون تومان ";
+            }
             return $real." میلیون تومان";
         }
     }

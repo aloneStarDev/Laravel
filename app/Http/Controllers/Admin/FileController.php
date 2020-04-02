@@ -81,11 +81,11 @@ class FileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  FileRequest  $request
      * @param  \App\File  $file
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, File $file)
+    public function update(FileRequest $request, File $file)
     {
         $file->update($request->all());
         return redirect(route('files.index'));
@@ -94,11 +94,10 @@ class FileController extends Controller
     /**
      * @param File $file
      * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(File $file)
     {
-        $this->authorize('admin_permissions');
         $file->delete();
         return back();
     }

@@ -23,7 +23,8 @@ class MemberController extends Controller
         return redirect(route('members.index'));
     }
     public function show($id){
-        return Customer::where("id",$id)->firstOrFail();
+        $customer = Customer::where("id",$id)->firstOrFail();
+        return view("Admin.members.show",compact('customer'));
     }
     public function create(){
         return view('Admin.members.create');
@@ -84,6 +85,9 @@ class MemberController extends Controller
             "username"=>"required|unique:users",
             "password"=>"required"
         ]);
+        $customer['ipCount'] = 1;
+        if(request('ipCount') != null)
+            $customer['ipCount'] += request('ipCount');;
         $customer = new Customer(request()->all());
         $customer['enable']=true;
         $customer['active']=true;

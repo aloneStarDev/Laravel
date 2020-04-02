@@ -4,7 +4,7 @@
 	}
 .footer-div ul li {
 	line-height:2vw;
-	
+
 	}
 .footer-head{
 	margin-top: 0 !important;
@@ -58,7 +58,7 @@
 	}
 .footer-image{
 	height:51vw;
-	
+
 	}
 #myCarousel{
 	border:none;
@@ -112,7 +112,7 @@ margin-bottom: 5%;
     margin-top: 29%;
 	}
 .hi .carousel-inner .active + .carousel-item,
-.hi .carousel-inner .active,  
+.hi .carousel-inner .active,
 .hi .carousel-inner .active + .carousel-item + .carousel-item {
     display: block;
 	margin-right: 0;
@@ -306,7 +306,7 @@ margin-top: 3.1% !important;
 margin-right: 20%;
 	}
 .cell-content{
-	margin-top: 70%;
+	margin-top: 60%;
 	text-align: right;
 	padding-right: 8%;
 	}
@@ -340,7 +340,7 @@ margin-right: 20%;
     font-weight: bold;
 	word-spacing: 5px;
     color: #6C6A6A;
-	
+
 	}
 .cell-beds{
 	font-size:0.8vw;
@@ -609,7 +609,7 @@ input {
 	margin-right:10px;
 	margin-top:5px;
     width: 72%;
-    z-index: 1;	
+    z-index: 1;
 	}
 .pishraftebtn{
   background-color:transparent;
@@ -753,7 +753,7 @@ input {
 	height:202px;
 	margin-top:65%;
 	margin-right:27%;
-	margin-bottom:50px; 
+	margin-bottom:50px;
 	z-index: 3;
     position: relative;
 	}
