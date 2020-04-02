@@ -17,6 +17,9 @@ class MainController extends Controller{
     public function about(){
         return view('Base.about');
     }
+    public function rules(){
+        return view('Base.rules');
+    }
     public function contactUs(){
         return view('Base.contactus');
     }

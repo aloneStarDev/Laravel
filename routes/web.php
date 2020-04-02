@@ -7,9 +7,10 @@ Route::get('/','Base\MainController@index')->name('base')->middleware('account')
 route::get('/About','Base\MainController@about')->name('about')->middleware('account');
 route::get('/customer','Base\MainController@customer')->name('customer')->middleware('account');
 route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs')->middleware('account');
+route::get('/rules','Base\MainController@rules')->name('rules')->middleware('account');
 
 route::get("/yourAdress",function(){
-  return view("Base.TestView");
+    return view("Base.TestView");
 });
 
 route::post('/save/file','Base\MainController@store')->name('saveMemberFile');

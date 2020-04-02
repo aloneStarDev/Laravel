@@ -93,7 +93,7 @@
 <img alt="footer-background" class="footer-image" src="{{asset("base/images/bgFooter1.png")}}">
 </div>
 <div class="footer-logo">
-<img alt="logo" src="{{asset("base/images/logo1.png" style="width:40%;")}}">
+<img alt="logo" src="{{asset("base/images/logo1.png")}}" style="width:40%;">
 </div>
   <div class=" text-center footer-inner text-md-left">
     <div class="row" style=" border-bottom:thin solid; padding: 0 7%;">
