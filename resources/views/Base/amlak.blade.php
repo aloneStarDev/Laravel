@@ -85,25 +85,15 @@
     @endif
 @endif
 </div>
-<<<<<<< HEAD
-<div class="parent-image">
-<div class="left-image-div">
- <div class="image-absolute">
- <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
- <h4 class="image-absolute-h4">مشاور ملک</h4>
- <p class="image-p" style="margin-top: 5%;">نام دفتر املاک</p>
- <p class="image-p">نام مشاور ملک</p>
- </div>
- <button class="tamas btn"><i class="fas fa-phone "></i> اطلاعات تماس</button>
-=======
 <!-- there should be repaired -->
+<div class="parent-image">
 <div class="side"><!--there should be change-->
     @foreach($customers as $customer)
     <div class="left-image-div">
         <div class="image-absolute">
             <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
             <h4 class="image-absolute-h4">مشاور ملک</h4>
-            <p class="image-p" style="margin-top: 5%;">{{$office}}</p>
+            <p class="image-p" style="margin-top: 5%;">{{$file}}</p>
             <p class="image-p">{{$customer->name}}</p>
         </div>
         <a href="{{route("profile",$customer->id)}}">
@@ -149,7 +139,6 @@
         </div>
         <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
     </div>
->>>>>>> 623585a6c65a9f5e8949b0bd7ddb3774538ed43b
 </div>
 </div>
 <div class="table1">

@@ -1361,6 +1361,7 @@ border-bottom: 2px solid rgba(0,0,0,0);
 .image-absolute{
     position: absolute;
 	bottom: 40%;
+	right: 1%;
 }
 .image-absolute img{
     height: 8vw;
