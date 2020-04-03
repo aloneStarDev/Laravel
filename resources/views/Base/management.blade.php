@@ -81,7 +81,7 @@
         <button class="btn"><i class="fas fa-dollar-sign"></i> پرداخت ها</button>
     </div>
 </div>
-<div class="menue-content">
+    <div class="menue-content">
     <h4 class="menue-content-title"> مشخصات کاربری </h4>
     <div class="menue-content-sub1">
         <div class="sub1-div">
@@ -172,21 +172,110 @@
         </form>
     </div>
     <div class="menue-content-sub3">
+        <div id="erro_r"></div>
         <div class="sub2-div">
             <label class="menue-label">:شماره تماس فعلی</label>
             <input type="number" style="background:#C7DFD5; border:thin solid #2F8C63;"
                    onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11"
-                   class="menue-input">
+                   class="menue-input" id="oldPhone" value="{{$customer->phonenumber}}" disabled>
         </div>
-        <div class="sub2-div">
-            <label class="menue-label">:ثبت شماره تماس جدید</label>
-            <input type="number"
-                   onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11"
-                   class="menue-input">
-        </div>
-        <div class="sub2-button">
-            <button class="sub2-save btn">دریافت کد تائید</button>
-        </div>
+
+        <form id="newPhoneForm" action="{{route('member.panel.resetPhonenumber')}}" method="post">
+            @csrf
+            <div class="sub2-div">
+                <label class="menue-label">:ثبت شماره تماس جدید</label>
+                <input name="newPhone" id="newPhone" type="number"
+                       onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11"
+                       class="menue-input">
+            </div>
+            <input type="hidden" name="nvPhone" id="nvPhone">
+            <div class="sub2-button taiid">
+                <input type="number" id="vCode" name="code" placeholder="کد تایید"
+                       onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+            </div>
+            <div class="sub2-button">
+                <button type="button" class="sub2-save codebtn btn" id="resetPhone" onclick="checkPhone()">دریافت کد
+                    تائید
+                </button>
+            </div>
+        </form>
+        <script>
+            let j = false;
+
+            function checkPhone() {
+                if (j) {
+                    let code = $("#vCode").val();
+                    $("#resetPhone").text("ادامه");
+                    $("#newPhoneForm").submit();
+                } else {
+                    $("#resetPhone").empty();
+                    $("#erro_r").empty();
+                    $("#erro_r").removeClass("alert alert-danger");
+                    let oldPhone = $("#oldPhone").val();
+                    let newPhone = $("#newPhone").val();
+                    if (oldPhone != null && oldPhone !== "") {
+                        if (newPhone !== oldPhone) {
+                            $.ajax({
+                                url: '{{route("member.panel.sendCode")}}',
+                                type: 'GET',
+                                data: {newPhone},
+                                success: function (response) {
+                                    if (response === "false") {
+                                        var node = document.createElement("LI");
+                                        var textnode = document.createTextNode("شماره تماس نا معتبر است");
+                                        node.appendChild(textnode);
+                                        node.style = "text-align: right";
+                                        document.getElementById("erro_r").appendChild(node);
+                                        $("#erro_r").addClass("alert alert-danger");
+                                        $("#vCode").hide();
+                                    } else {
+                                        console.log(response);
+                                        $("#vCode").show();
+                                        alert("کد تایید برای شما ارسال شد");
+                                        $("#resetPhone").text("ادامه");
+                                        $("#nvPhone").val(newPhone);
+                                        j = true;
+                                    }
+                                },
+                                error: function (err) {
+                                    if (err.hasOwnProperty("responseJSON")) {
+                                        let error = err.responseJSON.errors;
+                                        if (error.hasOwnProperty("newPhone")) {
+                                            var node = document.createElement("LI");
+                                            var textnode = document.createTextNode(error.newPhone[0]);
+                                            node.appendChild(textnode);
+                                            node.style = "text-align: right";
+                                            document.getElementById("erro_r").appendChild(node);
+                                            $("#erro_r").addClass("alert alert-danger");
+                                            $("#vCode").hide();
+                                        }
+                                    } else {
+                                        console.log(err);
+                                    }
+                                }
+                            });
+                        } else {
+                            var node = document.createElement("LI");
+                            var textnode = document.createTextNode("شماره تماس ها با هم برابر هستند");
+                            node.appendChild(textnode);
+                            node.style = "text-align: right";
+                            document.getElementById("erro_r").appendChild(node);
+                            $("#erro_r").addClass("alert alert-danger");
+                            $("#vCode").hide();
+                        }
+                    } else {
+                        var node = document.createElement("LI");
+                        var textnode = document.createTextNode("شماره تماس جدید الزامی است");
+                        node.appendChild(textnode);
+                        node.style = "text-align: right";
+                        document.getElementById("erro_r").appendChild(node);
+                        $("#erro_r").addClass("alert alert-danger");
+                        $("#vCode").hide();
+                    }
+                }
+            }
+
+        </script>
     </div>
     <div class="menue-content-sub4">
         <form action="{{route('member.panel.resetPass')}}" method="post">
@@ -208,43 +297,47 @@
         <div class="sub-border">
             <div class="sub1-div">
                 <span class="span-right">وضعیت حساب</span>
-                <span class="span-left" style="color:#28A29D;">اشتراک شما فعال میباشد</span>
+                <span class="span-left" style="color:@if(!$customer->active)#CA013D @else #28A29D @endif;">@if($customer->active)
+                        حساب شما فعال است @else اشتراک شما منقضی شده است @endif</span>
             </div>
-            <div class="sub1-div">
-                <span class="span-right">نوع اشتراک تهیه شده</span>
-                <span class="span-left">1 ساله</span>
-            </div>
-            <div class="sub1-div">
-                <span class="span-right">تاریخ تهیه</span>
-                <span class="span-left">98/12/21</span>
-            </div>
-            <div class="sub1-div" style="border-bottom:none;">
-                <span class="span-right">تاریخ انقضا</span>
-                <span class="span-left">99/12/21</span>
-            </div>
+        </div>
+        <div class="sub1-div">
+            <span class="span-right">نوع اشتراک تهیه شده</span>
+            <span class="span-left">{{\App\Tariff::$plan[$customer->panel]}}</span>
+        </div>
+        <div class="sub1-div">
+            <span class="span-right">تاریخ تهیه</span>
+            <span
+                class="span-left">@if(count($payments)>=1){{verta($payments->where('payment',true)->first()->created_at)}}@else
+                    شما اشتراکی تهیه نکرده اید @endif</span>
+        </div>
+        <div class="sub1-div" style="border-bottom:none;">
+            <span class="span-right">تاریخ انقضا</span>
+            <span class="span-left">@if(count($payments)>=1){{verta($customer->expire_subscription)}}@else شما اشتراکی
+                تهیه نکرده اید @endif</span>
         </div>
         <div class="sub2-button">
             <button class="sub2-save btn">خرید اشتراک</button>
         </div>
     </div>
     <div class="menue-content-sub6">
-        <table class="menue-table">
-            <tr>
-                <th class="table-title">عنوان</th>
-                <th class="table-date">تاریخ</th>
-                <th class="table-price">مبلغ پرداختی</th>
-                <th class="table-state">وضعیت</th>
-            </tr>
-            @foreach($payments as $p)
-            <tr>
-                <td class="table-title-sub">اشتراک {{$p->}}</td>
-                <td class="table-date-sub">{{verta($p->created_at)}}</td>
-                <td class="table-price-sub">{{$p->price}} هزار تومان</td>
-                <td class="state @if(!$p->payment) red-cell @endif">@if($p->payment) موفق @else نا موفق @endif</td>
-            </tr>
-            @endforeach
-        </table>
-    </div>
+            <table class="menue-table">
+                <tr>
+                    <th class="table-title">عنوان</th>
+                    <th class="table-date">تاریخ</th>
+                    <th class="table-price">مبلغ پرداختی</th>
+                    <th class="table-state">وضعیت</th>
+                </tr>
+                @foreach($payments as $p)
+                    <tr>
+                        <td class="table-title-sub">اشتراک</td>
+                        <td class="table-date-sub">{{verta($p->created_at)}}</td>
+                        <td class="table-price-sub">{{$p->price}} هزار تومان</td>
+                        <td class="state @if(!$p->payment) red-cell @endif">@if($p->payment) موفق @else نا موفق @endif</td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
 </div>
 <footer class="page-footer font-small indigo">
     <div class="footer-back">
