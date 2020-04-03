@@ -1341,11 +1341,13 @@ border-bottom: 2px solid rgba(0,0,0,0);
 .top-titles-lt{
     display: block;
     float: right;
-    margin-right: 15%;
     word-spacing: 0.5vw;
     margin-bottom: 0;
     margin-top: 3%;
     color: #4016BA;
+    text-align: center;
+    width: 60%;
+    font-size: 1vw;
 }
 .left-image-div{
     width: 25%;
@@ -1410,6 +1412,13 @@ border-bottom: 2px solid rgba(0,0,0,0);
 .tamas i{
 	margin-right: 5%;
 	}
+.parent-image{
+    width: 95%;
+    direction: ltr;
+    display: block;
+    float: left;
+    position: absolute;
+}
 .table1{
     width: 55%;
     text-align: right;
@@ -1419,6 +1428,7 @@ border-bottom: 2px solid rgba(0,0,0,0);
     border-radius: 20px;
     border: thin solid #5B4E80;
     height: 21vw;
+		margin-top: 20%;
 }
 .table-row{
     display: block;

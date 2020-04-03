@@ -68,6 +68,7 @@
   <p class="top-titles-lt">1 میلیون تومان</p>
  </div>
 </div>
+<div class="parent-image">
 <div class="left-image-div">
  <div class="image-absolute">
  <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
@@ -76,6 +77,7 @@
  <p class="image-p">نام مشاور ملک</p>
  </div>
  <button class="tamas btn"><i class="fas fa-phone "></i> اطلاعات تماس</button>
+</div>
 </div>
 <div class="table1">
  <div class="table-row">
