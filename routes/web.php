@@ -1,6 +1,7 @@
 <?php
 
 use App\Tariff;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/','Base\MainController@index')->name('base')->middleware('account');
@@ -9,15 +10,16 @@ route::get('/customer','Base\MainController@customer')->name('customer')->middle
 route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs')->middleware('account');
 route::get('/rules','Base\MainController@rules')->name('rules')->middleware('account');
 route::get('/profile/{id}','Base\MainController@profile')->name('profile')->middleware('account');
+route::get('/file/info/{file}','Base\MainController@info')->name('info')->middleware('account');
+
 route::get('/member/panel','Base\ManagementController@index')->name('member.panel')->middleware('account')->middleware("auth");
 route::post('/member/update','Base\ManagementController@update')->name('member.panel.update')->middleware('account')->middleware("auth");
 route::post('/member/reset/password','Base\ManagementController@resetPass')->name('member.panel.resetPass')->middleware('account')->middleware("auth");
 route::post('/member/reset/phonenumber','Base\ManagementController@resetPhonenumber')->name('member.panel.resetPhonenumber')->middleware('account')->middleware("auth");
 route::get('/member/reset/phonenumber','Base\ManagementController@sendCode')->name('member.panel.sendCode')->middleware('account')->middleware("auth");
+route::get('/member/payment','Base\ManagementController@payment')->name('member.panel.payment')->middleware("auth");
+route::post('/member/subscribe','Base\ManagementController@checkSubscribe')->name('member.panel.subscribe')->middleware("auth");
 
-route::get("/yourAdress",function(){
-  return view("Base.amlak");
-});
 
 route::post('/save/file','Base\MainController@store')->name('saveMemberFile');
 

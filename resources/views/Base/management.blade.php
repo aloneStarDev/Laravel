@@ -317,7 +317,9 @@
                 تهیه نکرده اید @endif</span>
         </div>
         <div class="sub2-button">
-            <button class="sub2-save btn">خرید اشتراک</button>
+            <a href="{{route('member.panel.payment')}}">
+                <button class="sub2-save btn">خرید اشتراک</button>
+            </a>
         </div>
     </div>
     <div class="menue-content-sub6">

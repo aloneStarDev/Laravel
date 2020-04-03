@@ -242,9 +242,11 @@
                                 <p class="card-p">
                                     {{$customers[$i]["address"]}}
                                 </p>
-                                <button class="btn card-btn" style="margin-left:10%;">
-                                    جزئیات
-                                </button>
+                                <a href="{{route('profile',$customers[$i]['id'])}}">
+                                    <button class="btn card-btn" style="margin-left:10%;">
+                                        جزئیات
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Base;
 
 use App\Customer;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerRequest;
 use App\Payment;
+use App\Tariff;
 use App\Temp;
 use App\User;
 use Illuminate\Http\Request;
@@ -87,5 +87,22 @@ class ManagementController extends Controller
         }else
             return back()->withErrors(['code'=>'کد تایید اشتباه است']);
     }
-
+    public function  payment(){
+        $customer=auth()->user()->customer();
+        $plans = Tariff::all();
+        return view("Base.dakheli",compact('plans',"customer"));
+    }
+    public function checkSubscribe(Request $request){
+        $request->validate([
+            'id'=>"required",
+            'panel'=>"required",
+            'ipCount'=>"required",
+        ]);
+        $customer = Customer::where('id',$request->input('id'))->first();
+        if($customer == null)
+            return back()->withErrors(['msg'=>'ابتدا ثبت نام کنید']);
+        $panel = $request->input("panel");
+        $ipCount = $request->input("ipCount");
+        return redirect()->route('payment',compact("customer","panel","ipCount"));
+    }
 }

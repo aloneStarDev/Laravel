@@ -28,8 +28,12 @@ class MainController extends Controller{
         return view('Base.customer',compact('customers'));
     }
     public function profile($id){
-//        $customer = Customer::where('id',$id)->firstOrFail()->get();
-        return view('Base.profile');//,compact("customer"));
+        $customer = Customer::where('id',$id)->firstOrFail();
+        return view('Base.profile',compact("customer"));
+    }
+    public function info(File $file){
+        $customers  = Customer::where('region',$file->region)->where('active',true)->paginate(5);
+        return view('Base.amlak',compact('file',"customers" ));
     }
     public function store(){
         request()->validate([

@@ -17,20 +17,20 @@ class PaymentController extends Controller
 {
     private $MerchantID = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'; //Required;
 
-    public function tariffs()
-    {
-        return view('subscribe');
-    }
-
     public function payment(Request $request)
     {
         $request->validate([
             'customer' => 'required'
         ]);
-        $customer = Customer::where("id",$request->get("customer"))->firstOrFail();
-        $panel = $customer["panel"];
 
+        $customer = Customer::where("id",$request->get("customer"))->firstOrFail();
+
+        $panel = $customer["panel"];
+        if($request->has('panel'))
+            $panel = $request->get("panel");
         $count = $customer["ipCount"];
+        if($request->has('ipCount'))
+            $count = $request->get('ipCount');
 
         $panel = Tariff::where('id', $panel)->firstOrFail();
         $price =  $panel['price'];
@@ -111,32 +111,42 @@ class PaymentController extends Controller
         ]);
 
         $customer = Customer::where('id', $payment->customer_id )->first();
+        $user = User::where('rollId',$customer->id)->first();
 
-        if ($customer->isSubscribed()) {
-            $oldExpireDate = Carbon::parse($customer->expire_subscription);
-            $newExpireDate = $oldExpireDate->addMonths($payment->subscription_month);
-            $customer->update([
-                'expire_subscription' => $newExpireDate,
-                'active'=>true
+        if($user != null ) {
+            if ($customer->active == true) {
+                $oldExpireDate = Carbon::parse($customer->expire_subscription);
+                $newExpireDate = $oldExpireDate->addMonths($payment->subscription_month);
+                $customer->update([
+                    'expire_subscription' => $newExpireDate,
                 ]);
-        } else {
-            $temp = Temp::where("phonenumber",$customer->phonenumber)->firstOrFail();
-            $user = new User(
-            [
-                "username"=>$temp->username,
-                "password"=>Hash::make($temp->password),
-                "rollId"=>$customer->id
-            ]
-            );
-            $temp->delete();
-            $user->save();
-            $newExpireDate = Carbon::now()->addMonths($payment->subscription_month);
-            $customer->update([
-                'expire_subscription' => $newExpireDate,
-                'active'=>true
-            ]);
+                return true;
+            }
+            else{
+                $newExpireDate = Carbon::now()->addMonths($payment->subscription_month);
+                $customer->update([
+                    'expire_subscription' => $newExpireDate,
+                    'active' => true,
+                ]);
+                return true;
+            }
+        }else{
+                $temp = Temp::where("phonenumber",$customer->phonenumber)->firstOrFail();
+                $user = new User(
+                    [
+                        "username"=>$temp->username,
+                        "password"=>Hash::make($temp->password),
+                        "rollId"=>$customer->id
+                    ]
+                );
+                $temp->delete();
+                $user->save();
+                $newExpireDate = Carbon::now()->addMonths($payment->subscription_month);
+                $customer->update([
+                    'expire_subscription' => $newExpireDate,
+                    'active'=>true
+                ]);
+            return true;
         }
-
-        return true;
     }
 }

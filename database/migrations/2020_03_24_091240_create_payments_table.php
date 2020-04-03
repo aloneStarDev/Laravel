@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->tinyInteger('subscription_month');
             $table->string('price');
             $table->boolean('payment')->default(false);
+            $table->boolean('visited')->default(false);
             $table->timestamps();
         });
     }
