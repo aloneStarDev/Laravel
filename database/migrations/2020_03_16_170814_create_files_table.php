@@ -29,6 +29,7 @@ class CreateFilesTable extends Migration
             $table->string('phonenumber',20);
             $table->text('description')->nullable();
             //===============================================
+            $table->string('options')->nullable();//json
             $table->unsignedTinyInteger("floorCovering")->nullable();
             $table->unsignedTinyInteger("cabinet")->nullable();
             $table->unsignedTinyInteger("floorCount")->nullable()->default(1);

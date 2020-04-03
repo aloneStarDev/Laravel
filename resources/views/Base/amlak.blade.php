@@ -100,7 +100,8 @@
         </a>
     </div>
     @endforeach
- <div class="left-image-div">
+ <div class="parent-image">
+    <div class="left-image-div">
         <div class="image-absolute">
             <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
             <h4 class="image-absolute-h4">مشاور ملک</h4>
@@ -138,6 +139,7 @@
         </div>
         <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
     </div>
+     </div>
 </div>
 <div class="table1">
     <div class="table-row">

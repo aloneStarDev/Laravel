@@ -41,8 +41,6 @@ class ContactController extends Controller
                     $customer->ip = json_encode($ip);
                     $customer->save();
                 }
-                if($user->customer()->active  == false)
-                    return back()->withErrors(["login"=>'ابتدا اشتراک بخرید']);
                 if ($user->customer()->enable  == false)
                     return back()->withErrors(["login"=>'دسترسی شما غیرفعال می باشد']);
                 else{
@@ -52,7 +50,10 @@ class ContactController extends Controller
                     for($i=0;$i<count($ip);$i++){
                         if($ip[$i] == $request->getClientIp()){
                             auth()->loginUsingId($user->id);
-                            return redirect(route("member.panel",$customer->id));
+                            if($user->customer()->active  == false)
+                                return redirect()->route("member.panel")->withErrors(["login"=>'ابتدا اشتراک بخرید']);
+                            else
+                                return redirect(route("member.panel",$customer->id));
                         }
                     }
                     if($i < $customer->ipCount )
