@@ -51,31 +51,44 @@
 <div class="topbox">استفاده از امکانات اطلاع رسانی و فایلینگ اینترنتی املاک آنلاین (مشاهده شماره تماس مالکین)
 منوط به پرداخت حق اشتراک ماهیانه می باشد که طبق تعرفه زیر قابل پرداخت می باشد.<br>تعرفه زیر فقط برای شارژ از طریق پنل کاربری به صورت آنلاین می باشد.<br>
 <div style="margin-top:3%">	حق اشتراک برای کلیه فایلها و مناطق موجود در سایت می باشد.</div></div>
-<div class="pop-content-form2 content3">
+<form action="{{route("member.panel.subscribe")}}" id="subScribe" class="pop-content-form2 content3" method="post">
+    @csrf
   <div class="subtitle">
  <h4>انتخاب نوع اشتراک</h4>
  <label class="systemlbl">تعداد سیستم: </label>
- <input class="systeminp" type="number" name="phone-home" placeholder="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11" >
+ <input class="systeminp" type="number" name="ipCount" value="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11" >
  </div>
-  <div class="content-button">
-  <button class="button1 btn">
-   <h3 class="button-title">1 ماهه</h3>
-   <p class="button-content">200 هزار تومان</p>
-  </button>
-  <button class="button2 btn">
-   <h3 class="button-title">3 ماهه</h3>
-   <p class="button-content">200 هزار تومان</p>
-  </button>
-  <button class="button3 btn">
-   <h3 class="button-title">6 ماهه</h3>
-   <p class="button-content">200 هزار تومان</p>
-  </button>
-  <button class="button4 btn">
-   <h3 class="button-title">1 ساله</h3>
-   <p class="button-content">200 هزار تومان</p>
-  </button>
-  </div>
- </div>
+    <input type="hidden" id="panel" name="panel">
+    <input type="hidden" name="id" value="{{$customer->id}}">
+    <div class="content-button">
+        <button type="button" type="submit" onclick="send(1)" class="button1 btn">
+            <h3 class="button-title">1 ماهه</h3>
+            <p class="button-content">{{$plans[0]->price}} هزار تومان</p>
+            <p class="button-content"> {{$plans[0]->addOnMember}} هزار تومان هر کاربر اضافه</p>
+        </button>
+        <button type="button" type="submit" onclick="send(2)" class="button2 btn">
+            <h3 class="button-title">3 ماهه</h3>
+            <p class="button-content">{{$plans[1]->price}} هزار تومان</p>
+            <p class="button-content">{{$plans[1]->addOnMember}} هزار تومان هر کاربر اضافه</p>
+        </button>
+        <button type="button" type="submit" onclick="send(3)" class="button3 btn ">
+            <h3 class="button-title">6 ماهه</h3>
+            <p class="button-content">{{$plans[2]->price}}هزار تومان</p>
+            <p class="button-content">{{$plans[2]->addOnMember}} هزار تومان هر کاربر اضافه</p>
+        </button>
+        <button type="button" type="submit" onclick="send(4)" class="button4 btn">
+            <h3 class="button-title">1 ساله</h3>
+            <p class="button-content">{{$plans[3]->price}} هزار تومان</p>
+            <p class="button-content">{{$plans[3]->addOnMember}} هزار تومان هر کاربر اضافه</p>
+        </button>
+    </div>
+ </form>
+<script>
+    function send(panel) {
+        $("#panel").val(panel);
+        $("#subScribe").submit();
+    }
+</script>
 <footer class="page-footer font-small indigo footer-new">
 <div class="footer-back">
 <img alt="footer-background" class="footer-image" src="{{asset("base/images/bgFooter1.png")}}">

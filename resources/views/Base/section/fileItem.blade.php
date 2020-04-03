@@ -37,12 +37,16 @@
           </span>
             @endif
         @endif
-        <button class="btn cell-btn" @auth onclick="alert('{{$files[$i]->addressPv}}')" @endauth style="margin-left:10%;">
-            جزئیات
-        </button>
-        <button class="btn cell-btn">
-            تماس
-            <i class="fas fa-phone"></i>
-        </button>
+        <a href="{{route("info",$files[$i]->id)}}">
+            <button class="btn cell-btn" style="margin-left:10%;">
+                جزئیات
+            </button>
+        </a>
+        <a href="tel:09304437593">
+            <button class="btn cell-btn">
+                تماس
+                <i class="fas fa-phone"></i>
+            </button>
+        </a>
     </div>
 </div>

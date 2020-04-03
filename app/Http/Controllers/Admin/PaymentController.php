@@ -11,13 +11,15 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        $payments = Payment::with('customer')->latest()->paginate(20);
+        $payments = Payment::where('visited',false)->with('customer')->latest()->paginate(20);
         return view('Admin.payments.all', compact('payments'));
     }
 
     public function destroy(Payment $payment)
     {
-        $payment->delete();
+        $payment->update([
+            "visited"=>true
+        ]);
         return back();
     }
 }

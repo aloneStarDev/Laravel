@@ -113,12 +113,24 @@ class File extends Model
             $text = "";
             if( strlen($real) > 3){
                 $mil = round((int)($real/1000));
-                if (strlen($float) == 1)
-                    $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float * 100) . " هزار تومان ";
-                if (strlen($float) == 2)
-                    $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float * 10) . " هزار تومان ";
-                if (strlen($float) == 3)
-                    $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float) . " هزار تومان ";
+                if (strlen($float) == 1){
+                    if((float)($real-$mil*1000) == (float)0)
+                        $text = $mil." میلیارد و " . ((int)$float * 100) . " هزار تومان ";
+                    else
+                        $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float * 100) . " هزار تومان ";
+                }
+                if (strlen($float) == 2){
+                    if((float)($real-$mil*1000) == (float)0)
+                        $text = $mil." میلیارد و " . ((int)$float * 10) . " هزار تومان ";
+                    else
+                        $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float * 10) . " هزار تومان ";
+                }
+                if (strlen($float) == 3){
+                    if((float)($real-$mil*1000) == (float)0)
+                        $text = $mil." میلیارد و " . ((int)$float) . " هزار تومان ";
+                    else
+                        $text = $mil." میلیارد و " . (int)($real-$mil*1000) . " میلیون و " . ((int)$float) . " هزار تومان ";
+                }
             }
             else if((int) $real != 0) {
                 if (strlen($float) == 1)
@@ -139,7 +151,10 @@ class File extends Model
         }else{
             if( strlen($real) > 3){
                 $mil = round((int)($real/1000));
-                return $mil." میلیارد و " . ($real-$mil*1000) . " میلیون تومان ";
+                if(($real-$mil*1000) == 0)
+                    return $mil." میلیارد تومان ";
+                else
+                    return $mil." میلیارد و " . ($real-$mil*1000) . " میلیون تومان ";
             }
             return $real." میلیون تومان";
         }
