@@ -27,6 +27,10 @@ class MainController extends Controller{
         $customers = Customer::where("active",true)->latest()->paginate(36);
         return view('Base.customer',compact('customers'));
     }
+    public function profile($id){
+//        $customer = Customer::where('id',$id)->firstOrFail()->get();
+        return view('Base.profile');//,compact("customer"));
+    }
     public function store(){
         request()->validate([
             "name"=>"required",

@@ -52,7 +52,7 @@ class ContactController extends Controller
                     for($i=0;$i<count($ip);$i++){
                         if($ip[$i] == $request->getClientIp()){
                             auth()->loginUsingId($user->id);
-                            return redirect(route("base"));
+                            return redirect(route("member.panel",$customer->id));
                         }
                     }
                     if($i < $customer->ipCount )

@@ -27,7 +27,9 @@ class CreateCustomersTable extends Migration
             $table->unsignedTinyInteger('ipCount')->default(1);
             $table->unsignedTinyInteger('panel');//1->1 2->3 3->6 4->1year
             $table->string('explain')->nullable();
-            $table->string('social')->nullable();
+            $table->string('telegram')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
             $table->timestamp('expire_subscription')->nullable();
             $table->boolean('enable')->default(false);//for verify phonenumber
             $table->boolean('active')->default(false);

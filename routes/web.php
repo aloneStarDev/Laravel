@@ -8,10 +8,11 @@ route::get('/About','Base\MainController@about')->name('about')->middleware('acc
 route::get('/customer','Base\MainController@customer')->name('customer')->middleware('account');
 route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs')->middleware('account');
 route::get('/rules','Base\MainController@rules')->name('rules')->middleware('account');
+route::get('/profile/{id}','Base\MainController@profile')->name('profile')->middleware('account');
+route::get('/member/panel','Base\ManagementController@index')->name('member.panel')->middleware('account')->middleware("auth");
+route::post('/member/update','Base\ManagementController@update')->name('member.panel.update')->middleware('account')->middleware("auth");
+route::post('/member/reset/password','Base\ManagementController@resetPass')->name('member.panel.resetPass')->middleware('account')->middleware("auth");
 
-route::get("/yourAdress",function(){
-    return view("Base.TestView");
-});
 
 route::post('/save/file','Base\MainController@store')->name('saveMemberFile');
 

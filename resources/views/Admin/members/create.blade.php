@@ -7,26 +7,29 @@
             @include("Admin.section.errors")
             @csrf
             <div class="form-group">
-                <input dir="rtl" type="text" name="name" class="form-control @error('name') alert alert-danger @enderror" placeholder="name"/>
+                <input dir="rtl" type="text" name="name" class="form-control @error('name') alert alert-danger @enderror" placeholder="نام"/>
             </div>
             <div class="form-group">
-                <input dir="rtl" type="text" name="lastname" class="form-control @error('lastname') alert alert-danger @enderror" placeholder="lastname"/>
+                <input dir="rtl" type="text" name="lastname" class="form-control @error('lastname') alert alert-danger @enderror" placeholder="نام خانوادگی"/>
             </div>
             <div class="form-group">
-                <input dir="rtl" type="text" id="phonenumber" name="phonenumber" class="form-control @error('phonenumber') alert alert-danger @enderror" placeholder="phonenumber"/>
+                <input dir="rtl" type="text" id="phonenumber" name="phonenumber" class="form-control @error('phonenumber') alert alert-danger @enderror" placeholder="شماره تماس"/>
             </div>
             <div class="form-group">
-                <input dir="rtl" type="number" name="region" class="form-control @error('region') alert alert-danger @enderror" placeholder="region"/>
+                <input dir="rtl" type="number" name="region" class="form-control @error('region') alert alert-danger @enderror" placeholder="منطقه ی شهرداری"/>
+            </div>
+            <div class="form-group">
+                <input dir="rtl" type="email" name="email" class="form-control @error('email') alert alert-danger @enderror" placeholder="ایمیل"/>
             </div>
             <div class="form-group">
                 <input dir="rtl" type="text" name="office" class="form-control @error('region') alert alert-danger @enderror" placeholder="نام املاکی"/>
             </div>
             <div class="form-group">
-                <textarea dir="rtl" type="text" name="address" rows="5" class="form-control @error('address') alert alert-danger @enderror" placeholder="address"></textarea>
+                <textarea dir="rtl" type="text" name="address" rows="5" class="form-control @error('address') alert alert-danger @enderror" placeholder="آدرس"></textarea>
             </div>
             <div class="form-group">
                 <span for="call">این شماره ی برای نمایش به مشتری است در صورتی که این فیلد را پر نکنید شماره ی همراه به کاربران نمایش داده می شود</span>
-                <input id="call" dir="rtl" type="text" name="call" class="form-control @error('call') alert alert-danger @enderror" placeholder="call"/>
+                <input id="call" dir="rtl" type="text" name="call" class="form-control @error('call') alert alert-danger @enderror" placeholder="شماره تماس"/>
             </div>
             <div class="form-group">
                 <span for="panel">نوع اشتراک</span>

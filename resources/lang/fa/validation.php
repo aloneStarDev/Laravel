@@ -101,6 +101,7 @@ return array(
     |
     */
     'attributes' => array(
+        "repeatPassword"=>'تکرار گذرواژه',
         "buy"=>'خرید',
         "ejare"=>'اجاره',
         "rahn"=>'رهن',

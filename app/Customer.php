@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    protected $fillable=['office','name','lastname','ipCount','email','phonenumber','region','address','call',"panel",'expire_subscription','enable','active'];
+    protected $fillable=['office','name','lastname','ipCount','email','explain','telegram','twitter','instagram','phonenumber','region','address','call',"panel",'expire_subscription','enable','active'];
 
     public function isSubscribed()
     {

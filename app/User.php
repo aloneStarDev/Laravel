@@ -30,10 +30,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public static function sendCode($phoneNumber,$code)
+    public static function sendCode($phoneNumber,$code,$text = null)
     {
         $client = new Client();
-        $res = $client->get('https://raygansms.com/SendMessageWithCode.ashx?Username=Amlakonlin&Password=8689811&Mobile=' . $phoneNumber.'&Message= کد تایید شما :'.$code);
+        if($text == null)
+            $res = $client->get('https://raygansms.com/SendMessageWithCode.ashx?Username=Amlakonlin&Password=8689811&Mobile=' . $phoneNumber.'&Message='.'املاک آنلاین - کد تایید شما :'.$code);
+        else
+            $res = $client->get('https://raygansms.com/SendMessageWithCode.ashx?Username=Amlakonlin&Password=8689811&Mobile=' . $phoneNumber.'&Message='.$text);
 
     }
     function customer()

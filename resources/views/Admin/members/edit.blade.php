@@ -8,26 +8,29 @@
             @csrf
             @include("Admin.section.errors")
             <div class="form-group">
-                <input dir="rtl" type="text" name="name" class="form-control @error('name') alert alert-danger @enderror" value="{{$customer->name}}" placeholder="name"/>
+                <input dir="rtl" type="text" name="name" class="form-control @error('name') alert alert-danger @enderror" value="{{$customer->name}}" placeholder="نام"/>
             </div>
             <div class="form-group">
-                <input dir="rtl" type="text" name="lastname" class="form-control @error('lastname') alert alert-danger @enderror" value="{{$customer->lastname}}" placeholder="lastname"/>
+                <input dir="rtl" type="text" name="lastname" class="form-control @error('lastname') alert alert-danger @enderror" value="{{$customer->lastname}}" placeholder="نام خانوادگی"/>
             </div>
             <div class="form-group">
-                <input dir="rtl" type="text" id="phonenumber" name="phonenumber" class="form-control @error('phonenumber') alert alert-danger @enderror" value="{{$customer->phonenumber}}"  placeholder="phonenumber"/>
+                <input dir="rtl" type="text" id="phonenumber" name="phonenumber" class="form-control @error('phonenumber') alert alert-danger @enderror" value="{{$customer->phonenumber}}"  placeholder="شماره تماس"/>
             </div>
             <div class="form-group">
-                <input dir="rtl" type="number" name="region" class="form-control @error('region') alert alert-danger @enderror" value="{{$customer->region}}" placeholder="region"/>
+                <input dir="rtl" type="number" name="region" class="form-control @error('region') alert alert-danger @enderror" value="{{$customer->region}}" placeholder="منطقه ی شهرداری"/>
             </div>
             <div class="form-group">
-                <input dir="rtl" type="text" name="office" class="form-control @error('region') alert alert-danger @enderror" value="{{$customer->office}}" placeholder="نام املاکی"/>
+                <input dir="rtl" type="email" name="email" class="form-control @error('email') alert alert-danger @enderror" value="{{$customer->email}}" placeholder="ایمیل"/>
             </div>
             <div class="form-group">
-                <textarea dir="rtl" type="text" rows="5" name="address" class="form-control @error('address') alert alert-danger @enderror" placeholder="address">{{$customer->address}}</textarea>
+                <input dir="rtl" type="text" name="office" class="form-control @error('office') alert alert-danger @enderror" value="{{$customer->office}}" placeholder="نام املاکی"/>
+            </div>
+            <div class="form-group">
+                <textarea dir="rtl" type="text" rows="5" name="address" class="form-control @error('address') alert alert-danger @enderror" placeholder="آدرس">{{$customer->address}}</textarea>
             </div>
             <div class="form-group">
                 <span for="call">این شماره ی برای نمایش به مشتری است در صورتی که این فیلد را پر نکنید شماره ی همراه به کاربران نمایش داده می شود</span>
-                <input id="call" dir="rtl" type="text" name="call" class="form-control @error('call') alert alert-danger @enderror" placeholder="call" value="{{$customer->call}}" />
+                <input id="call" dir="rtl" type="text" name="call" class="form-control @error('call') alert alert-danger @enderror" placeholder="شماره تماس" value="{{$customer->call}}" />
             </div>
             <div class="form-group">
                 <span for="panel">نوع اشتراک</span>
