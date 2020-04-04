@@ -35,12 +35,10 @@ class AuthServiceProvider extends ServiceProvider
             //or  return auth()->user()->id === 0;
         });
         Gate::define('customer' , function ($user) {
-            return $user->rollId> 0  && $user->customer()->active;
+            if($user->customer() != null)
+                return $user->rollId > 0  && $user->customer()->active;
+            return false;
             //or  return auth()->user()->id === 0;
         });
-        /*
-         * $a == $b	Equal TRUE if $a is equal to $b after type juggling.
-         * $a === $b	Identical	TRUE if $a is equal to $b, and they are of the same type.
-         */
     }
 }

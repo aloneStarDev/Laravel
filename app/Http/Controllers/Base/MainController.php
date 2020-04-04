@@ -108,4 +108,10 @@ class MainController extends Controller{
         $msg =" اطلاعات شما با موفقیت ثبت شد";
         return redirect()->route('base')->withErrors(['msg'=>$msg]);
     }
+    public function searchMember(){
+        if(request()->get("filter") != null){
+            $customers = Customer::where("active",true)->where("office",request("filter"))->orWhere("region",request("filter"))->latest()->paginate(36);
+            return view('Base.customer',compact('customers'));
+        }
+    }
 }

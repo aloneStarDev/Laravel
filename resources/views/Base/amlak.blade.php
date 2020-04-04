@@ -30,7 +30,7 @@
                             املاک</a></button>
                 </div>
                 <div class="dropdown">
-                    <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">قوانین</a></button>
+                    <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("rules")}}">قوانین</a></button>
                 </div>
                 <div class="dropdown">
                     <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("about")}}">درباره
@@ -184,7 +184,7 @@
                 {{$file->addressPu}}
             </p>
         </div>
-        @can('master','admin','member')
+        @can('customer')
             <div class="table-content-left">
                 <p class="table-p-right">
                     : آدرس دقیق
@@ -193,6 +193,18 @@
                     {{$file->addressPv}}
                 </p>
             </div>
+        @endcan
+    </div>
+    <div class="table-row" style="border-bottom:none;">
+        @can('customer')
+        <div class="table-content-right">
+            <p class="table-p-right">
+                : شماره تماس
+            </p>
+            <p class="table-p-left">
+                {{$file->phonenumber}}
+            </p>
+        </div>
         @endcan
     </div>
 </div>
