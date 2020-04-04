@@ -194,6 +194,18 @@
 
             <div class="form-group">
                 <div class="col-sm-12">
+                    <label for="document" class="control-label">چهت ملک</label>
+                    <select class="form-control" name="document" id="document">
+                        <option @if($file->direction == null) selected value="0" @endif>سند</option>
+                        @foreach(\App\File::$direction_ as $key =>$val)
+                            <option value="{{$key}}" @if($file->direction == $key) selected @endif>{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
                     <label for="document" class="control-label">سند</label>
                     <select class="form-control" name="document" id="document">
                         <option @if($file->document == null) selected value="0" @endif>سند</option>
@@ -203,6 +215,115 @@
                     </select>
                 </div>
             </div>
+
+
+            <table class="table table-responsive">
+                <tr class="table-row">
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="parking" class="control-label">پارکینگ</label>
+                                <input type="checkbox" class="checkbox-inline" name="parking" value="{{$file->parking}}" @if($file->parking) checked @endif
+                                       onclick="change(this)"
+                                       id="parking">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="iphone" class="control-label">آیفون تصویری</label>
+                                <input type="checkbox" class="checkbox-inline" name="iphone" value="{{$file->iphone}}" @if($file->iphone) checked @endif
+                                       onclick="change(this)"
+                                       id="iphone">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="trace" class="control-label">تراس</label>
+                                <input type="checkbox" class="checkbox-inline" name="trace" value="{{$file->trace}}" @if($file->trace) checked @endif
+                                       onclick="change(this)"
+                                       id="trace">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="anbary" class="control-label">انباری</label>
+                                <input type="checkbox" class="checkbox-inline" name="anbary" value="{{$file->anbary}}" @if($file->anbary) checked @endif
+                                       onclick="change(this)"
+                                       id="anbary">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="edoor" class="control-label">درب برقی</label>
+                                <input type="checkbox" class="checkbox-inline" name="edoor" value="{{$file->edoor}}" @if($file->edoor) checked @endif
+                                       onclick="change(this)"
+                                       id="edoor">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="table-row">
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="wc" class="control-label">سرویس فرنگی</label>
+                                <input type="checkbox" class="checkbox-inline" name="wc" value="{{$file->wc}}" @if($file->wc) checked @endif
+                                       onclick="change(this)"
+                                       id="wc">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="hamam" class="control-label">حمام مستر</label>
+                                <input type="checkbox" class="checkbox-inline" name="hamam" value="{{$file->hamam}}" @if($file->hamam) checked @endif
+                                       onclick="change(this)"
+                                       id="hamam">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="komod" class="control-label">کمد دیواری</label>
+                                <input type="checkbox" class="checkbox-inline" name="komod" value="{{$file->komod}}" @if($file->komod) checked @endif
+                                       onclick="change(this)"
+                                       id="komod">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="gas" class="control-label">گاز روکار</label>
+                                <input type="checkbox" class="checkbox-inline" name="gas" value="{{$file->gas}}" @if($file->gas) checked @endif
+                                       onclick="change(this)"
+                                       id="gas">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-date">
+                        <div class="form-inline">
+                            <div class="col-sm-12">
+                                <label for="asansor" class="control-label">آسانسور</label>
+                                <input type="checkbox" class="checkbox-inline" name="asansor" value="{{$file->asansor}}" @if($file->asansor) checked @endif
+                                       onclick="change(this)"
+                                       id="asansor">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
 
             <div class="form-group">
                 <div class="col-sm-12">
@@ -221,6 +342,10 @@
         </form>
     </div>
     <script>
+        function change(element)
+        {
+            element.value = 1-element.value;
+        }
         $("#buildingType").val({{$file->buildingType}});
     </script>
 @endsection

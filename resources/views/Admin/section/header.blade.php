@@ -25,25 +25,24 @@
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#">پنل اصلی</a></li>
                 @can('master')
-                    <li><a href="/admin/agents">صفحه کارمندان <span class="badge">0</span></a></li>
-                    <li><a href="/admin/members">صفحه کاربران ثبت نام کرده</a></li>
-                    <li><a href="{{route('tariffs.index')}}">صفحه تعرفه های ثبت نام <span class="badge">0</span></a></li>
+                    <li><a href="/admin/agents">صفحه کارمندان <span class="badge">{{$agentCount}}</span></a></li>
+                    <li><a href="/admin/members">صفحه کاربران ثبت نام کرده<span class="badge">{{$customerCount}}</span></a></li>
+                    <li><a href="{{route('tariffs.index')}}">صفحه تعرفه های ثبت نام</a></li>
                     <li><a href="/admin/successful-payments">پرداختی ها <span class="badge">{{ $paymentSuccessfulCount }}</span></a></li>
                  @endcan
             </ul>
 
             <ul class="nav nav-sidebar">
                 @can('admin')
-                    <li><a href="{{route('files.index')}}"> صفحه ثبت ملک<span class="badge">0</span></a></li>
+                    <li><a href="{{route('files.index')}}"> صفحه ثبت ملک<span class="badge">{{$fileCount}}</span></a></li>
                 @endcan
-                <li><a href="{{route('archives')}}">بایگانی<span class="badge">0</span></a></li>
+                <li><a href="{{route('archives')}}">بایگانی<span class="badge">{{$bayganyCount}}</span></a></li>
             </ul>
 
             <ul class="nav nav-sidebar">
                 @can('master')
                     <li><a href="{{route('received',2)}}">صفحه درخواست های ثبت شده از طریق صفحه اصلی</a></li>
                     <li><a href="{{route('received',1)}}">صفحه ملک های ثبت شده کاربران از طریق صفحه اصلی</a></li>
-                    <li><a href="#">*صفحه دریافت اعلام مغایرت ها و گزارش واگذاری ها</a></li>
                 @endcan
             </ul>
         </div>

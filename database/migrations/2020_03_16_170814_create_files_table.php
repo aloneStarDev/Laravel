@@ -28,20 +28,30 @@ class CreateFilesTable extends Migration
             $table->string('addressPv');
             $table->string('phonenumber',20);
             $table->text('description')->nullable();
+            $table->unsignedTinyInteger("floorCount")->nullable()->default(1);
+            $table->unsignedTinyInteger('floor')->default(1)->nullable();// tabaghat
+            $table->unsignedSmallInteger('age')->nullable();//age of building
+            $table->unsignedTinyInteger('unit')->default(1)->nullable();// Vahed Count
+            $table->unsignedTinyInteger('bedroom')->nullable(); // BedRoom Count
             //===============================================
-            $table->string('options')->nullable();//json
             $table->unsignedTinyInteger("floorCovering")->nullable();
             $table->unsignedTinyInteger("cabinet")->nullable();
-            $table->unsignedTinyInteger("floorCount")->nullable()->default(1);
             $table->unsignedTinyInteger("direction")->nullable();
             $table->unsignedTinyInteger("heating")->nullable();
             $table->unsignedTinyInteger("cooling")->nullable();
             $table->unsignedTinyInteger("view")->nullable();
             $table->unsignedTinyInteger("document")->nullable();
-            $table->unsignedTinyInteger('floor')->default(1)->nullable();// tabaghat
-            $table->unsignedSmallInteger('age')->nullable();//age of building
-            $table->unsignedTinyInteger('unit')->default(1)->nullable();// Vahed Count
-            $table->unsignedTinyInteger('bedroom')->nullable(); // BedRoom Count
+            //================================================
+            $table->boolean('parking')->default(false);
+            $table->boolean('asansor')->default(false);
+            $table->boolean('iphone')->default(false);
+            $table->boolean('trace')->default(false);
+            $table->boolean('anbary')->default(false);
+            $table->boolean('edoor')->default(false);
+            $table->boolean('wc')->default(false);
+            $table->boolean('hamam')->default(false);
+            $table->boolean('komod')->default(false);
+            $table->boolean('gas')->default(false);
             //================================================
             $table->integer('user_id');//file register by a member if user_id be a negative number
             $table->boolean('visible')->default(true);
