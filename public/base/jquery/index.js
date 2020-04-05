@@ -1,6 +1,31 @@
 $(document).ready(function() {
 	"use strict";
 var flag=true;
+$(".btnspecial").on("click",function(){
+	$(".pop3").show();
+	document.body.scrollTop = 800;
+    document.documentElement.scrollTop = 800;
+	$(".pop-parent2").show();
+	$(".body").css("overflow-y","hidden");
+	});
+$(".kharidbtn").on("click",function(){
+	$(this).removeClass("rent-button");
+	$(this).addClass("buy-button");
+	$(".rahnbtn").removeClass("buy-button");
+	$(".rahnbtn").addClass("rent-button");
+	$(".mab1").hide();
+	$(".mab2").hide();
+	$(".mab3").show();
+	});
+$(".rahnbtn").on("click",function(){
+	$(this).removeClass("rent-button");
+	$(this).addClass("buy-button");
+	$(".kharidbtn").removeClass("buy-button");
+	$(".kharidbtn").addClass("rent-button");
+	$(".mab1").show();
+	$(".mab2").show();
+	$(".mab3").hide();
+	});
 $('.melk').each(function(){
         var t = null;
         var btn = $(this);
@@ -134,10 +159,7 @@ $(".sexbtn").on("click",function(){
 $(".pop-button-left2").on("click",function(){
 	$(".input-center").css("display","block");
 	$(".pop-buttons2").css("margin-top","23%");
-	if(i)
-        $(this).text('ادمه');
-    else
-        $(this).text('دریافت کد تایید');
+	$(this).html('<a href="sabtNam.html" style="width:100%; display:block; text-decoration:none !important; color:white !important;">ادامه </a>');
 	});
 $(".sabt").on("click",function(){
 	$(".content1").hide();
@@ -170,7 +192,8 @@ $(".secProf").on("click",function(){
     document.documentElement.scrollTop = 0;
 	$(".body").css("overflow-y","hidden");
 	});
-$(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6").on("click",function(){
+$(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6,.pop-cross2,.pop-button-right7").on("click",function(){
+	$(".pop3").hide();
 	$(".melk-content").slideUp("slow");
 	$(".vagozari-content").slideUp("slow");
 	$(".melk-content1").slideUp("slow");
@@ -180,6 +203,7 @@ $(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right
 	$(".input-center").css("display","none");
 	$(".pop-buttons2").css("margin-top","20%");
 	$(".pop1").hide();
+	$(".pop-parent2").hide();
 	$(".pop-parent").hide();
 	$(".body").css("overflow-y","visible");
 	});
@@ -394,10 +418,10 @@ $(".navitems").hover(function(){
         borderBottomColor:" rgba(0, 0, 0, 0)",
 		});}
 		});
-
 $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
-	if($height > 20){
+	var win = $(this);
+	if($height > 20 && win.width() >= 1300){
 	$(".headingitems").addClass("scrolled");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");
 	$("#navbarNavAltMarkup").css("margin-top","2%");
@@ -414,7 +438,7 @@ $(window).on("scroll",function(){
 		fontSize:"1vw"
 		});
 		 }
-		else{
+		else if(win.width() >= 1300){
 	$(".headingitems").removeClass("scrolled");
 	$(".logo img").css("display","initial");
 	$("#navbarNavAltMarkup").css("margin-top","0");
