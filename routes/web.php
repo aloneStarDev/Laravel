@@ -11,6 +11,8 @@ route::get('/ContactUs','Base\MainController@contactUs')->name('contactUs')->mid
 route::get('/rules','Base\MainController@rules')->name('rules')->middleware('account');
 route::get('/profile/{id}','Base\MainController@profile')->name('profile')->middleware('account');
 route::get('/file/info/{file}','Base\MainController@info')->name('info')->middleware('account');
+route::get('/file/search','Base\MainController@search')->name('search')->middleware('account');
+route::post('/member/search','Base\MainController@searchMember')->name('searchMember')->middleware('account');
 
 route::get('/member/panel','Base\ManagementController@index')->name('member.panel')->middleware('account')->middleware("auth");
 route::post('/member/update','Base\ManagementController@update')->name('member.panel.update')->middleware('account')->middleware("auth");
@@ -19,8 +21,6 @@ route::post('/member/reset/phonenumber','Base\ManagementController@resetPhonenum
 route::get('/member/reset/phonenumber','Base\ManagementController@sendCode')->name('member.panel.sendCode')->middleware('account')->middleware("auth");
 route::get('/member/payment','Base\ManagementController@payment')->name('member.panel.payment')->middleware("auth");
 route::post('/member/subscribe','Base\ManagementController@checkSubscribe')->name('member.panel.subscribe')->middleware("auth");
-
-
 route::post('/save/file','Base\MainController@store')->name('saveMemberFile');
 
 
@@ -44,6 +44,8 @@ Route::prefix('admin')->namespace('Admin')->middleware('auth')->middleware('auth
     Route::get('/panel' , 'PanelController@index')->name('manage');
     Route::resource('agents', 'AgentController');
     Route::resource('files', 'FileController');
+    Route::get('/file/recheck', 'FileController@recheck')->name('file.recheck');
+    Route::get('/file/back', 'FileController@callback')->name('file.callback');
     Route::get('/file/mode/change/{file}', 'FileController@changeVisible')->name('changeMode');
     Route::get('/file/archive/{file}', 'FileController@archive')->name('archive');
     Route::get('/file/archives', 'FileController@archives')->name('archives');

@@ -68,62 +68,70 @@
         که در اختیار عموم کاربران قرار میگیرد
     </p>
 </div>
-<div class="search">
+<form action="{{route("search")}}" class="search" id="search">
+    <script>
+        function search(type = 0) {
+            if(type !== 0)
+                $('#seType').val(type);
+            $('#search').submit();
+        }
+    </script>
     <div class="search-btn-buy-rent">
-        <a href="#" class="buy-button">
-            <button type="button" class="btn">
+        <input type="hidden" id="seType" name="type">
+        <a  class="buy-button">
+            <button type="button" onclick="search(1)" class="btn">
                 خرید
             </button>
         </a>
-        <a href="#" class="rent-button">
-            <button type="button" class="btn">
+        <a class="rent-button">
+            <button type="button" onclick="search(2)" class="btn">
                 اجاره
             </button>
         </a>
     </div>
     <div class="search-search">
+<input type="hidden" name="reg" id="reg">
         <div class="search-search-text">
             <div class="search-search-input">
                 <div class="mahale" style="border-left:thin solid #707070">
-                    <button class="mahalebtn"><i class="fas fa-map-marker-alt" style="background: -webkit-linear-gradient(rgba(64,22,186,1),  rgba(190,86,212,1));
+                    <button type="button" class="mahalebtn"><i class="fas fa-map-marker-alt" style="background: -webkit-linear-gradient(rgba(64,22,186,1),  rgba(190,86,212,1));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;"></i> منطقه <i class="fas fa-chevron-down"></i></button>
+  -webkit-text-fill-color: transparent;"></i> <div style="display: inline;" id="regTest">منطقه</div> <i class="fas fa-chevron-down"></i></button>
                     <div id="myDropdown" class="mahale-content">
-                        <a>منطقه 1 شهرداری</a>
-                        <a>منطقه 2 شهرداری</a>
-                        <a>منطقه 3 شهرداری</a>
-                        <a>منطقه 4 شهرداری</a>
-                        <a>منطقه 5 شهرداری</a>
-                        <a>منطقه 6 شهرداری</a>
-                        <a>منطقه 7 شهرداری</a>
-                        <a>منطقه 8 شهرداری</a>
-                        <a>منطقه 9 شهرداری</a>
-                        <a>منطقه 10 شهرداری</a>
-                        <a>منطقه 11 شهرداری</a>
-                        <a>منطقه 12 شهرداری</a>
-                        <a>منطقه 13 شهرداری</a>
-                        <a>منطقه ثامن </a>
+                        <a onclick="$('#reg').val(1);$('#regTest').text('1'); " >منطقه 1 شهرداری</a>
+                        <a onclick="$('#reg').val(2);$('#regTest').text('2'); " >منطقه 2 شهرداری</a>
+                        <a onclick="$('#reg').val(3);$('#regTest').text('3'); " >منطقه 3 شهرداری</a>
+                        <a onclick="$('#reg').val(4);$('#regTest').text('4'); " >منطقه 4 شهرداری</a>
+                        <a onclick="$('#reg').val(5);$('#regTest').text('5'); " >منطقه 5 شهرداری</a>
+                        <a onclick="$('#reg').val(6);$('#regTest').text('6'); " >منطقه 6 شهرداری</a>
+                        <a onclick="$('#reg').val(7);$('#regTest').text('7'); " >منطقه 7 شهرداری</a>
+                        <a onclick="$('#reg').val(8);$('#regTest').text('8'); " >منطقه 8 شهرداری</a>
+                        <a onclick="$('#reg').val(9);$('#regTest').text('9'); " >منطقه 9 شهرداری</a>
+                        <a onclick="$('#reg').val(10);$('#regTest').text('10'); " >منطقه 10 شهرداری</a>
+                        <a onclick="$('#reg').val(11);$('#regTest').text('11'); " >منطقه 11 شهرداری</a>
+                        <a onclick="$('#reg').val(12);$('#regTest').text('12'); " >منطقه 12 شهرداری</a>
+                        <a onclick="$('#reg').val(13);$('#regTest').text('13'); " >منطقه 13 شهرداری</a>
+                        <a onclick="$('#reg').val(14);$('#regTest').text('ثامن'); " >منطقه ثامن </a>
                     </div>
                 </div>
-                <form>
                     <div class="wrapInput">
-                        <input type="text" name="searchHouse" placeholder="جستجوی کد ملک  یا کلید واژه" maxlength="25">
+                        <input type="text" name="code" placeholder="جستجوی کد ملک  یا کلید واژه" maxlength="25">
                     </div>
-                    <a href="#" class="search-button">
-                        <button type="button" class="btn">
+                    <a class="search-button">
+                        <button type="submit" class="btn">
                             جستجو
                         </button>
                     </a>
-                </form>
             </div>
             <div class="search-search-input pishrafte-hide">
                 <div class="cost">
-                    <button class="costbtn">نوع ملک <i class="fas fa-chevron-down"></i></button>
+                    <input type="hidden" name="buildingType" id="buildingT" >
+                    <button id="btnBuildingType" type="button" class="costbtn">نوع ملک <i class="fas fa-chevron-down"></i></button>
                     <div class="cost-content">
-                        <a>آپارتمان</a>
-                        <a>ویلایی</a>
-                        <a>اداری و تجاری</a>
-                        <a>زمین و کلنگی</a>
+                        <a onclick="$('#buildingT').val(2);$('#btnBuildingType').text(this.innerText);">آپارتمان</a>
+                        <a onclick="$('#buildingT').val(1);$('#btnBuildingType').text(this.innerText);">ویلایی</a>
+                        <a onclick="$('#buildingT').val(3);$('#btnBuildingType').text(this.innerText);">اداری و تجاری</a>
+                        <a onclick="$('#buildingT').val(4);$('#btnBuildingType').text(this.innerText);">زمین و کلنگی</a>
                     </div>
                 </div>
                 <div class="metrazh">
@@ -139,27 +147,23 @@
                                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                     </div>
                 </div>
-                <form>
-                    <a href="#" class="search-button">
-                        <button type="button" class="btn">
+                    <a class="search-button">
+                        <button type="submit" class="btn">
                             جستجو پیشرفته
                         </button>
                     </a>
-                </form>
             </div>
         </div>
-
         <div class="search-pishrafte">
-            <button class="pishraftebtn">جستجو پیشرفته <i class="fas fa-chevron-down"></i></button>
+            <button type="button" class="pishraftebtn">جستجو پیشرفته <i class="fas fa-chevron-down"></i></button>
         </div>
     </div>
-</div>
+</form>
 <div class="tri-left">
     <img class="tri-image-left" alt="tri-background" src="{{asset("base/images/curve1.png")}}" >
 </div>
 <div id="carouselExampleControls" class="carousel carousel1 slide">
     <div class="carousel-inner">
-
         <div class="carousel-item first-slide">
             @if(count($files)>24)
                 @for($i=25;$i<count($files);$i++)

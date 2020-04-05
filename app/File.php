@@ -33,8 +33,17 @@ class File extends Model
         'heating',
         'cooling',
         'direction',
+        'parking',
+        'asansor',
+        'iphone',
+        'anbary',
+        'edoor',
+        'wc',
+        'hamam',
+        'komod',
         'view',
-        'document'
+        'gas',
+        'document',
     ];
     public static $bulbing_type = [
         1 => "ویلایی",
@@ -59,18 +68,21 @@ class File extends Model
         14 => "منطقه ی ثامن"
     ];
     public static $floor_covering = [
+        0 => "-",
         1 => "سرامیک",
         2 => "پارکت",
         3 => "موکت",
         4 => "ندارد"
     ];
     public static $cabinet_ = [
+        0 => "-",
         1 => "ام دی اف",
         2 => "های گلس",
         3 => "چوب",
         4 => "فلز"
     ];
     public static $direction_ = [
+        0 => "-",
         1 => "شمالی",
         2 => "جنوبی",
         3 => "شرقی",
@@ -79,24 +91,28 @@ class File extends Model
         6 => "دوممر"
     ];
     public static $cooling_ = [
+        0 => "-",
         1 => "کولر آبی",
         2 => "کولر گازی",
         3 => "هوا ساز",
         4 => "چیلر و فن کوئل"
     ];
     public static $heating_ = [
+        0 => "-",
         1 => "بخاری",
         2 => "پکیج و شوفاژ",
         3 => "هوا ساز",
         4 => "چیلر و فن کوئل"
     ];
     public static $view_ = [
+        0 => "-",
         1 => "سنگ",
         2 => "آجر سه سانت",
         3 => "سیمان",
         4 => "غیره"
     ];
     public static $document_ = [
+        0 => "-",
         1 => "ششدانگ اوقاف",
         2 => "ششدانگ آستانه",
         3 => "ششدانگ ملکی",

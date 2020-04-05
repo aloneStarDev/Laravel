@@ -49,8 +49,8 @@
         <img alt="circle_photo" src="{{asset("base/images/g8.jpg")}}" class="circleimage">
     </div>
     <div class="titlediv">
-        <h1 style="color: #FFFFFF; font-size:3vw;">نام دفتر املاک</h1>
-        <h3 style="color: #FFFFFF; font-size:2vw;">مالک: محمدرضا کریمی</h3>
+        <h1 style="color: #FFFFFF; font-size:3vw;">املاک  {{$customer->office}}</h1>
+        <h3 style="color: #FFFFFF; font-size:2vw;">مالک: {{$customer->name}} {{$customer->lastname}}</h3>
     </div>
 </div>
 <div class="tri-right">

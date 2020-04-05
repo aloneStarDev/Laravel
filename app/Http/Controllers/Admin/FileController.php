@@ -52,8 +52,9 @@ class FileController extends Controller
             $agent->save();
         }
         $file["user_id"] = $user_id;
-        $file->save();
-        return redirect(route('files.index'));
+        $this->recheck($file);
+//        $file->save();
+        return redirect(route('file.recheck',["json"=>json_encode($file),'mode'=>1]));
     }
 
     /**
@@ -87,10 +88,65 @@ class FileController extends Controller
      */
     public function update(FileRequest $request, File $file)
     {
-        $file->update($request->all());
-        return redirect(route('files.index'));
+        $f = new File($request->all());
+        $f->id = $file->id;
+        return redirect(route('file.recheck',["json"=>json_encode($f),'mode'=>2]));
     }
-
+    public function callback(){
+        switch (\request('mode'))
+        {
+            case 1:
+                $file = new File(json_decode(request()->get("file"),true));
+                $file->save();
+                break;
+            case 2:
+                $f = json_decode(request('file'),true);
+                $file = File::where('id',$f["id"])->firstOrFail();
+                $file->update($f);
+                break;
+            case 3:
+                $file = new File(json_decode(request()->get("file"),true));
+                return view('Admin.files.create',compact("file"));
+                break;
+            case 4:
+                $file = json_decode(request()->get("file"));
+                return redirect()->route('files.edit',$file->id);
+                break;
+        }
+        return redirect()->route('files.index');
+    }
+    public function recheck(){
+        $file = json_decode(request()->get("json"),true);
+        $mode = request()->get("mode");
+        if($file == null)
+            return"fileNotFound";
+        switch ($mode)
+        {
+            case 1:
+                $filesP = File::where('phonenumber',$file["phonenumber"])->where('visible',true)->get();
+                $filesN = File::where('lastname',$file["lastname"])->where('name',$file["name"])->where('visible',true)->get();
+                $filesA = File::where('addressPv',$file["addressPv"])->where('visible',true)->get();
+                if(count($filesP) != 0  || count($filesN) != 0 || count($filesA) != 0)
+                    return view('Admin.files.recheck',compact('file','filesN','filesP','filesA','mode'));
+                else{
+                    $f = new File($file);
+                    $f->save();
+                }
+                break;
+            case 2:
+                $filesP = File::where('phonenumber',$file["phonenumber"])->where('id',"!=",$file["id"])->where('visible',true)->get();
+                $filesN = File::where('lastname',$file["lastname"])->where('id',"!=",$file["id"])->where('name',$file["name"])->where('visible',true)->get();
+                $filesA = File::where('addressPv',$file["addressPv"])->where('id',"!=",$file["id"])->where('visible',true)->get();
+                if(count($filesP) != 0  || count($filesN) != 0 || count($filesA) != 0)
+                    return view('Admin.files.recheck',compact('file','filesN','filesP','filesA','mode'));
+                File::where('id',$file["id"])->firstOrFail()->update($file);
+                break;
+            default:
+                return "mode notFound";
+                break;
+        }
+        return redirect()->route("files.index");
+    }
     /**
      * @param File $file
      * @return \Illuminate\Http\RedirectResponse

@@ -30,7 +30,7 @@
                             املاک</a></button>
                 </div>
                 <div class="dropdown">
-                    <button class="dropbtn"><a class="nav-item nav-link navitems" href="#">قوانین</a></button>
+                    <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("rules")}}">قوانین</a></button>
                 </div>
                 <div class="dropdown">
                     <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("about")}}">درباره
@@ -51,7 +51,8 @@
              class="amlakimage">
     </div>
     <div class="titlediv">
-        <h1 style="color: #FFFFFF; font-size:2vw;">{{ \App\File::$bulbing_type[$file->buildingType] }}  {{$file->area}}متری</h1>
+        <h1 style="color: #FFFFFF; font-size:2vw;">{{ \App\File::$bulbing_type[$file->buildingType] }}  {{$file->area}}
+            متری</h1>
         <div class="top-content">
             <p class="right-sub">{{$file->code}} : کد ملک </p>
             <p class="left-sub"> {{verta($file->updated_at)}} :تاریخ درج آگهی</p>
@@ -65,26 +66,27 @@
     <img alt="background-texture-left" src="{{asset("base/images/curve1.png")}}">
 </div>
 <div class="top-titles-div">
-@if($file->buy != null)
-    <div class="top-titles-right">
-        <p class="top-titles-rt">فروش</p>
-        <p class="top-titles-lt">{{\App\File::floatPrice($file->buy) }}</p>
-    </div>
-@else
-    @if($file->rahn != null)
+    @if($file->buy != null)
         <div class="top-titles-right">
-            <p class="top-titles-rt">رهن</p>
-            <p class="top-titles-lt">{{\App\File::floatPrice($file->rahn)}}</p>
+            <p class="top-titles-rt">فروش</p>
+            <p class="top-titles-lt">{{\App\File::floatPrice($file->buy) }}</p>
         </div>
+    @else
+        @if($file->rahn != null)
+            <div class="top-titles-right">
+                <p class="top-titles-rt">رهن</p>
+                <p class="top-titles-lt">{{\App\File::floatPrice($file->rahn)}}</p>
+            </div>
+        @endif
+        @if($file->ejare != null)
+            <div class="top-titles-left">
+                <p class="top-titles-rt">اجاره</p>
+                <p class="top-titles-lt">{{\App\File::floatPrice($file->ejare)}}</p>
+            </div>
+        @endif
     @endif
-    @if($file->ejare != null)
-        <div class="top-titles-left">
-            <p class="top-titles-rt">اجاره</p>
-            <p class="top-titles-lt">{{\App\File::floatPrice($file->ejare)}}</p>
-        </div>
-    @endif
-@endif
 </div>
+<<<<<<< HEAD
 <!-- there should be repaired -->
 <div class="parent-image">
 <div class="side"><!--there should be change-->
@@ -100,45 +102,23 @@
             <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
         </a>
     </div>
+=======
+<div class="parent-image">
+    @foreach($customers as $customer)
+        <div class="left-image-div">
+            <div class="image-absolute">
+                <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
+                <h4 class="image-absolute-h4">مشاور ملک</h4>
+                <p class="image-p" style="margin-top: 5%;">{{$customer->office}}</p>
+                <p class="image-p">{{$customer->name}} {{$customer->lastname}}</p>
+            </div>
+            <a href="{{route('profile',$customer->id)}}">
+                <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
+            </a>
+        </div>
+>>>>>>> 3e76fdd9df4ce73f755b490bd50f56e16d77bdbd
     @endforeach
- <div class="left-image-div">
-        <div class="image-absolute">
-            <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
-            <h4 class="image-absolute-h4">مشاور ملک</h4>
-            <p class="image-p" style="margin-top: 5%;">asdads</p>
-            <p class="image-p">asdasd</p>
-        </div>
-            <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
-
-    </div>
-    <div class="left-image-div">
-        <div class="image-absolute">
-            <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
-            <h4 class="image-absolute-h4">مشاور ملک</h4>
-            <p class="image-p" style="margin-top: 5%;">asdads</p>
-            <p class="image-p">asdasd</p>
-        </div>
-        <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
-
-    </div><div class="left-image-div">
-        <div class="image-absolute">
-            <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
-            <h4 class="image-absolute-h4">مشاور ملک</h4>
-            <p class="image-p" style="margin-top: 5%;">asdads</p>
-            <p class="image-p">asdasd</p>
-        </div>
-        <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
-
-    </div>
-    <div class="left-image-div">
-        <div class="image-absolute">
-            <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
-            <h4 class="image-absolute-h4">مشاور ملک</h4>
-            <p class="image-p" style="margin-top: 5%;">asdads</p>
-            <p class="image-p">asdasd</p>
-        </div>
-        <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
-    </div>
+    {{$customers->links()}}
 </div>
 </div>
 <div class="table1">
@@ -174,7 +154,7 @@
                 : متراژ
             </p>
             <p class="table-p-left">
-                100 متر
+                {{$file->area}} متر
             </p>
         </div>
     </div>
@@ -184,7 +164,7 @@
                 : تعداد کل طبقات
             </p>
             <p class="table-p-left">
-                4
+                {{$file->floorCount}}
             </p>
         </div>
         <div class="table-content-left">
@@ -192,7 +172,7 @@
                 : تعداد واحدها
             </p>
             <p class="table-p-left">
-                12
+                {{$file->unit}}
             </p>
         </div>
     </div>
@@ -202,7 +182,7 @@
                 : طول عمر بنا
             </p>
             <p class="table-p-left">
-                10
+                {{$file->age}}
             </p>
         </div>
         <div class="table-content-left">
@@ -210,7 +190,7 @@
                 : تعداد خواب
             </p>
             <p class="table-p-left">
-                2
+                {{$file->bedroom}}
             </p>
         </div>
     </div>
@@ -220,9 +200,31 @@
                 : آدرس
             </p>
             <p class="table-p-left">
-                خیابان آبکوه انتهای احمد
+                {{$file->addressPu}}
             </p>
         </div>
+        @can('customer')
+            <div class="table-content-left">
+                <p class="table-p-right">
+                    : آدرس دقیق
+                </p>
+                <p class="table-p-left">
+                    {{$file->addressPv}}
+                </p>
+            </div>
+        @endcan
+    </div>
+    <div class="table-row" style="border-bottom:none;">
+        @can('customer')
+        <div class="table-content-right">
+            <p class="table-p-right">
+                : شماره تماس
+            </p>
+            <p class="table-p-left">
+                {{$file->phonenumber}}
+            </p>
+        </div>
+        @endcan
     </div>
 </div>
 <h2 class="amlak-title">: امکانات</h2>
@@ -232,16 +234,16 @@
             <p class="table-p-right">
                 : آسانسور
             </p>
-            <div class="table-p-left2 greendiv">
-                <i class="fas fa-check"></i>
+            <div class="table-p-left2 @if($file->asansor) greendiv @else reddiv @endif">
+                @if($file->asansor) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
         <div class="table-content-left">
             <p class="table-p-right">
                 : تراس
             </p>
-            <div class="table-p-left2 reddiv">
-                <i class="fas fa-times"></i>
+            <div class="table-p-left2 @if($file->trace) greendiv @else reddiv @endif">
+                @if($file->trace) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
     </div>
@@ -250,16 +252,16 @@
             <p class="table-p-right">
                 : پارکینگ
             </p>
-            <div class="table-p-left2 reddiv">
-                <i class="fas fa-times"></i>
+            <div class="table-p-left2 @if($file->parking) greendiv @else reddiv @endif">
+                @if($file->parking) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
         <div class="table-content-left">
             <p class="table-p-right">
                 : انباری
             </p>
-            <div class="table-p-left2 greendiv">
-                <i class="fas fa-check"></i>
+            <div class="table-p-left2 @if($file->anbary) greendiv @else reddiv @endif">
+                @if($file->anbary) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
     </div>
@@ -268,52 +270,52 @@
             <p class="table-p-right">
                 : درب برقی
             </p>
-            <div class="table-p-left2 greendiv">
-                <i class="fas fa-check"></i>
+            <div class="table-p-left2 @if($file->edoor) greendiv @else reddiv @endif">
+                @if($file->edoor) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
         <div class="table-content-left">
             <p class="table-p-right">
-                : عدم حضور مالک
+                : سرویس فرنگی
             </p>
-            <div class="table-p-left2 reddiv">
-                <i class="fas fa-times"></i>
+            <div class="table-p-left2 @if($file->wc) greendiv @else reddiv @endif">
+                @if($file->wc) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
     </div>
     <div class="table-row">
         <div class="table-content-right">
             <p class="table-p-right">
-                : آبگرمکن
+                : آیفون تصویری
             </p>
-            <div class="table-p-left2 reddiv">
-                <i class="fas fa-times"></i>
+            <div class="table-p-left2 @if($file->iphone) greendiv @else reddiv @endif">
+                @if($file->iphone) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
         <div class="table-content-left">
             <p class="table-p-right">
-                : تخلیه
+                : حمام مستر
             </p>
-            <div class="table-p-left2 greendiv">
-                <i class="fas fa-check"></i>
+            <div class="table-p-left2 @if($file->hamam) greendiv @else reddiv @endif">
+                @if($file->hamam) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
     </div>
     <div class="table-row" style="border-bottom:none;">
         <div class="table-content-right">
             <p class="table-p-right">
-                : اُپن
+                : کمد دیواری
             </p>
-            <div class="table-p-left2 greendiv">
-                <i class="fas fa-check"></i>
+            <div class="table-p-left2 @if($file->komod) greendiv @else reddiv @endif">
+                @if($file->komod) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
         <div class="table-content-left">
             <p class="table-p-right">
-                : بازسازی شده
+                : گاز رو کار
             </p>
-            <div class="table-p-left2 reddiv">
-                <i class="fas fa-times"></i>
+            <div class="table-p-left2 @if($file->gas) greendiv @else reddiv @endif">
+                @if($file->gas) <i class="fas fa-check"></i> @else <i class="fas fa-times"></i> @endif
             </div>
         </div>
     </div>
@@ -322,18 +324,18 @@
     <div class="table-row">
         <div class="table-content-right">
             <p class="table-p-right">
-                : دیوارپوش
+                 : کفپوش
             </p>
             <p class="table-p-left3">
-                نقاشی
+                {{\App\File::$floor_covering[$file->floorCovering]}}
             </p>
         </div>
         <div class="table-content-left">
             <p class="table-p-right">
-                : کف پوش
+                : کابینت
             </p>
             <p class="table-p-left3">
-                سرامیک
+                {{\App\File::$cabinet_[$file->cabinet]}}
             </p>
         </div>
     </div>
@@ -343,7 +345,7 @@
                 : جهت ملک
             </p>
             <p class="table-p-left3">
-                جنوبی
+                {{\App\File::$direction_[$file->direction]}}
             </p>
         </div>
         <div class="table-content-left">
@@ -351,61 +353,43 @@
                 : نما
             </p>
             <p class="table-p-left3">
-                سنگ
+                {{\App\File::$view_[$file->view]}}
             </p>
         </div>
     </div>
     <div class="table-row">
-        <div class="table-content-right">
-            <p class="table-p-right">
-                : کابینت
-            </p>
-            <p class="table-p-left3">
-                ام دی اف
-            </p>
-        </div>
-        <div class="table-content-left">
-            <p class="table-p-right">
-                : برق
-            </p>
-            <p class="table-p-left3">
-                مستقل
-            </p>
-        </div>
-    </div>
-    <div class="table-row">
-        <div class="table-content-right">
-            <p class="table-p-right">
-                : کولر
-            </p>
-            <p class="table-p-left3">
-                آبی
-            </p>
-        </div>
-        <div class="table-content-left">
-            <p class="table-p-right">
-                : آب
-            </p>
-            <p class="table-p-left3">
-                مستقل
-            </p>
-        </div>
-    </div>
-    <div class="table-row" style="border-bottom:none;">
         <div class="table-content-right">
             <p class="table-p-right">
                 : گرمایش
             </p>
             <p class="table-p-left3">
-                بخاری
+                {{\App\File::$heating_[$file->heating]}}
             </p>
         </div>
         <div class="table-content-left">
             <p class="table-p-right">
-                : گاز
+                : سرمایش
             </p>
             <p class="table-p-left3">
-                مستقل
+                {{\App\File::$cooling_[$file->cooling]}}
+            </p>
+        </div>
+    </div>
+    <div class="table-row">
+        <div class="table-content-right">
+            <p class="table-p-right">
+                : سند
+            </p>
+            <p class="table-p-left3">
+                {{\App\File::$document_[$file->document]}}
+            </p>
+        </div>
+        <div class="table-content-left">
+            <p class="table-p-right">
+
+            </p>
+            <p class="table-p-left3">
+
             </p>
         </div>
     </div>
@@ -413,13 +397,7 @@
 <h2 class="amlak-title">: توضیحات</h2>
 <div class="exp">
     <p class="exp-p">
-        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-        . چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
-        مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه
-        درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری
-        را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-        در این صورت می توان امید
-
+        {{$file->description}}
     </p>
 </div>
 <footer class="page-footer font-small indigo">
