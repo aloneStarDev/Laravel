@@ -76,14 +76,16 @@
             $('#search').submit();
         }
     </script>
+    <div class="pop-parent2">
+</div>
     <div class="search-btn-buy-rent">
         <input type="hidden" id="seType" name="type">
-        <a  class="buy-button">
+        <a  class="buy-button kharidbtn">
             <button type="button" onclick="search(1)" class="btn">
                 خرید
             </button>
         </a>
-        <a class="rent-button">
+        <a class="rent-button rahnbtn" style="margin-right:10%;">
             <button type="button" onclick="search(2)" class="btn">
                 اجاره
             </button>
@@ -147,7 +149,7 @@
                                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                     </div>
                 </div>
-                    <a class="search-button">
+                    <a class="search-button btnspecial">
                         <button type="submit" class="btn">
                             جستجو پیشرفته
                         </button>
@@ -158,6 +160,158 @@
             <button type="button" class="pishraftebtn">جستجو پیشرفته <i class="fas fa-chevron-down"></i></button>
         </div>
     </div>
+    <div class="pop-div2 pop3">
+ <div class="pop-cross2">
+ <i class="fas fa-times"></i>
+ </div>
+ <div class="pop-content">
+ <div class="pop-content-form7">
+  <div class="pop-content-input7">
+   <div class="input-top7">
+   <div class="mablagh">
+  <div class="mablaghbtn mab1">
+  <span>
+  رهن:
+  </span>
+  <span style=" margin-right:3%;"> از</span>
+  <input type="number" name="from" style=" right:7%;" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 10">
+  <span style="margin-right:28%;"> تا</span>
+  <input type="number" name="to" style="right:40%;" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 10">
+  <span style="margin-right:28%; font-size: 0.9vw;"> هزار تومان</span>
+  </div>
+</div>
+   <div class="mablagh mab2">
+  <div class="mablaghbtn">
+  <span>
+  اجاره:
+  </span>
+  <span style=" margin-right:1%;"> از</span>
+  <input type="number" name="from" style=" right:5%;" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 10">
+  <span style="margin-right:28%;"> تا</span>
+  <input type="number" name="to" style="right:38%;" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 10">
+  <span style="margin-right:28%; font-size: 0.9vw;"> هزار تومان</span>
+  </div>
+</div>
+    <div class="mablagh mab3">
+  <div class="mablaghbtn">
+  <span>
+  مبلغ:
+  </span>
+  <span style=" margin-right:3%;"> از</span>
+  <input type="number" name="from" style=" right:7%;" id="mablagh1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 10">
+  <span style="margin-right:28%;"> تا</span>
+  <input type="number" name="to" style="right:40%;" id="mablagh2" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 10">
+  <span style="margin-right:28%; font-size: 0.9vw;"> هزار تومان</span>
+  </div>
+</div>
+ <div class="beds">
+  <div class="bedsbtn">
+  <span>
+  تعداد خواب:
+  </span>
+  <span style=" margin-right:1%;"> از</span>
+  <input type="number" name="from" style=" right: 21%; width: 15%;" id="beds1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 2" >
+  <span style="margin-right:18%;"> تا</span>
+  <input type="number" name="to" style="right: 45%; width: 15%;" id="beds2" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 2">
+  </div>
+</div>
+ <div class="old">
+  <div class="oldbtn">
+  <span>
+  سن بنا:
+  </span>
+  <span style=" margin-right:3%;"> از</span>
+  <input type="number" name="from" style=" right: 12%; width: 20%;" id="old1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 4">
+  <span style="margin-right:23%;"> تا</span>
+  <input type="number" name="to" style="right:40%; width:20%" id="old2" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 4">
+  <span style="margin-right:25%; font-size: 0.9vw;"> سال</span>
+  </div>
+</div>
+ <div class="floor">
+  <div class="floorbtn">
+  <span>
+  طبقه:
+  </span>
+  <span style=" margin-right:3%;"> از</span>
+  <input type="number" name="from" style="right: 8%; width: 15%;" id="floor1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 3">
+  <span style="margin-right:18%;"> تا</span>
+  <input type="number" name="to" style="right:31%; width: 15%;" id="floor2" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+  </div>
+</div>
+ <div class="entry">
+  <div class="entrybtn">
+  <span>
+  تاریخ ثبت:
+  </span>
+  <span style=" margin-right:1%;"> از</span>
+  <input type="text" name="from" style=" right:17%; width:27%" id="entry1" onkeypress="return event.charCode >= 47 && event.charCode <= 57 && this.value.length < 10">
+  <span style="margin-right:28%;"> تا</span>
+  <input type="text" name="to" style="right:50%; width:27%" id="entry2" onkeypress="return event.charCode >= 47 && event.charCode <= 57 && this.value.length < 10">
+  </div>
+</div>
+    </div>
+   <div class="input-top7" style="padding-right: 5%; border: none; padding-bottom:0;">
+    <div class="mablagh">
+  <div class="mablaghbtn">
+  <span>
+  آسانسور:
+  </span>
+  <input type="checkbox" class="checkbox2">
+  </div>
+</div>
+ <div class="beds">
+  <div class="bedsbtn">
+  <span>
+  پارکینگ:
+  </span>
+  <input type="checkbox" class="checkbox2">
+  </div>
+</div>
+ <div class="old">
+  <div class="oldbtn">
+  <span>
+  تراس:
+  </span>
+  <input type="checkbox" class="checkbox2">
+  </div>
+</div>
+ <div class="floor">
+  <div class="floorbtn">
+  <span>
+  انباری:
+  </span>
+  <input type="checkbox" class="checkbox2">
+  </div>
+</div>
+ <div class="entry">
+  <div class="entrybtn">
+  <span>
+  درب برقی:
+  </span>
+  <input type="checkbox" class="checkbox2">
+  </div>
+</div>
+<div class="entry">
+  <div class="entrybtn">
+  <span>
+  کمد دیواری:
+  </span>
+  <input type="checkbox" class="checkbox2">
+  </div>
+</div>
+    </div>
+  </div>
+  <div class="pop-buttons7">
+   <button class="pop-button-right7 btn">
+   انصراف
+   </button>
+   <button class="pop-button-left7 btn">
+   ثبت
+   </button>
+  </div>
+ </div>
+ </div>
+</div>
 </form>
 <div class="tri-left">
     <img class="tri-image-left" alt="tri-background" src="{{asset("base/images/curve1.png")}}" >

@@ -86,6 +86,23 @@
         @endif
     @endif
 </div>
+<<<<<<< HEAD
+<!-- there should be repaired -->
+<div class="parent-image">
+<div class="side"><!--there should be change-->
+    @foreach($customers as $customer)
+    <div class="left-image-div">
+        <div class="image-absolute">
+            <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
+            <h4 class="image-absolute-h4">مشاور ملک</h4>
+            <p class="image-p" style="margin-top: 5%;">{{$file}}</p>
+            <p class="image-p">{{$customer->name}}</p>
+        </div>
+        <a href="{{route("profile",$customer->id)}}">
+            <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
+        </a>
+    </div>
+=======
 <div class="parent-image">
     @foreach($customers as $customer)
         <div class="left-image-div">
@@ -99,8 +116,10 @@
                 <button class="tamas btn"><i class="fas fa-phone "></i>اطلاعات تماس</button>
             </a>
         </div>
+>>>>>>> 3e76fdd9df4ce73f755b490bd50f56e16d77bdbd
     @endforeach
     {{$customers->links()}}
+</div>
 </div>
 <div class="table1">
     <div class="table-row">
