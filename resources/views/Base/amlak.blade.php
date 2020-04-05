@@ -90,7 +90,7 @@
     @foreach($customers as $customer)
         <div class="left-image-div">
             <div class="image-absolute">
-                <img alt="prof-image" src="{{asset("base/images/g8.jpg")}}">
+                <img alt="prof-image" src="@if($customer->image!=null) {{asset("/storage/".$customer->image)}} @else{{asset("base/images/g8.jpg")}}@endif">
                 <h4 class="image-absolute-h4">مشاور ملک</h4>
                 <p class="image-p" style="margin-top: 5%;">{{$customer->office}}</p>
                 <p class="image-p">{{$customer->name}} {{$customer->lastname}}</p>

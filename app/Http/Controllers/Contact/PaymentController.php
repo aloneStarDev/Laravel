@@ -89,18 +89,25 @@ class PaymentController extends Controller
             if ($result->Status == 100) {
                 if ($this->addSubscription($payment)) {
                     $mes = "پرداخت شما موفق بود و حساب شما تمدید شد";
-                    $refId = $result->RefID;
-                    return view("Base.result",compact("refId","mes"));
+                    $refId = $payment->resnumber;
+                    settype($refId,"int");
+                    $refId ="شناسه ی پرداخت شما : ".$refId;
+                    return redirect()->route("member.panel")->withErrors(["msg"=>$refId,"mes"=>$mes]);
                 }
             } else {
                 $mes = "پرداخت شما موفق نبود و حساب کاربری شما فعال نشد لطفا مجددا تلاش فرمایید";
-                $refId = $result->RefID;
-                return view("Base.result",compact("mes","refId"));
+                $refId = $payment->resnumber;
+                settype($refId,"int");
+                $refId ="شناسه ی پرداخت شما : ".$refId;
+                return redirect()->route("base")->withErrors(["msg"=>$refId,"mes"=>$mes]);
             }
         }
         else {
             $mes = "پرداخت شما کنسل شد و حساب کاربری شما فعال نشد لطفا مجددا تلاش فرمایید";
-            return view("Base.result",compact("mes"));
+            $refId = $payment->resnumber;
+            settype($refId,"int");
+            $refId ="شناسه ی پرداخت شما : ".$refId;
+            return redirect()->route("base")->withErrors(["msg"=>$refId,"mes"=>$mes]);
         }
     }
 
@@ -113,6 +120,7 @@ class PaymentController extends Controller
         $customer = Customer::where('id', $payment->customer_id )->first();
         $user = User::where('rollId',$customer->id)->first();
 
+
         if($user != null ) {
             if ($customer->active == true) {
                 $oldExpireDate = Carbon::parse($customer->expire_subscription);
@@ -120,7 +128,6 @@ class PaymentController extends Controller
                 $customer->update([
                     'expire_subscription' => $newExpireDate,
                 ]);
-                return true;
             }
             else{
                 $newExpireDate = Carbon::now()->addMonths($payment->subscription_month);
@@ -128,7 +135,6 @@ class PaymentController extends Controller
                     'expire_subscription' => $newExpireDate,
                     'active' => true,
                 ]);
-                return true;
             }
         }else{
                 $temp = Temp::where("phonenumber",$customer->phonenumber)->firstOrFail();
@@ -146,7 +152,10 @@ class PaymentController extends Controller
                     'expire_subscription' => $newExpireDate,
                     'active'=>true
                 ]);
-            return true;
         }
+        if($user == null)
+            return false;
+        auth()->loginUsingId($user->id);
+        return true;
     }
 }

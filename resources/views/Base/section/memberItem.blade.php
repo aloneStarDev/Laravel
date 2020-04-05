@@ -1,5 +1,5 @@
 <div class="cell" @if($i % 3 == 1) style="margin-right:2%;" @endif >
-    <img alt="house" src="../base/images/g5.jpg" class="house-image">
+    <img alt="house" src="@if ($customers[$i]->image!=null) {{asset("/storage/".$customers[$i]->image)}} @else{{asset("base/images/g8.jpg")}}@endif" class="house-image">
     <div class="card-content">
         <h3 class="card-h3">املاک {{$customers[$i]->office}}</h3>
         <p class="card-p">

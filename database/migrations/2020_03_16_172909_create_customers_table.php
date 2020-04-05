@@ -24,9 +24,10 @@ class CreateCustomersTable extends Migration
             $table->string('address')->nullable();
             $table->string('call')->nullable();
             $table->json('ip')->nullable();
+            $table->string('image')->nullable();
             $table->unsignedTinyInteger('ipCount')->default(1);
             $table->unsignedTinyInteger('panel');//1->1 2->3 3->6 4->1year
-            $table->string('explain')->nullable();
+            $table->string('explain',950)->nullable();
             $table->string('telegram')->nullable();
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();

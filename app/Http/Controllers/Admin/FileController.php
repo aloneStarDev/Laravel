@@ -231,7 +231,7 @@ class FileController extends Controller
                 break;
             case 16:
                 $input = $request->input("valStr");
-                $files = File::where("user_id",Agent::where("name",$input)->orWhere("lastname",$input)->orWhere("phonenumber",$input)->firstOrfail()->id())->get();
+                $files = File::where("user_id",Agent::where("name",$input)->orWhere("lastname",$input)->orWhere("phonenumber",$input)->firstOrfail()->id)->get();
                 break;
         }
         return view('Admin.files.all', compact('files'));

@@ -21,21 +21,21 @@
       <i class="fas fa-map-marker-alt"></i>
       {{$files[$i]->addressPu}}
       </span>
-        @if($files[$i]->rahn != null)
+        @if($files[$i]->buy != null)
             <span class="cell-year">
-      رهن : {{ \App\File::floatPrice($files[$i]->rahn)}}
+      رهن : {{ \App\File::floatPrice($files[$i]->buy)}}
       </span>
         @else
-            @if($files[$i]->ejare != null)
+            @if($files[$i]->rahn != null)
                 <span class="cell-month">
+          خرید: {{ \App\File::floatPrice($files[$i]->rahn)}}
+          </span>
+            @endif
+                @if($files[$i]->ejare != null)
+                    <span class="cell-month">
           اجاره: {{ \App\File::floatPrice($files[$i]->ejare)}}
           </span>
-            @endif
-            @if($files[$i]->buy != null)
-                <span class="cell-month">
-          خرید: {{ \App\File::floatPrice($files[$i]->buy)}}
-          </span>
-            @endif
+                @endif
         @endif
         <a href="{{route("info",$files[$i]->id)}}">
             <button class="btn cell-btn" style="margin-left:10%;">

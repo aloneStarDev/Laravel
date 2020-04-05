@@ -12,8 +12,8 @@ route::get('/rules','Base\MainController@rules')->name('rules')->middleware('acc
 route::get('/profile/{id}','Base\MainController@profile')->name('profile')->middleware('account');
 route::get('/file/info/{file}','Base\MainController@info')->name('info')->middleware('account');
 route::get('/file/search','Base\MainController@search')->name('search')->middleware('account');
+Route::post('/survey/store','Base\SurveyController@store')->name('survey.store')->middleware('account');
 route::post('/member/search','Base\MainController@searchMember')->name('searchMember')->middleware('account');
-
 route::get('/member/panel','Base\ManagementController@index')->name('member.panel')->middleware('account')->middleware("auth");
 route::post('/member/update','Base\ManagementController@update')->name('member.panel.update')->middleware('account')->middleware("auth");
 route::post('/member/reset/password','Base\ManagementController@resetPass')->name('member.panel.resetPass')->middleware('account')->middleware("auth");
@@ -61,4 +61,8 @@ Route::prefix('admin')->namespace('Admin')->middleware('auth')->middleware('auth
     Route::get('receives/delete/{id}','ReceiveController@destroy')->name('removeReceived');
     Route::get('receives/register/{id}','ReceiveController@edit')->name('editReceived');
     Route::post('receives/register','ReceiveController@register')->name('registerReceived');
+    Route::get('survey/index','ReceiveController@indexsurvey')->name('survey.index');
+    Route::get('survey/delete/{survey}','ReceiveController@destroysurvey')->name('survey.delete');
+    Route::get('survey/show/{survey}','ReceiveController@showsurvey')->name('survey.show');
+    Route::post("/reset/pass","PanelController@reset")->name("admin.reset.pass");
 });

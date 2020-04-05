@@ -43,13 +43,13 @@ class MemberController extends Controller
     }
     public function update($id){
         request()->validate([
-            "name"=>"required",
-            "lastname"=>"required",
-            "phonenumber"=>"required",
+            "name"=>"required|max:191",
+            "lastname"=>"required|max:191",
+            "phonenumber"=>"required|max:191",
             "region"=>"required",
-            "office"=>"required",
-            "address"=>"required",
-            "username"=>"unique:users"
+            "office"=>"required|max:191",
+            "address"=>"required|max:191",
+            "username"=>"unique:users|max:191"
         ]);
         $customer = Customer::where("id",$id)->firstOrFail();
         if($customer['panel']!==request('panel'))
@@ -76,11 +76,11 @@ class MemberController extends Controller
     }
     public function store(){
         request()->validate([
-            "name"=>"required",
-            "lastname"=>"required",
-            "phonenumber"=>"required|unique:customers",
-            "region"=>"required",
-            "office"=>"required",
+            "name"=>"required|max:191",
+            "lastname"=>"required|max:191",
+            "phonenumber"=>"required|unique:customers|max:191",
+            "region"=>"required|between:0,15",
+            "office"=>"required|max:191",
             "address"=>"required",
             "username"=>"required|unique:users",
             "password"=>"required"

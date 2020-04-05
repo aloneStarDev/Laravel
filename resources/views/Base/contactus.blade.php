@@ -62,16 +62,16 @@
 
 <div class="form-div">
 
-<div class="textform">ثبت نظر و پیشنهاد<br>
-
+<form action="{{route("survey.store")}}" class="textform" method="post">ثبت نظر و پیشنهاد<br>
+@csrf
 <div style="font-size: 1.5vw ;">
-<input style="margin-top: 5%; float: right; display: block; width: 45%;" class="wrapInput" type="text" name="name" placeholder="نام و نام خانوادگی" maxlength="25">
+<input style="margin-top: 5%; float: right; display: block; width: 45%;" class="wrapInput" type="text" name="fullName" placeholder="نام و نام خانوادگی" maxlength="25">
 <input style="margin-top: 5%; float: right; display: block; width: 45%; margin-right: 2%;" class="wrapInput" type="email" name="email" placeholder="ایمیل" maxlength="25">
 </div>
-<input style="margin-top: 2%; width: 92%; font-size: 1.5vw" class="wrapInput" type="text" name="subject" placeholder="عنوان" maxlength="60">
-<textarea style="margin-top: 2%; width: 92%; height: 150px; font-size: 1.5vw" class="wrapInput" type="text" name="idea" placeholder="شرح نظر..." maxlength="500"></textarea>
-<button class="button">ثبت</button>
-</div>
+<input style="margin-top: 2%; width: 92%; font-size: 1.5vw" class="wrapInput" type="text" name="title" placeholder="عنوان" maxlength="60">
+<textarea style="margin-top: 2%; width: 92%; height: 150px; font-size: 1.5vw" class="wrapInput" type="text" name="description" placeholder="شرح نظر..." maxlength="500"></textarea>
+<button type="submit" class="button">ثبت</button>
+</form>
 
 <div class="texticons">
 <p class="icontitle" >اطلاعات تماس</p>

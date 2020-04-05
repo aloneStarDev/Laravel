@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">پنل اصلی</a></li>
+                <li class="active"><a href="{{route("manage")}}">پنل اصلی</a></li>
                 @can('master')
                     <li><a href="/admin/agents">صفحه کارمندان <span class="badge">{{$agentCount}}</span></a></li>
                     <li><a href="/admin/members">صفحه کاربران ثبت نام کرده<span class="badge">{{$customerCount}}</span></a></li>
@@ -43,6 +43,7 @@
                 @can('master')
                     <li><a href="{{route('received',2)}}">صفحه درخواست های ثبت شده از طریق صفحه اصلی</a></li>
                     <li><a href="{{route('received',1)}}">صفحه ملک های ثبت شده کاربران از طریق صفحه اصلی</a></li>
+                    <li><a href="{{route('survey.index')}}">نظر سنجی</a></li>
                 @endcan
             </ul>
         </div>

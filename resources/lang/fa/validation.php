@@ -132,6 +132,7 @@ return array(
         "minute" => "دقیقه",
         "second" => "ثانیه",
         "title" => "عنوان",
+        "fullName"=>"نام و نام خانوادگی الزامی است",
         "text" => "متن",
         "content" => "محتوا",
         "description" => "توضیحات",

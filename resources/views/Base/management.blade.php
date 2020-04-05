@@ -47,7 +47,7 @@
 </div>
 <div class="placetop">
     <div class="imagediv">
-        <img alt="circle_photo" src="{{asset("base/images/g8.jpg")}}" class="circleimage">
+        <img alt="circle_photo" src="@if($customer->image!=null) {{asset("/storage/".$customer->image)}} @else{{asset("base/images/g8.jpg")}}@endif" class="circleimage">
     </div>
     <div class="titlediv">
         <h1 style="color: #FFFFFF; font-size:3vw;">{{$customer->office}}</h1>
@@ -111,11 +111,12 @@
         </div>
     </div>
     <div class="menue-content-sub2">
-        <form action="{{route('member.panel.update')}}" method="post">
+        <form action="{{route('member.panel.update')}}" method="post"  enctype="multipart/form-data">
             @csrf
             <div class="menue-image">
-                <img alt="profile-image" src="{{asset("base/images/g8.jpg")}}">
-                <button type="button" class="btn">تغییر عکس <i class="fas fa-plus"></i></button>
+                <img alt="profile-image" src="@if($customer->image!=null) {{asset("/storage/".$customer->image)}} @else{{asset("base/images/g8.jpg")}}@endif">
+                <button type="button" onclick="$('#imgin').fadeToggle();" class="btn">تغییر عکس <i class="fas fa-plus"></i></button>
+                <input type="file" id="imgin" style="display: none" name="image"/>
             </div>
 
             <div class="sub2-div">

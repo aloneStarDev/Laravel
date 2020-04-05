@@ -256,6 +256,7 @@
 <script>
     let i = false;
 
+
     function checkUser() {
         if (i) {
             let code = $("#code").val();
@@ -271,7 +272,8 @@
             let phonenumber = $("#phonenumber").val();
             if (password != "" && password_repeat != "") {
                 if (password === password_repeat) {
-                    $.ajax({
+                    if (/^[a-zA-Z0-9]+$/.test(username))
+                        $.ajax({
                         url: '/contact/checkUser',
                         type: 'GET',
                         data: {username, password, phonenumber},
@@ -308,6 +310,16 @@
                             }
                         }
                     });
+                    else
+                    {
+                        var node = document.createElement("LI");
+                        var textnode = document.createTextNode("نام کاربری فقط باید انگلیسی باشد");
+                        node.appendChild(textnode);
+                        node.style = "text-align: right";
+                        document.getElementById("e_rror").appendChild(node);
+                        $("#e_rror").addClass("alert alert-danger");
+                        $("#code").hide();
+                    }
                 } else {
                     var node = document.createElement("LI");
                     var textnode = document.createTextNode("پسورد ها با هم برابر نیستند");

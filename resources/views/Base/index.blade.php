@@ -240,7 +240,7 @@
                 @for($i =0 ; $i<count($customers);$i++)
                     <div class="carousel-item card-item col-md-4">
                         <div class="card">
-                            <img class="card-img-top img-fluid" src="{{asset("base/images/g5.jpg")}}"  alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="@if($customers[$i]["image"]!=null) {{asset("/storage/".$customers[$i]["image"])}} @else{{asset("base/images/g8.jpg")}}@endif"  alt="Card image cap">
                             <div class="card-content">
                                 <h3 class="card-h3">{{$customers[$i]["office"]}}</h3>
                                 <p class="card-p">

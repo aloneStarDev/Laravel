@@ -6,6 +6,7 @@ use App\File;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FileRequest;
 use App\Receive;
+use App\Survey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Integer;
@@ -48,5 +49,40 @@ class ReceiveController extends Controller
             abort(404);
         }
         return redirect()->route("received",['mode'=>$type]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function indexsurvey()
+    {
+        $survey = Survey::latest()->paginate(20);
+        return view("Admin.survey.all",compact("survey"));
+    }
+
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Survey  $survey
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showsurvey(Survey $survey)
+    {
+        return view("Admin.survey.show",compact("survey"));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Survey  $survey
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroysurvey(Survey $survey)
+    {
+        Survey::where("id",$survey->id)->delete();
+        return redirect()->route("survey.index");
     }
 }

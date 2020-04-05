@@ -10,6 +10,7 @@ use App\Temp;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class ManagementController extends Controller
 {
@@ -18,16 +19,29 @@ class ManagementController extends Controller
         $payments = Payment::where('customer_id',auth()->user()->customer()->id)->latest()->paginate(10);
         return view("Base.management",compact("customer","payments"));
     }
+    private function is_english($str)
+    {
+        if (strlen($str) != strlen(utf8_decode($str))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     public function update(Request $request){
         $request->validate([
-            'name'=>'required',
-            'lastname'=>'required',
-            'username'=>'required:unique:users',
-            'address'=>'required',
-            'office'=>'required',
-            'email'=>'email'
+            'name'=>'required|max:191',
+            'lastname'=>'required|max:191',
+            'username'=>'required|max:191|',
+            'address'=>'required|max:191',
+            'office'=>'required|max:890',
+            'email'=>'email|max:191',
+            'image' => 'nullable|image|max:512'
         ]);
+        if($request->has("username"))
+            if(!$this->is_english($request->get("username")))
+                return back()->withErrors(["msg"=>"نام کاربری باید انگلیسی باشد"]);
         $customer = auth()->user()->customer();
+
         Customer::where('id',$customer->id)->update([
           'name' => $request->input("name"),
           'lastname'=> $request->input("lastname"),
@@ -38,9 +52,21 @@ class ManagementController extends Controller
           'twitter'=>$request->input("twitter"),
           'instagram'=>$request->input("instagram")
         ]);
-        User::where('id',auth()->user()->id)->update([
-            'username'=>$request->input('username')
-        ]);
+        $user = User::where("username",$request->get("username"))->first();
+        if($user != null ) {
+            if ($user->rollId != $customer->id)
+                return back()->withErrors(["msg"=>"این نام کاربری قبلا ثبت شده است"]);
+        }else
+            User::where('id', auth()->user()->id)->update([
+                'username' => $request->input('username')
+            ]);
+        if($request->hasFile("image")){
+            $image = $request->file("image");
+            if($customer->image != null)
+                Storage::delete("public/".$customer->image);
+            $path = $image->store("/Images/members/","public");
+            Customer::where('id',$customer->id)->update(["image"=>$path]);
+        }
         return back()->withErrors(['msg'=>'اطلاعات با موفقیت تغییر کرد']);
     }
     public function resetPass(){
