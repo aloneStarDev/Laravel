@@ -161,9 +161,9 @@ class ContactController extends Controller
     public function checkUser(Request $request){
         session()->remove("code");
         $request->validate([
-            "username"=>"required|unique:users",
+            "username"=>"required|max:191|unique:users",
             "password"=>"required",
-            "phonenumber"=>"required|unique:customers",
+            "phonenumber"=>"required|max:191|unique:customers",
         ]);
         $temp = new Temp($request->all());
         $code = round(rand())%999999;

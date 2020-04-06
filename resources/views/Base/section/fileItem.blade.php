@@ -23,12 +23,12 @@
       </span>
         @if($files[$i]->buy != null)
             <span class="cell-year">
-      رهن : {{ \App\File::floatPrice($files[$i]->buy)}}
+       خرید: {{ \App\File::floatPrice($files[$i]->buy)}}
       </span>
         @else
             @if($files[$i]->rahn != null)
                 <span class="cell-month">
-          خرید: {{ \App\File::floatPrice($files[$i]->rahn)}}
+          رهن: {{ \App\File::floatPrice($files[$i]->rahn)}}
           </span>
             @endif
                 @if($files[$i]->ejare != null)

@@ -26,11 +26,11 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'Required',
-            'lastname'=>'Required',
-            'phonenumber'=>'Required',
+            'name'=>'Required|max:191',
+            'lastname'=>'Required|max:191',
+            'phonenumber'=>'Required|max:191',
             'region'=>'Required',
-            'address'=>'Required',
+            'address'=>'Required|max:191',
             'panel'=>'Required',
         ];
     }

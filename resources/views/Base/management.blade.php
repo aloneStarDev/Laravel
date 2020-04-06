@@ -148,8 +148,8 @@
             </div>
             <div class="sub2-div" style="border-bottom: none;">
                 <label class="menue-label"> :درباره من</label>
-                <textarea type="text" name="explain" maxlength="300"
-                          class="menue-input">{{$customer->explain}}</textarea>
+                <textarea type="text" name="explain" maxlength="900"
+                          class="menue-input" style="height: 260px;">{{$customer->explain}}</textarea>
             </div>
             <div class="sub2-div" style="border-bottom: none;">
                 <hr style="background:#BCB8C9;">

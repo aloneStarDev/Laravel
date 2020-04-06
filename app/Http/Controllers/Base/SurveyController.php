@@ -18,10 +18,10 @@ class SurveyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "fullName"=>"required",
-            "email"=>"required|email:rfc,dns",
-            "title"=>"required",
-            "description"=>"required",
+            "fullName"=>"required|max:191",
+            "email"=>"required|max:191|email:rfc,dns",
+            "title"=>"required|max:191",
+            "description"=>"required|max:191",
         ]);
         $survey = new Survey(request()->all());
         $survey->save();

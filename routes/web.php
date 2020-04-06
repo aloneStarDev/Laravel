@@ -12,6 +12,7 @@ route::get('/rules','Base\MainController@rules')->name('rules')->middleware('acc
 route::get('/profile/{id}','Base\MainController@profile')->name('profile')->middleware('account');
 route::get('/file/info/{file}','Base\MainController@info')->name('info')->middleware('account');
 route::get('/file/search','Base\MainController@search')->name('search')->middleware('account');
+route::post('/file/smartSearch','Base\MainController@smartSearch')->name('smartSearch')->middleware('account');
 Route::post('/survey/store','Base\SurveyController@store')->name('survey.store')->middleware('account');
 route::post('/member/search','Base\MainController@searchMember')->name('searchMember')->middleware('account');
 route::get('/member/panel','Base\ManagementController@index')->name('member.panel')->middleware('account')->middleware("auth");

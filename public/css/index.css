@@ -516,6 +516,7 @@ margin-right: 20%;
 }
 .pishrafte-hide{
 	display:none;
+    background: lightslategray;
 }
 .metrazh-content a {
   text-align:center;

@@ -24,11 +24,11 @@ class AgentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'lastname' => 'required',
-            'phonenumber' => 'required',
-            'nationCode' => 'required',
-            'address' => 'required',
+            'name' => 'required|max:191',
+            'lastname' => 'required|max:191',
+            'phonenumber' => 'required|max:191',
+            'nationCode' => 'required|max:191',
+            'address' => 'required|max:191',
         ];
     }
 }

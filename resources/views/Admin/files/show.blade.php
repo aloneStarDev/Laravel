@@ -328,13 +328,17 @@
             </div>
         </div>
 
+        <?php
+        $nn = \App\User::where("id",$file->user_id)->first();
+        ?>
+        @if($nn != null && $nn->rollId != 0)
         <div class="form-group">
             <div class="col-sm-12">
-                <label for="description" class="control-label">ثبت شده توسط</label>
-                <textarea rows="5" class="form-control">{{ $fil->user_id }}</textarea>
+                <label for="description" class="control-label">  ثبت شده توسط کاربر با شناسه ی </label>
+                <input class="form-control" value="{{ \App\Agent::where("id",-1*$nn->rollId)->first()->name }}">
             </div>
         </div>
-
+        @endif
         <div class="form-group">
             <div class="col-sm-12">
                 <a href="{{route("files.index")}}" class="btn btn-danger">بازگشت</a>
