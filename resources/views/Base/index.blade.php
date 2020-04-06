@@ -501,7 +501,7 @@
                         <a href="#!">تبلیغات</a>
                     </li>
                     <li>
-                        <a href="#!">قوانین</a>
+                        <a href="{{route('rules')}}">قوانین</a>
                     </li>
                     <li>
                         <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4"
@@ -534,19 +534,19 @@
                 <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">منو</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">صفحه اصلی</a>
+                        <a href="{{route('base')}}">صفحه اصلی</a>
                     </li>
                     <li>
-                        <a href="#!">مشاورین‌املاک</a>
+                        <a href="{{route('customer')}}">مشاورین‌املاک</a>
                     </li>
                     <li>
-                        <a href="#!">نظر سنجی</a>
+                        <a href="{{route('contactUs')}}#text">نظر سنجی</a>
                     </li>
                     <li>
-                        <a href="#!">درباره ما</a>
+                        <a href="{{route('about')}}">درباره ما</a>
                     </li>
                     <li>
-                        <a href="#!">ارتباط باما</a>
+                        <a href="{{route('contactUs')}}">ارتباط باما</a>
                     </li>
                 </ul>
             </div>

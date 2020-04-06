@@ -62,7 +62,7 @@
 
 <div class="form-div">
 
-<form action="{{route("survey.store")}}" class="textform" method="post">ثبت نظر و پیشنهاد<br>
+<form action="{{route("survey.store")}}" class="textform" id="text" method="post">ثبت نظر و پیشنهاد<br>
 @csrf
 <div style="font-size: 1.5vw ;">
 <input style="margin-top: 5%; float: right; display: block; width: 45%;" class="wrapInput" type="text" name="fullName" placeholder="نام و نام خانوادگی" maxlength="25">
@@ -138,7 +138,7 @@
             <a href="#!">تبلیغات</a>
           </li>
           <li>
-            <a href="#!">قوانین</a>
+            <a href="{{route('rules')}}">قوانین</a>
           </li>
           <li>
           <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4" style="margin-top: 5% !important;">شبکه های اجتماعی</h5>
@@ -168,21 +168,21 @@
       <div class="col mx-auto footer-div">
         <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">منو</h5>
         <ul class="list-unstyled">
-          <li>
-            <a href="#!">صفحه اصلی</a>
-          </li>
-          <li>
-            <a href="#!">مشاورین‌املاک</a>
-          </li>
-          <li>
-            <a href="#!">نظر سنجی</a>
-          </li>
-          <li>
-            <a href="#!">درباره ما</a>
-          </li>
-          <li>
-            <a href="#!">ارتباط باما</a>
-          </li>
+            <li>
+                <a href="{{route('base')}}">صفحه اصلی</a>
+            </li>
+            <li>
+                <a href="{{route('customer')}}">مشاورین‌املاک</a>
+            </li>
+            <li>
+                <a href="">نظر سنجی</a>
+            </li>
+            <li>
+                <a href="{{route('about')}}">درباره ما</a>
+            </li>
+            <li>
+                <a href="{{route('contactUs')}}">ارتباط باما</a>
+            </li>
         </ul>
       </div>
     </div>
