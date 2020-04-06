@@ -15,14 +15,21 @@
             <div class="form-group">
                 <input dir="rtl" type="text" id="phonenumber" name="phonenumber" class="form-control @error('phonenumber') alert alert-danger @enderror" placeholder="شماره تماس"/>
             </div>
+
             <div class="form-group">
-                <input dir="rtl" type="number" name="region" class="form-control @error('region') alert alert-danger @enderror" placeholder="منطقه ی شهرداری"/>
+                    <label for="region" class="control-label">منطقه ی شهرداری</label>
+                    <select class="form-control @error('region') alert alert-danger @enderror " name="region" >
+                        <option selected hidden>منطقه ی شهرداری</option>
+                        @foreach(\App\File::$region_map as $key =>$val)
+                            <option value="{{$key}}">{{$val}}</option>
+                        @endforeach
+                    </select>
             </div>
             <div class="form-group">
                 <input dir="rtl" type="email" name="email" class="form-control @error('email') alert alert-danger @enderror" placeholder="ایمیل"/>
             </div>
             <div class="form-group">
-                <input dir="rtl" type="text" name="office" class="form-control @error('region') alert alert-danger @enderror" placeholder="نام املاکی"/>
+                <input dir="rtl" type="text" name="office" class="form-control @error('office') alert alert-danger @enderror" placeholder="نام املاکی"/>
             </div>
             <div class="form-group">
                 <textarea dir="rtl" type="text" name="address" rows="5" class="form-control @error('address') alert alert-danger @enderror" placeholder="آدرس"></textarea>
@@ -44,10 +51,10 @@
                 <input type="number" class="form-control" name="ipCount" placeholder="تعداد کاربران اضافه" />
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="نام کاربری" />
+                <input type="text" class="form-control @error('username') alert alert-danger @enderror" name="username" placeholder="نام کاربری" />
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="گذرواژه" />
+                <input type="password" class="form-control @error('password') alert alert-danger @enderror" name="password" placeholder="گذرواژه" />
             </div>
 
             <div class="form-group">

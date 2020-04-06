@@ -106,8 +106,7 @@
 
             <div class="form-group req">
                 <div class="col-sm-12">
-                    <label for="region" class="control-label">منطقه</label>
-                    <label for="region">منطقه ی شهرداری را انتخاب کنید</label>
+                    <label for="region" class="control-label">منطقه ی شهرداری</label>
                     <select class="form-control" name="region" id="region">
                         <option value="0" selected hidden>منطقه ی شهرداری</option>
                         @foreach(\App\File::$region_map as $key =>$val)

@@ -196,7 +196,6 @@
                 <div class="col-sm-12">
                     <label for="document" class="control-label">چهت ملک</label>
                     <select class="form-control" name="direction" id="document">
-                        <option @if($file->direction == null) selected value="0" @endif>سند</option>
                         @foreach(\App\File::$direction_ as $key =>$val)
                             <option value="{{$key}}" @if($file->direction == $key) selected @endif>{{$val}}</option>
                         @endforeach
@@ -208,7 +207,6 @@
                 <div class="col-sm-12">
                     <label for="document" class="control-label">سند</label>
                     <select class="form-control" name="document" id="document">
-                        <option @if($file->document == null) selected value="0" @endif>سند</option>
                         @foreach(\App\File::$document_ as $key =>$val)
                             <option value="{{$key}}" @if($file->document == $key) selected @endif>{{$val}}</option>
                         @endforeach

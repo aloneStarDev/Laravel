@@ -63,23 +63,23 @@
     <div class="content-button">
         <button type="button" type="submit" onclick="send(1)" class="button1 btn">
             <h3 class="button-title">1 ماهه</h3>
-            <p class="button-content">{{$plans[0]->price}} هزار تومان</p>
-            <p class="button-content"> {{$plans[0]->addOnMember}} هزار تومان هر کاربر اضافه</p>
+            <p class="button-content">{{\App\File::floatPrice($plans[0]->price/1000)}}</p>
+            <p class="button-content"> {{\App\File::floatPrice($plans[0]->addOnMember/1000)}} هر کاربر اضافه</p>
         </button>
         <button type="button" type="submit" onclick="send(2)" class="button2 btn">
             <h3 class="button-title">3 ماهه</h3>
-            <p class="button-content">{{$plans[1]->price}} هزار تومان</p>
-            <p class="button-content">{{$plans[1]->addOnMember}} هزار تومان هر کاربر اضافه</p>
+            <p class="button-content">{{\App\File::floatPrice($plans[1]->price/1000)}}</p>
+            <p class="button-content">{{\App\File::floatPrice($plans[1]->addOnMember/1000)}} هر کاربر اضافه</p>
         </button>
         <button type="button" type="submit" onclick="send(3)" class="button3 btn ">
             <h3 class="button-title">6 ماهه</h3>
-            <p class="button-content">{{$plans[2]->price}}هزار تومان</p>
-            <p class="button-content">{{$plans[2]->addOnMember}} هزار تومان هر کاربر اضافه</p>
+            <p class="button-content">{{\App\File::floatPrice($plans[2]->price/1000)}}</p>
+            <p class="button-content">{{\App\File::floatPrice($plans[2]->addOnMember/1000)}} هر کاربر اضافه</p>
         </button>
         <button type="button" type="submit" onclick="send(4)" class="button4 btn">
             <h3 class="button-title">1 ساله</h3>
-            <p class="button-content">{{$plans[3]->price}} هزار تومان</p>
-            <p class="button-content">{{$plans[3]->addOnMember}} هزار تومان هر کاربر اضافه</p>
+            <p class="button-content">{{\App\File::floatPrice($plans[3]->price/1000)}}</p>
+            <p class="button-content">{{\App\File::floatPrice($plans[3]->addOnMember/1000)}} هر کاربر اضافه</p>
         </button>
     </div>
  </form>

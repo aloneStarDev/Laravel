@@ -79,12 +79,13 @@ class MemberController extends Controller
             "name"=>"required|max:191",
             "lastname"=>"required|max:191",
             "phonenumber"=>"required|unique:customers|max:191",
-            "region"=>"required|between:0,15",
+            "region"=>"required|numeric",
             "office"=>"required|max:191",
             "address"=>"required",
             "username"=>"required|unique:users",
             "password"=>"required"
         ]);
+
         $customer = new Customer(request()->all());
         $customer['ipCount'] = 1;
         if(request('ipCount') != null)

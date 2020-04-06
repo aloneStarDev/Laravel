@@ -113,7 +113,7 @@ class ContactController extends Controller
             User::sendCode($request->input('phonenumber'),$code);
             return view('Auth.reset',['title'=>'تغییرگزرواژه']);
         }else
-            return redirect(route('signup'));
+            return redirect(route('base'))->withErrors(["msg"=>"این شماره ثبت نشده است"]);
     }
     public function verifyForget(Request $request){
         $request->validate([
@@ -123,10 +123,11 @@ class ContactController extends Controller
         if(session()->has('code')){
             if($request->get('verify') == session()->get('code'))
             {
-                $user = User::where('username',session()->get('phonenumber'))->firstOrFail();
+                $customer = Customer::where('phonenumber',session()->get('phonenumber'))->firstOrFail();
+                $user = User::where("rollId",$customer->id)->firstOrFail();
                 $user->password = Hash::make($request->get('password'));
                 $user->save();
-                return redirect(route('signin'));
+                return redirect(route('base'))->withErrors(["msg"=>"رمز شما تغییر یافت"]);
             }
             else
                 return back()->withErrors(['msg'=>'کد تایید اشتباه است']);

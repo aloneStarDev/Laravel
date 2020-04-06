@@ -314,7 +314,7 @@
         </div>
         <div class="sub1-div" style="border-bottom:none;">
             <span class="span-right">تاریخ انقضا</span>
-            <span class="span-left">@if(count($payments)>=1){{verta($customer->expire_subscription)}}@else شما اشتراکی
+            <span class="span-left">@if($customer->expire_subscription != null){{verta($customer->expire_subscription)}}@else شما اشتراکی
                 تهیه نکرده اید @endif</span>
         </div>
         <div class="sub2-button">

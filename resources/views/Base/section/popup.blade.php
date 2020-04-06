@@ -46,7 +46,9 @@
                         <span>مرا به خاطر بسپار !</span>
                     </div>
                     <div class="pop-next-checkbox">
-                        <span>بازیابی رمزعبور</span>
+                        <a href="{{route("forget")}}">
+                            <span>بازیابی رمزعبور</span>
+                        </a>
                     </div>
                 </div>
                 <div class="pop-buttons">
