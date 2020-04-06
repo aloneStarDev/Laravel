@@ -23,8 +23,10 @@ class PaymentController extends Controller
             'customer' => 'required'
         ]);
 
-        $customer = Customer::where("id",$request->get("customer"))->firstOrFail();
+        $customer = Customer::where("id",$request->get("customer"))->first();
 
+        if($customer == null)
+            return back()->withErrors(["msg"=>"اطلاعات شما در سیستم موجود نمیباشد لطفا مجدد تلاش کنید"]);
         $panel = $customer["panel"];
         if($request->has('panel'))
             $panel = $request->get("panel");
@@ -137,7 +139,9 @@ class PaymentController extends Controller
                 ]);
             }
         }else{
-                $temp = Temp::where("phonenumber",$customer->phonenumber)->firstOrFail();
+                $temp = Temp::where("phonenumber",$customer->phonenumber)->first();
+                if(temp ==null)
+                    return redirect()->route("base")->withErrors(["پرداخت شما موفق بود ولی شما ثبت نام نکرده بودید "]);
                 $user = new User(
                     [
                         "username"=>$temp->username,
