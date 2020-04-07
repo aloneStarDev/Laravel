@@ -142,7 +142,7 @@ $(".vorood2").on("click",function(){
 	$(".sabt2").parent().removeClass("pop-top-left2");
 	$(".sabt2").removeClass("pop-left-btn2");
 	});
-$(".firstProf").on("click",function(){
+$(".firstProf,#footfirst").on("click",function(){
 $(".pop2").show();
 $(".pop-parent").show();
 	document.body.scrollTop = 0;
@@ -185,7 +185,7 @@ $(".vorood").on("click",function(){
 	$(".sabt").parent().removeClass("pop-top-left");
 	$(".sabt").removeClass("pop-left-btn");
 	});
-$(".secProf").on("click",function(){
+$(".secProf,#footsec").on("click",function(){
 	$(".pop1").show();
 	$(".pop-parent").show();
 	document.body.scrollTop = 0;

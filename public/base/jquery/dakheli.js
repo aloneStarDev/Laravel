@@ -118,7 +118,7 @@ $(".vorood2").on("click",function(){
 	});
 $(".firstProf").on("click",function(){
 $(".pop2").show();
-$(".pop-parent").show();
+$(".pop-parent,#footfirst").show();
 	document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 	$(".body").css("overflow-y","hidden");
@@ -161,7 +161,7 @@ $(".vorood").on("click",function(){
 	$(".sabt").parent().removeClass("pop-top-left");
 	$(".sabt").removeClass("pop-left-btn");
 	});
-$(".secProf").on("click",function(){
+$(".secProf,#footsec").on("click",function(){
 	$(".pop1").show();
 	$(".pop-parent").show();
 	document.body.scrollTop = 0;
