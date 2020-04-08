@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <meta name="description" content="املاک انلاین- فایلینگ- خرید آپارتمان- خرید ویلا- املاک مشهد">
     <title>ٌمشاورین املاک</title>
     <link href="../base/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="../base/fontawesome/css/all.css" rel="stylesheet" type="text/css">

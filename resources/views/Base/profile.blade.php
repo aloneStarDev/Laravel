@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>ٌپروفایل مشاورین</title>
+      <meta name="description" content="املاک انلاین- فایلینگ- خرید آپارتمان- خرید ویلا- املاک مشهد">
     <link href="{{asset("base/css/bootstrap.css")}}" rel="stylesheet" type="text/css">
     <link href="{{asset("base/fontawesome/css/all.css")}}" rel="stylesheet" type="text/css">
     <script src="{{asset("base/jquery/jquery-3-4-1.js")}}"></script>
