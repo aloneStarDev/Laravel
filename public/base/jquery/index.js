@@ -102,6 +102,25 @@ $('.vagozari1').each(function(){
 				}
         });
     });
+		$('.mahale').each(function(){
+	        var t = null;
+	        var btn = $(this);
+	        btn.hover(function(){
+	            t = setTimeout(function(){
+	                btn.find(".mahale-content").slideDown(300);
+					t = null;
+	            }, 300);
+
+	        }, function(){
+	            if (t){
+	                clearTimeout(t);
+	                t = null;
+	            }
+	            else{
+	                btn.find(".mahale-content").slideUp(300);
+					}
+	        });
+	    });
 $(".vagozari-content1 a").on("click",function(){
 	$(".vagozaribtn1").text($(this).text());
 	$(".vagozari-content1").slideUp("slow");
@@ -142,7 +161,7 @@ $(".vorood2").on("click",function(){
 	$(".sabt2").parent().removeClass("pop-top-left2");
 	$(".sabt2").removeClass("pop-left-btn2");
 	});
-$(".firstProf").on("click",function(){
+$(".firstProf,#footfirst").on("click",function(){
 $(".pop2").show();
 $(".pop-parent").show();
 	document.body.scrollTop = 0;
@@ -185,7 +204,7 @@ $(".vorood").on("click",function(){
 	$(".sabt").parent().removeClass("pop-top-left");
 	$(".sabt").removeClass("pop-left-btn");
 	});
-$(".secProf").on("click",function(){
+$(".secProf,#footsec").on("click",function(){
 	$(".pop1").show();
 	$(".pop-parent").show();
 	document.body.scrollTop = 0;
@@ -348,12 +367,6 @@ $(".pishraftebtn").on("click",function(){
 	$(".pishrafte-hide").slideUp("slow");
 	flag=true;
 		}
-	});
-$(".mahalebtn").on("click",function(){
-	$(".mahale-content").slideToggle("slow");
-	$(this).css("outline","none");
-	$(".metrazh-content").slideUp("slow");
-	$(".cost-content").slideUp("slow");
 	});
 $(".metrazhbtn").on("click",function(){
 	$(".metrazh-content").slideToggle("slow");

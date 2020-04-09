@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+      <meta name="description" content="املاک انلاین- فایلینگ- خرید آپارتمان- خرید ویلا- املاک مشهد">
     <title>ٌصفحه اصلی</title>
     <link href="{{asset("base/css/index.css")}}" rel="stylesheet" type="text/css">
     <link href="{{asset("base/css/bootstrap.css")}}" rel="stylesheet" type="text/css">
@@ -498,15 +499,18 @@
                         <a href="#!">پاسخ به پرسش های متداول</a>
                     </li>
                     <li>
-                        <a href="#!">تبلیغات</a>
-                    </li>
-                    <li>
                         <a href="{{route('rules')}}">قوانین</a>
                     </li>
                     <li>
                         <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4"
                             style="margin-top: 5% !important;">شبکه های اجتماعی</h5>
                     </li>
+                    <li>
+            <a href="https://t.me/amlakonlin_ir">تلگرام</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/amlakonlin.ir/">اینستاگرام</a>
+          </li>
                 </ul>
             </div>
             <hr class="clearfix w-100 d-md-none">
@@ -514,18 +518,18 @@
                 <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">کلیدهای کاربردی</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">ورود شماورین</a>
+                        <a href="javascript:void(0)" id="footsec">ورود مشاورین</a>
                     </li>
                     <li>
-                        <a href="#!">ثبت آگهی رایگان</a>
+                        <a href="javascript:void(0)" id="footfirst">ثبت آگهی رایگان</a>
                     </li>
                     <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4"
                         style="margin-top: 5% !important;">جستجو</h5>
                     <li>
-                        <a href="#!">جستجوی ملک</a>
+                        <a href="#search">جستجوی ملک</a>
                     </li>
                     <li>
-                        <a href="#!">فیلتر های جستجو</a>
+                        <a href="#search">فیلتر های جستجو</a>
                     </li>
                 </ul>
             </div>

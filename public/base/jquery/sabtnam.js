@@ -76,6 +76,25 @@ $(document).ready(function() {
 					}
 	        });
 	    });
+		$('.sex').each(function(){
+						var t = null;
+						var btn = $(this);
+						btn.hover(function(){
+								t = setTimeout(function(){
+										btn.find(".sex-content").slideDown(300);
+						t = null;
+								}, 300);
+
+						}, function(){
+								if (t){
+										clearTimeout(t);
+										t = null;
+								}
+								else{
+										btn.find(".sex-content").slideUp(300);
+						}
+						});
+				});
 	$(".vagozari-content1 a").on("click",function(){
 		$(".vagozaribtn1").text($(this).text());
 		$(".vagozari-content1").slideUp("slow");
@@ -116,7 +135,7 @@ $(document).ready(function() {
 		$(".sabt2").parent().removeClass("pop-top-left2");
 		$(".sabt2").removeClass("pop-left-btn2");
 		});
-	$(".firstProf").on("click",function(){
+	$(".firstProf,#footfirst").on("click",function(){
 	$(".pop2").show();
 	$(".pop-parent").show();
 		document.body.scrollTop = 0;
@@ -125,10 +144,6 @@ $(document).ready(function() {
 	});
 	$(".sex-content a").on("click",function(){
 		$(".sexbtn").text($(this).text());
-		});
-	$(".sexbtn").on("click",function(){
-		$(".sex-content").slideToggle("slow");
-		$(this).css("outline","none");
 		});
 	$(".pop-button-left2").on("click",function(){
 		$(".input-center").css("display","block");
@@ -159,7 +174,7 @@ $(document).ready(function() {
 		$(".sabt").parent().removeClass("pop-top-left");
 		$(".sabt").removeClass("pop-left-btn");
 		});
-	$(".secProf").on("click",function(){
+	$(".secProf,#footsec").on("click",function(){
 		$(".pop1").show();
 		$(".pop-parent").show();
 		document.body.scrollTop = 0;

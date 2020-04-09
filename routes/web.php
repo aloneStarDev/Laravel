@@ -24,7 +24,6 @@ route::get('/member/payment','Base\ManagementController@payment')->name('member.
 route::post('/member/subscribe','Base\ManagementController@checkSubscribe')->name('member.panel.subscribe')->middleware("auth");
 route::post('/save/file','Base\MainController@store')->name('saveMemberFile');
 
-
 Route::prefix('contact')->namespace('Contact')->group(function (){
     Route::get('/login', 'ContactController@signin')->name('signin');
     Route::post('/login', 'ContactController@login')->name('login');

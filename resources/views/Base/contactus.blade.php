@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+  <meta name="description" content="املاک انلاین- فایلینگ- خرید آپارتمان- خرید ویلا- املاک مشهد">
 <title>ٌتماس باما</title>
 <link href="../base/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="../base/fontawesome/css/all.css" rel="stylesheet" type="text/css">
@@ -135,14 +136,17 @@
             <a href="#!">پاسخ به پرسش های متداول</a>
           </li>
           <li>
-            <a href="#!">تبلیغات</a>
-          </li>
-          <li>
             <a href="{{route('rules')}}">قوانین</a>
           </li>
           <li>
           <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4" style="margin-top: 5% !important;">شبکه های اجتماعی</h5>
           </li>
+          <li>
+          <a href="https://t.me/amlakonlin_ir">تلگرام</a>
+         </li>
+         <li>
+          <a href="https://www.instagram.com/amlakonlin.ir/">اینستاگرام</a>
+        </li>
         </ul>
       </div>
       <hr class="clearfix w-100 d-md-none">
@@ -150,17 +154,17 @@
         <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">کلیدهای کاربردی</h5>
         <ul class="list-unstyled">
           <li>
-            <a href="#!">ورود شماورین</a>
+            <a href="javascript:void(0)" id="footsec">ورود مشاورین</a>
           </li>
           <li>
-            <a href="#!">ثبت آگهی رایگان</a>
+            <a href="javascript:void(0)" id="footfirst">ثبت آگهی رایگان</a>
           </li>
           <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4" style="margin-top: 5% !important;">جستجو</h5>
           <li>
-            <a href="#!">جستجوی ملک</a>
+            <a href="{{route('base')}}#search">جستجوی ملک</a>
           </li>
           <li>
-            <a href="#!">فیلتر های جستجو</a>
+            <a href="{{route('base')}}#search">فیلتر های جستجو</a>
           </li>
         </ul>
       </div>
@@ -175,7 +179,7 @@
                 <a href="{{route('customer')}}">مشاورین‌املاک</a>
             </li>
             <li>
-                <a href="">نظر سنجی</a>
+                <a href="#text">نظر سنجی</a>
             </li>
             <li>
                 <a href="{{route('about')}}">درباره ما</a>
