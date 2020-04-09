@@ -86,18 +86,27 @@ class ContactController extends Controller
     public function register(CustomerRequest $request)
     {
         $customer = new Customer($request->all());
-        if(Temp::where("phonenumber",$request->input("phonenumber"))->firstOrFail()->enable == true)
+        $tmp = Temp::where("phonenumber",$request->input("phonenumber"))->first();
+        if($tmp != null && $tmp->enable == true)
         {
             if(Customer::where("phonenumber",$request->input("phonenumber"))->first() == null) {
                 $customer["enable"] = true;
                 $customer->save();
-            }else
-            {
-                $customer = Customer::where("phonenumber",$request->input("phonenumber"))->firstOrFail();
+                $user = new User(
+                    [
+                        "username"=>$tmp->username,
+                        "password"=>Hash::make($tmp->password),
+                        "rollId"=>$customer->id
+                    ]
+                );
+                $tmp->delete();
+                $user->save();
+                return redirect(route("payment",compact("customer")));
+            }else{
+                return redirect()->route("base")->withErrors(["msg"=>"شما قبلا ثبت نام کرده اید در صورتی که رمز خود را فرا موش کرده اید بر روی بازیابی گذرواژه بزنید"]);
             }
-            return redirect(route("payment",compact("customer")));
         }
-        return back()->withErrors(["code"=>"گویا قبلا کد تایید را اشتباه وارد کرده اید"]);
+        return back()->withErrors(["code"=>"گویا قبلا شماره ی خود را ثبت نکرده اید"]);
     }
     public function forget(){
         return view('Auth.forget',['title'=>'تایید هویت']);

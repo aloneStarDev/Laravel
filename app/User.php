@@ -54,3 +54,4 @@ class User extends Authenticatable
         return $this->hasMany('App\Payment');
     }*/
 }
+//ln -s /home2/amlakonl/laravel/storage/app/public /home2/amlakonl/public_html/storage

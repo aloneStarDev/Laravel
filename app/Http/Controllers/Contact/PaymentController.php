@@ -33,7 +33,6 @@ class PaymentController extends Controller
         $count = $customer["ipCount"];
         if($request->has('ipCount'))
             $count = $request->get('ipCount');
-
         $panel = Tariff::where('id', $panel)->firstOrFail();
         $price =  $panel['price'];
         if($count>1)
@@ -121,8 +120,6 @@ class PaymentController extends Controller
 
         $customer = Customer::where('id', $payment->customer_id )->first();
         $user = User::where('rollId',$customer->id)->first();
-
-
         if($user != null ) {
             if ($customer->active == true) {
                 $oldExpireDate = Carbon::parse($customer->expire_subscription);
@@ -140,7 +137,7 @@ class PaymentController extends Controller
             }
         }else{
                 $temp = Temp::where("phonenumber",$customer->phonenumber)->first();
-                if(temp ==null)
+                if($temp ==null)
                     return redirect()->route("base")->withErrors(["پرداخت شما موفق بود ولی شما ثبت نام نکرده بودید "]);
                 $user = new User(
                     [

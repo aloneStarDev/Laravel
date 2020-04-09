@@ -61,12 +61,12 @@
         <div class="input-top">
             <input type="hidden" name="phonenumber" value="{{$phonenumber}}">
             <i class="fas fa-user input-user3"></i>
-            <input type="text" name="name" placeholder="نام " maxlength="10">
+            <input type="text" name="name" placeholder="نام " maxlength="10" value="{{old("name")}}">
             <i class="fas fa-user input-user4"></i>
-            <input type="text" name="lastname" placeholder="نام خانوادگی" maxlength="20">
-            <input type="hidden" id="region" name="region">
+            <input type="text" name="lastname" placeholder="نام خانوادگی" maxlength="20" value="{{old("lastname")}}">
+            <input type="hidden" id="region" name="region" value="{{old("region")}}">
             <div class="sex">
-                <button type="button" class="sexbtn">منطقه <i class="fas fa-chevron-down"></i></button>
+                <button type="button" class="sexbtn"> منطقه <i class="fas fa-chevron-down"></i></button>
                 <div class="sex-content">
                     <a onclick="$('#region').val(1);">منطقه 1 شهرداری</a>
                     <a onclick="$('#region').val(2);">منطقه 2 شهرداری</a>
@@ -87,24 +87,24 @@
         </div>
         <div class="input-text">
             <textarea type="text" name="address" placeholder="آدرس دفتر" maxlength="200"
-                      style="margin-top:3%"></textarea>
+                      style="margin-top:3%">{{old("address")}}</textarea>
         </div>
         <div class="input-middle">
-            <input type="text" name="office" placeholder="نام دفتر" maxlength="25" style="margin-left:30%;">
+            <input type="text" name="office" placeholder="نام دفتر" value="{{old("office")}}" maxlength="25" style="margin-left:30%;">
             <i class="fas fa-phone-square input-home"></i>
-            <input type="number" name="call" placeholder="شماره تلفن ثابت"
+            <input type="number" name="call" placeholder="شماره تلفن ثابت" value="{{old("call")}}"
                    onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11">
         </div>
         <div class="input-bottom">
             <i class="fas fa-envelope input-envelope"></i>
-            <input type="text" name="email" placeholder="ایمیل" style="margin-right:28%; width:40%;">
+            <input type="text" name="email" placeholder="ایمیل" value="{{old("email")}}" style="margin-right:28%; width:40%;">
         </div>
     </div>
-    <input type="hidden" name="panel" id="panel">
+    <input type="hidden" name="panel" id="panel" value="{{old("panel")}}">
     <div class="subtitle">
         <h4>انتخاب نوع اشتراک</h4>
         <label class="systemlbl">تعداد سیستم: </label>
-        <input class="systeminp" type="number" name="ipCount" value="1"
+        <input class="systeminp" type="number" name="ipCount" value="{{old("ipCount") ?? 1}}"
                onkeypress="return event.charCode >= 48 && event.charCode <= 57 && this.value.length < 11">
     </div>
     <div class="content-button">
