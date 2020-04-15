@@ -1,6 +1,77 @@
 $(document).ready(function() {
 	"use strict";
 var flag=true;
+var win = $(window);
+ if (win.width() < 1300) {
+	  $(".topnav div,.topnav ul").hide();
+	  $('.mahale').unbind("mouseleave");
+	  $('.mahale').unbind("mouseenter");
+	  $('.mahale').on("click",function(){
+		  $('.mahale-content').slideToggle("fast");
+		  });
+    $('.vagozari').on("click",function(){
+		  $('.vagozari-content').slideToggle("fast");
+		  });
+	$('.melk').on("click",function(){
+		  $('.melk-content').slideToggle("fast");
+		  });
+	$('.melk1').on("click",function(){
+		  $('.melk-content1').slideToggle("fast");
+		  });
+	$('.vagozari1').on("click",function(){
+		  $('.vagozari-content1').slideToggle("fast");
+		  });
+	$(".btnspecial").on("click",function(){
+	 $(".pop3").show();
+	 document.body.scrollTop = 200;
+     document.documentElement.scrollTop = 200;
+	 $(".pop-parent2").show();
+	 $(".body").css("overflow-y","hidden");
+	});
+	   }
+if (win.width() >= 1300) {
+	  $(".topnav div,.topnav ul").show();
+	  $('.mahale').bind("mouseleave");
+	  $('.mahale').bind("mouseenter");
+
+	   }
+$(window).on('resize', function(){
+      var win = $(this);
+      if (win.width() >= 1300) {
+	  $(".topnav div,.topnav ul").show();
+	  $('.mahale').bind("mouseleave");
+	  $('.mahale').bind("mouseenter");
+
+	   }
+	  if (win.width() < 1300) {
+	  $(".topnav div,.topnav ul").hide();
+	  $('.mahale').unbind("mouseleave");
+	  $('.mahale').unbind("mouseenter");
+	  $('.mahale').on("click",function(){
+		  $('.mahale-content').slideToggle("fast");
+		  });
+	  $('.vagozari').on("click",function(){
+		  $('.vagozari-content').slideToggle("fast");
+		  });
+	$('.melk').on("click",function(){
+		  $('.melk-content').slideToggle("fast");
+		  });
+	$('.melk1').on("click",function(){
+		  $('.melk-content1').slideToggle("fast");
+		  });
+	$('.vagozari1').on("click",function(){
+		  $('.vagozari-content1').slideToggle("fast");
+		  });
+	$(".btnspecial").on("click",function(){
+	 $(".pop3").show();
+	 document.body.scrollTop = 200;
+     document.documentElement.scrollTop = 200;
+	 $(".pop-parent2").show();
+	 $(".body").css("overflow-y","hidden");
+	});
+	   }
+});
+if (win.width() >= 1300){
 $(".btnspecial").on("click",function(){
 	$(".pop3").show();
 	document.body.scrollTop = 800;
@@ -8,6 +79,7 @@ $(".btnspecial").on("click",function(){
 	$(".pop-parent2").show();
 	$(".body").css("overflow-y","hidden");
 	});
+}
 $(".kharidbtn").on("click",function(){
 	$(this).removeClass("rent-button");
 	$(this).addClass("buy-button");
@@ -26,6 +98,10 @@ $(".rahnbtn").on("click",function(){
 	$(".mab2").show();
 	$(".mab3").hide();
 	});
+    $(".iconst").on("click",function(){
+	$(".topnav div,.topnav ul").slideToggle("fast");
+	});
+if (win.width() >= 600) {
 $('.melk').each(function(){
         var t = null;
         var btn = $(this);
@@ -102,25 +178,28 @@ $('.vagozari1').each(function(){
 				}
         });
     });
-		$('.mahale').each(function(){
-	        var t = null;
-	        var btn = $(this);
-	        btn.hover(function(){
-	            t = setTimeout(function(){
-	                btn.find(".mahale-content").slideDown(300);
-					t = null;
-	            }, 300);
+}
+if (win.width() >= 600) {
+$('.mahale').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".mahale-content").slideDown(300);
+				t = null;
+            }, 300);
 
-	        }, function(){
-	            if (t){
-	                clearTimeout(t);
-	                t = null;
-	            }
-	            else{
-	                btn.find(".mahale-content").slideUp(300);
-					}
-	        });
-	    });
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".mahale-content").slideUp(300);
+				}
+        });
+    });
+}
 $(".vagozari-content1 a").on("click",function(){
 	$(".vagozaribtn1").text($(this).text());
 	$(".vagozari-content1").slideUp("slow");

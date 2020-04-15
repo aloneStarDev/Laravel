@@ -1,199 +1,218 @@
 $(document).ready(function() {
 	"use strict";
-	$('.melk').each(function(){
-	        var t = null;
-	        var btn = $(this);
-	        btn.hover(function(){
-	            t = setTimeout(function(){
-	                btn.find(".melk-content").slideDown(300);
-					t = null;
-	            }, 300);
-
-	        }, function(){
-	            if (t){
-	                clearTimeout(t);
-	                t = null;
-	            }
-	            else{
-	                btn.find(".melk-content").slideUp(300);
-					}
-	        });
-	    });
-	$('.melk1').each(function(){
-	        var t = null;
-	        var btn = $(this);
-	        btn.hover(function(){
-	            t = setTimeout(function(){
-	                btn.find(".melk-content1").slideDown(300);
-					t = null;
-	            }, 300);
-
-	        }, function(){
-	            if (t){
-	                clearTimeout(t);
-	                t = null;
-	            }
-	            else{
-	                btn.find(".melk-content1").slideUp(300);
-					}
-	        });
-	    });
-	$('.vagozari').each(function(){
-	        var t = null;
-	        var btn = $(this);
-	        btn.hover(function(){
-	            t = setTimeout(function(){
-	                btn.find(".vagozari-content").slideDown(300);
-					t = null;
-	            }, 300);
-
-	        }, function(){
-	            if (t){
-	                clearTimeout(t);
-	                t = null;
-	            }
-	            else{
-	                btn.find(".vagozari-content").slideUp(300);
-					}
-	        });
-	    });
-	$('.vagozari1').each(function(){
-	        var t = null;
-	        var btn = $(this);
-	        btn.hover(function(){
-	            t = setTimeout(function(){
-	                btn.find(".vagozari-content1").slideDown(300);
-					t = null;
-	            }, 300);
-
-	        }, function(){
-	            if (t){
-	                clearTimeout(t);
-	                t = null;
-	            }
-	            else{
-	                btn.find(".vagozari-content1").slideUp(300);
-					}
-	        });
-	    });
-		$('.sex').each(function(){
-						var t = null;
-						var btn = $(this);
-						btn.hover(function(){
-								t = setTimeout(function(){
-										btn.find(".sex-content").slideDown(300);
-						t = null;
-								}, 300);
-
-						}, function(){
-								if (t){
-										clearTimeout(t);
-										t = null;
-								}
-								else{
-										btn.find(".sex-content").slideUp(300);
-						}
-						});
-				});
-	$(".vagozari-content1 a").on("click",function(){
-		$(".vagozaribtn1").text($(this).text());
-		$(".vagozari-content1").slideUp("slow");
-		});
-	$(".melk-content a").on("click",function(){
-		$(".melkbtn").text($(this).text());
-		$(".melk-content").slideUp("slow");
-		});
-	$(".melk-content1 a").on("click",function(){
-		$(".melkbtn1").text($(this).text());
-		$(".melk-content1").slideUp("slow");
-		});
-	$(".vagozari-content a").on("click",function(){
-		$(".vagozaribtn").text($(this).text());
-		$(".vagozari-content").slideUp("slow");
-		});
-	$(".sabt2").on("click",function(){
-		$(".content5").hide();
-		$(".content6").show();
-		$(this).addClass("pop-left-btn2");
-		$(this).parent().addClass("pop-top-left2");
-		$(this).removeClass("pop-right-btn2");
-		$(this).parent().removeClass("pop-top-right2");
-		$(".vorood2").addClass("pop-right-btn2");
-		$(".vorood2").parent().addClass("pop-top-right2");
-		$(".vorood2").parent().removeClass("pop-top-left2");
-		$(".vorood2").removeClass("pop-left-btn2");
-		});
-	$(".vorood2").on("click",function(){
-		$(".content6").hide();
-		$(".content5").show();
-		$(this).addClass("pop-left-btn2");
-		$(this).parent().addClass("pop-top-left2");
-		$(this).removeClass("pop-right-btn2");
-		$(this).parent().removeClass("pop-top-right2");
-		$(".sabt2").addClass("pop-right-btn2");
-		$(".sabt2").parent().addClass("pop-top-right2");
-		$(".sabt2").parent().removeClass("pop-top-left2");
-		$(".sabt2").removeClass("pop-left-btn2");
-		});
-	$(".firstProf,#footfirst").on("click",function(){
-	$(".pop2").show();
-	$(".pop-parent").show();
-		document.body.scrollTop = 0;
-	    document.documentElement.scrollTop = 0;
-		$(".body").css("overflow-y","hidden");
+	 $(".iconst").on("click",function(){
+	$(".topnav div,.topnav ul").slideToggle("fast");
 	});
-	$(".sex-content a").on("click",function(){
-		$(".sexbtn").text($(this).text());
-		});
-	$(".pop-button-left2").on("click",function(){
-		$(".input-center").css("display","block");
-		$(".pop-buttons2").css("margin-top","23%");
-		$(this).html('<a href="sabtnam.html" style="width:100%; display:block; text-decoration:none !important; color:white !important;">ادامه </a>');
-		});
-	$(".sabt").on("click",function(){
-		$(".content1").hide();
-		$(".content2").show();
-		$(this).addClass("pop-left-btn");
-		$(this).parent().addClass("pop-top-left");
-		$(this).removeClass("pop-right-btn");
-		$(this).parent().removeClass("pop-top-right");
-		$(".vorood").addClass("pop-right-btn");
-		$(".vorood").parent().addClass("pop-top-right");
-		$(".vorood").parent().removeClass("pop-top-left");
-		$(".vorood").removeClass("pop-left-btn");
-		});
-	$(".vorood").on("click",function(){
-		$(".content2").hide();
-		$(".content1").show();
-		$(this).addClass("pop-left-btn");
-		$(this).parent().addClass("pop-top-left");
-		$(this).removeClass("pop-right-btn");
-		$(this).parent().removeClass("pop-top-right");
-		$(".sabt").addClass("pop-right-btn");
-		$(".sabt").parent().addClass("pop-top-right");
-		$(".sabt").parent().removeClass("pop-top-left");
-		$(".sabt").removeClass("pop-left-btn");
-		});
-	$(".secProf,#footsec").on("click",function(){
-		$(".pop1").show();
-		$(".pop-parent").show();
-		document.body.scrollTop = 0;
-	    document.documentElement.scrollTop = 0;
-		$(".body").css("overflow-y","hidden");
-		});
-	$(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6").on("click",function(){
-		$(".melk-content").slideUp("slow");
-		$(".vagozari-content").slideUp("slow");
-		$(".melk-content1").slideUp("slow");
-		$(".vagozari-content1").slideUp("slow");
-		$(".pop2").hide();
-		$(".pop-button-left2").text("دریافت کد تایید");
-		$(".input-center").css("display","none");
-		$(".pop-buttons2").css("margin-top","20%");
-		$(".pop1").hide();
-		$(".pop-parent").hide();
-		$(".body").css("overflow-y","visible");
-		});
+var win = $(window);
+ if (win.width() < 1300) {
+	  $(".topnav div,.topnav ul").hide();
+	  $('.vagozari').on("click",function(){
+		  $('.vagozari-content').slideToggle("fast");
+		  });
+	$('.melk').on("click",function(){
+		  $('.melk-content').slideToggle("fast");
+		  });
+	$('.melk1').on("click",function(){
+		  $('.melk-content1').slideToggle("fast");
+		  });
+	$('.vagozari1').on("click",function(){
+		  $('.vagozari-content1').slideToggle("fast");
+		  });
+	   }
+if (win.width() >= 1300) {
+	  $(".topnav div,.topnav ul").show();
+	   }
+$(window).on('resize', function(){
+      var win = $(this);
+      if (win.width() >= 1300) {
+	  $(".topnav div,.topnav ul").show();
+	   }
+	  if (win.width() < 1300) {
+	  $(".topnav div,.topnav ul").hide();
+	   }
+});
+if (win.width() >= 600) {
+$('.melk').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".melk-content").slideDown(300);
+				t = null;
+            }, 300);
+
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".melk-content").slideUp(300);
+				}
+        });
+    });
+$('.melk1').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".melk-content1").slideDown(300);
+				t = null;
+            }, 300);
+
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".melk-content1").slideUp(300);
+				}
+        });
+    });
+$('.vagozari').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".vagozari-content").slideDown(300);
+				t = null;
+            }, 300);
+
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".vagozari-content").slideUp(300);
+				}
+        });
+    });
+$('.vagozari1').each(function(){
+        var t = null;
+        var btn = $(this);
+        btn.hover(function(){
+            t = setTimeout(function(){
+                btn.find(".vagozari-content1").slideDown(300);
+				t = null;
+            }, 300);
+
+        }, function(){
+            if (t){
+                clearTimeout(t);
+                t = null;
+            }
+            else{
+                btn.find(".vagozari-content1").slideUp(300);
+				}
+        });
+    });
+}
+$(".vagozari-content1 a").on("click",function(){
+	$(".vagozaribtn1").text($(this).text());
+	$(".vagozari-content1").slideUp("slow");
+	});
+$(".melk-content a").on("click",function(){
+	$(".melkbtn").text($(this).text());
+	$(".melk-content").slideUp("slow");
+	});
+$(".melk-content1 a").on("click",function(){
+	$(".melkbtn1").text($(this).text());
+	$(".melk-content1").slideUp("slow");
+	});
+$(".vagozari-content a").on("click",function(){
+	$(".vagozaribtn").text($(this).text());
+	$(".vagozari-content").slideUp("slow");
+	});
+$(".sabt2").on("click",function(){
+	$(".content5").hide();
+	$(".content6").show();
+	$(this).addClass("pop-left-btn2");
+	$(this).parent().addClass("pop-top-left2");
+	$(this).removeClass("pop-right-btn2");
+	$(this).parent().removeClass("pop-top-right2");
+	$(".vorood2").addClass("pop-right-btn2");
+	$(".vorood2").parent().addClass("pop-top-right2");
+	$(".vorood2").parent().removeClass("pop-top-left2");
+	$(".vorood2").removeClass("pop-left-btn2");
+	});
+$(".vorood2").on("click",function(){
+	$(".content6").hide();
+	$(".content5").show();
+	$(this).addClass("pop-left-btn2");
+	$(this).parent().addClass("pop-top-left2");
+	$(this).removeClass("pop-right-btn2");
+	$(this).parent().removeClass("pop-top-right2");
+	$(".sabt2").addClass("pop-right-btn2");
+	$(".sabt2").parent().addClass("pop-top-right2");
+	$(".sabt2").parent().removeClass("pop-top-left2");
+	$(".sabt2").removeClass("pop-left-btn2");
+	});
+$(".firstProf").on("click",function(){
+$(".pop2").show();
+$(".pop-parent").show();
+	document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+	$(".body").css("overflow-y","hidden");
+});
+$(".sex-content a").on("click",function(){
+	$(".sexbtn").text($(this).text());
+	});
+$(".sexbtn").on("click",function(){
+	$(".sex-content").slideToggle("slow");
+	$(this).css("outline","none");
+	});
+$(".pop-button-left2").on("click",function(){
+	$(".input-center").css("display","block");
+	$(".pop-buttons2").css("margin-top","23%");
+	$(this).html('<a href="sabtNam.html" style="width:100%; display:block; text-decoration:none !important; color:white !important;">ادامه </a>');
+
+	});
+$(".sabt").on("click",function(){
+	$(".content1").hide();
+	$(".content2").show();
+	$(this).addClass("pop-left-btn");
+	$(this).parent().addClass("pop-top-left");
+	$(this).removeClass("pop-right-btn");
+	$(this).parent().removeClass("pop-top-right");
+	$(".vorood").addClass("pop-right-btn");
+	$(".vorood").parent().addClass("pop-top-right");
+	$(".vorood").parent().removeClass("pop-top-left");
+	$(".vorood").removeClass("pop-left-btn");
+	});
+$(".vorood").on("click",function(){
+	$(".content2").hide();
+	$(".content1").show();
+	$(this).addClass("pop-left-btn");
+	$(this).parent().addClass("pop-top-left");
+	$(this).removeClass("pop-right-btn");
+	$(this).parent().removeClass("pop-top-right");
+	$(".sabt").addClass("pop-right-btn");
+	$(".sabt").parent().addClass("pop-top-right");
+	$(".sabt").parent().removeClass("pop-top-left");
+	$(".sabt").removeClass("pop-left-btn");
+	});
+$(".secProf").on("click",function(){
+	$(".pop1").show();
+	$(".pop-parent").show();
+	document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+	$(".body").css("overflow-y","hidden");
+	});
+$(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6").on("click",function(){
+	$(".melk-content").slideUp("slow");
+	$(".vagozari-content").slideUp("slow");
+	$(".melk-content1").slideUp("slow");
+	$(".vagozari-content1").slideUp("slow");
+	$(".pop2").hide();
+	$(".pop-button-left2").text("دریافت کد تایید");
+	$(".input-center").css("display","none");
+	$(".pop-buttons2").css("margin-top","20%");
+	$(".pop1").hide();
+	$(".pop-parent").hide();
+	$(".body").css("overflow-y","visible");
+	});
 $(".secProf").hover(function(){
 	$(this).css({
 		background:"rgba(64,22,186,1)"
@@ -248,15 +267,16 @@ $(".navitems").hover(function(){
 
 $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
-	if($height > 20){
+	var win = $(this);
+	if($height > 20 && win.width() >= 1300){
 	$(".headingitems").addClass("scrolled");
-	$(".logo img").css("display","none");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");
 	$("#navbarNavAltMarkup").css("margin-top","2%");
 	$(".navbar").css({
 		marginTop:"0",
 		paddingTop:"0"
 		});
+	$(".logo img").css("display","none");
 	$(".navitems").css({
 		color:"white",
 		fontSize:"1vw"
@@ -265,7 +285,7 @@ $(window).on("scroll",function(){
 		fontSize:"1vw"
 		});
 		 }
-		else{
+		else if(win.width() >= 1300){
 	$(".headingitems").removeClass("scrolled");
 	$(".logo img").css("display","initial");
 	$("#navbarNavAltMarkup").css("margin-top","0");

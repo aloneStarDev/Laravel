@@ -1,6 +1,38 @@
 $(document).ready(function() {
 	"use strict";
 var flag=true;
+	 $(".iconst").on("click",function(){
+	$(".topnav div,.topnav ul").slideToggle("fast");
+	});
+var win = $(window);
+ if (win.width() < 1300) {
+	  $(".topnav div,.topnav ul").hide();
+	  $('.vagozari').on("click",function(){
+		  $('.vagozari-content').slideToggle("fast");
+		  });
+	$('.melk').on("click",function(){
+		  $('.melk-content').slideToggle("fast");
+		  });
+	$('.melk1').on("click",function(){
+		  $('.melk-content1').slideToggle("fast");
+		  });
+	$('.vagozari1').on("click",function(){
+		  $('.vagozari-content1').slideToggle("fast");
+		  });
+	   }
+if (win.width() >= 1300) {
+	  $(".topnav div,.topnav ul").show();
+	   }
+$(window).on('resize', function(){
+      var win = $(this);
+      if (win.width() >= 1300) {
+	  $(".topnav div,.topnav ul").show();
+	   }
+	  if (win.width() < 1300) {
+	  $(".topnav div,.topnav ul").hide();
+	   }
+});
+if (win.width() >= 600) {
 $('.melk').each(function(){
         var t = null;
         var btn = $(this);
@@ -77,6 +109,7 @@ $('.vagozari1').each(function(){
 				}
         });
     });
+}
 $(".vagozari-content1 a").on("click",function(){
 	$(".vagozaribtn1").text($(this).text());
 	$(".vagozari-content1").slideUp("slow");
@@ -117,7 +150,7 @@ $(".vorood2").on("click",function(){
 	$(".sabt2").parent().removeClass("pop-top-left2");
 	$(".sabt2").removeClass("pop-left-btn2");
 	});
-$(".firstProf,#footfirst").on("click",function(){
+$(".firstProf").on("click",function(){
 $(".pop2").show();
 $(".pop-parent").show();
 	document.body.scrollTop = 0;
@@ -134,10 +167,8 @@ $(".sexbtn").on("click",function(){
 $(".pop-button-left2").on("click",function(){
 	$(".input-center").css("display","block");
 	$(".pop-buttons2").css("margin-top","23%");
-    if(i)
-        $(this).text('ادمه');
-    else
-        $(this).text('دریافت کد تایید');
+	$(this).html('<a href="sabtNam.html" style="width:100%; display:block; text-decoration:none !important; color:white !important;">ادامه </a>');
+
 	});
 $(".sabt").on("click",function(){
 	$(".content1").hide();
@@ -163,7 +194,7 @@ $(".vorood").on("click",function(){
 	$(".sabt").parent().removeClass("pop-top-left");
 	$(".sabt").removeClass("pop-left-btn");
 	});
-$(".secProf,#footsec").on("click",function(){
+$(".secProf").on("click",function(){
 	$(".pop1").show();
 	$(".pop-parent").show();
 	document.body.scrollTop = 0;
@@ -331,7 +362,8 @@ $(".navitems").hover(function(){
 
 $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
-	if($height > 20){
+	var win = $(this);
+	if($height > 20 && win.width() >= 1300){
 	$(".headingitems").addClass("scrolled");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");
 	$("#navbarNavAltMarkup").css("margin-top","2%");
@@ -348,7 +380,7 @@ $(window).on("scroll",function(){
 		fontSize:"1vw"
 		});
 		 }
-		else{
+		else if(win.width() >= 1300){
 	$(".headingitems").removeClass("scrolled");
 	$(".logo img").css("display","initial");
 	$("#navbarNavAltMarkup").css("margin-top","0");

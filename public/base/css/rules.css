@@ -1,3 +1,430 @@
+.topnav .iconst {
+  display: none;
+}
+@media screen and (min-width:1300px){
+	.topnav div,.topnav ul {display: block;}
+	}
+@media screen and (max-width:500px) {
+.bottom-icons {
+    width: 100% !important;
+    margin-right: 9% !important;
+}
+.icons-1 {
+    width: 40% !important;
+    margin-right: 5% !important;
+}
+.icon-2 {
+    width: 50% !important;
+	margin-right: 0% !important;
+}
+.homeicon{
+font-size: 40px !important;
+}
+.iconstext{
+font-size: 15px !important;
+}
+.icontext1{
+font-size: 15px !important;
+}
+.phoneicon{
+font-size: 40px !important;
+}
+.iconstextt{
+font-size: 15px !important;
+
+}
+.icontext2{
+font-size: 15px !important;
+}
+.box1 {
+	width: 80% !important;
+	margin-right: 10% !important;
+	}
+.box2 {
+	height: 200px;
+    overflow: scroll;
+	}
+.boxp2 {
+    font-size: 15px !important;
+}
+.firstparaghraph{
+	font-size: 15px !important;
+}
+.topparagraph {
+    font-size: 18px !important;
+    margin-right: 5% !important;
+    margin-left: 5% !important;
+}
+.background {
+    height: 50vw !important;
+}
+.background-building {
+    width: 80% !important;
+}
+.background-building-div {
+    left: 5% !important;
+    top: 3% !important;
+}
+.shvagh-div {
+    top: 7% !important;
+    margin-right: 20% !important;
+}
+.shvagh {
+    font-size: 30px !important;
+}
+	.tri-right {
+    position: absolute !important;
+    top: 20% !important;
+}
+.tri-right img {
+    width: 50% !important;
+    float: right !important;
+}
+.tri-left {
+    position: absolute !important;
+    top: 30% !important;
+}
+.tri-left img {
+    width: 50% !important;
+    float: left !important;
+}
+}
+@media screen and (max-width:1300px) {
+	.icon {
+    font-size: 18px !important;
+}
+	.page-footer {
+    margin-top: 160%;
+}
+	  .topnav div,.topnav ul {display: none;}
+  .headingitems{
+	  background: rgba(191,191,191,0.9);
+	transition-duration:0.5s;
+	height:75px !important;
+	}
+	.main-div{
+		top: 100px !important;
+		right:30px !important;
+		}
+  .navbar{
+	  margin-top:10px !important;
+	  padding-right:0 !important;
+	  }
+  .dropbtn a{
+	  font-size:15px;
+	  }
+   .dropdown{
+	   clear:both;
+	   background: rgba(191,191,191,0.9);
+	   width: 200px;
+	   text-align: center;
+	   padding-right: 20px;
+	   }
+	.topul li{
+	   clear:both;
+	   width: 220px !important;
+	   text-align: center;
+	   background: rgba(191,191,191,0.9) !important;
+	   }
+	 .topul li:nth-child(2)  {
+
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+	.navbar .btn{
+		font-size:12px !important;
+	}
+	.atag{
+		margin-left:0 !important;
+		}
+  .topnav{
+	  display: block !important;
+      text-align: right;
+	  direction:rtl;
+	  }
+   .topul{
+	   padding:0;
+	   width:40%;
+	    }
+   .topul li {
+   float:none !important;
+    width: 200px !important;
+}
+	 .logo{
+		 display:none;
+		 }
+  .topnav a.iconst {
+    float: right;
+    display: block;
+    font-size: 30px;
+    border: thin solid #6C6A6A;
+    padding: 0 10px;
+    width: 50px;
+	margin-bottom:10.7px;
+	margin-right:20px;
+}
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+ .footer-logo img {
+  width: 90px !important;
+}
+.row hr {
+    display: none !important;
+}
+.footer-image {
+    height: 245vw !important;
+}
+.footer-logo {
+    right: 20% !important;
+    bottom: 100% !important;
+}
+.footer-inner {
+    margin-top: 300px !important;
+}
+.footer-inner .row div {
+    display: flow-root !important;
+}
+.footer-icon li {
+	margin-bottom:10px !important;
+}
+.footer-icon li img {
+    width: 70px !important;
+}
+.footer-div h5 {
+    margin: 0 !important;
+	font-size: 20px !important;
+	clear: both;
+}
+.footer-div ul li {
+    line-height: 1 !important;
+}
+.page-footer a {
+    display: block !important;
+    float: right !important;
+    margin-left: 15px !important;
+    margin-top: 5px !important;
+    margin-bottom: 20px !important;
+    border: thin dashed blanchedalmond !important;
+    padding: 5px !important;
+}
+.footer-inner .row{
+	display: block;
+	}
+}
+@media screen and (max-width:500px) {
+.input-right {
+    width: 90% !important;
+}
+.input-left {
+    width: 90% !important;
+}
+.input-user2 {
+    font-size: 13px !important;
+}
+.input-phone {
+  font-size: 13px !important;
+}
+.pop-content-input2 input {
+   font-size: 13px !important;
+}
+.input-lock2 {
+font-size: 13px !important;
+}
+.input-lock-repeat {
+font-size: 13px !important;
+}
+.pop-button-left2 {
+    width: 45% !important;
+}
+.pop-button-right2 {
+    margin-right: 10% !important;
+}
+.pop-buttons2 {
+    margin-top: 80% !important;
+}
+.pop-content-title {
+    padding-right: 35% !important;
+    padding-top: 50% !important;
+}
+.pop-content-image {
+    left: 30% !important;
+    top: 3% !important;
+}
+.pop-top .pop-right-btn {
+    font-size: 15px !important;
+}
+.pop-top .pop-left-btn {
+    font-size: 15px !important;
+}
+.pop-content-form {
+    width: 90% !important;
+}
+.input-user {
+   font-size: 13px !important;
+}
+.input-lock {
+ font-size: 13px !important;
+}
+.pop-content-input input {
+   font-size: 13px !important;
+}
+.pop-content-belowInput span {
+font-size: 13px !important;
+}
+.pop-checkbox {
+width: 50% !important;
+}
+.pop-next-checkbox {
+    width: 40% !important;
+    margin-right: 0 !important;
+	margin-top: 2%;
+}
+.pop-content-title h3 {
+    font-size: 20px !important;
+}
+.pop-content-image img {
+    height: 40vw !important;
+}
+.pop-content-title2 h3 {
+    font-size: 15px !important;
+}
+.pop-div {
+    top: 5% !important;
+}
+.pop-top2 .pop-right-btn2 {
+    font-size: 15px !important;
+}
+.pop-top2 .pop-left-btn2 {
+    font-size: 15px !important;
+}
+.pop-content-input5 {
+    margin-top: 0 !important;
+}
+.pop-content-input6 {
+    margin-top: 0 !important;
+}
+.pop-content-input5 input {
+font-size: 13px !important;
+width: 90% !important;
+padding-right: 7% !important;
+}
+.pop-content-input6 input {
+font-size: 13px !important;
+width: 90% !important;
+padding-right: 7% !important;
+}
+.input-user5 {
+    bottom: 68% !important;
+    font-size: 13px !important;
+}
+.input-user6 {
+    right: 5.3% !important;
+    bottom: 35% !important;
+    font-size: 13px !important;
+}
+.input-user7 {
+    bottom: 68% !important;
+    font-size: 13px !important;
+}
+.input-user8 {
+    right: 5.3% !important;
+    bottom: 35% !important;
+    font-size: 13px !important;
+}
+.input-phone5 {
+    right: 5.3% !important;
+    bottom: 2% !important;
+    font-size: 13px !important;
+}
+.input-phone6 {
+    right: 5.3% !important;
+    bottom: 2% !important;
+    font-size: 13px !important;
+}
+.vagozari {
+    width: 45% !important;
+	margin-right: 0 !important;
+}
+.vagozaribtn {
+    font-size: 13px !important;
+}
+.vagozari-content{
+    font-size: 13px !important;
+}
+.vagozari1 {
+    width: 45% !important;
+	margin-right: 0 !important;
+}
+.vagozaribtn1 {
+    font-size: 13px !important;
+}
+.vagozari-content1{
+    font-size: 13px !important;
+}
+.melk {
+ width: 45% !important;
+}
+.melkbtn {
+    font-size: 13px !important;
+}
+.melk-content{
+    font-size: 13px !important;
+}
+.melk1 {
+ width: 45% !important;
+}
+.melkbtn1 {
+    font-size: 13px !important;
+}
+.melk-content1{
+    font-size: 13px !important;
+}
+.textarea-melk {
+    width: 90% !important;
+    height: 11vw !important;
+    margin-top: 5% !important;
+    font-size: 13px !important;
+}
+.textarea-melk3 {
+    width: 90% !important;
+    height: 11vw !important;
+    margin-top: 5% !important;
+    font-size: 13px !important;
+}
+.pop-cross {
+    font-size: 17px !important;
+}
+.textarea-melk2 {
+ width: 90% !important;
+    height: 11vw !important;
+    margin-top: 5% !important;
+    font-size: 13px !important;
+}
+.textarea-melk4 {
+ width: 90% !important;
+    height: 11vw !important;
+    margin-top: 5% !important;
+    font-size: 13px !important;
+}
+.pop-buttons5 {
+    margin-top: 120% !important;
+}
+.pop-buttons6 {
+    margin-top: 120% !important;
+}
+	}
 .error-pop{
 	display:none;
     position: absolute;

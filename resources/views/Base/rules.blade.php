@@ -19,7 +19,10 @@
 <img alt="logo" src="{{asset("base/images/logo1.png")}}" style="width:60%;">
 </div>
   <div id="navbarNavAltMarkup" style="width: 100%; margin-bottom:2%;">
-    <div class="navbar-nav">
+    <div class="navbar-nav topnav">
+    <a href="javascript:void(0);" class="iconst" onclick="myFunction()">
+    <i class="fa fa-bars" style="color:#6C6A6A;"></i>
+  </a>
     <div class="dropdown">
   <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("base")}}">صفحه اصلی</a></button>
 </div>

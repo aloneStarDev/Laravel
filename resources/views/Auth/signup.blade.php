@@ -21,7 +21,10 @@
         </div>
 
         <div id="navbarNavAltMarkup" style="width: 100%;">
-            <div class="navbar-nav">
+          <div class="navbar-nav topnav">
+  <a href="javascript:void(0);" class="iconst" onclick="myFunction()">
+  <i class="fa fa-bars" style="color:#6C6A6A;"></i>
+</a>
                 <div class="dropdown">
                     <button class="dropbtn"><a class="nav-item nav-link navitems" href="{{route("base")}}">صفحه اصلی</a></button>
                 </div>

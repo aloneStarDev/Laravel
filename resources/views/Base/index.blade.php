@@ -17,7 +17,7 @@
 <div style="position:absolute; left:0px; top:0px;">
     <img alt="background-texture-top" src="{{asset("base/images/bgHeader5.png")}}" class="background">
 </div>
-<div style="position:absolute; top:27%; right:5%;">
+<div style="position:absolute; top:27%; right:5%;" class="main-div">
     <img alt="background-texture-top" src="{{asset("base/images/building-main.png")}}" class="background-building">
 </div>
 <div class="headingitems fixed-top">
@@ -27,7 +27,10 @@
             <img alt="logo" src="{{asset("base/images/logo2.png")}}" style="width:60%; transition-duration:0.5s;">
         </div>
         <div id="navbarNavAltMarkup" style="width: 100%;margin-bottom: 2%;">
-            <div class="navbar-nav">
+          <div class="navbar-nav topnav">
+    <a href="javascript:void(0);" class="iconst" onclick="myFunction()">
+    <i class="fa fa-bars" style="color:#6C6A6A;"></i>
+  </a>
                 <div class="dropdown">
                     <button class="dropbtn"><a class="nav-item nav-link navitems home" href="{{route('base')}}">صفحه
                             اصلی</a></button>
