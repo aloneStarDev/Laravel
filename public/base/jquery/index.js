@@ -28,6 +28,11 @@ var win = $(window);
 	 $(".pop-parent2").show();
 	 $(".body").css("overflow-y","hidden");
 	});
+	$(".pishraftebtn").on("click",function(){
+		if($(this).html("جستجو پیشرفته <i class='fas fa-chevron-down'></i>") && flag===true){
+		$(".search-search-text").css("height","120px");
+		}
+		});
 	   }
 if (win.width() >= 1300) {
 	  $(".topnav div,.topnav ul").show();
@@ -435,7 +440,9 @@ $(".pishraftebtn").on("click",function(){
 	if($(this).html("جستجو پیشرفته <i class='fas fa-chevron-down'></i>") && flag===true){
 	$(this).html("بستن <i class='fas fa-chevron-up'></i>");
 	$(this).css("outline","none");
+	if (win.width() >= 1300) {
 	$(".search-search-text").css("height","130px");
+}
 	$(".pishrafte-hide").slideDown("slow");
 	flag=false;
 	}

@@ -1,3 +1,6 @@
+html{
+  overflow-x: hidden;
+}
 .topnav .iconst {
   display: none;
 }
@@ -5,8 +8,24 @@
 	.topnav div,.topnav ul {display: block;}
 	}
 @media screen and (max-width:500px) {
+  .entrybtn span:nth-child(4){
+		margin-right: 41px !important;
+		}
+  .search-button .btn {
+    padding-right: 0;
+    padding-left: 0;
+}
+  .background {
+    height: 320px !important;
+}
+  .head {
+      font-size: 11px !important;
+  }
+  .head-p {
+      font-size: 11px !important;
+  }
 .btnspecial .btn{
-  font-size: 13px !important;
+  font-size: 10px !important;
 }
 .pop-cross2 {
     font-size: 20px !important;
@@ -20,7 +39,8 @@
     width: 40% !important;
 }
 .input-top7:nth-child(2) .checkbox2 {
-    left: 30% !important;
+    left: 15px !important;
+    width: 15px !important;
 }
 .mablaghbtn input{
 	font-size:12px !important;
@@ -34,20 +54,20 @@
 	}
 .oldbtn input{
    font-size:12px !important;
-   margin-right: 23px !important;
+   margin-right: 27px !important;
 }
 .oldbtn span{
 	font-size:12px !important;
 	}
 .floorbtn input{
    font-size:12px !important;
-   margin-right: 23px !important;
+   margin-right: 26px !important;
 }
 .floorbtn span{
 	font-size:12px !important;
 	}
 .bedsbtn input{
-	margin-right: 20px !important;
+	margin-right: 30px !important;
     font-size:12px !important;
 }
 .bedsbtn span{
@@ -96,7 +116,7 @@
     position: absolute !important;
     bottom: 200px !important;
     width: 120px !important;
-    right: 40px !important;
+    right: 10px !important;
     height: 110px !important;
     border: medium solid #BE56D4 !important;
 }
@@ -105,7 +125,7 @@
     position: absolute !important;
     bottom: 200px !important;
     width: 120px !important;
-    right: 40px !important;
+    right: 10px !important;
     height: 110px !important;
     border: medium solid #BE56D4 !important;
 }
@@ -149,9 +169,10 @@
     width: 23% !important;
 }
 	.carousel-buttons {
-    width: 100% !important;
+    width: 480px !important;
     align-items: center !important;
-    margin-right: 17% !important;
+    margin-right: 30px !important;
+    margin-top: 10px;
 }
     .carousel-buttons ul{
     width: 27% !important;
@@ -182,10 +203,13 @@
     float: left !important;
 }
 	.cell-content .cell-btn {
-		font-size: 12px !important;
-		}
+    font-size: 12px !important;
+    width: 89%;
+    margin-left: 0 !important;
+}
 	.cell-content {
-    margin-top: 75% !important;}
+    margin-top: 130px!important;
+}
 	.house-image {
 		height: 135px !important;
 	  top: -10px;
@@ -209,22 +233,23 @@
 	font-size: 12px !important;
 	}
 	.cell-h3 {
-    font-size: 18px !important;
+    font-size: 13px !important;
     top: 95px !important;
     height: 30px !important;
 }
 	.cell {
-		width: 45% !important;
-		}
+    width: 125px !important;
+}
 	#metre1{
-		right: 27% !important;
+		right: 45px !important;
 		}
 	.metrazhbtn input {
 		width: 27% !important;
 		}
 	.btnspecial{
-		width: 28% !important;
-		}
+    width: 30% !important;
+    margin-left: 0 !important;
+}
 	.search-search-text{
 		padding-top: 5px;
 		}
@@ -232,7 +257,7 @@
 			padding-top: 4px !important;
 			}
 	.metrazhbtn span:nth-child(4){
-		margin-right: 34% !important;
+		margin-right: 35px !important;
 		}
 	.metrazhbtn span {
     font-size: 17px !important;
@@ -248,8 +273,8 @@
 	z-index: 0 !important;
 	}
 	.search {
-		margin-top: 70% !important;
-		margin-bottom:30% !important;
+		margin-top: 90% !important;
+		margin-bottom:50% !important;
 		margin-right: 5% !important;
 		width: 90% !important;
 		}
@@ -360,7 +385,7 @@
     display: none !important;
 }
 .footer-image {
-    height: 220vw !important;
+    height: 1200px !important;
 }
 .footer-logo {
     right: 20% !important;
@@ -400,6 +425,27 @@
 	}
 }
 @media screen and (max-width:500px) {
+.pop-button-left5 {
+    margin-right: 20px !important;
+    width: 40% !important;
+  }
+.pop-button-right5 {
+      margin-right: 10px !important;
+      margin-left: 0 !important;
+      width: 40% !important;
+    }
+  .pop-button-left6 {
+        margin-right: 20px !important;
+        width: 40% !important;
+      }
+  .pop-button-right6 {
+          margin-right: 10px !important;
+          margin-left: 0 !important;
+          width: 40% !important;
+        }
+.checkbox {
+    width: 15px !important;
+}
 .input-right {
     width: 90% !important;
 }
@@ -423,12 +469,14 @@ font-size: 13px !important;
 }
 .pop-button-left2 {
     width: 45% !important;
+    font-size: 13px !important;
 }
 .pop-button-right2 {
     margin-right: 10% !important;
+    font-size: 13px !important;
 }
 .pop-buttons2 {
-    margin-top: 80% !important;
+    margin-top: 90% !important;
 }
 .pop-content-title {
     padding-right: 35% !important;
@@ -454,7 +502,7 @@ font-size: 13px !important;
  font-size: 13px !important;
 }
 .pop-content-input input {
-   font-size: 13px !important;
+   font-size: 12px !important;
 }
 .pop-content-belowInput span {
 font-size: 13px !important;
@@ -478,12 +526,20 @@ width: 50% !important;
 }
 .pop-div {
     top: 5% !important;
+    width: 250px !important;
+    right: 50px !important;
+}
+.pop-button-right{
+  width: 30% !important;
+}
+.pop-button-left{
+  width: 30% !important;
 }
 .pop-top2 .pop-right-btn2 {
-    font-size: 15px !important;
+    font-size: 13px !important;
 }
 .pop-top2 .pop-left-btn2 {
-    font-size: 15px !important;
+    font-size: 13px !important;
 }
 .pop-content-input5 {
     margin-top: 0 !important;
@@ -534,7 +590,7 @@ padding-right: 7% !important;
 	margin-right: 0 !important;
 }
 .vagozaribtn {
-    font-size: 13px !important;
+    font-size: 12px !important;
 }
 .vagozari-content{
     font-size: 13px !important;
@@ -544,7 +600,8 @@ padding-right: 7% !important;
 	margin-right: 0 !important;
 }
 .vagozaribtn1 {
-    font-size: 13px !important;
+    font-size: 12px !important;
+    padding-right: 0 !important;
 }
 .vagozari-content1{
     font-size: 13px !important;
@@ -572,12 +629,14 @@ padding-right: 7% !important;
     height: 11vw !important;
     margin-top: 5% !important;
     font-size: 13px !important;
+    margin-right: 10px !important;
 }
 .textarea-melk3 {
     width: 90% !important;
     height: 11vw !important;
     margin-top: 5% !important;
     font-size: 13px !important;
+    margin-right: 10px !important;
 }
 .pop-cross {
     font-size: 17px !important;
@@ -587,18 +646,20 @@ padding-right: 7% !important;
     height: 11vw !important;
     margin-top: 5% !important;
     font-size: 13px !important;
+    margin-right: 10px !important;
 }
 .textarea-melk4 {
  width: 90% !important;
     height: 11vw !important;
     margin-top: 5% !important;
     font-size: 13px !important;
+    margin-right: 10px !important;
 }
 .pop-buttons5 {
     margin-top: 120% !important;
 }
 .pop-buttons6 {
-    margin-top: 120% !important;
+    margin-top:320px !important;
 }
 	}
 .mab1{ display:none;}
