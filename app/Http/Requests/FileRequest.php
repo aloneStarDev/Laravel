@@ -41,6 +41,13 @@ class FileRequest extends FormRequest
             'addressPu' => 'required|max:191',
             'addressPv' => 'required|max:191',
             'region' => 'required|not_in:0|numeric|max:14',
+            'floorCovering' => 'required',
+            'cabinet' => 'required',
+            'direction' => 'required',
+            'heating' => 'required',
+            'cooling' => 'required',
+            'view' => 'required',
+            'document' => 'required'
         ];
     }
 }

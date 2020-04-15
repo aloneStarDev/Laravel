@@ -125,7 +125,6 @@
                 <div class="col-sm-12">
                     <label for="floorCovering" class="control-label">کفپوش</label>
                     <select class="form-control" name="floorCovering" id="floorCovering">
-                        <option @if($file->floorCovering == null) selected value="0" @endif>کفپوش</option>
                         @foreach(\App\File::$floor_covering as $key => $val)
                             <option value="{{$key}}" @if($file->floorCovering == $key) selected @endif>{{$val}}</option>
                         @endforeach
@@ -137,7 +136,6 @@
                 <div class="col-sm-12">
                     <label for="cabinet" class="control-label">کابینت</label>
                     <select class="form-control" name="cabinet" id="cabinet">
-                        <option @if($file->cabinet == null) selected value="0" @endif>کابینت</option>
                         @foreach(\App\File::$cabinet_ as $key =>$val)
                             <option value="{{$key}}" @if($file->cabinet == $key) selected @endif>{{$val}}</option>
                         @endforeach
@@ -156,7 +154,6 @@
                 <div class="col-sm-12">
                     <label for="heating" class="control-label">گرمایش</label>
                     <select class="form-control" name="heating" id="heating">
-                        <option  @if($file->heating == null) selected value="0" @endif>گرمایش</option>
                         @foreach(\App\File::$heating_ as $key =>$val)
                             <option value="{{$key}}" @if($file->heating == $key) selected @endif>{{$val}}</option>
                         @endforeach
@@ -168,7 +165,6 @@
                 <div class="col-sm-12">
                     <label for="cooling" class="control-label">سرمایش</label>
                     <select class="form-control" name="cooling" id="cooling">
-                        <option  @if($file->cooling == null) selected value="0" @endif>سرمایش</option>
                         @foreach(\App\File::$cooling_ as $key =>$val)
                             <option value="{{$key}}"  @if($file->cooling == $key) selected @endif>{{$val}}</option>
                         @endforeach
@@ -180,7 +176,6 @@
                 <div class="col-sm-12">
                     <label for="view" class="control-label">نما</label>
                     <select class="form-control" name="view" id="view">
-                        <option  @if($file->view == null) selected value="0" @endif>نما</option>
                         @foreach(\App\File::$view_ as $key =>$val)
                             <option value="{{$key}}"  @if($file->view == $key) selected @endif>{{$val}}</option>
                         @endforeach
@@ -192,8 +187,18 @@
                 <div class="col-sm-12">
                     <label for="document" class="control-label">سند</label>
                     <select class="form-control" name="document" id="document">
-                        <option @if($file->document == null) selected value="0" @endif>سند</option>
                         @foreach(\App\File::$document_ as $key =>$val)
+                            <option value="{{$key}}" @if($file->document == $key) selected @endif>{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="document" class="control-label">جهت ملک</label>
+                    <select class="form-control" name="direction" id="document">
+                        @foreach(\App\File::$direction_ as $key =>$val)
                             <option value="{{$key}}" @if($file->document == $key) selected @endif>{{$val}}</option>
                         @endforeach
                     </select>

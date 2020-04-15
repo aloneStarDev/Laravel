@@ -42,7 +42,7 @@
                 جزئیات
             </button>
         </a>
-        <a href="tel:09304437593">
+        <a href="tel:09150759518">
             <button class="btn cell-btn">
                 تماس
                 <i class="fas fa-phone"></i>

@@ -34,13 +34,13 @@ class CreateFilesTable extends Migration
             $table->unsignedTinyInteger('unit')->default(1)->nullable();// Vahed Count
             $table->unsignedTinyInteger('bedroom')->nullable(); // BedRoom Count
             //===============================================
-            $table->unsignedTinyInteger("floorCovering")->nullable();
-            $table->unsignedTinyInteger("cabinet")->nullable();
-            $table->unsignedTinyInteger("direction")->nullable();
-            $table->unsignedTinyInteger("heating")->nullable();
-            $table->unsignedTinyInteger("cooling")->nullable();
-            $table->unsignedTinyInteger("view")->nullable();
-            $table->unsignedTinyInteger("document")->nullable();
+            $table->unsignedTinyInteger("floorCovering")->default(0);
+            $table->unsignedTinyInteger("cabinet")->default(0);
+            $table->unsignedTinyInteger("direction")->default(0);
+            $table->unsignedTinyInteger("heating")->default(0);
+            $table->unsignedTinyInteger("cooling")->default(0);
+            $table->unsignedTinyInteger("view")->default(0);
+            $table->unsignedTinyInteger("document")->default(0);
             //================================================
             $table->boolean('parking')->default(false);
             $table->boolean('asansor')->default(false);

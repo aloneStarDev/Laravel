@@ -6,10 +6,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Payment;
 use App\Tariff;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class MemberController extends Controller
 {
@@ -38,7 +40,20 @@ class MemberController extends Controller
         return redirect(route("members.index"));
     }
     public function destroy($id){
-        Customer::where("id",$id)->firstOrFail()->delete();
+
+        $customer = Customer::where("id",$id)->first();
+        $user = User::where("rollId",$customer->id)->first();
+        if($customer != null)
+        {
+            if($customer->image)
+                Storage::delete("public/".$customer->image);
+            Payment::where("customer_id",$customer->id)->delete();
+            $customer->delete();
+        }
+        if($user != null)
+        {
+            $user->delete();
+        }
         return redirect(route("members.index"));
     }
     public function update($id){
@@ -59,7 +74,7 @@ class MemberController extends Controller
         $customer->save();
         $user = null;
         if(request("username") != null) {
-            $user = User::where("rollId", $customer->id)->firstOrFail();
+            $user = User::where("rollId",$customer->id)->firstOrFail();
             $user->update([
                 "username" => request("username")
                 ]);
@@ -79,12 +94,13 @@ class MemberController extends Controller
             "name"=>"required|max:191",
             "lastname"=>"required|max:191",
             "phonenumber"=>"required|unique:customers|max:191",
-            "region"=>"required|between:0,15",
+            "region"=>"required|numeric",
             "office"=>"required|max:191",
             "address"=>"required",
             "username"=>"required|unique:users",
             "password"=>"required"
         ]);
+
         $customer = new Customer(request()->all());
         $customer['ipCount'] = 1;
         if(request('ipCount') != null)

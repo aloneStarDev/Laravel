@@ -18,7 +18,7 @@
                     <th>تلفن</th>
                     <th>آدرس اصلی</th>
                     <th>آدرس فرعی</th>
-                    <th>ناحیه</th>
+                    <th>منطقه</th>
                     <th>کد فایل</th>
                     @can("admin","master")
                         <th>وضعیت</th>
@@ -35,7 +35,7 @@
                         <td>{{ $file->phonenumber }}</td>
                         <td>{{ $file->addressPu }}</td>
                         <td>{{ $file->addressPv }}</td>
-                        <td>{{ $file->region }}</td>
+                        <td>{{ \App\File::$region_map[$file->region] }}</td>
                         <td>{{$file->code}}</td>
                         @can("admin","master")
                         <td>@if($file->visible) فعال @else غیرفعال @endif </td>

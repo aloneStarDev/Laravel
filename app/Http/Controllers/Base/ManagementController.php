@@ -34,7 +34,7 @@ class ManagementController extends Controller
             'username'=>'required|max:191|',
             'address'=>'required|max:191',
             'office'=>'required|max:890',
-            'email'=>'email|max:191',
+            'email'=>'nullable|email|max:191',
             'image' => 'nullable|image|max:512'
         ]);
         if($request->has("username"))

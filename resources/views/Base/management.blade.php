@@ -313,12 +313,20 @@
         <div class="sub1-div">
             <span class="span-right">تاریخ تهیه</span>
             <span
-                class="span-left">@if(count($payments)>=1){{verta($payments->where('payment',true)->first()->created_at)}}@else
+                class="span-left">
+                @if(count($payments)>=1)
+                    <?php $lp = $payments->where("payment",true)->first(); ?>
+                    @if($lp != null)
+                        {{verta($lp->created_at)}}
+                    @else
+                        هیچ پرداخت موفقی یافت نشد
+                    @endif
+                @else
                     شما اشتراکی تهیه نکرده اید @endif</span>
         </div>
         <div class="sub1-div" style="border-bottom:none;">
             <span class="span-right">تاریخ انقضا</span>
-            <span class="span-left">@if(count($payments)>=1){{verta($customer->expire_subscription)}}@else شما اشتراکی
+            <span class="span-left">@if($customer->expire_subscription != null){{verta($customer->expire_subscription)}}@else شما اشتراکی
                 تهیه نکرده اید @endif</span>
         </div>
         <div class="sub2-button">
