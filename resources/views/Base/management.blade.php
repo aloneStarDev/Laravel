@@ -314,7 +314,7 @@
                 @if(count($payments)>=1)
                     <?php $lp = $payments->where("payment",true)->first(); ?>
                     @if($lp != null)
-                        {{$lp->created_at}}
+                        {{verta($lp->created_at)}}
                     @else
                         هیچ پرداخت موفقی یافت نشد
                     @endif
