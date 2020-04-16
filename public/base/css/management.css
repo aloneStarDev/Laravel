@@ -8,6 +8,15 @@ html{
 	.topnav div,.topnav ul {display: block;}
 	}
 @media screen and (max-width:500px) {
+  body{
+    position: absolute;
+  }
+  html {
+    width: 100%;
+}
+  .titlediv h3{
+    font-size: 15px !important;
+  }
 .menue-div {
     width: 35% !important;
 	margin-right: 2% !important;
@@ -17,7 +26,7 @@ html{
 	margin-right:5%;
 }
 .menue-head-btn {
-font-size: 15px !important;
+    font-size: 12px !important;
 }
 .menuebtn1 {
 font-size: 13px !important;
@@ -109,8 +118,8 @@ font-size: 13px !important;
     height: 50vw !important;
 }
 .placetop {
-	width: 100% !important;
-   top: 7% !important;
+    width: 100% !important;
+    top: 90px !important;
 }
 .circleimage {
     height: 20vw !important;
@@ -127,7 +136,7 @@ font-size: 13px !important;
 }
 .tri-right {
     position: absolute !important;
-    top: 20% !important;
+    top: 30% !important;
 }
 .tri-right img {
     width: 50% !important;
@@ -147,7 +156,7 @@ font-size: 13px !important;
     font-size: 18px !important;
 }
 	.page-footer {
-    margin-top: 350% !important;
+    margin-top: 450% !important;
 }
 	  .topnav div,.topnav ul {display: none;}
   .headingitems{
@@ -237,7 +246,7 @@ font-size: 13px !important;
     display: none !important;
 }
 .footer-image {
-    height: 245vw !important;
+    height: 1400px !important;
 }
 .footer-logo {
     right: 20% !important;
@@ -277,6 +286,27 @@ font-size: 13px !important;
 	}
 }
 @media screen and (max-width:500px) {
+.pop-button-left5 {
+    margin-right: 20px !important;
+    width: 40% !important;
+  }
+.pop-button-right5 {
+      margin-right: 10px !important;
+      margin-left: 0 !important;
+      width: 40% !important;
+    }
+  .pop-button-left6 {
+        margin-right: 20px !important;
+        width: 40% !important;
+      }
+  .pop-button-right6 {
+          margin-right: 10px !important;
+          margin-left: 0 !important;
+          width: 40% !important;
+        }
+.checkbox {
+    width: 15px !important;
+}
 .input-right {
     width: 90% !important;
 }
@@ -300,12 +330,14 @@ font-size: 13px !important;
 }
 .pop-button-left2 {
     width: 45% !important;
+    font-size: 13px !important;
 }
 .pop-button-right2 {
     margin-right: 10% !important;
+    font-size: 13px !important;
 }
 .pop-buttons2 {
-    margin-top: 80% !important;
+    margin-top: 90% !important;
 }
 .pop-content-title {
     padding-right: 35% !important;
@@ -331,7 +363,7 @@ font-size: 13px !important;
  font-size: 13px !important;
 }
 .pop-content-input input {
-   font-size: 13px !important;
+   font-size: 12px !important;
 }
 .pop-content-belowInput span {
 font-size: 13px !important;
@@ -355,12 +387,20 @@ width: 50% !important;
 }
 .pop-div {
     top: 5% !important;
+    width: 250px !important;
+    right: 50px !important;
+}
+.pop-button-right{
+  width: 30% !important;
+}
+.pop-button-left{
+  width: 30% !important;
 }
 .pop-top2 .pop-right-btn2 {
-    font-size: 15px !important;
+    font-size: 13px !important;
 }
 .pop-top2 .pop-left-btn2 {
-    font-size: 15px !important;
+    font-size: 13px !important;
 }
 .pop-content-input5 {
     margin-top: 0 !important;
@@ -411,7 +451,7 @@ padding-right: 7% !important;
 	margin-right: 0 !important;
 }
 .vagozaribtn {
-    font-size: 13px !important;
+    font-size: 12px !important;
 }
 .vagozari-content{
     font-size: 13px !important;
@@ -421,7 +461,8 @@ padding-right: 7% !important;
 	margin-right: 0 !important;
 }
 .vagozaribtn1 {
-    font-size: 13px !important;
+    font-size: 12px !important;
+    padding-right: 0 !important;
 }
 .vagozari-content1{
     font-size: 13px !important;
@@ -449,12 +490,14 @@ padding-right: 7% !important;
     height: 11vw !important;
     margin-top: 5% !important;
     font-size: 13px !important;
+    margin-right: 10px !important;
 }
 .textarea-melk3 {
     width: 90% !important;
     height: 11vw !important;
     margin-top: 5% !important;
     font-size: 13px !important;
+    margin-right: 10px !important;
 }
 .pop-cross {
     font-size: 17px !important;
@@ -464,18 +507,20 @@ padding-right: 7% !important;
     height: 11vw !important;
     margin-top: 5% !important;
     font-size: 13px !important;
+    margin-right: 10px !important;
 }
 .textarea-melk4 {
  width: 90% !important;
     height: 11vw !important;
     margin-top: 5% !important;
     font-size: 13px !important;
+    margin-right: 10px !important;
 }
 .pop-buttons5 {
     margin-top: 120% !important;
 }
 .pop-buttons6 {
-    margin-top: 120% !important;
+    margin-top:320px !important;
 }
 	}
 input {

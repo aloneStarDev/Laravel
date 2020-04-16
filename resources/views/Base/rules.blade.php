@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>ٌشرایط و قوانین</title>
   <meta name="description" content="املاک انلاین- فایلینگ- خرید آپارتمان- خرید ویلا- املاک مشهد">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="{{asset("base/css/bootstrap.css")}}" rel="stylesheet" type="text/css">
 <link href="{{asset("base/fontawesome/css/all.css")}}"  rel="stylesheet" type="text/css">
 <script src="{{asset("base/jquery/jquery-3-4-1.js")}}" ></script>
