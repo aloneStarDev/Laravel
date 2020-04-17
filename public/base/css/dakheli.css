@@ -20,6 +20,11 @@ html{
     float: none !important;
 }
 .topbox {
+	height: 200px !important;
+	margin-top: 50px;
+    overflow: scroll;
+	margin-left: 10px !important;
+    margin-right: 10px !important;
 	font-size: 15px !important;
 	line-height: 1.6 !important;
 }
@@ -122,11 +127,11 @@ font-size: 15px !important;
 font-size: 15px !important;
 }
 .darbarema-div {
-    top: 7% !important;
-    margin-right: 23% !important;
+    top: 5% !important;
+    margin-right: 27% !important;
 }
 .darbarema {
-    font-size: 34px !important;
+    font-size: 30px !important;
 }
 .bottom-icons {
     width: 100% !important;
@@ -1393,6 +1398,7 @@ margin-right: 15%;
 	background: transparent;
 	border-bottom: thin solid rgba(0, 0, 0, 0.42);
 	border-radius: 0;
+
 	margin-right: 10%;
 	width: 90%;
 	padding-right:8%;

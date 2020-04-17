@@ -8,6 +8,12 @@ html{
 	.topnav div,.topnav ul {display: block;}
 	}
 @media screen and (max-width:500px) {
+body{
+    position: absolute;
+  }
+  html {
+    width: 100%;
+}
 .textform {
     font-size: 20px !important;
     width: 100% !important;
@@ -157,8 +163,8 @@ padding: 2%;
     height: 50vw !important;
 }
 .placetop {
-	width: 100% !important;
-   top: 7% !important;
+    width: 100% !important;
+    top: 5% !important;
 }
 .circleimage {
     height: 20vw !important;
@@ -195,7 +201,7 @@ padding: 2%;
     font-size: 18px !important;
 }
 	.page-footer {
-    margin-top: 340% !important;
+    margin-top: 440% !important;
 }
 	  .topnav div,.topnav ul {display: none;}
   .headingitems{
