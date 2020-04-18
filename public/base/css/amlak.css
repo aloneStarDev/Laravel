@@ -151,10 +151,11 @@ padding: 2%;
 }
 	  .topnav div,.topnav ul {display: none;}
   .headingitems{
-	  background: rgba(191,191,191,0.9);
-	transition-duration:0.5s;
-	height:75px !important;
-	}
+    background: rgba(191,191,191,0.9);
+    transition-duration: 0.5s;
+    height: 75px !important;
+    position: absolute !important;
+}
 	.main-div{
 		top: 100px !important;
 		right:30px !important;
@@ -237,7 +238,7 @@ padding: 2%;
     display: none !important;
 }
 .footer-image {
-    height: 1400px !important;
+    height: 1200px !important;
 }
 .footer-logo {
     right: 20% !important;

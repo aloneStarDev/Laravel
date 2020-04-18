@@ -9,6 +9,9 @@ var win = $(window);
 	  $('.mahale').on("click",function(){
 		  $('.mahale-content').slideToggle("fast");
 		  });
+			$('.cost-content a').on("click",function(){
+			  $('.cost-content').slideToggle("fast");
+			  });
     $('.vagozari').on("click",function(){
 		  $('.vagozari-content').slideToggle("fast");
 		  });

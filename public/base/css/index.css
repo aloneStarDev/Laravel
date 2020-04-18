@@ -96,27 +96,23 @@ html{
     position: relative !important;
     background: linear-gradient(0deg, rgba(167,146,228,1) 0%, rgba(252,252,254,1) 100%);
     border-radius: 30px !important;
-    width: 60% !important;
+    width: 150px !important;
 	}
 .card-item .card{
-	margin-top: 13% !important;
-	margin-right: 18% !important;
-	}
-.card .img-fluid {
-    border-radius: 50% !important;
-    position: absolute !important;
-    bottom: 200px !important;
-    width: 120px !important;
-    right: 40px !important;
-    height: 110px !important;
-    border: medium solid #BE56D4 !important;
+    margin-top: 13% !important;
+    margin-right: 18% !important;
+    width: 150px !important;
+}
+.cell-content span {
+    height: 20px;
+    overflow: scroll;
 }
 .even .img-fluid {
     border-radius: 50% !important;
     position: absolute !important;
     bottom: 200px !important;
     width: 120px !important;
-    right: 10px !important;
+    right: 15px !important;
     height: 110px !important;
     border: medium solid #BE56D4 !important;
 }
@@ -125,7 +121,7 @@ html{
     position: absolute !important;
     bottom: 200px !important;
     width: 120px !important;
-    right: 10px !important;
+    right: 14px !important;
     height: 110px !important;
     border: medium solid #BE56D4 !important;
 }
@@ -142,8 +138,10 @@ html{
 	font-size: 10px !important;
 	}
 .card-p{
-	font-size: 10px !important;
-	}
+    font-size: 10px !important;
+    height: 110px;
+    overflow: scroll;
+}
 .even .card-btn {
 	font-size: 10px !important;
 	}
@@ -168,10 +166,10 @@ html{
     margin: 0 5px !important;
     width: 23% !important;
 }
-	.carousel-buttons {
+	.carousel-buttons  {
     width: 480px !important;
     align-items: center !important;
-    margin-right: 30px !important;
+    margin-right: 10% !important;
     margin-top: 10px;
 }
     .carousel-buttons ul{
@@ -202,13 +200,32 @@ html{
     width: 50% !important;
     float: left !important;
 }
-	.cell-content .cell-btn {
+	.cell-content .cell-btn  {
     font-size: 12px !important;
     width: 89%;
-    margin-left: 0 !important;
+    position: absolute;
+    top: 80%;
+    left: 1%;
+}
+.cell-month ~ a ~ a .cell-btn {
+    top: 89%;
+    right: 5%;
+}
+.cell-month ~ a .cell-btn {
+    top: 80%;
+    right: 5%;
+}
+.cell-year ~ a ~ a .cell-btn {
+    top: 89%;
+    right: 5%;
+}
+.cell-year ~ a .cell-btn {
+    top: 80%;
+    right: 5%;
 }
 	.cell-content {
     margin-top: 130px!important;
+    height: 185px !important;
 }
 	.house-image {
 		height: 135px !important;
@@ -238,10 +255,11 @@ html{
     height: 30px !important;
 }
 	.cell {
-    width: 125px !important;
+    width: 47% !important;
+    margin-bottom: 20px !important;
 }
 	#metre1{
-		right: 45px !important;
+		right: 29% !important;
 		}
 	.metrazhbtn input {
 		width: 27% !important;
@@ -257,8 +275,8 @@ html{
 			padding-top: 4px !important;
 			}
 	.metrazhbtn span:nth-child(4){
-		margin-right: 35px !important;
-		}
+    margin-right: 27% !important;
+}
 	.metrazhbtn span {
     font-size: 17px !important;
 }
@@ -287,10 +305,10 @@ html{
 .rent-button button {
     font-size: 15px !important;
 }
-   .quote{
-	   top: 120px !important;
-	   left: 20px !important;
-	   }
+   .quote {
+    top: 100px !important;
+    left: 10px !important;
+}
 
 }
 @media screen and (max-width:1300px) {
@@ -299,10 +317,11 @@ html{
 }
 	  .topnav div,.topnav ul {display: none;}
   .headingitems{
-	  background: rgba(191,191,191,0.9);
-	transition-duration:0.5s;
-	height:75px !important;
-	}
+    background: rgba(191,191,191,0.9);
+    transition-duration: 0.5s;
+    height: 75px !important;
+    position: absolute !important;
+}
 	.main-div{
 		top: 100px !important;
 		right:30px !important;
@@ -385,7 +404,7 @@ html{
     display: none !important;
 }
 .footer-image {
-    height: 1200px !important;
+    height: 1000px !important;
 }
 .footer-logo {
     right: 20% !important;

@@ -364,19 +364,6 @@
     </div>
     <div class=" text-center footer-inner text-md-left">
         <div class="row" style=" border-bottom:thin solid; padding: 0 7%;">
-            <div class="col mx-auto">
-                <ul class="list-unstyled footer-icon">
-                    <li>
-                        <img alt="ozv" src="{{asset("base/images/ecunion-logo.png")}}">
-                    </li>
-                    <li>
-                        <img alt="ozv" src="{{asset("base/images/eanjoman.jpg")}}">
-                    </li>
-                    <li>
-                        <img alt="ozv" src="{{asset("base/images/logo.png")}}">
-                    </li>
-                </ul>
-            </div>
             <hr class="clearfix w-100 d-md-none">
             <div class="col mx-auto footer-div">
                 <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4">اطلاعات بیشتر</h5>
