@@ -7,7 +7,11 @@ html{
 @media screen and (min-width:1300px){
 	.topnav div,.topnav ul {display: block;}
 	}
-@media screen and (max-width:500px) {
+@media screen and (max-width:800px) {
+  .quote {
+    top: 40% !important;
+    left: 5% !important;
+  }
   .entrybtn span:nth-child(4){
 		margin-right: 41px !important;
 		}
@@ -311,7 +315,27 @@ html{
 }
 
 }
+@media screen and (max-width:1100px) {
+  .quote {
+    top: 40% !important;
+    left: 5% !important;
+  }
+  .even .card-p {
+    font-size: 12px !important;
+    overflow: scroll !important;
+    height: 90px;
+}
+.cell-h3 {
+    font-size: 12px !important;
+}
+.card-p {
+  font-size: 12px  !important;
+  overflow: scroll;
+  height: 90px;
+}
+}
 @media screen and (max-width:1300px) {
+
   .icon {
     font-size: 18px !important;
 }
@@ -2078,15 +2102,17 @@ margin-bottom: 5%;
 	border: thin solid #BE56D4;
 	}
 .card{
-	margin-bottom: 20% !important;
-    border: thin solid #BE56D4 !important;
-    transition-duration: 0.3s !important;
-    position: relative !important;
-    margin-right: 14% !important;
-    background: linear-gradient(0deg, rgba(167,146,228,1) 0%, rgba(252,252,254,1) 100%);
-    border-radius: 30px !important;
-    width: 60% !important;
-    margin-top: 29% !important;
+  margin-bottom:20%;
+  transition-duration:0.3s;
+  position:relative;
+  margin-right: 3%;
+  margin-right:14%;
+  background: linear-gradient(0deg, rgba(167,146,228,1) 0%, rgba(252,252,254,1) 100%);
+  border-radius:30px !important;
+  width: 70% !important;
+  margin-top: 20%;
+  height:70%;
+  border: thin solid #BE56D4 !important;
 	}
 .hi .carousel-inner .active + .carousel-item,
 .hi .carousel-inner .active,
@@ -2190,12 +2216,11 @@ margin-bottom: 5%;
     padding-left: 5%;
 	}
 .card-content{
-	transition-duration: 0.3s;
-	margin-top: 45%;
-	text-align: center;
-	padding-right: 5%;
-	padding-left: 5%;
-	font-family: default font;
+  transition-duration:0.3s;
+  margin-top:45%;
+  text-align: center;
+  padding-right: 5%;
+    padding-left: 5%;
 	}
 .even .card-h3{
 	transition-duration: 0.3s;
@@ -2209,14 +2234,15 @@ margin-bottom: 5%;
 	margin: 0 auto;
 	}
 .card-h3{
-	transition-duration: 0.3s;
-	font-family: fontY;
-	width: 100%;
-	display: block;
-	font-size: 1.2vw;
-	font-weight: bold;
-	word-spacing: 5px;
-	color: #6C6A6A;
+  transition-duration: 0.3s;
+  font-family: fontY;
+  width: 100%;
+  display: block;
+  font-size: 1.4vw;
+  font-weight: bold;
+  word-spacing: 5px;
+  color: #6C6A6A;
+  margin: 0 auto;
 	}
 .even .card-p{
 	transition-duration: 0.3s;
@@ -2228,13 +2254,12 @@ margin-bottom: 5%;
 	line-height: 1.5rem;
 	}
 .card-p{
-	transition-duration: 0.3s;
+  transition-duration: 0.3s;
 	font-family: fontY;
-	font-size: 0.6vw;
+	font-size: 0.8vw;
 	margin-top: 7%;
 	width: 100%;
 	display: block;
-	text-align: center;
 	line-height: 1.5rem;
 	}
 .card-btn.btn:hover{
@@ -2263,23 +2288,23 @@ margin-bottom: 5%;
 	color:white;
 	}
 .card-btn{
-	border-radius: 20px !important;
-	background: linear-gradient(0deg, rgba(190,86,212,1) 0%, rgba(64,22,186,1) 70%, rgba(64,22,186,1) 70%);
-	float: right;
-	display: block;
-	transition-duration: 0.3s;
-	width: 60%;
-	box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.42);
-	color: white !important;
-	font-family: fontY;
-	text-align: center;
-	text-decoration: none !important;
-	font-size: 0.9vw !important;
-	padding: 6px 8px !important;
-	margin-top: 3.1% !important;
-	margin-right: 20%;
-	margin-bottom: 10%;
-	}
+    border-radius: 20px !important;
+    background: linear-gradient(0deg, rgba(190,86,212,1) 0%, rgba(64,22,186,1) 70%, rgba(64,22,186,1) 70%);
+        background-color: rgba(0, 0, 0, 0);
+    float: right;
+    display: block !important;
+    transition-duration: 0.3s !important;
+    width: 60%;
+    box-shadow: 0px 5px 10px -1px rgba(0,0,0,0.42);
+    color: white !important;
+    font-family: fontY;
+    text-align: center !important;
+    text-decoration: none !important;
+    font-size: 1.1vw !important;
+    padding: 6px 8px !important;
+    margin-right: 20%;
+    margin-bottom: 10%;
+  }
 .cell-content{
 	margin-top: 70%;
 	text-align: right;

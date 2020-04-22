@@ -4,6 +4,31 @@ html{
 .topnav .iconst {
   display: none;
 }
+@media screen and (max-width:1100px) {
+  .carousel-buttons + .page-footer {
+      margin-top: 100% !important;
+  }
+  .moshaverin-div {
+      top: 20% !important;
+      margin-right: 10% !important;
+  }
+  .even .card-p {
+    font-size: 12px !important;
+    overflow: scroll !important;
+    height: 90px;
+}
+.cell-h3 {
+    font-size: 12px !important;
+}
+.card-p {
+  font-size: 12px  !important;
+  overflow: scroll;
+  height: 90px;
+}
+.cell .house-image {
+    height: 120px !important;
+}
+}
 @media screen and (min-width:1300px){
 	.topnav div,.topnav ul {display: block;}
 	}

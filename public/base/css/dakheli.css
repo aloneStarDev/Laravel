@@ -4,6 +4,54 @@ html{
 .topnav .iconst {
   display: none;
 }
+@media screen and (max-width:1100px) {
+  .content-button {
+      width: 100% !important;
+      margin-right: 0% !important;
+  }
+  .button4{
+  	width: 35% !important;
+  height: 150px !important;
+  	}
+  .button3{
+  	width: 35% !important;
+  height: 150px !important;
+  margin-right: 12%;
+  margin-left: 5% !important;
+  	}
+  .button2{
+  	width: 35% !important;
+  height: 150px !important;
+  	}
+  .button1{
+  	width: 35% !important;
+  height: 150px !important;
+  margin-right: 12% !important;
+  margin-left: 5% !important;
+  margin-bottom: 5%;
+  	}
+  .button-content{
+  	font-size: 17px !important;
+  	}
+  .button-title{
+  	font-size: 30px !important;
+  	}
+  .topbox {
+     margin-top: 10% !important;
+}
+.footer-back+.footer-logo {
+    right: 10% !important;
+    bottom: 65% !important;
+}
+  .content3 + .page-footer {
+      margin-top: 100% !important;
+  }
+.darbarema-div {
+    position: absolute;
+    top: 20% !important;
+    margin-right: 19% !important;
+}
+}
 @media screen and (min-width:1300px){
 	.topnav div,.topnav ul {display: block;}
 	}

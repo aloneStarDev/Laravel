@@ -4,6 +4,14 @@ html{
 .topnav .iconst {
   display: none;
 }
+@media screen and (max-width:1100px){
+  .table1 {
+    height: 25vw !important;
+}
+.table2 {
+  height: 26vw !important;
+}
+	}
 @media screen and (min-width:1300px){
 	.topnav div,.topnav ul {display: block;}
 	}
@@ -2035,6 +2043,7 @@ border-bottom: 2px solid rgba(0,0,0,0);
     height: 13vw;
     margin-top: 2%;
     padding: 1.5%;
+    overflow: scroll;
 }
 .exp-p{
     color: #6C6A6A;

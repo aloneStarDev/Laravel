@@ -4,6 +4,16 @@ html{
 .topnav .iconst {
   display: none;
 }
+@media screen and (max-width:1100px) {
+  .page-footer {
+    margin-top: 100% !important;
+}
+.darbarema-div {
+    position: absolute;
+    top: 20% !important;
+    margin-right: 19% !important;
+}
+}
 @media screen and (min-width:1300px){
 	.topnav div,.topnav ul {display: block;}
 	}

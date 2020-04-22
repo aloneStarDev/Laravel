@@ -4,6 +4,15 @@ html{
 .topnav .iconst {
   display: none;
 }
+@media screen and (max-width:1100px) {
+  .bottom-icons + .page-footer {
+      margin-top: 100% !important;
+  }
+  .shvagh-div {
+      top: 20% !important;
+      margin-right: 12% !important;
+  }
+}
 @media screen and (min-width:1300px){
 	.topnav div,.topnav ul {display: block;}
 	}
