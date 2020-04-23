@@ -14,7 +14,7 @@ html{
   }
   .even .card-p {
     font-size: 12px !important;
-    overflow: scroll !important;
+    overflow: hidden !important;
     height: 90px;
 }
 .cell-h3 {
@@ -22,7 +22,7 @@ html{
 }
 .card-p {
   font-size: 12px  !important;
-  overflow: scroll;
+  overflow: hidden;
   height: 90px;
 }
 .cell .house-image {
@@ -33,6 +33,10 @@ html{
 	.topnav div,.topnav ul {display: block;}
 	}
 @media screen and (max-width:500px) {
+  .card-content {
+    height: 100px !important;
+    overflow-y: hidden;
+}
 .background {
     height: 200px !important;
 }
@@ -67,11 +71,11 @@ html{
     height: 105px !important;
     bottom: 145px !important;
     width: 105px !important;
-    right: 7px !important;
+  right: 8.5% !important;
 }
 .card-h3{
 	font-size: 15px !important;
-	margin-top: 90px !important;
+	margin-top: 20px !important;
 	}
 .card-content .card-btn{
 	font-size: 10px !important;
@@ -123,7 +127,7 @@ html{
 	.icon {
     font-size: 18px !important;
 }
-	.page-footer {
+.carousel-buttons+.page-footer {
     margin-top: 360% !important;
 }
 	  .topnav div,.topnav ul {display: none;}
@@ -1701,7 +1705,7 @@ margin-left: 0;
     padding-left: 5%;
     height: 200px;
     overflow-y: hidden;
-    margin-bottom:60px;
+    margin-bottom:70px;
 }
 .house-image{
     border-radius: 50% !important;
