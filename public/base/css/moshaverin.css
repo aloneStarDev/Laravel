@@ -1669,6 +1669,9 @@ margin-left: 0;
     margin-top: 10% !important;
     margin-right: 20%;
     margin-bottom: 10%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 .card-p {
 	transition-duration: 0.3s;
@@ -1689,7 +1692,6 @@ margin-left: 0;
 	word-spacing: 5px;
 	color: #6C6A6A;
 	margin: 0 auto;
-	overflow:hidden;
 	}
 .card-content {
     transition-duration: 0.3s;
@@ -1697,6 +1699,9 @@ margin-left: 0;
     text-align: center;
     padding-right: 5%;
     padding-left: 5%;
+    height: 200px;
+    overflow-y: hidden;
+    margin-bottom:80px;
 }
 .house-image{
     border-radius: 50% !important;
