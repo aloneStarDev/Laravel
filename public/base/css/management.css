@@ -88,7 +88,7 @@ font-size: 13px !important;
 	height:9vw !important;
 	}
 .sub2-button {
-    margin-right: 31% !important;
+      margin-right: 25% !important;
 }
 .sub2-save {
     font-size: 12px !important;
@@ -157,6 +157,9 @@ font-size: 13px !important;
 .tri-left img {
     width: 50% !important;
     float: left !important;
+}
+.font-small.page-footer {
+  margin-top: 450% !important;
 }
 }
 @media screen and (max-width:1300px) {

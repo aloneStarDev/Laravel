@@ -48,6 +48,7 @@ html{
  left: 5% !important;
 }
 .moshaverin-div {
+  margin-right: 19% !important;
     top: 7% !important;
 }
 .moshaverin {
@@ -71,7 +72,7 @@ html{
     height: 105px !important;
     bottom: 145px !important;
     width: 105px !important;
-  right: 8.5% !important;
+  right: 7% !important;
 }
 .card-h3{
 	font-size: 15px !important;
@@ -85,16 +86,16 @@ html{
 	font-size: 10px !important;
 	}
 	.number-li {
-    margin: 0 5px !important;
+    margin: 0 8px !important;
     width: 23% !important;
 }
 	.carousel-buttons {
     width: 100% !important;
     align-items: center !important;
-    margin-right: 18% !important;
+    margin-right: 5% !important;
 }
 .carousel-buttons ul{
-    width: 27% !important;
+    width: 43% !important;
 }
 .carousel-buttons .next-btn {
 		font-size: 12px !important;
@@ -128,7 +129,7 @@ html{
     font-size: 18px !important;
 }
 .carousel-buttons+.page-footer {
-    margin-top: 360% !important;
+    margin-top: 400% !important;
 }
 	  .topnav div,.topnav ul {display: none;}
   .headingitems{

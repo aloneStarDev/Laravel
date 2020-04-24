@@ -123,7 +123,7 @@ html{
 .card .img-fluid {
     border-radius: 50% !important;
     position: absolute !important;
-    bottom: 200px !important;
+    bottom: 170px !important;
     width: 120px !important;
     right: 14px !important;
     height: 110px !important;
@@ -263,8 +263,8 @@ html{
     margin-bottom: 20px !important;
 }
 	#metre1{
-		right: 29% !important;
-		}
+    right: 32% !important;
+}
 	.metrazhbtn input {
 		width: 27% !important;
 		}
@@ -309,7 +309,7 @@ html{
 .rent-button button {
     font-size: 15px !important;
 }
-   .quote {
+  .headingitems + .quote {
     top: 100px !important;
     left: 10px !important;
 }

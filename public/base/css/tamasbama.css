@@ -104,6 +104,9 @@ font-size: 15px !important;
     width: 50% !important;
     float: left !important;
 }
+.form-div+.page-footer {
+    margin-top: 270% !important;
+}
 }
 @media screen and (max-width:1300px) {
 	.icon {
