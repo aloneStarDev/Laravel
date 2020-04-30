@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$(".topnav div,.topnav ul").slideToggle("fast");
 	});
 var win = $(window);
- if (win.width() < 1300) {
+ if (win.width() < 1000) {
 	  $(".topnav div,.topnav ul").hide();
 	  $('.vagozari').on("click",function(){
 		  $('.vagozari-content').slideToggle("fast");
@@ -19,15 +19,15 @@ var win = $(window);
 		  $('.vagozari-content1').slideToggle("fast");
 		  });
 	   }
-if (win.width() >= 1300) {
+if (win.width() >= 1000) {
 	  $(".topnav div,.topnav ul").show();
 	   }
 $(window).on('resize', function(){
       var win = $(this);
-      if (win.width() >= 1300) {
+      if (win.width() >= 1000) {
 	  $(".topnav div,.topnav ul").show();
 	   }
-	  if (win.width() < 1300) {
+	  if (win.width() < 1000) {
 	  $(".topnav div,.topnav ul").hide();
 	   }
 });
@@ -269,7 +269,7 @@ boxُُSizing: "border-box",
 $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
 	var win = $(this);
-	if($height > 20 && win.width() >= 1300){
+	if($height > 20 && win.width() >= 1000){
 	$(".headingitems").addClass("scrolled");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");
 	$("#navbarNavAltMarkup").css("margin-top","2%");
@@ -286,7 +286,7 @@ $(window).on("scroll",function(){
 		fontSize:"1vw"
 		});
 		 }
-		else if(win.width() >= 1300){
+		else if(win.width() >= 1000){
 	$(".headingitems").removeClass("scrolled");
 	$(".logo img").css("display","initial");
 	$("#navbarNavAltMarkup").css("margin-top","0");
