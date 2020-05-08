@@ -154,7 +154,7 @@ $(".pop2").show();
 $(".pop-parent").show();
 	document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-	$(".body").css("overflow-y","hidden");
+	$("html").css("overflow-y","hidden");
 });
 $(".sex-content a").on("click",function(){
 	$(".sexbtn").text($(this).text());
@@ -199,7 +199,7 @@ $(".secProf").on("click",function(){
 	$(".pop-parent").show();
 	document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-	$(".body").css("overflow-y","hidden");
+	$("html").css("overflow-y","hidden");
 	});
 $(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6").on("click",function(){
 	$(".melk-content").slideUp("slow");
@@ -212,7 +212,7 @@ $(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right
 	$(".pop-buttons2").css("margin-top","20%");
 	$(".pop1").hide();
 	$(".pop-parent").hide();
-	$(".body").css("overflow-y","visible");
+	$("html").css("overflow-y","visible");
 	});
 $(".secProf").hover(function(){
 	$(this).css({
@@ -269,6 +269,9 @@ $(".navitems").hover(function(){
 $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
 	var win = $(this);
+	if($height > 20 && win.width()<= 1290){
+$(".scrolled").css("height","80px");
+		}
 	if($height > 20 && win.width() >= 1000){
 	$(".headingitems").addClass("scrolled");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");

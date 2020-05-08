@@ -86,7 +86,7 @@
         </div>
         <div class="search-btn-buy-rent">
             <input type="hidden" id="seType" name="type">
-            <a class="buy-button kharidbtn">
+            <a class="rent-button kharidbtn">
                 <button type="submit" onclick="search(1)" class="btn">
                     خرید
                 </button>
@@ -352,14 +352,14 @@
 </div>
 <div id="carouselExampleControls" class="carousel carousel1 slide">
     <div class="carousel-inner">
-        <div class="carousel-item first-slide">
+        <div class="carousel-item active first-slide">
             @if(count($files)>24)
                 @for($i=25;$i<count($files);$i++)
                     @include("Base.section.fileItem")
                 @endfor
             @endif
         </div>
-        <div class="carousel-item active second-slide">
+        <div class="carousel-item  second-slide">
             @if(count($files) <= 12)
                 @for($i=0;$i<count($files);$i++)
                     @include("Base.section.fileItem")
@@ -391,10 +391,10 @@
             <a class="btn number-btn three" style="color:#4016BA">3</a>
         </li>
         <li data-target="#carouselExampleControls" class="number-li" data-slide-to="1">
-            <a class="btn number-btn firstNum two">2</a>
+            <a class="btn number-btn  two">2</a>
         </li>
         <li data-target="#carouselExampleControls" class="number-li" data-slide-to="0">
-            <a class="btn number-btn one" style="color:#4016BA">1</a>
+            <a class="btn number-btn firstNum one" style="color:#4016BA">1</a>
         </li>
     </ul>
     <button class="btn prev-btn" data-target="#carouselExampleControls">قبلی</button>
@@ -496,7 +496,7 @@
                             style="margin-top: 5% !important;">شبکه های اجتماعی</h5>
                     </li>
                     <li>
-            <a href="https://t.me/amlakonlin_ir">تلگرام</a>
+            <a href="https://t.me/amlakonlinefiling">تلگرام</a>
           </li>
           <li>
             <a href="https://www.instagram.com/amlakonlin.ir/">اینستاگرام</a>

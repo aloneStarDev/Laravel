@@ -253,7 +253,7 @@ $(".pop2").show();
 $(".pop-parent").show();
 	document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-	$(".body").css("overflow-y","hidden");
+	$("html").css("overflow-y","hidden");
 });
 $(".sex-content a").on("click",function(){
 	$(".sexbtn").text($(this).text());
@@ -296,7 +296,7 @@ $(".secProf,#footsec").on("click",function(){
 	$(".pop-parent").show();
 	document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-	$(".body").css("overflow-y","hidden");
+	$("html").css("overflow-y","hidden");
 	});
 $(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right5,.pop-button-right6,.pop-cross2,.pop-button-right7").on("click",function(){
 	$(".pop3").hide();
@@ -311,7 +311,7 @@ $(".pop-cross,.pop-parent,.pop-button-right2,.pop-button-right,.pop-button-right
 	$(".pop1").hide();
 	$(".pop-parent2").hide();
 	$(".pop-parent").hide();
-	$(".body").css("overflow-y","visible");
+	$("html").css("overflow-y","visible");
 	});
 $(".cost-content a").on("click",function(){
 	$(".costbtn").text($(this).text());
@@ -443,6 +443,15 @@ $(".pishraftebtn").on("click",function(){
 	if($(this).html("جستجو پیشرفته <i class='fas fa-chevron-down'></i>") && flag===true){
 	$(this).html("بستن <i class='fas fa-chevron-up'></i>");
 	$(this).css("outline","none");
+	if (win.width() <= 1155) {
+	$(".search-search-text").css("height","135px");
+}
+if (win.width() <= 1281) {
+$(".search-search-text").css("height","128px");
+}
+	if (win.width() <= 1025) {
+	$(".search-search-text").css("height","135px");
+}
 	if (win.width() >= 1300) {
 	$(".search-search-text").css("height","130px");
 }
@@ -523,6 +532,9 @@ $(".navitems").hover(function(){
 $(window).on("scroll",function(){
 	var $height = $(window).scrollTop();
 	var win = $(this);
+	if($height > 20 && win.width()<= 1290){
+$(".scrolled").css("height","80px");
+		}
 	if($height > 20 && win.width() >= 1000){
 	$(".headingitems").addClass("scrolled");
 	$("#navbarNavAltMarkup").css("margin-bottom","0");

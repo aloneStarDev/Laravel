@@ -96,7 +96,7 @@
 <div  class="icon1">
 <div  class="homeicon"><i class="fab fa-telegram"></i></div>
 <div  class="iconstext" style="margin-top:5%;">
-<a href="https://t.me/amlakonlin_ir" style="text-decoration:none">amlakonlin_ir@</a>
+<a href="https://t.me/amlakonlinefiling" style="text-decoration:none">amlakonlinefiling@</a>
 </div>
 </div>
 
@@ -133,7 +133,7 @@
           <h5 class="font-weight-bold footer-head text-uppercase mt-3 mb-4" style="margin-top: 5% !important;">شبکه های اجتماعی</h5>
           </li>
           <li>
-          <a href="https://t.me/amlakonlin_ir">تلگرام</a>
+          <a href="https://t.me/amlakonlinefiling">تلگرام</a>
          </li>
          <li>
           <a href="https://www.instagram.com/amlakonlin.ir/">اینستاگرام</a>
